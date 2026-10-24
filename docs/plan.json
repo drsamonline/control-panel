@@ -9,91 +9,11 @@
    "what": "Take an idea, give it a spec, and stand up the repository with its guards already on.",
    "auto": false,
    "input": "the idea, in one sentence",
-   "count": 3,
-   "scheduled": [
-    {
-     "repo": "forge",
-     "file": "adopt.yml",
-     "name": "adopt",
-     "reusable": false,
-     "crons": [
-      "0 4 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    }
-   ],
-   "dispatchable": [
-    {
-     "repo": "forge",
-     "file": "adopt.yml",
-     "name": "adopt",
-     "reusable": false,
-     "crons": [
-      "0 4 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "new-app.yml",
-     "name": "new-app",
-     "reusable": false,
-     "crons": [],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 3
-    }
-   ],
-   "members": [
-    {
-     "repo": "forge",
-     "file": "adopt.yml",
-     "name": "adopt",
-     "reusable": false,
-     "crons": [
-      "0 4 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "intake.yml",
-     "name": "intake",
-     "reusable": false,
-     "crons": [],
-     "dispatchable": false,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "forge",
-     "file": "new-app.yml",
-     "name": "new-app",
-     "reusable": false,
-     "crons": [],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 3
-    }
-   ],
-   "manual": {
-    "repo": "forge",
-    "file": "adopt.yml",
-    "name": "adopt",
-    "reusable": false,
-    "crons": [
-     "0 4 * * *"
-    ],
-    "dispatchable": true,
-    "jobs": 1,
-    "steps": 5
-   }
+   "count": 0,
+   "scheduled": [],
+   "dispatchable": [],
+   "members": [],
+   "manual": null
   },
   {
    "id": "build",
@@ -103,7 +23,7 @@
    "what": "Prove the code, build every platform it ships on, and lint what was written.",
    "auto": true,
    "input": "none - a push runs it",
-   "count": 77,
+   "count": 81,
    "scheduled": [
     {
      "repo": "app-builder",
@@ -116,30 +36,6 @@
      "dispatchable": true,
      "jobs": 2,
      "steps": 4
-    },
-    {
-     "repo": "forge",
-     "file": "kit-audit.yml",
-     "name": "kit-audit",
-     "reusable": false,
-     "crons": [
-      "0 6 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "lint.yml",
-     "name": "lint",
-     "reusable": false,
-     "crons": [
-      "0 6 * * 2"
-     ],
-     "dispatchable": true,
-     "jobs": 2,
-     "steps": 5
     },
     {
      "repo": "skills",
@@ -216,6 +112,16 @@
      "steps": 9
     },
     {
+     "repo": "The_Browser",
+     "file": "build-aetheris.yml",
+     "name": "Build Aetheris",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 3,
+     "steps": 30
+    },
+    {
      "repo": "ULTIMATE-WINDOWS-OPTIMIZER",
      "file": "ci.yml",
      "name": "CI",
@@ -268,6 +174,26 @@
      "steps": 0
     },
     {
+     "repo": "app-encrypted-case-log",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "app-encrypted-case-log",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
      "repo": "app-panchang",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -288,9 +214,29 @@
      "steps": 3
     },
     {
+     "repo": "art-kit",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
      "repo": "astro-kit",
      "file": "test.yml",
      "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
+     "repo": "audio-kit",
+     "file": "test.yml",
+     "name": "test",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
@@ -448,30 +394,6 @@
      "steps": 3
     },
     {
-     "repo": "forge",
-     "file": "kit-audit.yml",
-     "name": "kit-audit",
-     "reusable": false,
-     "crons": [
-      "0 6 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "lint.yml",
-     "name": "lint",
-     "reusable": false,
-     "crons": [
-      "0 6 * * 2"
-     ],
-     "dispatchable": true,
-     "jobs": 2,
-     "steps": 5
-    },
-    {
      "repo": "game-kit",
      "file": "test.yml",
      "name": "Test",
@@ -550,6 +472,16 @@
      "dispatchable": true,
      "jobs": 3,
      "steps": 18
+    },
+    {
+     "repo": "ml-kit",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
     },
     {
      "repo": "mnemosyne-companion",
@@ -794,6 +726,16 @@
      "steps": 0
     },
     {
+     "repo": "ui-kit",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
      "repo": "unstoppable-mind-companion",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -896,6 +838,16 @@
      "steps": 0
     },
     {
+     "repo": "NEO",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": false,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
      "repo": "TTB",
      "file": "validate.yml",
      "name": "Validate",
@@ -904,6 +856,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 9
+    },
+    {
+     "repo": "The_Browser",
+     "file": "build-aetheris.yml",
+     "name": "Build Aetheris",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 3,
+     "steps": 30
     },
     {
      "repo": "ULTIMATE-WINDOWS-OPTIMIZER",
@@ -988,6 +950,26 @@
      "steps": 0
     },
     {
+     "repo": "app-encrypted-case-log",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "app-encrypted-case-log",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
      "repo": "app-panchang",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -1008,9 +990,29 @@
      "steps": 3
     },
     {
+     "repo": "art-kit",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
      "repo": "astro-kit",
      "file": "test.yml",
      "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
+     "repo": "audio-kit",
+     "file": "test.yml",
+     "name": "test",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
@@ -1176,50 +1178,6 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 3
-    },
-    {
-     "repo": "forge",
-     "file": "build.yml",
-     "name": "build",
-     "reusable": true,
-     "crons": [],
-     "dispatchable": false,
-     "jobs": 3,
-     "steps": 18
-    },
-    {
-     "repo": "forge",
-     "file": "kit-audit.yml",
-     "name": "kit-audit",
-     "reusable": false,
-     "crons": [
-      "0 6 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "lint.yml",
-     "name": "lint",
-     "reusable": false,
-     "crons": [
-      "0 6 * * 2"
-     ],
-     "dispatchable": true,
-     "jobs": 2,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "test.yml",
-     "name": "test",
-     "reusable": true,
-     "crons": [],
-     "dispatchable": false,
-     "jobs": 1,
-     "steps": 6
     },
     {
      "repo": "game-kit",
@@ -1332,6 +1290,16 @@
      "steps": 18
     },
     {
+     "repo": "ml-kit",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
      "repo": "mnemosyne-companion",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -1574,6 +1542,16 @@
      "steps": 0
     },
     {
+     "repo": "ui-kit",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
      "repo": "unstoppable-mind-companion",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -1633,7 +1611,7 @@
    "what": "Publish the release, deploy the live demo, capture the screenshot, and give every app a landing page.",
    "auto": true,
    "input": "none - it follows a build",
-   "count": 18,
+   "count": 13,
    "scheduled": [
     {
      "repo": "Matneo",
@@ -1694,42 +1672,6 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 7
-    },
-    {
-     "repo": "forge",
-     "file": "app-deliver.yml",
-     "name": "app-deliver",
-     "reusable": false,
-     "crons": [
-      "0 5 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "knowledge",
-     "file": "refresh.yml",
-     "name": "Refresh plan status",
-     "reusable": false,
-     "crons": [
-      "32 4 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "registry",
-     "file": "refresh.yml",
-     "name": "Refresh registry",
-     "reusable": false,
-     "crons": [
-      "42 4 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
     },
     {
      "repo": "skills",
@@ -1822,6 +1764,16 @@
      "steps": 4
     },
     {
+     "repo": "The_Browser",
+     "file": "deploy-demo.yml",
+     "name": "Deploy the demo",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
      "repo": "dashboard",
      "file": "refresh.yml",
      "name": "Refresh dashboard data",
@@ -1846,40 +1798,6 @@
      "steps": 7
     },
     {
-     "repo": "forge",
-     "file": "app-deliver.yml",
-     "name": "app-deliver",
-     "reusable": false,
-     "crons": [
-      "0 5 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "forge",
-     "file": "docs.yml",
-     "name": "docs",
-     "reusable": true,
-     "crons": [],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 3
-    },
-    {
-     "repo": "knowledge",
-     "file": "refresh.yml",
-     "name": "Refresh plan status",
-     "reusable": false,
-     "crons": [
-      "32 4 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
      "repo": "lockhtml",
      "file": "publish.yml",
      "name": "Publish to PyPI",
@@ -1888,18 +1806,6 @@
      "dispatchable": true,
      "jobs": 2,
      "steps": 6
-    },
-    {
-     "repo": "registry",
-     "file": "refresh.yml",
-     "name": "Refresh registry",
-     "reusable": false,
-     "crons": [
-      "42 4 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
     },
     {
      "repo": "skills",
@@ -1990,6 +1896,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 4
+    },
+    {
+     "repo": "The_Browser",
+     "file": "deploy-demo.yml",
+     "name": "Deploy the demo",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
     },
     {
      "repo": "app-builder",
@@ -2026,60 +1942,6 @@
      "steps": 7
     },
     {
-     "repo": "forge",
-     "file": "app-deliver.yml",
-     "name": "app-deliver",
-     "reusable": false,
-     "crons": [
-      "0 5 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "forge",
-     "file": "docs.yml",
-     "name": "docs",
-     "reusable": true,
-     "crons": [],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 3
-    },
-    {
-     "repo": "forge",
-     "file": "pages.yml",
-     "name": "pages",
-     "reusable": true,
-     "crons": [],
-     "dispatchable": false,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "forge",
-     "file": "release.yml",
-     "name": "release",
-     "reusable": true,
-     "crons": [],
-     "dispatchable": false,
-     "jobs": 1,
-     "steps": 3
-    },
-    {
-     "repo": "knowledge",
-     "file": "refresh.yml",
-     "name": "Refresh plan status",
-     "reusable": false,
-     "crons": [
-      "32 4 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
      "repo": "lockhtml",
      "file": "publish.yml",
      "name": "Publish to PyPI",
@@ -2088,18 +1950,6 @@
      "dispatchable": true,
      "jobs": 2,
      "steps": 6
-    },
-    {
-     "repo": "registry",
-     "file": "refresh.yml",
-     "name": "Refresh registry",
-     "reusable": false,
-     "crons": [
-      "42 4 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
     },
     {
      "repo": "skills",
@@ -2133,271 +1983,9 @@
    "what": "Find what broke, re-run what is transient, escalate what is not, audit the kits, learn from the record, and back up before any merge.",
    "auto": true,
    "input": "none - it runs on a schedule",
-   "count": 14,
-   "scheduled": [
-    {
-     "repo": "dumps",
-     "file": "backup-all.yml",
-     "name": "backup-all",
-     "reusable": false,
-     "crons": [
-      "0 */6 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 3
-    },
-    {
-     "repo": "forge",
-     "file": "audit.yml",
-     "name": "audit",
-     "reusable": true,
-     "crons": [
-      "0 4 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 2
-    },
-    {
-     "repo": "forge",
-     "file": "backlog-status.yml",
-     "name": "backlog-status",
-     "reusable": false,
-     "crons": [
-      "0 5 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "forge",
-     "file": "code-compression.yml",
-     "name": "code-compression",
-     "reusable": false,
-     "crons": [
-      "0 7 * * 2"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "health.yml",
-     "name": "health",
-     "reusable": false,
-     "crons": [
-      "23 4 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "forge",
-     "file": "heartbeat.yml",
-     "name": "Heartbeat",
-     "reusable": false,
-     "crons": [
-      "0 6 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 3
-    },
-    {
-     "repo": "forge",
-     "file": "repo-learning.yml",
-     "name": "repo-learning",
-     "reusable": false,
-     "crons": [
-      "0 7 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "self-diagnose.yml",
-     "name": "self-diagnose",
-     "reusable": false,
-     "crons": [
-      "0 8 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 6
-    },
-    {
-     "repo": "forge",
-     "file": "self-heal.yml",
-     "name": "self-heal",
-     "reusable": true,
-     "crons": [
-      "30 20 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 2
-    },
-    {
-     "repo": "forge",
-     "file": "self-update.yml",
-     "name": "self-update",
-     "reusable": false,
-     "crons": [
-      "0 9 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    }
-   ],
-   "dispatchable": [
-    {
-     "repo": "dumps",
-     "file": "backup-all.yml",
-     "name": "backup-all",
-     "reusable": false,
-     "crons": [
-      "0 */6 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 3
-    },
-    {
-     "repo": "forge",
-     "file": "audit.yml",
-     "name": "audit",
-     "reusable": true,
-     "crons": [
-      "0 4 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 2
-    },
-    {
-     "repo": "forge",
-     "file": "backlog-status.yml",
-     "name": "backlog-status",
-     "reusable": false,
-     "crons": [
-      "0 5 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "forge",
-     "file": "code-compression.yml",
-     "name": "code-compression",
-     "reusable": false,
-     "crons": [
-      "0 7 * * 2"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "fanout.yml",
-     "name": "fanout",
-     "reusable": true,
-     "crons": [],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 1
-    },
-    {
-     "repo": "forge",
-     "file": "health.yml",
-     "name": "health",
-     "reusable": false,
-     "crons": [
-      "23 4 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "forge",
-     "file": "heartbeat.yml",
-     "name": "Heartbeat",
-     "reusable": false,
-     "crons": [
-      "0 6 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 3
-    },
-    {
-     "repo": "forge",
-     "file": "repo-learning.yml",
-     "name": "repo-learning",
-     "reusable": false,
-     "crons": [
-      "0 7 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "self-diagnose.yml",
-     "name": "self-diagnose",
-     "reusable": false,
-     "crons": [
-      "0 8 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 6
-    },
-    {
-     "repo": "forge",
-     "file": "self-heal.yml",
-     "name": "self-heal",
-     "reusable": true,
-     "crons": [
-      "30 20 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 2
-    },
-    {
-     "repo": "forge",
-     "file": "self-update.yml",
-     "name": "self-update",
-     "reusable": false,
-     "crons": [
-      "0 9 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "sweep.yml",
-     "name": "sweep",
-     "reusable": false,
-     "crons": [],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    }
-   ],
+   "count": 1,
+   "scheduled": [],
+   "dispatchable": [],
    "members": [
     {
      "repo": "backup",
@@ -2408,170 +1996,9 @@
      "dispatchable": false,
      "jobs": 1,
      "steps": 3
-    },
-    {
-     "repo": "dumps",
-     "file": "backup-all.yml",
-     "name": "backup-all",
-     "reusable": false,
-     "crons": [
-      "0 */6 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 3
-    },
-    {
-     "repo": "forge",
-     "file": "audit.yml",
-     "name": "audit",
-     "reusable": true,
-     "crons": [
-      "0 4 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 2
-    },
-    {
-     "repo": "forge",
-     "file": "backlog-status.yml",
-     "name": "backlog-status",
-     "reusable": false,
-     "crons": [
-      "0 5 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "forge",
-     "file": "backup.yml",
-     "name": "backup",
-     "reusable": false,
-     "crons": [],
-     "dispatchable": false,
-     "jobs": 1,
-     "steps": 0
-    },
-    {
-     "repo": "forge",
-     "file": "code-compression.yml",
-     "name": "code-compression",
-     "reusable": false,
-     "crons": [
-      "0 7 * * 2"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "fanout.yml",
-     "name": "fanout",
-     "reusable": true,
-     "crons": [],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 1
-    },
-    {
-     "repo": "forge",
-     "file": "health.yml",
-     "name": "health",
-     "reusable": false,
-     "crons": [
-      "23 4 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "forge",
-     "file": "heartbeat.yml",
-     "name": "Heartbeat",
-     "reusable": false,
-     "crons": [
-      "0 6 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 3
-    },
-    {
-     "repo": "forge",
-     "file": "repo-learning.yml",
-     "name": "repo-learning",
-     "reusable": false,
-     "crons": [
-      "0 7 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "self-diagnose.yml",
-     "name": "self-diagnose",
-     "reusable": false,
-     "crons": [
-      "0 8 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 6
-    },
-    {
-     "repo": "forge",
-     "file": "self-heal.yml",
-     "name": "self-heal",
-     "reusable": true,
-     "crons": [
-      "30 20 * * *"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 2
-    },
-    {
-     "repo": "forge",
-     "file": "self-update.yml",
-     "name": "self-update",
-     "reusable": false,
-     "crons": [
-      "0 9 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "sweep.yml",
-     "name": "sweep",
-     "reusable": false,
-     "crons": [],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
     }
    ],
-   "manual": {
-    "repo": "dumps",
-    "file": "backup-all.yml",
-    "name": "backup-all",
-    "reusable": false,
-    "crons": [
-     "0 */6 * * *"
-    ],
-    "dispatchable": true,
-    "jobs": 1,
-    "steps": 3
-   }
+   "manual": null
   }
  ],
  "routes": [
@@ -2657,12 +2084,49 @@
    "why": "One press. For when you want a release now rather than on the next push."
   }
  ],
- "unplaced": [],
+ "unplaced": [
+  {
+   "repo": "control-panel",
+   "file": "scan.yml",
+   "name": "scan",
+   "reusable": false,
+   "crons": [
+    "0 6 * * *"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 8
+  },
+  {
+   "repo": "drsamonline",
+   "file": "metrics.yml",
+   "name": "Metrics",
+   "reusable": false,
+   "crons": [
+    "0 4 * * *"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 2
+  },
+  {
+   "repo": "drsamonline",
+   "file": "update-profile.yml",
+   "name": "Update profile README",
+   "reusable": false,
+   "crons": [
+    "17 3 * * *"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  }
+ ],
  "totals": {
-  "workflows": 112,
-  "unplaced": 0,
-  "scheduled": 24,
-  "dispatchable": 96,
+  "workflows": 95,
+  "unplaced": 3,
+  "scheduled": 8,
+  "dispatchable": 84,
   "inputs_for_the_two_everyday_routes": 1
  }
 }
