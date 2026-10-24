@@ -75,37 +75,11 @@ a{color:var(--acc)}
   <div class="sec">The routes — how little you have to do</div>
   <div id="routes"></div>
 
-  <div class="sec">The chosen routes — simulated, not asserted</div>
-  <p class="sub" style="margin:0 0 8px">Every candidate route was scored on inputs, hand-actions, how many things must go right,
-  <b>the chance the output is wrong</b>, stage coverage, resumability and whether it leans on a hand-copied workflow.
-  Lower is better. The winner per scenario is the one the numbers chose.</p>
-  <div id="routes2"></div>
+  <div class="sec">The orphans — a verdict each, not a label</div>
+  <div id="orphBox"></div>
 
-  <div class="sec">What is missing</div>
-  <p class="sub" style="margin:0 0 8px">What the inventory implies is absent — and what each gap costs. Every check is a rule with a reason.</p>
-  <div id="gapsBox"></div>
-
-  <div class="sec">How Forge embeds</div>
-  <div class="route">
-    <h3>Three layers, three jobs</h3>
-    <p class="why"><b>Forge</b> (private) is the <b>brain</b>: the memory (the backlog, the run log, the registry, the rules), the tools, and
-    the agent's workspace. Nothing else can write it.<br>
-    <b>This panel</b> (public) is the <b>map</b>: what runs, what calls what, what is missing, and the routes — derived from the repos
-    themselves, so it cannot flatter the system.<br>
-    <b>The dashboard</b> (public) is the <b>vitals</b>: what the system <i>is</i> — the products, their health, the conformance scores.</p>
-    <p class="why">The chain is one-way and checkable: Forge writes the memory → the tools derive the facts → the panel and the
-    dashboard publish them. A buyer can run the tools and get the same numbers, which is the point.</p>
-  </div>
-
-  <div class="sec">Why this is the commercial product</div>
-  <div class="route">
-    <h3>You are not selling an app. You are selling a system that governs itself — and can prove it.</h3>
-    <p class="why">Anyone can write a workflow. The thing that is hard to copy is a pipeline that <b>audits its own drift</b>,
-    <b>catches its own silent failures</b>, <b>backs up before every merge</b>, and <b>shows its work in public</b> — with the numbers
-    generated from the repositories rather than typed into a slide.</p>
-    <p class="why">The licence sells <b>Forge</b>: the brain, the map and the vitals together. The apps stay free and open, which is
-    what makes the map worth reading.</p>
-  </div>
+  <div class="sec">Where one workflow breaks another</div>
+  <div id="crossBox"></div>
 
   <div class="sec">What is not connected</div>
   <div id="findings"></div>
@@ -190,44 +164,28 @@ Promise.all([
 });
 </script>
 <script>
-Promise.all([
-  fetch('routes.json',{cache:'no-store'}).then(function(r){return r.json();}),
-  fetch('gaps.json',{cache:'no-store'}).then(function(r){return r.json();})
-]).then(function(res){
-  var sim=res[0], g=res[1];
-  var out=[];
-  Object.keys(sim.winners).forEach(function(scen){
-    var w=sim.winners[scen];
-    out.push('<div class="route"><h3>'+esc(scen)+' &rarr; <span style="color:#c4b5fd">'+esc(w.name)+'</span> '+
-      '<span class="badge '+(w.inputs===0?'zero':'one')+'">'+(w.inputs===0?'0 inputs':w.inputs+' input')+'</span></h3>'+
-      '<p class="why">'+esc(w.why)+'</p>'+
-      (w.runner_up?'<p class="why">Beat <b>'+esc(w.runner_up.id)+'</b> by '+w.margin+' point(s) — '+esc(w.runner_up.why)+'</p>':'')+
-      '</div>');
-  });
-  var c=sim.candidates.map(function(r){
-    return '<div class="wf"><span>'+esc(r.scenario)+' <span class="repo">'+esc(r.name)+'</span></span>'+
-      '<span class="repo">score '+r.score+' · '+r.inputs+' input(s) · '+r.steps+' steps</span></div>';
+fetch('interactions.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(x){
+  var rows=(x.orphans||[]).map(function(o){
+    var cls=o.verdict.indexOf('DELETE')===0?' bad':(o.verdict.indexOf('WRITE')===0?'':' ok');
+    return '<div class="find'+cls+'"><b>'+esc(o.verdict)+'</b> — <code>'+esc(o.key)+'</code><br><span class="repo">'+esc(o.why)+'</span></div>';
   }).join('');
-  document.getElementById('routes2').innerHTML = out.join('') + '<details class="more"><summary>every candidate, scored…</summary>'+c+'</details>';
-  var labels={ 'no-permissions':'workflows with no permissions: block (the default token is not minimal)',
-    'no-timeout':'workflows with no timeout-minutes (a hung job bills to the ceiling)',
-    'no-concurrency':'workflows with no concurrency: (two runs race, and the loser fails to push)',
-    'un-runnable':'workflows with no workflow_dispatch (they cannot be run by hand)',
-    'orphan':'reusable workflows nothing calls','drift':'workflow families that have DRIFTED apart',
-    'no-name':'workflows with no name: (GitHub shows the file path)','no-workflows':'repos where nothing runs',
-    'scheduled-but-not-runnable':'scheduled workflows you cannot run on demand',
-    'unparseable':'workflows that do not parse (they run as ZERO jobs)','dangling':'calls to workflows that do not exist',
-    'outdated-pin':'actions pinned to an old major' };
-  var rows=(g.worst_first||[]).map(function(k){
-    var n=g.counts[k], sev=(k==='unparseable'||k==='dangling')?' bad':((k==='drift'||k==='no-permissions'||k==='no-workflows')?'':' ok');
-    return '<div class="find'+sev+'"><b>'+n+'</b> — '+esc(labels[k]||k)+'</div>';
-  }).join('');
-  var d=(g.gaps.drift||[]).map(function(x){
-    return '<div class="find bad"><b>DRIFT: '+esc(x.name)+'</b> in '+x.repos+' repos, '+x.distinct_sizes+
-      ' different sizes, spread '+x.spread_bytes+'B'+(x.drifted?' — <b>already drifted</b>':'')+'</div>';
-  }).join('');
-  document.getElementById('gapsBox').innerHTML = rows + d;
-}).catch(function(e){ document.getElementById('gapsBox').innerHTML='<div class="find">could not read gaps.json</div>'; });
+  document.getElementById('orphBox').innerHTML=rows||'<div class="find ok">no orphans</div>';
+  var ca=x.cross_action||{}, out=[];
+  (ca.races||[]).forEach(function(r){ out.push('<div class="find bad"><b>RACE</b> — '+esc(r.repo)+' has '+r.count+' workflows that write to the same branch.<br><span class="repo">'+esc(r.why)+'</span></div>'); });
+  (ca.permission_gaps||[]).forEach(function(p){ out.push('<div class="find bad"><b>PERMISSION</b> — '+esc(p.repo+'/'+p.file)+' calls '+esc(p.calls.split('/').pop())+' which wants <code>'+esc(p.scope)+': '+esc(String(p.callee_wants))+'</code>, and the caller grants '+esc(String(p.caller_grants))+'.<br><span class="repo">It fails at RUN time, not at review time.</span></div>'); });
+  (ca.loops||[]).forEach(function(l){ out.push('<div class="find bad"><b>LOOP</b> — '+esc(l.repo+'/'+l.file)+'<br><span class="repo">'+esc(l.why)+'</span></div>'); });
+  (ca.concurrency_collisions||[]).forEach(function(c){ out.push('<div class="find"><b>COLLISION</b> — '+esc(c.repo)+' group '+esc(c.group)+'</div>'); });
+  (ca.schedule_pileups||[]).forEach(function(s){ out.push('<div class="find"><b>PILE-UP</b> — '+s.count+' workflows at <code>'+esc(s.cron)+'</code></div>'); });
+  document.getElementById('crossBox').innerHTML = out.join('') ||
+    '<div class="find ok"><b>Nothing.</b> No race, no loop, no permission gap, no pile-up.</div>';
+  var d=(x.dedupe||[]);
+  if(d.length){
+    document.getElementById('crossBox').innerHTML += d.map(function(f){
+      return '<div class="find"><b>DUPLICATION</b> — '+esc(f.name)+' in '+f.repos+' repos, '+f.distinct_shapes+
+        ' distinct shape(s). '+esc(f.plan)+'</div>';
+    }).join('');
+  }
+}).catch(function(e){ document.getElementById('crossBox').innerHTML='<div class="find">could not read interactions.json</div>'; });
 </script>
 </body>
 </html>
