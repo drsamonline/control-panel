@@ -2094,8 +2094,8 @@
     "0 6 * * *"
    ],
    "dispatchable": true,
-   "jobs": 1,
-   "steps": 8
+   "jobs": 2,
+   "steps": 12
   },
   {
    "repo": "drsamonline",
