@@ -1,0 +1,1225 @@
+{
+ "what": "What the inventory implies is missing, and what each gap costs.",
+ "counts": {
+  "dangling": 0,
+  "drift": 5,
+  "no-concurrency": 51,
+  "no-permissions": 31,
+  "no-timeout": 109,
+  "no-workflows": 0,
+  "orphan": 8,
+  "outdated-pin": 0,
+  "un-runnable": 16
+ },
+ "worst_first": [
+  "no-permissions",
+  "drift",
+  "no-timeout",
+  "no-concurrency",
+  "un-runnable",
+  "orphan"
+ ],
+ "gaps": {
+  "no-timeout": [
+   {
+    "repo": "All4ONE",
+    "file": "deploy-demo.yml",
+    "name": "Deploy the demo"
+   },
+   {
+    "repo": "BLINKTRANSFER",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "BLINKTRANSFER",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "CLDR",
+    "file": "build-release.yml",
+    "name": "Build & Release"
+   },
+   {
+    "repo": "CLDR",
+    "file": "deploy-demo.yml",
+    "name": "Deploy the demo"
+   },
+   {
+    "repo": "MATERIA-MEDICA-BUILDER",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "Matneo",
+    "file": "blog.yml",
+    "name": "Refresh blog posts"
+   },
+   {
+    "repo": "Matneo",
+    "file": "products.yml",
+    "name": "products"
+   },
+   {
+    "repo": "Matneo",
+    "file": "store-images.yml",
+    "name": "store-images"
+   },
+   {
+    "repo": "Matneo",
+    "file": "store.yml",
+    "name": "Refresh store catalogue"
+   },
+   {
+    "repo": "TTB",
+    "file": "validate.yml",
+    "name": "Validate"
+   },
+   {
+    "repo": "ULTIMATE-WINDOWS-OPTIMIZER",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "aethelgard-games",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "aethelgard-rpg-engine",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "ambient-sound-studio",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "app-builder",
+    "file": "build.yml",
+    "name": "build"
+   },
+   {
+    "repo": "app-builder",
+    "file": "kit-tests.yml",
+    "name": "All kit tests"
+   },
+   {
+    "repo": "app-builder",
+    "file": "pages.yml",
+    "name": "pages"
+   },
+   {
+    "repo": "app-builder",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "app-companion-forge",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "app-panchang",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "app-panchang",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "astro-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "backup",
+    "file": "backup.yml",
+    "name": "backup"
+   },
+   {
+    "repo": "blinkcode-ai",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "blinkcode-ai",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "bmi-bmr-tdee-macros-fluid-calculator",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "bmi-bmr-tdee-macros-fluid-calculator",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "boericke-repertory",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "book-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "canteen-lan",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "case-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "chalk-lan",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "compress-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "conqueror-os",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "conqueror-os",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "crypto-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "dance-fight",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "dashboard",
+    "file": "refresh.yml",
+    "name": "Refresh dashboard data"
+   },
+   {
+    "repo": "dashboard",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "drsamonline.github.io",
+    "file": "refresh-hub.yml",
+    "name": "Refresh project hub"
+   },
+   {
+    "repo": "dumps",
+    "file": "backup-all.yml",
+    "name": "backup-all"
+   },
+   {
+    "repo": "export-kit",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "forge",
+    "file": "adopt.yml",
+    "name": "adopt"
+   },
+   {
+    "repo": "forge",
+    "file": "app-deliver.yml",
+    "name": "app-deliver"
+   },
+   {
+    "repo": "forge",
+    "file": "audit.yml",
+    "name": "audit"
+   },
+   {
+    "repo": "forge",
+    "file": "backlog-status.yml",
+    "name": "backlog-status"
+   },
+   {
+    "repo": "forge",
+    "file": "backup.yml",
+    "name": "backup"
+   },
+   {
+    "repo": "forge",
+    "file": "build.yml",
+    "name": "build"
+   },
+   {
+    "repo": "forge",
+    "file": "code-compression.yml",
+    "name": "code-compression"
+   },
+   {
+    "repo": "forge",
+    "file": "docs.yml",
+    "name": "docs"
+   },
+   {
+    "repo": "forge",
+    "file": "fanout.yml",
+    "name": "fanout"
+   },
+   {
+    "repo": "forge",
+    "file": "health.yml",
+    "name": "health"
+   },
+   {
+    "repo": "forge",
+    "file": "heartbeat.yml",
+    "name": "Heartbeat"
+   },
+   {
+    "repo": "forge",
+    "file": "intake.yml",
+    "name": "intake"
+   },
+   {
+    "repo": "forge",
+    "file": "kit-audit.yml",
+    "name": "kit-audit"
+   },
+   {
+    "repo": "forge",
+    "file": "lint.yml",
+    "name": "lint"
+   },
+   {
+    "repo": "forge",
+    "file": "new-app.yml",
+    "name": "new-app"
+   },
+   {
+    "repo": "forge",
+    "file": "pages.yml",
+    "name": "pages"
+   },
+   {
+    "repo": "forge",
+    "file": "release.yml",
+    "name": "release"
+   },
+   {
+    "repo": "forge",
+    "file": "repo-learning.yml",
+    "name": "repo-learning"
+   },
+   {
+    "repo": "forge",
+    "file": "self-diagnose.yml",
+    "name": "self-diagnose"
+   },
+   {
+    "repo": "forge",
+    "file": "self-heal.yml",
+    "name": "self-heal"
+   },
+   {
+    "repo": "forge",
+    "file": "self-update.yml",
+    "name": "self-update"
+   },
+   {
+    "repo": "forge",
+    "file": "sweep.yml",
+    "name": "sweep"
+   },
+   {
+    "repo": "forge",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "game-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "gentle-pediatrics-companion",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "helioprism",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "helioprism",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "idle-city-ages-of-growth",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "idle-city-ages-of-growth",
+    "file": "build.yml",
+    "name": "build"
+   },
+   {
+    "repo": "kent-repertory-explorer",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "knowledge",
+    "file": "refresh.yml",
+    "name": "Refresh plan status"
+   },
+   {
+    "repo": "lan-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "lexora",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "lockhtml",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "lockhtml",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "lockhtml",
+    "file": "publish.yml",
+    "name": "Publish to PyPI"
+   },
+   {
+    "repo": "mnemosyne-companion",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "neon-engine",
+    "file": "test.yml",
+    "name": "tests"
+   },
+   {
+    "repo": "neon-games",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "neon-runner",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "neon-runner",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "offline-pdf-toolkit",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "open-materia-medica",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "optical-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "read-live-transform-app",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "registry",
+    "file": "refresh.yml",
+    "name": "Refresh registry"
+   },
+   {
+    "repo": "remedy-relationship-explorer",
+    "file": "build-android.yml",
+    "name": "Build Android APK (Capacitor)"
+   },
+   {
+    "repo": "remedy-relationship-explorer",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "remedy-relationship-explorer",
+    "file": "build-desktop.yml",
+    "name": "Build desktop apps (Tauri)"
+   },
+   {
+    "repo": "repertory-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "retro-strike",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "retro-strike",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "seance",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "search-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "skills",
+    "file": "normalize.yml",
+    "name": "normalize skills"
+   },
+   {
+    "repo": "skills",
+    "file": "refresh.yml",
+    "name": "Refresh catalogue (mechanical)"
+   },
+   {
+    "repo": "skills",
+    "file": "validate.yml",
+    "name": "validate skills"
+   },
+   {
+    "repo": "skin-case-tracker",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "smartbill-app",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "srs-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "the-symphony-companion",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "today-card",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "unstoppable-mind-companion",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "web-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "whispering-body-first-aid",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "whispering-body-first-aid",
+    "file": "test.yml",
+    "name": "Test"
+   }
+  ],
+  "no-permissions": [
+   {
+    "repo": "BLINKTRANSFER",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "Matneo",
+    "file": "products.yml",
+    "name": "products"
+   },
+   {
+    "repo": "TTB",
+    "file": "validate.yml",
+    "name": "Validate"
+   },
+   {
+    "repo": "ULTIMATE-WINDOWS-OPTIMIZER",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "aethelgard-rpg-engine",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "app-builder",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "app-panchang",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "astro-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "backup",
+    "file": "backup.yml",
+    "name": "backup"
+   },
+   {
+    "repo": "blinkcode-ai",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "bmi-bmr-tdee-macros-fluid-calculator",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "book-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "case-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "compress-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "crypto-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "dashboard",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "forge",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "game-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "helioprism",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "idle-city-ages-of-growth",
+    "file": "build.yml",
+    "name": "build"
+   },
+   {
+    "repo": "lan-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "lexora",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "lockhtml",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "neon-engine",
+    "file": "test.yml",
+    "name": "tests"
+   },
+   {
+    "repo": "optical-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "repertory-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "retro-strike",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "search-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "srs-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "web-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "whispering-body-first-aid",
+    "file": "test.yml",
+    "name": "Test"
+   }
+  ],
+  "no-concurrency": [
+   {
+    "repo": "BLINKTRANSFER",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "CLDR",
+    "file": "build-release.yml",
+    "name": "Build & Release"
+   },
+   {
+    "repo": "Matneo",
+    "file": "products.yml",
+    "name": "products"
+   },
+   {
+    "repo": "TTB",
+    "file": "validate.yml",
+    "name": "Validate"
+   },
+   {
+    "repo": "ULTIMATE-WINDOWS-OPTIMIZER",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "aethelgard-rpg-engine",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "app-builder",
+    "file": "kit-tests.yml",
+    "name": "All kit tests"
+   },
+   {
+    "repo": "app-builder",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "app-panchang",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "astro-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "backup",
+    "file": "backup.yml",
+    "name": "backup"
+   },
+   {
+    "repo": "blinkcode-ai",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "bmi-bmr-tdee-macros-fluid-calculator",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "book-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "case-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "compress-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "conqueror-os",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "crypto-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "dashboard",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "export-kit",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "forge",
+    "file": "adopt.yml",
+    "name": "adopt"
+   },
+   {
+    "repo": "forge",
+    "file": "audit.yml",
+    "name": "audit"
+   },
+   {
+    "repo": "forge",
+    "file": "backup.yml",
+    "name": "backup"
+   },
+   {
+    "repo": "forge",
+    "file": "build.yml",
+    "name": "build"
+   },
+   {
+    "repo": "forge",
+    "file": "docs.yml",
+    "name": "docs"
+   },
+   {
+    "repo": "forge",
+    "file": "fanout.yml",
+    "name": "fanout"
+   },
+   {
+    "repo": "forge",
+    "file": "health.yml",
+    "name": "health"
+   },
+   {
+    "repo": "forge",
+    "file": "lint.yml",
+    "name": "lint"
+   },
+   {
+    "repo": "forge",
+    "file": "release.yml",
+    "name": "release"
+   },
+   {
+    "repo": "forge",
+    "file": "self-heal.yml",
+    "name": "self-heal"
+   },
+   {
+    "repo": "forge",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "game-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "helioprism",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "idle-city-ages-of-growth",
+    "file": "build.yml",
+    "name": "build"
+   },
+   {
+    "repo": "lan-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "lexora",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "lockhtml",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "lockhtml",
+    "file": "publish.yml",
+    "name": "Publish to PyPI"
+   },
+   {
+    "repo": "neon-engine",
+    "file": "test.yml",
+    "name": "tests"
+   },
+   {
+    "repo": "neon-runner",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "optical-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "remedy-relationship-explorer",
+    "file": "build-android.yml",
+    "name": "Build Android APK (Capacitor)"
+   },
+   {
+    "repo": "remedy-relationship-explorer",
+    "file": "build-desktop.yml",
+    "name": "Build desktop apps (Tauri)"
+   },
+   {
+    "repo": "repertory-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "retro-strike",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "search-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "skills",
+    "file": "normalize.yml",
+    "name": "normalize skills"
+   },
+   {
+    "repo": "skills",
+    "file": "validate.yml",
+    "name": "validate skills"
+   },
+   {
+    "repo": "srs-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "web-kit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "whispering-body-first-aid",
+    "file": "test.yml",
+    "name": "Test"
+   }
+  ],
+  "un-runnable": [
+   {
+    "repo": "BLINKTRANSFER",
+    "file": "ci.yml",
+    "name": "CI",
+    "events": [
+     "pull_request",
+     "push"
+    ]
+   },
+   {
+    "repo": "aethelgard-rpg-engine",
+    "file": "ci.yml",
+    "name": "CI",
+    "events": [
+     "pull_request",
+     "push"
+    ]
+   },
+   {
+    "repo": "app-builder",
+    "file": "build.yml",
+    "name": "build",
+    "events": [
+     "workflow_call"
+    ]
+   },
+   {
+    "repo": "app-builder",
+    "file": "pages.yml",
+    "name": "pages",
+    "events": [
+     "workflow_call"
+    ]
+   },
+   {
+    "repo": "app-builder",
+    "file": "test.yml",
+    "name": "test",
+    "events": [
+     "workflow_call"
+    ]
+   },
+   {
+    "repo": "backup",
+    "file": "backup.yml",
+    "name": "backup",
+    "events": [
+     "workflow_call"
+    ]
+   },
+   {
+    "repo": "blinkcode-ai",
+    "file": "ci.yml",
+    "name": "CI",
+    "events": [
+     "pull_request",
+     "push"
+    ]
+   },
+   {
+    "repo": "forge",
+    "file": "backup.yml",
+    "name": "backup",
+    "events": [
+     "pull_request"
+    ]
+   },
+   {
+    "repo": "forge",
+    "file": "build.yml",
+    "name": "build",
+    "events": [
+     "workflow_call"
+    ]
+   },
+   {
+    "repo": "forge",
+    "file": "intake.yml",
+    "name": "intake",
+    "events": [
+     "issues"
+    ]
+   },
+   {
+    "repo": "forge",
+    "file": "pages.yml",
+    "name": "pages",
+    "events": [
+     "workflow_call"
+    ]
+   },
+   {
+    "repo": "forge",
+    "file": "release.yml",
+    "name": "release",
+    "events": [
+     "workflow_call"
+    ]
+   },
+   {
+    "repo": "forge",
+    "file": "test.yml",
+    "name": "test",
+    "events": [
+     "workflow_call"
+    ]
+   },
+   {
+    "repo": "helioprism",
+    "file": "ci.yml",
+    "name": "CI",
+    "events": [
+     "pull_request",
+     "push"
+    ]
+   },
+   {
+    "repo": "idle-city-ages-of-growth",
+    "file": "build.yml",
+    "name": "build",
+    "events": [
+     "pull_request",
+     "push"
+    ]
+   },
+   {
+    "repo": "lexora",
+    "file": "ci.yml",
+    "name": "CI",
+    "events": [
+     "pull_request",
+     "push"
+    ]
+   }
+  ],
+  "drift": [
+   {
+    "name": "Build + deploy",
+    "copies": 33,
+    "repos": 33,
+    "distinct_sizes": 23,
+    "spread_bytes": 393,
+    "drifted": true,
+    "example": [
+     "BLINKTRANSFER",
+     "MATERIA-MEDICA-BUILDER",
+     "aethelgard-games",
+     "ambient-sound-studio",
+     "app-companion-forge",
+     "app-panchang"
+    ]
+   },
+   {
+    "name": "Test",
+    "copies": 16,
+    "repos": 16,
+    "distinct_sizes": 4,
+    "spread_bytes": 389,
+    "drifted": true,
+    "example": [
+     "app-panchang",
+     "astro-kit",
+     "bmi-bmr-tdee-macros-fluid-calculator",
+     "book-kit",
+     "case-kit",
+     "compress-kit"
+    ]
+   },
+   {
+    "name": "CI",
+    "copies": 9,
+    "repos": 9,
+    "distinct_sizes": 7,
+    "spread_bytes": 2465,
+    "drifted": true,
+    "example": [
+     "BLINKTRANSFER",
+     "ULTIMATE-WINDOWS-OPTIMIZER",
+     "aethelgard-rpg-engine",
+     "blinkcode-ai",
+     "conqueror-os",
+     "helioprism"
+    ]
+   },
+   {
+    "name": "test",
+    "copies": 4,
+    "repos": 4,
+    "distinct_sizes": 3,
+    "spread_bytes": 1753,
+    "drifted": true,
+    "example": [
+     "app-builder",
+     "dashboard",
+     "export-kit",
+     "forge"
+    ]
+   },
+   {
+    "name": "build",
+    "copies": 3,
+    "repos": 3,
+    "distinct_sizes": 3,
+    "spread_bytes": 14869,
+    "drifted": true,
+    "example": [
+     "app-builder",
+     "forge",
+     "idle-city-ages-of-growth"
+    ]
+   }
+  ],
+  "orphan": [
+   {
+    "what": "app-builder/.github/workflows/test.yml"
+   },
+   {
+    "what": "forge/.github/workflows/audit.yml"
+   },
+   {
+    "what": "forge/.github/workflows/docs.yml"
+   },
+   {
+    "what": "forge/.github/workflows/fanout.yml"
+   },
+   {
+    "what": "forge/.github/workflows/pages.yml"
+   },
+   {
+    "what": "forge/.github/workflows/release.yml"
+   },
+   {
+    "what": "forge/.github/workflows/self-heal.yml"
+   },
+   {
+    "what": "forge/.github/workflows/test.yml"
+   }
+  ]
+ },
+ "note": "Every check here is a rule with a reason. DRIFT is the one that already cost a release: a hand-copied build workflow kept `if: always()` and a failed build deleted the published release."
+}

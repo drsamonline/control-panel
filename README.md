@@ -39,6 +39,35 @@ stages they actually form — from an idea to a shipped app to the system repair
 
 **The everyday routes ask for at most one thing, and usually nothing.**
 
+## How Forge embeds
+
+Three layers, three jobs:
+
+- **Forge** (private) is the **brain** — the memory (backlog, run log, registry, rules), the tools, and the agent's workspace.
+- **This panel** (public) is the **map** — what runs, what calls what, what is missing, and the routes.
+- **The dashboard** (public) is the **vitals** — what the system *is*: the products, their health, the conformance scores.
+
+One-way and checkable: **Forge writes the memory → the tools derive the facts → the panel and the dashboard publish them.**
+Anyone can run the tools and get the same numbers.
+
+## Why this is the commercial product
+
+You are not selling an app. You are selling **a system that governs itself and can prove it** — one that audits its own
+drift, catches its own silent failures, backs up before every merge, and shows its work in public, with the numbers
+generated from the repositories rather than typed into a slide. The licence sells **Forge**; the apps stay free, which is
+what makes the map worth reading.
+
+## What is missing (tools/gaps.py)
+
+Every check is a rule with a reason — `permissions`, `timeout-minutes`, `concurrency`, drift, orphans, un-runnable
+workflows. **DRIFT is the one that already cost a release.**
+
+## The chosen routes (tools/simulate.py)
+
+Candidates are **scored**, not asserted: inputs, hand-actions, how many things must go right, **the chance the output is
+wrong**, stage coverage, resumability, and whether the route leans on a hand-copied workflow. The winner per scenario is
+the one the numbers choose.
+
 ## The Run buttons
 
 Each opens that workflow's page on GitHub — the real dispatch. Nothing here needs a token in a browser,

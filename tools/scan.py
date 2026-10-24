@@ -164,6 +164,15 @@ def scan_tree(root: str) -> list:
                 continue
             rec = parse_workflow(fn, text)
             rec["bytes"] = len(text)
+            # body-level flags, so the gap analysis does not have to re-read the file
+            rec["flags"] = {
+                "timeout": "timeout-minutes" in text,
+                "concurrency": "concurrency" in text,
+                "permissions": ("permissions:" in text),
+                "matrix": "matrix:" in text,
+                "cache": "cache:" in text,
+                "skip_ci": "[skip ci]" in text,
+            }
             recs.append(rec)
         out.append({"repo": repo, "workflows": recs})
     return out

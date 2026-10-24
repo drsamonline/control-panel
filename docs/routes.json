@@ -1,0 +1,289 @@
+{
+ "what": "Every candidate route, scored. Lower is better.",
+ "weights": {
+  "inputs": 10,
+  "human": 3,
+  "failure": 2,
+  "risk": 6,
+  "coverage": -2,
+  "recover": -3,
+  "drift": -4
+ },
+ "formula": "inputs*10 + human*3 + failure*2 + risk*6 - coverage*2 - recover*3 - drift*4",
+ "drift_measured": [
+  "Build + deploy",
+  "CI",
+  "Test",
+  "build",
+  "test"
+ ],
+ "candidates": [
+  {
+   "id": "change-push",
+   "scenario": "A change to an app",
+   "name": "Push, and that is the instruction",
+   "inputs": 0,
+   "human": 0,
+   "failure": 2,
+   "risk": 1,
+   "coverage": 4,
+   "recover": 1,
+   "drift": 0,
+   "chain": [
+    "push",
+    "test",
+    "build x3",
+    "release",
+    "deploy the demo",
+    "screenshot"
+   ],
+   "why": "Zero inputs, and every output comes from ONE commit - so the live demo and the released build cannot disagree.",
+   "score": -1,
+   "steps": 6
+  },
+  {
+   "id": "change-manual",
+   "scenario": "A change to an app",
+   "name": "Push, then press build yourself",
+   "inputs": 1,
+   "human": 2,
+   "failure": 4,
+   "risk": 2,
+   "coverage": 3,
+   "recover": 1,
+   "drift": 0,
+   "chain": [
+    "push",
+    "press Run",
+    "build x3",
+    "release",
+    "deploy"
+   ],
+   "why": "Works, but the demo and the release can drift apart because they are two commits.",
+   "score": 27,
+   "steps": 5
+  },
+  {
+   "id": "new-guided",
+   "scenario": "A new app",
+   "name": "Describe it, then it runs itself",
+   "inputs": 1,
+   "human": 1,
+   "failure": 3,
+   "risk": 1,
+   "coverage": 4,
+   "recover": 1,
+   "drift": 0,
+   "chain": [
+    "intake (the idea)",
+    "spec",
+    "scaffold",
+    "adopt the guards",
+    "app-deliver the page + demo + pipeline",
+    "build x3 platforms",
+    "release",
+    "deploy the demo",
+    "screenshot"
+   ],
+   "why": "One input. Everything after it is already wired, and every workflow is a CALLER, so a fix reaches all of them.",
+   "score": 14,
+   "steps": 9
+  },
+  {
+   "id": "new-auto",
+   "scenario": "A new app",
+   "name": "Fully automatic, no input at all",
+   "inputs": 0,
+   "human": 0,
+   "failure": 7,
+   "risk": 9,
+   "coverage": 4,
+   "recover": 0,
+   "drift": 0,
+   "chain": [
+    "detect the idea",
+    "guess the spec",
+    "scaffold",
+    "build",
+    "release"
+   ],
+   "why": "Zero inputs sounds best until you ask who wrote the spec. Guessing the requirements is not automation, it is a coin toss with a release attached.",
+   "score": 60,
+   "steps": 5
+  },
+  {
+   "id": "new-manual",
+   "scenario": "A new app",
+   "name": "Do it all by hand",
+   "inputs": 6,
+   "human": 9,
+   "failure": 9,
+   "risk": 3,
+   "coverage": 2,
+   "recover": 0,
+   "drift": 1,
+   "chain": [
+    "write the spec",
+    "create the repo",
+    "add a test workflow",
+    "add a pages workflow",
+    "add a build workflow",
+    "add a landing page",
+    "add the demo",
+    "push",
+    "watch it"
+   ],
+   "why": "Every step is a decision, and the workflows are hand-copied - which is how a release got deleted once.",
+   "score": 115,
+   "steps": 9
+  },
+  {
+   "id": "repair-sched",
+   "scenario": "Repair",
+   "name": "Diagnose, heal, audit, learn - on a schedule",
+   "inputs": 0,
+   "human": 0,
+   "failure": 2,
+   "risk": 1,
+   "coverage": 4,
+   "recover": 1,
+   "drift": 0,
+   "chain": [
+    "self-diagnose",
+    "self-heal",
+    "health + audit",
+    "backup",
+    "repo-learning",
+    "backlog-status"
+   ],
+   "why": "Zero inputs. It is the only route that catches a workflow which runs on time and fails every time.",
+   "score": -1,
+   "steps": 6
+  },
+  {
+   "id": "repair-watch",
+   "scenario": "Repair",
+   "name": "Watch the Actions page and fix what is red",
+   "inputs": 2,
+   "human": 4,
+   "failure": 3,
+   "risk": 3,
+   "coverage": 2,
+   "recover": 0,
+   "drift": 0,
+   "chain": [
+    "notice something is red",
+    "read the log",
+    "decide",
+    "fix",
+    "push"
+   ],
+   "why": "This is what happened before: three workflows failed silently and nothing said so.",
+   "score": 52,
+   "steps": 5
+  },
+  {
+   "id": "release-press",
+   "scenario": "Ship a release",
+   "name": "Press Run on the app's pipeline",
+   "inputs": 1,
+   "human": 1,
+   "failure": 2,
+   "risk": 1,
+   "coverage": 4,
+   "recover": 1,
+   "drift": 0,
+   "chain": [
+    "press Run",
+    "build x3",
+    "release",
+    "deploy",
+    "screenshot"
+   ],
+   "why": "One press, one commit, every output. The pipeline is the same one a push uses, so nothing is special-cased.",
+   "score": 12,
+   "steps": 5
+  },
+  {
+   "id": "release-tag",
+   "scenario": "Ship a release",
+   "name": "Tag it and let the tag drive",
+   "inputs": 1,
+   "human": 1,
+   "failure": 4,
+   "risk": 3,
+   "coverage": 3,
+   "recover": 1,
+   "drift": 1,
+   "chain": [
+    "tag",
+    "build",
+    "release",
+    "deploy"
+   ],
+   "why": "A tag is a second source of truth; the demo can end up on a different commit than the release.",
+   "score": 26,
+   "steps": 4
+  }
+ ],
+ "winners": {
+  "A new app": {
+   "id": "new-guided",
+   "name": "Describe it, then it runs itself",
+   "score": 14,
+   "inputs": 1,
+   "why": "One input. Everything after it is already wired, and every workflow is a CALLER, so a fix reaches all of them.",
+   "runner_up": {
+    "id": "new-auto",
+    "score": 60,
+    "why": "Zero inputs sounds best until you ask who wrote the spec. Guessing the requirements is not automation, it is a coin toss with a release attached."
+   },
+   "margin": 46
+  },
+  "A change to an app": {
+   "id": "change-push",
+   "name": "Push, and that is the instruction",
+   "score": -1,
+   "inputs": 0,
+   "why": "Zero inputs, and every output comes from ONE commit - so the live demo and the released build cannot disagree.",
+   "runner_up": {
+    "id": "change-manual",
+    "score": 27,
+    "why": "Works, but the demo and the release can drift apart because they are two commits."
+   },
+   "margin": 28
+  },
+  "Repair": {
+   "id": "repair-sched",
+   "name": "Diagnose, heal, audit, learn - on a schedule",
+   "score": -1,
+   "inputs": 0,
+   "why": "Zero inputs. It is the only route that catches a workflow which runs on time and fails every time.",
+   "runner_up": {
+    "id": "repair-watch",
+    "score": 52,
+    "why": "This is what happened before: three workflows failed silently and nothing said so."
+   },
+   "margin": 53
+  },
+  "Ship a release": {
+   "id": "release-press",
+   "name": "Press Run on the app's pipeline",
+   "score": 12,
+   "inputs": 1,
+   "why": "One press, one commit, every output. The pipeline is the same one a push uses, so nothing is special-cased.",
+   "runner_up": {
+    "id": "release-tag",
+    "score": 26,
+    "why": "A tag is a second source of truth; the demo can end up on a different commit than the release."
+   },
+   "margin": 14
+  }
+ },
+ "totals": {
+  "candidates": 9,
+  "scenarios": 4,
+  "best_possible_inputs": 2,
+  "inputs_if_every_scenario_went_manual": 10
+ }
+}
