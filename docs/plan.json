@@ -82,6 +82,16 @@
      "steps": 0
     },
     {
+     "repo": "BLINKTRANSFER",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
      "repo": "CLDR",
      "file": "build-release.yml",
      "name": "Build & Release",
@@ -142,6 +152,16 @@
      "steps": 0
     },
     {
+     "repo": "aethelgard-rpg-engine",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
      "repo": "ambient-sound-studio",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -162,6 +182,16 @@
      "dispatchable": true,
      "jobs": 2,
      "steps": 4
+    },
+    {
+     "repo": "app-builder",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": true,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "app-companion-forge",
@@ -252,6 +282,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 0
+    },
+    {
+     "repo": "blinkcode-ai",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "bmi-bmr-tdee-macros-fluid-calculator",
@@ -424,6 +464,16 @@
      "steps": 0
     },
     {
+     "repo": "helioprism",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
      "repo": "idle-city-ages-of-growth",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -432,6 +482,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 0
+    },
+    {
+     "repo": "idle-city-ages-of-growth",
+     "file": "build.yml",
+     "name": "build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
     },
     {
      "repo": "kent-repertory-explorer",
@@ -452,6 +512,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 3
+    },
+    {
+     "repo": "lexora",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
     },
     {
      "repo": "lockhtml",
@@ -813,7 +883,7 @@
      "name": "CI",
      "reusable": false,
      "crons": [],
-     "dispatchable": false,
+     "dispatchable": true,
      "jobs": 1,
      "steps": 6
     },
@@ -893,7 +963,7 @@
      "name": "CI",
      "reusable": false,
      "crons": [],
-     "dispatchable": false,
+     "dispatchable": true,
      "jobs": 1,
      "steps": 6
     },
@@ -935,7 +1005,7 @@
      "name": "test",
      "reusable": true,
      "crons": [],
-     "dispatchable": false,
+     "dispatchable": true,
      "jobs": 1,
      "steps": 6
     },
@@ -1035,7 +1105,7 @@
      "name": "CI",
      "reusable": false,
      "crons": [],
-     "dispatchable": false,
+     "dispatchable": true,
      "jobs": 1,
      "steps": 6
     },
@@ -1215,7 +1285,7 @@
      "name": "CI",
      "reusable": false,
      "crons": [],
-     "dispatchable": false,
+     "dispatchable": true,
      "jobs": 1,
      "steps": 6
     },
@@ -1235,7 +1305,7 @@
      "name": "build",
      "reusable": false,
      "crons": [],
-     "dispatchable": false,
+     "dispatchable": true,
      "jobs": 1,
      "steps": 5
     },
@@ -1265,7 +1335,7 @@
      "name": "CI",
      "reusable": false,
      "crons": [],
-     "dispatchable": false,
+     "dispatchable": true,
      "jobs": 1,
      "steps": 5
     },
@@ -1774,6 +1844,16 @@
      "steps": 0
     },
     {
+     "repo": "app-builder",
+     "file": "pages.yml",
+     "name": "pages",
+     "reusable": true,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
      "repo": "dashboard",
      "file": "refresh.yml",
      "name": "Refresh dashboard data",
@@ -1913,7 +1993,7 @@
      "name": "pages",
      "reusable": true,
      "crons": [],
-     "dispatchable": false,
+     "dispatchable": true,
      "jobs": 1,
      "steps": 5
     },
@@ -1985,7 +2065,18 @@
    "input": "none - it runs on a schedule",
    "count": 1,
    "scheduled": [],
-   "dispatchable": [],
+   "dispatchable": [
+    {
+     "repo": "backup",
+     "file": "backup.yml",
+     "name": "backup",
+     "reusable": true,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    }
+   ],
    "members": [
     {
      "repo": "backup",
@@ -1993,12 +2084,21 @@
      "name": "backup",
      "reusable": true,
      "crons": [],
-     "dispatchable": false,
+     "dispatchable": true,
      "jobs": 1,
      "steps": 3
     }
    ],
-   "manual": null
+   "manual": {
+    "repo": "backup",
+    "file": "backup.yml",
+    "name": "backup",
+    "reusable": true,
+    "crons": [],
+    "dispatchable": true,
+    "jobs": 1,
+    "steps": 3
+   }
   }
  ],
  "routes": [
@@ -2126,7 +2226,7 @@
   "workflows": 95,
   "unplaced": 3,
   "scheduled": 8,
-  "dispatchable": 84,
+  "dispatchable": 93,
   "inputs_for_the_two_everyday_routes": 1
  }
 }
