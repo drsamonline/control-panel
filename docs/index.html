@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control Panel — every workflow, and how they connect</title>
+<meta name="description" content="Every workflow in every repository, the four stages they make, what calls what, and the routes that need one input.">
+<meta name="theme-color" content="#0b0d12">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{--bg:#0b0d12;--card:#141821;--ink:#e7ecf5;--mut:#93a0b8;--line:rgba(255,255,255,.10);--acc:#8b5cf6;--ok:#22c55e;--warn:#f59e0b;--bad:#ef4444;--r:13px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:20px}
+h1{font-size:1.3rem;margin:0}
+h2{font-size:1.05rem;margin:0 0 10px}
+.sub{color:var(--mut);margin:6px 0 0}
+.topbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:space-between;padding:8px 0 14px}
+.kpis{display:grid;gap:9px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin:8px 0 18px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px}
+.kpi b{display:block;font-size:1.5rem;line-height:1.1}
+.kpi span{color:var(--mut);font-size:.8rem}
+.sec{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--mut);margin:22px 0 8px;font-weight:700}
+/* the pipeline: four stages left to right, with the arrow between them */
+.pipe{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;position:relative}
+.stage h3{margin:0 0 2px;font-size:1rem;display:flex;align-items:center;gap:8px}
+.num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:7px;background:var(--acc);color:#0b0d12;font-weight:800;font-size:.8rem}
+.stage p{margin:6px 0 10px;color:var(--mut);font-size:.88rem}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-size:.72rem;color:var(--mut);margin:0 4px 4px 0}
+.tag.auto{border-color:rgba(34,197,94,.4);color:#8ce6a6}
+.tag.manual{border-color:rgba(139,92,246,.5);color:#c4b5fd}
+.counts{display:flex;gap:12px;font-size:.8rem;color:var(--mut);margin-bottom:8px;flex-wrap:wrap}
+.wf{display:flex;justify-content:space-between;align-items:center;gap:8px;border-top:1px solid var(--line);padding:7px 0;font-size:.86rem}
+.wf:first-of-type{border-top:0}
+.wf .repo{color:var(--mut);font-size:.78rem}
+.run{border:1px solid var(--line);border-radius:8px;padding:4px 9px;color:var(--ink);text-decoration:none;font-size:.76rem;font-weight:600;white-space:nowrap}
+.run:hover{border-color:var(--acc);color:#c4b5fd}
+.run.off{opacity:.35;cursor:not-allowed}
+details.more{margin-top:6px}
+details.more summary{cursor:pointer;color:var(--mut);font-size:.8rem}
+.route{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin:10px 0}
+.route h3{margin:0 0 4px;font-size:1rem}
+.badge{display:inline-block;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:700}
+.badge.zero{background:rgba(34,197,94,.15);color:#8ce6a6;border:1px solid rgba(34,197,94,.35)}
+.badge.one{background:rgba(245,158,11,.14);color:#fbd38d;border:1px solid rgba(245,158,11,.35)}
+.route ol{margin:8px 0 0;padding-left:20px}
+.route li{margin:3px 0}
+.route .why{color:var(--mut);font-size:.86rem;margin:8px 0 0}
+.find{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:10px;padding:10px 12px;margin:7px 0;font-size:.88rem}
+.find.bad{border-left-color:var(--bad)}
+.find.ok{border-left-color:var(--ok)}
+code{background:rgba(255,255,255,.06);border-radius:5px;padding:1px 5px;font-size:.88em}
+footer{color:var(--mut);font-size:.85rem;border-top:1px solid var(--line);margin-top:26px;padding:16px 0 40px}
+a{color:var(--acc)}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:9px 14px;opacity:0;transition:.25s}
+#toast.on{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div>
+      <h1>Control Panel</h1>
+      <p class="sub">Every workflow in every repository — the four stages they make, what calls what, and the routes that ask you for one thing.</p>
+    </div>
+    <div class="sub" id="stamp">loading…</div>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="sec">The grand pipeline — scratch to production to delivery to repair</div>
+  <div class="pipe" id="pipe"></div>
+
+  <div class="sec">The routes — how little you have to do</div>
+  <div id="routes"></div>
+
+  <div class="sec">What is not connected</div>
+  <div id="findings"></div>
+
+  <footer>
+    <p>Generated from <code>inventory.json</code> (every workflow, parsed) and <code>plan.json</code> (the stages and
+    routes), both rebuilt daily by <code>scan.yml</code>. A <b>Run</b> button opens that workflow's page on GitHub —
+    it takes you to the real dispatch, so nothing here needs a token in the browser.</p>
+    <p><a href="https://drsamonline.github.io/dashboard/">The dashboard</a> ·
+       <a href="https://drsamonline.github.io/">All projects</a> ·
+       <a href="https://github.com/drsamonline/control-panel">Source</a></p>
+  </footer>
+</div>
+<div id="toast"></div>
+
+<script>
+'use strict';
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];});}
+function gh(repo,file){return 'https://github.com/drsamonline/'+encodeURIComponent(repo)+'/actions/workflows/'+encodeURIComponent(file);}
+function $(i){return document.getElementById(i);}
+
+Promise.all([
+  fetch('inventory.json',{cache:'no-store'}).then(function(r){return r.json();}),
+  fetch('plan.json',{cache:'no-store'}).then(function(r){return r.json();})
+]).then(function(res){
+  var inv=res[0], plan=res[1], s=inv.summary||{};
+  $('stamp').textContent = (s.repos||0)+' repos · '+(s.workflows||0)+' workflows · built '+new Date().toISOString().slice(0,16).replace('T',' ')+'Z';
+
+  var kpis=[['Repos',s.repos],['Workflows',s.workflows],['Jobs',s.jobs],['Steps',s.steps],
+            ['Reusable',s.reusable],['Scheduled',s.scheduled],['Runnable by hand',s.dispatchable],
+            ['Connections',s.edges]];
+  $('kpis').innerHTML = kpis.map(function(k){
+    return '<div class="kpi"><b>'+esc(k[1])+'</b><span>'+esc(k[0])+'</span></div>';}).join('');
+
+  // ---- the four stages ----
+  $('pipe').innerHTML = plan.stages.map(function(st){
+    var head = '<div class="stage"><h3><span class="num">'+st.n+'</span>'+esc(st.name)+'</h3>'
+      + '<p>'+esc(st.what)+'</p>'
+      + '<div class="counts"><span>'+st.count+' workflow(s)</span>'
+      + '<span>'+st.scheduled.length+' scheduled</span>'
+      + '<span>'+st.dispatchable.length+' by hand</span></div>'
+      + '<div><span class="tag '+(st.auto?'auto':'manual')+'">'+(st.auto?'automatic':'needs you')+'</span>'
+      + '<span class="tag">'+esc(st.input)+'</span></div>';
+    // the first few members with a Run button; the rest behind a fold
+    function row(m){
+      var canRun = m.dispatchable;
+      return '<div class="wf"><span><b>'+esc(m.name||m.file)+'</b><br><span class="repo">'+esc(m.repo)+' / '+esc(m.file)+'</span></span>'
+        + (canRun ? '<a class="run" href="'+gh(m.repo,m.file)+'" target="_blank" rel="noopener">Run</a>'
+                  : '<span class="run off" title="no workflow_dispatch trigger">no run</span>') + '</div>';
+    }
+    var shown = st.members.slice(0,6).map(row).join('');
+    var rest = st.members.slice(6);
+    var more = rest.length ? '<details class="more"><summary>'+rest.length+' more…</summary>'+rest.map(row).join('')+'</details>' : '';
+    return head + shown + more + '</div>';
+  }).join('');
+
+  // ---- the routes ----
+  $('routes').innerHTML = plan.routes.map(function(r){
+    var b = r.inputs===0 ? '<span class="badge zero">0 inputs</span>' : '<span class="badge one">'+r.inputs+' input</span>';
+    return '<div class="route"><h3>'+esc(r.name)+' '+b+'</h3>'
+      + '<p class="why">'+esc(r.why)+'</p>'
+      + '<b style="font-size:.85rem">You do</b><ol>'+r.you.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ol>'
+      + '<b style="font-size:.85rem">Then, on its own</b><ol>'+r.then.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ol>'
+      + '<p class="why">Stages: '+r.stage_ids.map(function(s2){return esc(s2);}).join(' → ')+'</p></div>';
+  }).join('');
+
+  // ---- the findings ----
+  var out=[];
+  if((s.dangling_calls||[]).length) out.push('<div class="find bad"><b>'+s.dangling_calls.length+' call(s) to a workflow that does not exist.</b> These fail the first time they run: '
+    + s.dangling_calls.map(function(d){return esc(d.from_repo+'/'+d.from+' → '+d.to);}).join(', ')+'</div>');
+  else out.push('<div class="find ok"><b>No broken connections.</b> Every reusable call points at a workflow that exists.</div>');
+  if((s.orphan_reusables||[]).length) out.push('<div class="find"><b>'+s.orphan_reusables.length+' reusable workflow(s) nothing calls.</b> Either a caller was never written, or a public repo cannot reach a private one — both worth knowing: '
+    + s.orphan_reusables.map(function(o){return '<code>'+esc(o)+'</code>';}).join(' ')+'</div>');
+  if((s.parse_errors||[]).length) out.push('<div class="find bad"><b>'+s.parse_errors.length+' workflow(s) do not parse</b> — an invalid workflow silently never runs: '
+    + s.parse_errors.map(function(e){return esc(e.repo+'/'+e.file);}).join(', ')+'</div>');
+  else out.push('<div class="find ok"><b>Every workflow parses.</b> All '+(s.workflows||0)+' are valid YAML.</div>');
+  if((s.repos_without_workflows||[]).length) out.push('<div class="find"><b>'+s.repos_without_workflows.length+' repo(s) have no workflows at all</b> — nothing runs their tests, nothing deploys them: '
+    + s.repos_without_workflows.map(function(r2){return '<code>'+esc(r2)+'</code>';}).join(' ')+'</div>');
+  $('findings').innerHTML = out.join('');
+}).catch(function(e){
+  $('stamp').textContent = 'could not load the inventory: '+e.message;
+});
+</script>
+</body>
+</html>

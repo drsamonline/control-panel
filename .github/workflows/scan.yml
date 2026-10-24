@@ -1,0 +1,53 @@
+name: scan
+
+# Rebuild the inventory and the plan. The control panel is only worth anything if it
+# is TRUE, so this runs daily and commits the fresh data - the page reads it, so it
+# can never drift from what the workflows actually are.
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+  push:
+    branches: [ main ]
+    paths:
+      - tools/**
+      - docs/index.html
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --quiet pyyaml
+      - name: The tools' own tests, first
+        run: |
+          python3 tools/scan.py --self-test
+          python3 tools/plan.py --self-test
+      - name: Fetch every workflow in every repo
+        env:
+          GITHUB_TOKEN: "${{ secrets.FANOUT_TOKEN || github.token }}"
+        run: python3 tools/fetch.py --out tree
+      - name: Inventory it
+        run: python3 tools/scan.py --dir tree --out docs/inventory.json
+      - name: Plan it
+        run: python3 tools/plan.py --inventory docs/inventory.json --out docs/plan.json
+      - name: Commit the fresh inventory
+        run: |
+          git config user.name  "forge-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add docs/inventory.json docs/plan.json
+          if git diff --cached --quiet; then echo "unchanged"; else
+            git commit -m "chore: rescan every workflow [skip ci]"
+            git push
+          fi
