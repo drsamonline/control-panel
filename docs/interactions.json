@@ -1,0 +1,307 @@
+{
+ "what": "The orphans, the duplication, and where one workflow breaks another.",
+ "orphans": [
+  {
+   "key": "app-builder/.github/workflows/test.yml",
+   "repo": "app-builder",
+   "name": "test",
+   "private_repo": false,
+   "public_twin": null,
+   "verdict": "WRITE THE CALLER",
+   "why": "it is public and callable, and nothing calls it. Either a caller was never written, or the thing it was built for was solved another way - in which case it is dead weight.",
+   "callers": []
+  },
+  {
+   "key": "forge/.github/workflows/audit.yml",
+   "repo": "forge",
+   "name": "audit",
+   "private_repo": true,
+   "public_twin": null,
+   "verdict": "INTENTIONAL (private only)",
+   "why": "it lives in forge, which is private, so only private callers can reach it. If that is the intent, say so in its header; if not, it is dead.",
+   "callers": []
+  },
+  {
+   "key": "forge/.github/workflows/docs.yml",
+   "repo": "forge",
+   "name": "docs",
+   "private_repo": true,
+   "public_twin": null,
+   "verdict": "INTENTIONAL (private only)",
+   "why": "it lives in forge, which is private, so only private callers can reach it. If that is the intent, say so in its header; if not, it is dead.",
+   "callers": []
+  },
+  {
+   "key": "forge/.github/workflows/fanout.yml",
+   "repo": "forge",
+   "name": "fanout",
+   "private_repo": true,
+   "public_twin": null,
+   "verdict": "INTENTIONAL (private only)",
+   "why": "it lives in forge, which is private, so only private callers can reach it. If that is the intent, say so in its header; if not, it is dead.",
+   "callers": []
+  },
+  {
+   "key": "forge/.github/workflows/pages.yml",
+   "repo": "forge",
+   "name": "pages",
+   "private_repo": true,
+   "public_twin": "app-builder/.github/workflows/pages.yml",
+   "verdict": "DELETE THE PRIVATE COPY",
+   "why": "it lives in forge, which is PRIVATE, so no public repo can call it - and app-builder/.github/workflows/pages.yml is the public twin, which is the one that can be called. Two copies, one reachable: keep the reachable one.",
+   "callers": []
+  },
+  {
+   "key": "forge/.github/workflows/release.yml",
+   "repo": "forge",
+   "name": "release",
+   "private_repo": true,
+   "public_twin": null,
+   "verdict": "INTENTIONAL (private only)",
+   "why": "it lives in forge, which is private, so only private callers can reach it. If that is the intent, say so in its header; if not, it is dead.",
+   "callers": []
+  },
+  {
+   "key": "forge/.github/workflows/self-heal.yml",
+   "repo": "forge",
+   "name": "self-heal",
+   "private_repo": true,
+   "public_twin": null,
+   "verdict": "INTENTIONAL (private only)",
+   "why": "it lives in forge, which is private, so only private callers can reach it. If that is the intent, say so in its header; if not, it is dead.",
+   "callers": []
+  },
+  {
+   "key": "forge/.github/workflows/test.yml",
+   "repo": "forge",
+   "name": "test",
+   "private_repo": true,
+   "public_twin": "app-builder/.github/workflows/test.yml",
+   "verdict": "DELETE THE PRIVATE COPY",
+   "why": "it lives in forge, which is PRIVATE, so no public repo can call it - and app-builder/.github/workflows/test.yml is the public twin, which is the one that can be called. Two copies, one reachable: keep the reachable one.",
+   "callers": []
+  }
+ ],
+ "dedupe": [
+  {
+   "name": "Build + deploy",
+   "copies": 33,
+   "repos": 33,
+   "distinct_sizes": 23,
+   "spread_bytes": 393,
+   "drifted": true,
+   "canonical": "aethelgard-games/build-apps.yml",
+   "canonical_bytes": 1766,
+   "plan": "turn the 32 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "BLINKTRANSFER/build-apps.yml",
+    "MATERIA-MEDICA-BUILDER/build-apps.yml",
+    "ambient-sound-studio/build-apps.yml",
+    "app-companion-forge/build-apps.yml",
+    "app-panchang/build-apps.yml",
+    "blinkcode-ai/build-apps.yml",
+    "bmi-bmr-tdee-macros-fluid-calculator/build-apps.yml",
+    "boericke-repertory/build-apps.yml",
+    "canteen-lan/build-apps.yml",
+    "chalk-lan/build-apps.yml",
+    "conqueror-os/build-apps.yml",
+    "dance-fight/build-apps.yml",
+    "gentle-pediatrics-companion/build-apps.yml",
+    "helioprism/build-apps.yml",
+    "idle-city-ages-of-growth/build-apps.yml",
+    "kent-repertory-explorer/build-apps.yml",
+    "lockhtml/build-apps.yml",
+    "mnemosyne-companion/build-apps.yml",
+    "neon-games/build-apps.yml",
+    "neon-runner/build-apps.yml",
+    "offline-pdf-toolkit/build-apps.yml",
+    "open-materia-medica/build-apps.yml",
+    "read-live-transform-app/build-apps.yml",
+    "remedy-relationship-explorer/build-apps.yml",
+    "retro-strike/build-apps.yml",
+    "seance/build-apps.yml",
+    "skin-case-tracker/build-apps.yml",
+    "smartbill-app/build-apps.yml",
+    "the-symphony-companion/build-apps.yml",
+    "today-card/build-apps.yml",
+    "unstoppable-mind-companion/build-apps.yml",
+    "whispering-body-first-aid/build-apps.yml"
+   ],
+   "migrate_count": 32
+  },
+  {
+   "name": "Test",
+   "copies": 16,
+   "repos": 16,
+   "distinct_sizes": 4,
+   "spread_bytes": 389,
+   "drifted": true,
+   "canonical": "retro-strike/test.yml",
+   "canonical_bytes": 769,
+   "plan": "turn the 15 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "app-panchang/test.yml",
+    "astro-kit/test.yml",
+    "bmi-bmr-tdee-macros-fluid-calculator/test.yml",
+    "book-kit/test.yml",
+    "case-kit/test.yml",
+    "compress-kit/test.yml",
+    "crypto-kit/test.yml",
+    "game-kit/test.yml",
+    "lan-kit/test.yml",
+    "optical-kit/test.yml",
+    "repertory-kit/test.yml",
+    "search-kit/test.yml",
+    "srs-kit/test.yml",
+    "web-kit/test.yml",
+    "whispering-body-first-aid/test.yml"
+   ],
+   "migrate_count": 15
+  },
+  {
+   "name": "CI",
+   "copies": 9,
+   "repos": 9,
+   "distinct_sizes": 7,
+   "spread_bytes": 2465,
+   "drifted": true,
+   "canonical": "lockhtml/ci.yml",
+   "canonical_bytes": 2804,
+   "plan": "turn the 8 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "BLINKTRANSFER/ci.yml",
+    "ULTIMATE-WINDOWS-OPTIMIZER/ci.yml",
+    "aethelgard-rpg-engine/ci.yml",
+    "blinkcode-ai/ci.yml",
+    "conqueror-os/ci.yml",
+    "helioprism/ci.yml",
+    "lexora/ci.yml",
+    "neon-runner/ci.yml"
+   ],
+   "migrate_count": 8
+  },
+  {
+   "name": "test",
+   "copies": 4,
+   "repos": 4,
+   "distinct_sizes": 3,
+   "spread_bytes": 1753,
+   "drifted": true,
+   "canonical": "app-builder/test.yml",
+   "canonical_bytes": 2083,
+   "plan": "turn the 3 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "dashboard/test.yml",
+    "export-kit/test.yml",
+    "forge/test.yml"
+   ],
+   "migrate_count": 3
+  },
+  {
+   "name": "build",
+   "copies": 3,
+   "repos": 3,
+   "distinct_sizes": 3,
+   "spread_bytes": 14869,
+   "drifted": true,
+   "canonical": "app-builder/build.yml",
+   "canonical_bytes": 15805,
+   "plan": "turn the 2 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "forge/build.yml",
+    "idle-city-ages-of-growth/build.yml"
+   ],
+   "migrate_count": 2
+  }
+ ],
+ "cross_action": {
+  "races": [
+   {
+    "repo": "forge",
+    "writers": [
+     "backlog-status.yml",
+     "code-compression.yml",
+     "docs.yml",
+     "fanout.yml",
+     "health.yml",
+     "heartbeat.yml",
+     "intake.yml",
+     "kit-audit.yml",
+     "repo-learning.yml",
+     "self-diagnose.yml",
+     "self-update.yml"
+    ],
+    "count": 11,
+    "why": "11 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
+   },
+   {
+    "repo": "Matneo",
+    "writers": [
+     "blog.yml",
+     "store-images.yml",
+     "store.yml"
+    ],
+    "count": 3,
+    "why": "3 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
+   },
+   {
+    "repo": "skills",
+    "writers": [
+     "normalize.yml",
+     "refresh.yml"
+    ],
+    "count": 2,
+    "why": "2 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
+   }
+  ],
+  "loops": [],
+  "concurrency_collisions": [],
+  "permission_gaps": [
+   {
+    "repo": "forge",
+    "file": "new-app.yml",
+    "calls": "app-builder/.github/workflows/build.yml",
+    "scope": "contents",
+    "callee_wants": "write",
+    "caller_grants": "read",
+    "why": "the caller does not grant `contents: write`, which the reusable declares. A reusable cannot raise its own permissions above the caller's - it fails at RUN time, not at review time."
+   },
+   {
+    "repo": "forge",
+    "file": "new-app.yml",
+    "calls": "app-builder/.github/workflows/build.yml",
+    "scope": "pages",
+    "callee_wants": "write",
+    "caller_grants": null,
+    "why": "the caller does not grant `pages: write`, which the reusable declares. A reusable cannot raise its own permissions above the caller's - it fails at RUN time, not at review time."
+   },
+   {
+    "repo": "forge",
+    "file": "new-app.yml",
+    "calls": "app-builder/.github/workflows/build.yml",
+    "scope": "id-token",
+    "callee_wants": "write",
+    "caller_grants": null,
+    "why": "the caller does not grant `id-token: write`, which the reusable declares. A reusable cannot raise its own permissions above the caller's - it fails at RUN time, not at review time."
+   }
+  ],
+  "schedule_pileups": [
+   {
+    "cron": "0 5 * * *",
+    "count": 3,
+    "files": [
+     "app-builder/kit-tests.yml",
+     "forge/app-deliver.yml",
+     "forge/backlog-status.yml"
+    ]
+   }
+  ],
+  "totals": {
+   "races": 3,
+   "loops": 0,
+   "concurrency_collisions": 0,
+   "permission_gaps": 3,
+   "schedule_pileups": 1
+  }
+ }
+}

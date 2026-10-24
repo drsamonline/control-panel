@@ -70,7 +70,7 @@ def find(inv: dict) -> dict:
             gaps["un-runnable"].append({"repo": repo, "file": f, "name": name, "events": ev})
         if (w.get("triggers") or {}).get("crons") and "workflow_dispatch" not in ev:
             gaps["scheduled-but-not-runnable"].append({"repo": repo, "file": f, "name": name})
-        by_name[name].append((repo, f, w.get("bytes") or 0))
+        by_name[name].append((repo, f, w.get("bytes") or 0, w.get("signature") or ""))
 
     # DRIFT: the same name in several repos, with different sizes
     drift = []
@@ -80,9 +80,14 @@ def find(inv: dict) -> dict:
             continue
         sizes = sorted({c[2] for c in copies})
         spread = (sizes[-1] - sizes[0]) if len(sizes) > 1 else 0
+        # DRIFT IS ABOUT STRUCTURE, NOT BYTES. A byte spread can be nothing but the
+        # input values differing - 33 callers whose app_name is a different length look
+        # "drifted" by size and are in fact identical. Compare the SHAPE.
+        sigs = sorted({c[3] for c in copies if c[3]})
         drift.append({"name": name, "copies": len(copies), "repos": len(repos),
                       "distinct_sizes": len(sizes), "spread_bytes": spread,
-                      "drifted": spread > 0,
+                      "distinct_shapes": len(sigs),
+                      "drifted": len(sigs) > 1,
                       "example": repos[:6]})
     gaps["drift"] = sorted(drift, key=lambda d: (-d["repos"], -d["spread_bytes"]))
 

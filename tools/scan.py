@@ -114,6 +114,14 @@ def parse_workflow(path: str, text: str) -> dict:
     if isinstance(wc, dict) and isinstance(wc.get("inputs"), dict):
         rec["inputs"] = [{"name": k, "required": bool((v or {}).get("required")),
                           "default": (v or {}).get("default")} for k, v in wc["inputs"].items()]
+    conc = doc.get("concurrency")
+    groups = []
+    if isinstance(conc, str):
+        groups = [conc]
+    elif isinstance(conc, dict) and conc.get("group"):
+        groups = [str(conc["group"])]
+    rec["concurrency_groups"] = groups
+    rec["concurrency_cancels"] = bool(isinstance(conc, dict) and conc.get("cancel-in-progress"))
     perms = doc.get("permissions")
     if isinstance(perms, (str, dict)):
         rec["permissions"] = perms
@@ -133,6 +141,14 @@ def parse_workflow(path: str, text: str) -> dict:
             rec["jobs"].append(j)
             rec["steps_count"] += len(j["steps"])
         rec["jobs_count"] = len(rec["jobs"])
+        # a STRUCTURE signature: the job ids, their runners, and the step names. Two
+        # copies differing only in an input VALUE are the same workflow; two differing
+        # in SHAPE have drifted. Comparing bytes cannot tell the difference - 33 callers
+        # whose app_name is a different length look drifted by size and are identical.
+        rec["signature"] = "|".join(
+            "%s:%s:%s" % (j["id"], j.get("runs_on") or (j.get("uses") or "").split("@")[0],
+                          ",".join((s2.get("name") or s2.get("uses") or "run") for s2 in j["steps"]))
+            for j in sorted(rec["jobs"], key=lambda x: x["id"]))
     # a reusable workflow named in a `uses:` that is NOT a job-level call (rare) is
     # still a call; and any `uses:` anywhere that points at a workflow file is an edge
     for m in re.finditer(r"uses:\s*([\w.\-]+/[\w.\-]+/\.github/workflows/[\w.\-]+\.ya?ml)@([\w.\-/]+)", text):
@@ -172,6 +188,15 @@ def scan_tree(root: str) -> list:
                 "matrix": "matrix:" in text,
                 "cache": "cache:" in text,
                 "skip_ci": "[skip ci]" in text,
+                # the cross-action signals: a workflow that WRITES to a branch can race
+                # another one that does, and a workflow that both writes and is triggered
+                # by a push can loop.
+                "pushes": ("git push" in text or "gh release" in text or "git commit" in text),
+                "commits": ("git commit" in text),
+                "pulls": ("git pull" in text or "git fetch" in text or "rebase" in text),
+                "triggers_on_push": bool(re.search(r"on:[\s\S]{0,200}?push:", text)),
+                "pages_deploy": ("deploy-pages" in text),
+                "writes_paths": sorted(set(re.findall(r"git add[^\n]*?([\w./-]+\.(?:json|md|log|xml|yml|yaml|html|png))", text)))[:8],
             }
             recs.append(rec)
         out.append({"repo": repo, "workflows": recs})

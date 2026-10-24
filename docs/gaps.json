@@ -1124,6 +1124,7 @@
     "repos": 33,
     "distinct_sizes": 23,
     "spread_bytes": 393,
+    "distinct_shapes": 2,
     "drifted": true,
     "example": [
      "BLINKTRANSFER",
@@ -1140,6 +1141,7 @@
     "repos": 16,
     "distinct_sizes": 4,
     "spread_bytes": 389,
+    "distinct_shapes": 4,
     "drifted": true,
     "example": [
      "app-panchang",
@@ -1156,6 +1158,7 @@
     "repos": 9,
     "distinct_sizes": 7,
     "spread_bytes": 2465,
+    "distinct_shapes": 7,
     "drifted": true,
     "example": [
      "BLINKTRANSFER",
@@ -1172,6 +1175,7 @@
     "repos": 4,
     "distinct_sizes": 3,
     "spread_bytes": 1753,
+    "distinct_shapes": 3,
     "drifted": true,
     "example": [
      "app-builder",
@@ -1186,6 +1190,7 @@
     "repos": 3,
     "distinct_sizes": 3,
     "spread_bytes": 14869,
+    "distinct_shapes": 3,
     "drifted": true,
     "example": [
      "app-builder",
