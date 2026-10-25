@@ -115,7 +115,12 @@ def add_timeouts(text: str) -> str | None:
     while i < len(lines):
         ln = lines[i]
         out.append(ln)
-        m = re.match(r"^(\s{2,6})(runs-on|uses):", ln)
+        # ONLY runs-on. A `uses:` job - one that CALLS a reusable workflow - accepts
+        # name, uses, with, secrets, permissions, needs, if, strategy and concurrency, and
+        # NOTHING else. Adding timeout-minutes to it makes the workflow invalid, so the run
+        # is rejected at startup with no log. That mistake broke build-apps.yml across the
+        # apps for a day, which is why this line no longer matches `uses:`.
+        m = re.match(r"^(\s{2,6})(runs-on):", ln)
         if m:
             indent = m.group(1)
             # is a timeout already the next meaningful line? then skip
@@ -151,6 +156,16 @@ def sweep_one(text: str) -> tuple[str, list]:
             yaml.safe_load(new)
         except Exception:
             applied.append(f"{name}:DROPPED(would not parse)")
+            continue
+        # YAML parsing is not enough: a workflow can be valid YAML and still be an invalid
+        # workflow. Catch the one mistake this tool actually made.
+        for job in (yaml.safe_load(new).get("jobs") or {}).values():
+            if isinstance(job, dict) and job.get("uses") and "timeout-minutes" in job:
+                applied.append(f"{name}:DROPPED(timeout on a uses: job is invalid)")
+                break
+        else:
+            pass
+        if any("DROPPED" in x for x in applied[-1:]):
             continue
         text = new
         applied.append(name)
