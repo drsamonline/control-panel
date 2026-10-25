@@ -141,6 +141,43 @@ RULES = [("permissions", add_permissions), ("concurrency", add_concurrency),
          ("dispatch", add_dispatch), ("timeouts", add_timeouts)]
 
 
+def wf_problems(text):
+    """The workflow-schema check, imported from the sibling tool.
+
+    THE GATE. This sweep once added `timeout-minutes` to jobs whose only key is `uses:`,
+    which is not a legal key there - so ~35 workflows became INVALID. Every one still
+    parsed as YAML, the repo's own lint validated the YAML and passed, and GitHub rejected
+    each run at startup with no log. This tool edits live workflows at scale, so it must
+    not be able to write one that GitHub will refuse.
+
+    A copy of tools/wf-check.py's logic, kept small on purpose: if the sibling module is
+    present it is used, and if it is not, the one rule that actually bit is still enforced.
+    """
+    try:
+        import sys as _sys
+        _here = os.path.dirname(os.path.abspath(__file__))
+        if _here not in _sys.path:
+            _sys.path.insert(0, _here)
+        import wf_check as _w          # noqa: N813
+        return _w.check_text(text, "workflow")
+    except Exception:
+        pass
+    try:
+        d = yaml.safe_load(text)
+    except Exception as e:
+        return ["not valid YAML (%s)" % type(e).__name__]
+    USES_KEYS = {"name", "uses", "with", "secrets", "permissions", "needs", "if",
+                 "strategy", "concurrency"}
+    out = []
+    for job_id, job in ((d or {}).get("jobs") or {}).items():
+        if isinstance(job, dict) and job.get("uses"):
+            bad = sorted(set(job) - USES_KEYS)
+            if bad:
+                out.append("job `%s` CALLS a reusable workflow but carries %s"
+                           % (job_id, ", ".join(bad)))
+    return out
+
+
 def sweep_one(text: str) -> tuple[str, list]:
     """Apply each rule, keeping a change only if the result still parses."""
     applied = []
@@ -157,14 +194,12 @@ def sweep_one(text: str) -> tuple[str, list]:
         except Exception:
             applied.append(f"{name}:DROPPED(would not parse)")
             continue
-        # YAML parsing is not enough: a workflow can be valid YAML and still be an invalid
-        # workflow. Catch the one mistake this tool actually made.
-        for job in (yaml.safe_load(new).get("jobs") or {}).values():
-            if isinstance(job, dict) and job.get("uses") and "timeout-minutes" in job:
-                applied.append(f"{name}:DROPPED(timeout on a uses: job is invalid)")
-                break
-        else:
-            pass
+        # YAML validity is not workflow validity. Refuse to write a workflow GitHub
+        # would reject - the mistake that cost ~35 workflows a day of failures.
+        _probs = wf_problems(new)
+        if _probs:
+            applied.append(f"{name}:DROPPED({_probs[0][:60]})")
+            continue
         if any("DROPPED" in x for x in applied[-1:]):
             continue
         text = new
