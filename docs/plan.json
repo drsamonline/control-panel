@@ -1,5 +1,5 @@
 {
- "what": "The grand pipeline: scratch -> build -> deliver -> repair, and the routes through it.",
+ "what": "The grand pipeline: scratch -> build -> deliver -> repair, and the routes through it. Each stage is guarded, and every guard exists because something got past it once.",
  "stages": [
   {
    "id": "scratch",
@@ -2228,5 +2228,31 @@
   "scheduled": 8,
   "dispatchable": 93,
   "inputs_for_the_two_everyday_routes": 1
- }
+ },
+ "guards": [
+  {
+   "name": "The workflow schema",
+   "where": "forge/.github/workflows/lint.yml (schema job) + tools/wf-check.py",
+   "catches": "a workflow GitHub would REJECT - valid YAML, invalid workflow",
+   "why": "the control panel's sweep put timeout-minutes on jobs whose only key is `uses:`, invalidating ~35 workflows. Every one parsed as YAML, the repo's own lint validated the YAML and PASSED, and GitHub refused each run at startup with no log."
+  },
+  {
+   "name": "The demo is the app",
+   "where": "app-builder/.github/workflows/build.yml (demo job) + forge/tools/app-deliver.py --sync-demos",
+   "catches": "a public demo running OLDER code than the app",
+   "why": "skin-case-tracker, conqueror-os and smartbill-app all shipped a demo that was not the maintained code. smartbill's was missing 17 functions, including GSTIN validation. The demo IS the app plus an SEO block: strip the block and compare the rest."
+  },
+  {
+   "name": "One licence, everywhere",
+   "where": "forge/.github/workflows/licence.yml + tools/licence.py + registry/licence-policy.json",
+   "catches": "a repo whose four licence statements disagree - and a DEFAULT licence that should have been a CHOICE",
+   "why": "a repo that contradicts itself about its licence is worse than one that is merely out of date. And a blanket conversion relicensed sellable private code as a public noncommercial licence, so the deliberate ones are now recorded and skipped."
+  },
+  {
+   "name": "A spec before a scaffold",
+   "where": "forge/.github/workflows/new-app.yml (Rule 0) + scripts/intake.py",
+   "catches": "an idea with no spec, or a draft spec",
+   "why": "of 153 apps, 129 had no spec and 17 had a draft, so the auto-build could reach SEVEN - and nothing anywhere reported a problem."
+  }
+ ]
 }
