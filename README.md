@@ -81,4 +81,4 @@ what the workflows actually are.
 
 ## Licence
 
-MIT — see `LICENSE`. © 2026 Dr Sohil Momin.
+PolyForm Noncommercial — see `LICENSE`. © 2026 Dr Sohil Momin.
