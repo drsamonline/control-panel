@@ -41,6 +41,23 @@ except ImportError:  # pragma: no cover
 # --------------------------------------------------------------------------- #
 # parsing one workflow
 # --------------------------------------------------------------------------- #
+
+def _schema_problems(text):
+    """The workflow-schema check, shared with the lint and the sweep.
+
+    Valid YAML is not a valid WORKFLOW. A file can parse and still be refused at startup
+    with no log - which is how ~35 workflows broke on 2026-10-25, when a sweep put
+    timeout-minutes on a job whose only key is `uses:`. The scan asked "does it parse?";
+    the question is "will it run?".
+    """
+    try:
+        import sys as _s, os as _o
+        _s.path.insert(0, _o.path.dirname(_o.path.abspath(__file__)))
+        import wf_check
+        return wf_check.check_text(text, "workflow")
+    except Exception:
+        return []
+
 def _triggers(doc) -> dict:
     """`on:` is a string, a list, or a mapping - normalise it to a dict."""
     on = doc.get("on", doc.get(True, None))  # YAML turns a bare `on:` key into True
@@ -181,7 +198,12 @@ def scan_tree(root: str) -> list:
             rec = parse_workflow(fn, text)
             rec["bytes"] = len(text)
             # body-level flags, so the gap analysis does not have to re-read the file
+            # Would GitHub ACCEPT it, not merely parse it? A workflow can be valid YAML and
+            # still be refused at startup with no log - which is how ~35 workflows broke on
+            # 2026-10-25, when a sweep put timeout-minutes on a job whose only key is `uses:`.
+            rec["schema_problems"] = _schema_problems(text)
             rec["flags"] = {
+                "invalid_workflow": bool(rec["schema_problems"]),
                 "timeout": "timeout-minutes" in text,
                 "concurrency": "concurrency" in text,
                 "permissions": ("permissions:" in text),
