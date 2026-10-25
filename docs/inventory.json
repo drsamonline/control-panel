@@ -2930,7 +2930,7 @@
         {
          "name": "run",
          "run": "set -euo pipefail",
-         "shell_lines": 12
+         "shell_lines": 23
         }
        ]
       },
@@ -3058,7 +3058,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "apk:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-java@v4,gradle/actions/setup-gradle@v4,run,run,run,run,actions/upload-artifact@v4|exe:windows-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-python@v5,run,run,Verify the EXE we ship,actions/upload-artifact@v4|linux:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-python@v5,run,Build the Linux binary,Smoke-test it - it must actually SERVE the app,actions/upload-artifact@v4|pages:ubuntu-latest:actions/checkout@v4,Fail early if there is nothing to publish,Enable Pages if it is not on yet,actions/configure-pages@v5,actions/upload-pages-artifact@v3,actions/deploy-pages@v4|release:ubuntu-latest:actions/download-artifact@v4,actions/download-artifact@v4,actions/download-artifact@v4,run|shot:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-node@v4,run,Capture it, and put it in the README|version:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,Consume the pending change files,Commit the version and the changelog,Publish the versioned release",
-     "bytes": 16065,
+     "bytes": 16810,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
