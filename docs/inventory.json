@@ -526,7 +526,9 @@
      "concurrency_cancels": true,
      "signature": "build:windows-latest:Check out the repository,Set up Python,Install build dependencies,Verify build script exists,Automated single-file build,List dist folder (debug),Upload build artifact,Update latest-build pre-release (all pushes),Attach to GitHub Release",
      "bytes": 4331,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -621,7 +623,9 @@
      "concurrency_cancels": true,
      "signature": "validate:ubuntu-latest:Check out the repository,Set up Python,Install tooling,Ruff lint (advisory - non-blocking),No committed build/cache artifacts,Catalogues are up to date,Static release audit,Behavioral smoke tests",
      "bytes": 2808,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -678,7 +682,9 @@
      "concurrency_cancels": false,
      "signature": "deploy:reusable:",
      "bytes": 1416,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -741,7 +747,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1404,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -827,7 +835,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,run,run,run",
      "bytes": 510,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -1093,7 +1103,9 @@
      "concurrency_cancels": false,
      "signature": "check:${{ matrix.os }}:actions/checkout@v4,Install Rust toolchain,Cache cargo registry + target dir,Build (release),Run tests,Self-test (headless),rustfmt check,clippy|installer:windows-latest:actions/checkout@v4,Download the Windows portable build,Unpack portable archive,Install Inno Setup,Determine version,Build installer,Upload installer artifact|publish:ubuntu-latest:actions/checkout@v4,Determine release tag,Download all artifacts,Generate SHA256SUMS,Attest build provenance,Create / update release|release:${{ matrix.job.os }}:actions/checkout@v4,Install Rust toolchain (${{ matrix.job.target }}),Cache cargo registry + target dir,Verify tag matches Cargo.toml version,Install cross toolchain (aarch64-linux),Build (release, ${{ matrix.job.target }}),Package (Windows),Package (Linux),Upload portable artifact",
      "bytes": 11213,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -1150,7 +1162,9 @@
      "concurrency_cancels": false,
      "signature": "deploy:reusable:",
      "bytes": 1325,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -1415,7 +1429,9 @@
      "concurrency_cancels": true,
      "signature": "build-installer-windows:windows-latest:actions/checkout@v4,actions/setup-python@v5,Install dependencies + PyInstaller,Build server EXE,Build installer (Inno Setup, NSIS fallback),Smoke-test server EXE (first-run bootstrap + health),actions/upload-artifact@v4,actions/upload-artifact@v4|build-server-linux:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install dependencies + PyInstaller,Build one-file bundle,Smoke-test bundle (first-run bootstrap + health),actions/upload-artifact@v4|release:ubuntu-latest:actions/checkout@v4,actions/download-artifact@v4,Compute SHA-256 checksums,Upload combined latest-build artifact,Resolve release target,Reset rolling nightly release + tag,Generate release notes,Publish release|test:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install dependencies,Run full backend suite",
      "bytes": 9824,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -1478,7 +1494,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1413,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -1563,7 +1581,9 @@
      "concurrency_cancels": false,
      "signature": "refresh:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,Regenerate,Commit if changed",
      "bytes": 1120,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -1631,7 +1651,9 @@
      "concurrency_cancels": false,
      "signature": "validate:ubuntu-latest:actions/checkout@v4,Validate data/products.json",
      "bytes": 2008,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -1727,7 +1749,9 @@
      "concurrency_cancels": false,
      "signature": "images:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install the tools,Capture each product's live page, deterministically,Generate the deterministic set,Check the budget, the alt text and the loading,Point each product at its generated image,Commit if changed",
      "bytes": 6874,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -1807,7 +1831,9 @@
      "concurrency_cancels": false,
      "signature": "refresh:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,Regenerate,Commit if changed",
      "bytes": 1134,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -1881,7 +1907,9 @@
      "concurrency_cancels": false,
      "signature": "rust-workspace:ubuntu-latest:actions/checkout@v4,dtolnay/rust-toolchain@stable,run,run",
      "bytes": 298,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": false,
       "permissions": false,
@@ -1991,7 +2019,9 @@
      "concurrency_cancels": false,
      "signature": "validate:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Syntax-check every JavaScript module,Validate manifest,Run the smoke test,Build every browser target,Smoke-test each built package,Package the builds,actions/upload-artifact@v4",
      "bytes": 1740,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -2247,7 +2277,9 @@
      "concurrency_cancels": true,
      "signature": "build-windows:windows-latest:Checkout Repository,Setup MSBuild,Setup CMake,Restore vcpkg binary cache,Restore vcpkg installed tree,Bootstrap repository-local vcpkg,Prime HSTS preload data,Initialize Visual Studio environment,Locate clang-cl,Configure Release,Verify clang-cl toolchain,Build Release,Test Release,Save vcpkg binary cache,Save vcpkg installed tree cache,Package Windows build,Upload CI artifact,Publish tagged release|test-standalone:ubuntu-latest:Checkout Repository,Install dependencies,Configure,Build,Test,Smoke-run the aetheris executable|test-windows-standalone:windows-latest:Checkout Repository,Add MSVC to PATH,Configure,Build,Test,Smoke-run the aetheris executable",
      "bytes": 14805,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -2302,7 +2334,9 @@
      "concurrency_cancels": false,
      "signature": "deploy:reusable:",
      "bytes": 1228,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -2380,7 +2414,9 @@
      "concurrency_cancels": false,
      "signature": "test:windows-latest:Checkout,Install Pester 5.7.1,Run Pester tests,PSScriptAnalyzer (informational)",
      "bytes": 1585,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -2453,7 +2489,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:|pages:reusable:",
      "bytes": 1766,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -2543,7 +2581,9 @@
      "concurrency_cancels": false,
      "signature": "syntax-and-tests:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Syntax-check every JS file,Validate JSON files,Run test suites,Static audit (repo root)",
      "bytes": 1504,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -2606,7 +2646,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1411,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -3017,7 +3059,9 @@
      "concurrency_cancels": false,
      "signature": "apk:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-java@v4,gradle/actions/setup-gradle@v4,run,run,run,run,actions/upload-artifact@v4|exe:windows-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-python@v5,run,run,Verify the EXE we ship,actions/upload-artifact@v4|linux:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-python@v5,run,Build the Linux binary,Smoke-test it - it must actually SERVE the app,actions/upload-artifact@v4|pages:ubuntu-latest:actions/checkout@v4,Fail early if there is nothing to publish,Enable Pages if it is not on yet,actions/configure-pages@v5,actions/upload-pages-artifact@v3,actions/deploy-pages@v4|release:ubuntu-latest:actions/download-artifact@v4,actions/download-artifact@v4,actions/download-artifact@v4,run|shot:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-node@v4,run,Capture it, and put it in the README|version:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,Consume the pending change files,Commit the version and the changelog,Publish the versioned release",
      "bytes": 16065,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -3110,7 +3154,9 @@
      "concurrency_cancels": false,
      "signature": "discover:ubuntu-latest:run|test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 2304,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -3197,7 +3243,9 @@
      "concurrency_cancels": true,
      "signature": "deploy:ubuntu-latest:actions/checkout@v4,Fail early if there is nothing to publish,actions/configure-pages@v5,actions/upload-pages-artifact@v3,actions/deploy-pages@v4",
      "bytes": 1972,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -3291,7 +3339,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,Workflow files are valid YAML,The app entry point exists,Run the repo's own tests, if it has any,Internal links must resolve,External links (report only)",
      "bytes": 2254,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -3354,7 +3404,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1406,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -3417,7 +3469,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1120,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -3485,7 +3539,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run the suite",
      "bytes": 350,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": false,
       "permissions": true,
@@ -3548,7 +3604,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1373,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -3618,7 +3676,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -3689,7 +3749,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run",
      "bytes": 284,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": false,
       "permissions": false,
@@ -3764,7 +3826,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -3835,7 +3899,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run",
      "bytes": 284,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": false,
       "permissions": false,
@@ -3937,7 +4003,9 @@
      "concurrency_cancels": false,
      "signature": "dump:ubuntu-latest:actions/checkout@v4,Is the backup token set?,Snapshot the pre-merge state",
      "bytes": 2814,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -4000,7 +4068,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1403,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -4086,7 +4156,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,run,run,run",
      "bytes": 510,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -4149,7 +4221,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1427,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -4224,7 +4298,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,run",
      "bytes": 601,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -4287,7 +4363,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1409,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -4362,7 +4440,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -4425,7 +4505,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1402,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -4500,7 +4582,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -4563,7 +4647,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1400,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -4638,7 +4724,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -4701,7 +4789,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1403,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -4832,7 +4922,9 @@
      "concurrency_cancels": false,
      "signature": "dist-in-sync:ubuntu-latest:actions/checkout@v7,actions/setup-node@v7,run,run,Fail if build output differs from committed build|test-and-build:ubuntu-latest:Checkout,Set up Node.js,Install dev dependencies,Run smoke suite,Build single-file app,Verify build output exists,Upload build artifact",
      "bytes": 1843,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -4967,7 +5059,9 @@
      "concurrency_cancels": false,
      "signature": "pages:ubuntu-latest:actions/checkout@v4,actions/configure-pages@v5,actions/upload-pages-artifact@v3,actions/deploy-pages@v4|scan:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,run,The tools' own tests, first,Fetch every workflow in every repo,Inventory it,Plan it,Commit the fresh inventory",
      "bytes": 2261,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -5044,7 +5138,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -5107,7 +5203,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1402,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -5194,7 +5292,9 @@
      "concurrency_cancels": false,
      "signature": "refresh:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,Regenerate,Commit if changed",
      "bytes": 3466,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -5269,7 +5369,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,run",
      "bytes": 477,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -5369,7 +5471,9 @@
      "concurrency_cancels": true,
      "signature": "github-metrics:ubuntu-latest:Light card -> assets/metrics-light.svg,Dark card -> assets/metrics-dark.svg",
      "bytes": 6845,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -5438,7 +5542,9 @@
      "concurrency_cancels": true,
      "signature": "update:ubuntu-latest:Checkout,Regenerate marked README regions,Commit if changed",
      "bytes": 917,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -5540,7 +5646,9 @@
      "concurrency_cancels": true,
      "signature": "refresh:ubuntu-latest:Check out the repository,Set up Python,Install Python dependencies,Install Chromium for Playwright,Build data (repos.json + embedded snapshot + sitemap + JSON-LD),Capture local thumbnails (assets/shots/*.webp),Commit the refreshed hub",
      "bytes": 2709,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -5615,7 +5723,9 @@
      "concurrency_cancels": false,
      "signature": "node:ubuntu-latest:actions/checkout@v4,Run the unit tests,Check the built ZIP with the system unzip",
      "bytes": 675,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -5690,7 +5800,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -5753,7 +5865,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1418,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -5816,7 +5930,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1401,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -5902,7 +6018,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,run,run,run",
      "bytes": 510,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -5965,7 +6083,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1415,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -6045,7 +6165,9 @@
      "concurrency_cancels": false,
      "signature": "verify-bundles:ubuntu-latest:Checkout,Set up Node.js,Install dev dependencies,Rebuild single-file bundles,Fail if committed bundles differ from src/",
      "bytes": 1107,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -6108,7 +6230,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1414,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -6183,7 +6307,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -6268,7 +6394,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install package + dev dependencies,Run test suite,Internal link check",
      "bytes": 1217,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -6331,7 +6459,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1399,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -6501,7 +6631,9 @@
      "concurrency_cancels": false,
      "signature": "browser:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,actions/setup-node@v4,browser-actions/setup-chrome@v1,Install,Embedded + streaming containers in a real browser,GUI code path, verified by the Python core|gui:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,actions/setup-node@v4,Install,Rebuild and minify, then check the committed assets are current,Lock a file with the GUI code path,Confirm the CLI can open a GUI-locked file|test:${{ matrix.os }}:actions/checkout@v4,actions/setup-python@v5,Install,Run tests",
      "bytes": 2999,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -6600,7 +6732,9 @@
      "concurrency_cancels": false,
      "signature": "build:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Build wheel and sdist,actions/upload-artifact@v4|publish:ubuntu-latest:actions/download-artifact@v4,Publish to PyPI",
      "bytes": 1722,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -6671,7 +6805,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run",
      "bytes": 284,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": false,
       "permissions": false,
@@ -6734,7 +6870,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1410,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -6824,7 +6962,9 @@
      "concurrency_cancels": false,
      "signature": "headless:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Install Chromium,Install puppeteer-core,Syntax check every module,Headless smoke test",
      "bytes": 943,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -6897,7 +7037,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:|pages:reusable:",
      "bytes": 1764,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -6960,7 +7102,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1402,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -7065,7 +7209,9 @@
      "concurrency_cancels": false,
      "signature": "audit:ubuntu-latest:Checkout,Set up Node,Install dev dependencies,Build the single-file game,Run the core harness,Run the full audit,Minify and verify the minified bundle,Check balance has not regressed,Upload the built game",
      "bytes": 1364,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -7128,7 +7274,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1410,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -7191,7 +7339,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1410,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -7266,7 +7416,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -7329,7 +7481,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1414,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -7458,7 +7612,9 @@
      "concurrency_cancels": false,
      "signature": "build:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,actions/setup-java@v4,Set up Android SDK,Prepare web asset,Add Android platform,Point Gradle at the SDK,Sync,Build debug APK,Collect APK,actions/upload-artifact@v4,Attach to release",
      "bytes": 2408,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -7516,7 +7672,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1419,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -7626,7 +7784,9 @@
      "concurrency_cancels": false,
      "signature": "build:${{ matrix.os }}:actions/checkout@v4,actions/setup-node@v4,dtolnay/rust-toolchain@stable,Linux deps,Prepare web asset,Generate icons,Build,Collect bundles,actions/upload-artifact@v4,Attach to release",
      "bytes": 1793,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -7701,7 +7861,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -7764,7 +7926,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1403,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -7839,7 +8003,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Install build dependency,Run tests",
      "bytes": 916,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -7902,7 +8068,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1392,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -7977,7 +8145,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -8051,7 +8221,9 @@
      "concurrency_cancels": false,
      "signature": "normalize:ubuntu-latest:actions/checkout@v4,run,Commit if changed",
      "bytes": 879,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -8125,7 +8297,9 @@
      "concurrency_cancels": true,
      "signature": "refresh:ubuntu-latest:Check out the repository,Refresh meta.json SHAs and catalog.json,Refresh the embedded fallback snapshot in docs/index.html,Commit the refresh (only if something changed)",
      "bytes": 7016,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -8194,7 +8368,9 @@
      "concurrency_cancels": false,
      "signature": "validate:ubuntu-latest:actions/checkout@v4,run",
      "bytes": 596,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -8257,7 +8433,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1408,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -8320,7 +8498,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1404,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -8395,7 +8575,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -8458,7 +8640,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1413,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -8521,7 +8705,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1396,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -8602,7 +8788,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,run,run",
      "bytes": 338,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": false,
       "permissions": false,
@@ -8665,7 +8853,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1417,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -8740,7 +8930,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
      "bytes": 592,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
@@ -8803,7 +8995,9 @@
      "concurrency_cancels": true,
      "signature": "app:reusable:",
      "bytes": 1408,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": false,
       "concurrency": true,
       "permissions": true,
@@ -8878,7 +9072,9 @@
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Install test tooling,Run tests",
      "bytes": 527,
+     "schema_problems": [],
      "flags": {
+      "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
