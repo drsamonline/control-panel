@@ -81,6 +81,9 @@ a{color:var(--acc)}
   <div class="sec">Where one workflow breaks another</div>
   <div id="crossBox"></div>
 
+  <div class="sec">The guards — each exists because something got past it once</div>
+  <div id="guardBox"></div>
+
   <div class="sec">What is not connected</div>
   <div id="findings"></div>
 
@@ -186,6 +189,14 @@ fetch('interactions.json',{cache:'no-store'}).then(function(r){return r.json();}
     }).join('');
   }
 }).catch(function(e){ document.getElementById('crossBox').innerHTML='<div class="find">could not read interactions.json</div>'; });
+</script>
+<script>
+fetch('plan.json',{cache:'no-store'}).then(r=>r.json()).then(p=>{
+  var g=(p.guards||[]).map(x=>'<div class="find ok"><b>'+esc(x.name)+'</b><br><span class="repo">'
+    +esc(x.catches)+'</span><br><span class="repo"><i>'+esc(x.where)+'</i></span>'
+    +'<br><span class="repo">Why: '+esc(x.why)+'</span></div>').join('');
+  document.getElementById('guardBox').innerHTML=g||'<div class="find">no guards recorded</div>';
+}).catch(e=>{document.getElementById('guardBox').innerHTML='<div class="find">could not read plan.json</div>';});
 </script>
 </body>
 </html>
