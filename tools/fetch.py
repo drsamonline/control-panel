@@ -91,7 +91,8 @@ def main(argv=None):
     # "repos_without_workflows" could never be non-empty and the panel reported itself
     # complete while covering 69 of 83. Every repository attempted is recorded here with
     # its outcome, and scan.py reads this file as the universe.
-    manifest = {"scope": scope, "scope_note": scope_note, "attempted": len(rs), "repos": []}
+    manifest = {"scope": scope, "scope_note": scope_note, "attempted": len(rs), "repos": [],
+                "unreadable_workflows": []}
     for r in rs:
         name, branch = r["name"], r.get("default_branch") or "main"
         t = api(f"/repos/{OWNER}/{name}/git/trees/{branch}?recursive=1", token)
@@ -110,11 +111,18 @@ def main(argv=None):
         for p in wfs:
             blob = api(f"/repos/{OWNER}/{name}/contents/{p}?ref={branch}", token)
             if isinstance(blob, dict) and blob.get("_error"):
+                # A WORKFLOW THAT COULD NOT BE READ IS NOT A WORKFLOW THAT IS FINE.
+                # This `continue`d, so the file simply was not in the tree and scan.py
+                # could not count it - the inventory looked complete and was not.
+                manifest["unreadable_workflows"].append(
+                    {"repo": name, "path": p, "reason": "contents: %s" % blob.get("_error")})
                 continue
             try:
                 import base64
                 text = base64.b64decode(blob["content"]).decode("utf-8", "replace")
-            except Exception:
+            except Exception as e:
+                manifest["unreadable_workflows"].append(
+                    {"repo": name, "path": p, "reason": "decode: %s" % type(e).__name__})
                 continue
             dst = os.path.join(a.out, name, p)
             os.makedirs(os.path.dirname(dst), exist_ok=True)
@@ -135,6 +143,13 @@ def main(argv=None):
         # workflow was green while covering whatever the token happened to reach.
         print(f"::error::{len(skipped)} repositories could not be read; the inventory is "
               f"INCOMPLETE", file=sys.stderr)
+        return 1
+    if manifest["unreadable_workflows"]:
+        for u in manifest["unreadable_workflows"][:8]:
+            print(f"  UNREADABLE {u['repo']}/{u['path']}: {u['reason']}")
+        print(f"::error::%d workflow files could not be read; the inventory is INCOMPLETE "
+              "even though every repository answered" % len(manifest["unreadable_workflows"]),
+              file=sys.stderr)
         return 1
     return 0
 
