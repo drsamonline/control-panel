@@ -165,7 +165,7 @@
      ],
      "dispatchable": true,
      "jobs": 3,
-     "steps": 10
+     "steps": 11
     },
     {
      "repo": "skills",
@@ -635,7 +635,7 @@
      ],
      "dispatchable": true,
      "jobs": 3,
-     "steps": 10
+     "steps": 11
     },
     {
      "repo": "forge",
@@ -1555,7 +1555,7 @@
      ],
      "dispatchable": true,
      "jobs": 3,
-     "steps": 10
+     "steps": 11
     },
     {
      "repo": "forge",
@@ -2665,7 +2665,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 7
+     "steps": 8
     },
     {
      "repo": "forge",
@@ -2817,7 +2817,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 7
+     "steps": 8
     },
     {
      "repo": "forge",
@@ -2979,7 +2979,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 7
+     "steps": 8
     },
     {
      "repo": "forge",

@@ -23,7 +23,7 @@
   "schema_check_error": "",
   "invalid_workflows": [],
   "jobs": 167,
-  "steps": 611,
+  "steps": 613,
   "edges": 46,
   "dangling_calls": [],
   "orphan_reusables": [
@@ -2125,7 +2125,7 @@
      "reusable": false,
      "inputs": [],
      "permissions": {
-      "contents": "write",
+      "contents": "read",
       "actions": "read"
      },
      "jobs_count": 1,
@@ -2135,7 +2135,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "validate:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Syntax-check every JavaScript module,Validate manifest,Run the smoke test,Build every browser target,Smoke-test each built package,Package the builds,actions/upload-artifact@v4",
-     "bytes": 1740,
+     "bytes": 2114,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7785,6 +7785,11 @@
          "shell_lines": 1
         },
         {
+         "name": "The rule suite, and every other tool's own tests",
+         "run": "# THE 24-ASSERTION RULE SUITE HAS NEVER RUN IN CI. `tools/forge_rules.py`",
+         "shell_lines": 11
+        },
+        {
          "name": "Every workflow would be ACCEPTED, not merely parsed",
          "run": "python3 tools/wf-check.py",
          "shell_lines": 1
@@ -7799,13 +7804,13 @@
       "contents": "read"
      },
      "jobs_count": 3,
-     "steps_count": 10,
+     "steps_count": 11,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "schema:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install PyYAML,The checker's own tests,Every workflow would be ACCEPTED, not merely parsed|shell:ubuntu-latest:actions/checkout@v4,Install ShellCheck,Lint every run block and every shell script|yaml:ubuntu-latest:actions/checkout@v4,Every workflow parses",
-     "bytes": 3342,
+     "signature": "schema:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install PyYAML,The checker's own tests,The rule suite, and every other tool's own tests,Every workflow would be ACCEPTED, not merely parsed|shell:ubuntu-latest:actions/checkout@v4,Install ShellCheck,Lint every run block and every shell script|yaml:ubuntu-latest:actions/checkout@v4,Every workflow parses",
+     "bytes": 4060,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8287,6 +8292,11 @@
          "shell_lines": 2
         },
         {
+         "name": "Tell someone (F-25 / F-55)",
+         "run": "# THE DETECTION EXISTED; THE NOTIFICATION DID NOT.",
+         "shell_lines": 49
+        },
+        {
          "name": "Commit the report",
          "run": "git config user.name  \"forge-agent\"",
          "shell_lines": 7
@@ -8298,16 +8308,17 @@
      "reusable": false,
      "inputs": [],
      "permissions": {
-      "contents": "write"
+      "contents": "write",
+      "issues": "write"
      },
      "jobs_count": 1,
-     "steps_count": 7,
+     "steps_count": 8,
      "concurrency_groups": [
       "self-diagnose"
      ],
      "concurrency_cancels": false,
-     "signature": "diagnose:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Do the rules still hold?,Check the token has the quota for this,Diagnose the machinery,Record the run,Commit the report",
-     "bytes": 4200,
+     "signature": "diagnose:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Do the rules still hold?,Check the token has the quota for this,Diagnose the machinery,Record the run,Tell someone (F-25 / F-55),Commit the report",
+     "bytes": 7464,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8354,7 +8365,7 @@
         {
          "name": "Re-run recent transient failures (once each)",
          "run": "set -uo pipefail",
-         "shell_lines": 17
+         "shell_lines": 28
         },
         {
          "name": "Escalate anything that has failed twice",
@@ -8407,7 +8418,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "heal:ubuntu-latest:Re-run recent transient failures (once each),Escalate anything that has failed twice|killswitch:ubuntu-latest:actions/checkout@v4,Guard,1. STOP - cancel everything running,2. REVERSE - what the mode asks for",
-     "bytes": 8436,
+     "bytes": 9372,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8472,7 +8483,7 @@
         {
          "name": "Commit the report",
          "run": "git config user.name  \"forge-agent\"",
-         "shell_lines": 7
+         "shell_lines": 17
         }
        ]
       }
@@ -8490,7 +8501,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "check:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Do the rules still hold?,Which pins are behind?,Commit the report",
-     "bytes": 1470,
+     "bytes": 2190,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8502,7 +8513,7 @@
       "skip_ci": false,
       "pushes": true,
       "commits": true,
-      "pulls": false,
+      "pulls": true,
       "triggers_on_push": false,
       "pages_deploy": false,
       "writes_paths": [
