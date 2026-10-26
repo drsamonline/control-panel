@@ -1143,7 +1143,7 @@
       "matrix": true,
       "cache": false,
       "skip_ci": false,
-      "pushes": true,
+      "pushes": false,
       "commits": false,
       "pulls": false,
       "triggers_on_push": true,
@@ -1761,7 +1761,7 @@
         {
          "name": "Commit if changed",
          "run": "if git diff --quiet; then echo \"no change\"; exit 0; fi",
-         "shell_lines": 11
+         "shell_lines": 21
         }
        ]
       }
@@ -1779,7 +1779,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "images:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install the tools,Capture each product's live page, deterministically,Generate the deterministic set,Check the budget, the alt text and the loading,Point each product at its generated image,Commit if changed",
-     "bytes": 6874,
+     "bytes": 7512,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -1791,7 +1791,7 @@
       "skip_ci": true,
       "pushes": true,
       "commits": true,
-      "pulls": false,
+      "pulls": true,
       "triggers_on_push": false,
       "pages_deploy": false,
       "writes_paths": []
@@ -2315,7 +2315,7 @@
       "concurrency": true,
       "permissions": true,
       "matrix": false,
-      "cache": true,
+      "cache": false,
       "skip_ci": false,
       "pushes": false,
       "commits": false,
@@ -2369,7 +2369,7 @@
      "flags": {
       "invalid_workflow": false,
       "timeout": false,
-      "concurrency": true,
+      "concurrency": false,
       "permissions": true,
       "matrix": false,
       "cache": false,
@@ -2914,7 +2914,7 @@
         {
          "name": "Commit the version and the changelog",
          "run": "git config user.name  \"forge-bot\"",
-         "shell_lines": 5
+         "shell_lines": 15
         },
         {
          "name": "Publish the versioned release",
@@ -3080,7 +3080,7 @@
         {
          "name": "Capture it, and put it in the README",
          "run": "set -uo pipefail",
-         "shell_lines": 14
+         "shell_lines": 24
         }
        ]
       }
@@ -3128,7 +3128,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "apk:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-java@v4,gradle/actions/setup-gradle@v4,run,run,run,run,actions/upload-artifact@v4|demo:ubuntu-latest:actions/checkout@v4,Compare the demo to the app|exe:windows-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-python@v5,run,run,Verify the EXE we ship,actions/upload-artifact@v4|linux:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-python@v5,run,Build the Linux binary,Smoke-test it - it must actually SERVE the app,actions/upload-artifact@v4|pages:ubuntu-latest:actions/checkout@v4,Fail early if there is nothing to publish,Enable Pages if it is not on yet,actions/configure-pages@v5,actions/upload-pages-artifact@v3,actions/deploy-pages@v4|parity:ubuntu-latest:actions/checkout@v4,Compare the app against its base|release:ubuntu-latest:actions/download-artifact@v4,actions/download-artifact@v4,actions/download-artifact@v4,run|shot:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-node@v4,run,Capture it, and put it in the README|version:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,Consume the pending change files,Commit the version and the changelog,Publish the versioned release",
-     "bytes": 23144,
+     "bytes": 24440,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -3141,7 +3141,7 @@
       "pushes": true,
       "commits": true,
       "pulls": true,
-      "triggers_on_push": true,
+      "triggers_on_push": false,
       "pages_deploy": true,
       "writes_paths": [
        "CHANGELOG.md",
@@ -5370,7 +5370,7 @@
         {
          "name": "Commit the fresh inventory",
          "run": "git config user.name  \"forge-bot\"",
-         "shell_lines": 7
+         "shell_lines": 17
         }
        ]
       },
@@ -5418,7 +5418,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "pages:ubuntu-latest:actions/checkout@v4,actions/configure-pages@v5,actions/upload-pages-artifact@v3,actions/deploy-pages@v4|scan:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,run,The tools' own tests, first,Fetch every workflow in every repo,Inventory it,Plan it,Commit the fresh inventory",
-     "bytes": 2261,
+     "bytes": 2919,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5430,7 +5430,7 @@
       "skip_ci": true,
       "pushes": true,
       "commits": true,
-      "pulls": false,
+      "pulls": true,
       "triggers_on_push": true,
       "pages_deploy": true,
       "writes_paths": [
@@ -5883,7 +5883,7 @@
         {
          "name": "Commit if changed",
          "run": "git config user.name  \"github-actions[bot]\"",
-         "shell_lines": 9
+         "shell_lines": 19
         }
        ]
       }
@@ -5899,9 +5899,9 @@
      "concurrency_groups": [
       "update-profile-readme"
      ],
-     "concurrency_cancels": true,
+     "concurrency_cancels": false,
      "signature": "update:ubuntu-latest:Checkout,Regenerate marked README regions,Commit if changed",
-     "bytes": 917,
+     "bytes": 1628,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5913,7 +5913,7 @@
       "skip_ci": false,
       "pushes": true,
       "commits": true,
-      "pulls": false,
+      "pulls": true,
       "triggers_on_push": false,
       "pages_deploy": false,
       "writes_paths": [
@@ -5987,7 +5987,7 @@
         {
          "name": "Commit the refreshed hub",
          "run": "git config user.name \"github-actions[bot]\"",
-         "shell_lines": 9
+         "shell_lines": 19
         }
        ]
       }
@@ -6003,9 +6003,9 @@
      "concurrency_groups": [
       "refresh-hub"
      ],
-     "concurrency_cancels": true,
+     "concurrency_cancels": false,
      "signature": "refresh:ubuntu-latest:Check out the repository,Set up Python,Install Python dependencies,Install Chromium for Playwright,Build data (repos.json + embedded snapshot + sitemap + JSON-LD),Capture local thumbnails (assets/shots/*.webp),Commit the refreshed hub",
-     "bytes": 2709,
+     "bytes": 3400,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -6017,7 +6017,7 @@
       "skip_ci": false,
       "pushes": true,
       "commits": true,
-      "pulls": false,
+      "pulls": true,
       "triggers_on_push": true,
       "pages_deploy": false,
       "writes_paths": [
@@ -8867,7 +8867,7 @@
         {
          "name": "Commit if changed",
          "run": "if git diff --quiet; then echo \"no change\"; exit 0; fi",
-         "shell_lines": 6
+         "shell_lines": 16
         }
        ]
       }
@@ -8885,7 +8885,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "normalize:ubuntu-latest:actions/checkout@v4,run,Commit if changed",
-     "bytes": 879,
+     "bytes": 1517,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8897,7 +8897,7 @@
       "skip_ci": true,
       "pushes": true,
       "commits": true,
-      "pulls": false,
+      "pulls": true,
       "triggers_on_push": true,
       "pages_deploy": false,
       "writes_paths": []
@@ -8943,7 +8943,7 @@
         {
          "name": "Commit the refresh (only if something changed)",
          "run": "if git diff --quiet; then",
-         "shell_lines": 9
+         "shell_lines": 19
         }
        ]
       }
@@ -8959,9 +8959,9 @@
      "concurrency_groups": [
       "refresh-catalogue"
      ],
-     "concurrency_cancels": true,
+     "concurrency_cancels": false,
      "signature": "refresh:ubuntu-latest:Check out the repository,Refresh meta.json SHAs and catalog.json,Refresh the embedded fallback snapshot in docs/index.html,Commit the refresh (only if something changed)",
-     "bytes": 7016,
+     "bytes": 7707,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8973,7 +8973,7 @@
       "skip_ci": false,
       "pushes": true,
       "commits": true,
-      "pulls": false,
+      "pulls": true,
       "triggers_on_push": false,
       "pages_deploy": false,
       "writes_paths": []
