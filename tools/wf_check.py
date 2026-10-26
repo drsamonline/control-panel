@@ -21,6 +21,7 @@ this checks the rules a parser cannot know.
     python3 tools/wf-check.py --self-test
 """
 from __future__ import annotations
+import re
 
 import argparse
 import glob
@@ -88,6 +89,56 @@ def check_text(text: str, name: str = "workflow") -> list:
                         out.append(f"{name}: job `{job_id}` step {i} has neither `uses:` nor `run:`")
                     if "uses" in st and "run" in st:
                         out.append(f"{name}: job `{job_id}` step {i} has both `uses:` and `run:`")
+
+    # UNDECLARED INPUTS. `inputs.<name>` is only defined if the trigger declares it. A
+    # workflow that reads an input nobody declared gets the EMPTY STRING - so a guard like
+    # `if: inputs.killswitch_repo != ''` is always false, the job silently skips, and the
+    # dispatch UI shows no field to fill in. forge/self-heal.yml's EMERGENCY STOP was inert
+    # for exactly this reason, and wf_check did not catch it: actionlint did, on the one
+    # occasion somebody ran actionlint on that file.
+    _trig = d.get("on", d.get(True))
+    declared = set()
+    for trig_name in ("workflow_dispatch", "workflow_call"):
+        if isinstance(_trig, dict) and isinstance(_trig.get(trig_name), dict):
+            declared |= set((_trig[trig_name].get("inputs") or {}).keys())
+    referenced = set(re.findall(r"\binputs\.([A-Za-z_][A-Za-z0-9_-]*)", text))
+    for name_ in sorted(referenced - declared):
+        out.append(
+            f"{name}: reads `inputs.{name_}` but NO trigger declares it. It will always be "
+            f"the empty string, so any guard on it is always false and the job silently "
+            f"skips. Declare it under workflow_dispatch.inputs (and/or workflow_call.inputs).")
+
+    # THE CONCURRENCY-COLLISION RULE. In a CALLED workflow the `github` context reflects
+    # the CALLER, so `github.workflow` is the CALLER's name. A reusable workflow that groups
+    # on `${{ github.workflow }}-${{ github.ref }}` therefore resolves to the SAME group as
+    # its caller when both are called `backup` - and GitHub will not schedule a called
+    # workflow whose group collides with its caller's. The run fails BEFORE any job is
+    # created, so there is no log, no check run, no annotation and an empty 22-byte archive.
+    # That is exactly how forge/backup.yml failed 40 consecutive runs, and no existing check
+    # caught it: it is valid YAML, valid schema, and actionlint-clean.
+    trig_ = d.get("on", d.get(True))
+    is_reusable = isinstance(trig_, dict) and "workflow_call" in trig_
+    conc = d.get("concurrency")
+    group = None
+    if isinstance(conc, dict):
+        group = str(conc.get("group") or "")
+    elif isinstance(conc, str):
+        group = conc
+    # A DISTINGUISHING LITERAL SAVES IT. `group: ${{ github.workflow }}-${{ github.ref }}`
+    # reduces to the caller's name and ref, so it collides. But
+    # `${{ github.workflow }}-${{ github.ref }}-snapshot` cannot: the literal suffix makes
+    # the group unique to this workflow. Flagging that was a false positive on the very
+    # workflow this rule was written for - backup/backup.yml, whose `-snapshot` suffix is
+    # the F-02 fix itself.
+    literal = re.sub(r"\$\{\{[^}]*\}\}", "", group or "")
+    literal = re.sub(r"[\s:/_-]+", "", literal)
+    if is_reusable and "github.workflow" in (group or "") and not literal:
+        out.append(
+            f"{name}: this is a REUSABLE workflow (it declares workflow_call) but its "
+            f"concurrency group uses `github.workflow`, which resolves to the CALLER's name. "
+            f"If the caller has the same workflow name and ref, the groups collide and GitHub "
+            f"refuses to schedule the run - it fails at startup with NO log, no check run and "
+            f"no annotation. Use a literal, e.g. `group: backup-reusable-${{{{ github.ref }}}}`.")
     return out
 
 
