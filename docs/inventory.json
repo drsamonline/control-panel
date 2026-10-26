@@ -2015,19 +2015,21 @@
      "calls": [],
      "reusable": false,
      "inputs": [],
-     "permissions": null,
+     "permissions": {
+      "contents": "read"
+     },
      "jobs_count": 1,
      "steps_count": 4,
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "rust-workspace:ubuntu-latest:actions/checkout@v4,dtolnay/rust-toolchain@stable,run,run",
-     "bytes": 298,
+     "bytes": 733,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
       "timeout": false,
       "concurrency": false,
-      "permissions": false,
+      "permissions": true,
       "matrix": false,
       "cache": false,
       "skip_ci": false,
@@ -4046,19 +4048,21 @@
      "calls": [],
      "reusable": false,
      "inputs": [],
-     "permissions": null,
+     "permissions": {
+      "contents": "read"
+     },
      "jobs_count": 1,
      "steps_count": 3,
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run",
-     "bytes": 284,
+     "bytes": 719,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
       "timeout": false,
       "concurrency": false,
-      "permissions": false,
+      "permissions": true,
       "matrix": false,
       "cache": false,
       "skip_ci": false,
@@ -4196,19 +4200,21 @@
      "calls": [],
      "reusable": false,
      "inputs": [],
-     "permissions": null,
+     "permissions": {
+      "contents": "read"
+     },
      "jobs_count": 1,
      "steps_count": 3,
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run",
-     "bytes": 284,
+     "bytes": 719,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
       "timeout": false,
       "concurrency": false,
-      "permissions": false,
+      "permissions": true,
       "matrix": false,
       "cache": false,
       "skip_ci": false,
@@ -5518,8 +5524,8 @@
         },
         {
          "name": "The tools' own tests, first",
-         "run": "python3 tools/scan.py --self-test",
-         "shell_lines": 2
+         "run": "# EVERY tool that ships a self-test runs here. Six of these were never executed",
+         "shell_lines": 9
         },
         {
          "name": "Fetch every workflow in every repo",
@@ -5587,7 +5593,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "pages:ubuntu-latest:actions/checkout@v4,actions/configure-pages@v5,actions/upload-pages-artifact@v3,actions/deploy-pages@v4|scan:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,run,The tools' own tests, first,Fetch every workflow in every repo,Inventory it,Plan it,Commit the fresh inventory",
-     "bytes": 2919,
+     "bytes": 3426,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -9812,7 +9818,7 @@
         },
         {
          "name": "Publish to PyPI",
-         "uses": "pypa/gh-action-pypi-publish@release/v1"
+         "uses": "pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086"
         }
        ]
       }
@@ -9830,7 +9836,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "build:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Build wheel and sdist,actions/upload-artifact@v4|publish:ubuntu-latest:actions/download-artifact@v4,Publish to PyPI",
-     "bytes": 1722,
+     "bytes": 1772,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -9897,19 +9903,21 @@
      "calls": [],
      "reusable": false,
      "inputs": [],
-     "permissions": null,
+     "permissions": {
+      "contents": "read"
+     },
      "jobs_count": 1,
      "steps_count": 3,
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run",
-     "bytes": 284,
+     "bytes": 719,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
       "timeout": false,
       "concurrency": false,
-      "permissions": false,
+      "permissions": true,
       "matrix": false,
       "cache": false,
       "skip_ci": false,
@@ -12195,19 +12203,21 @@
      "calls": [],
      "reusable": false,
      "inputs": [],
-     "permissions": null,
+     "permissions": {
+      "contents": "read"
+     },
      "jobs_count": 1,
      "steps_count": 5,
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,run,run",
-     "bytes": 338,
+     "bytes": 773,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
       "timeout": false,
       "concurrency": false,
-      "permissions": false,
+      "permissions": true,
       "matrix": false,
       "cache": false,
       "skip_ci": false,
