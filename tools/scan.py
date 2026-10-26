@@ -203,6 +203,23 @@ def read_manifest(root: str) -> dict:
         return {}
 
 
+def without_comments(text: str) -> str:
+    """The workflow with its full-line comments removed, line count preserved.
+
+    EVERY flag below used to be a substring match against the RAW text, so a comment could
+    set it. `CLDR/build-release.yml` says `# To cut a release: git tag v1.3.0 && git push
+    origin v1.3.0` and was therefore counted as a workflow that PUSHES - which is how a
+    comment very nearly caused an edit to a workflow that was already correct.
+
+    This is the fourth time in this phase that a comment described behaviour the code did
+    not have. The others cost real defects: backup.yml's concurrency group, fetch.py's
+    "unreadable" list, drsoam.py's "a kit can never be missed". The lesson is not "read the
+    comments carefully" - it is "do not let a comment become evidence", and this is where
+    that is enforced.
+    """
+    return "\n".join("" if ln.lstrip().startswith("#") else ln for ln in text.split("\n"))
+
+
 def scan_tree(root: str, manifest: dict | None = None) -> list:
     """Every workflow under `<root>/<repo>/.github/workflows/`, plus every repository
     the manifest says was attempted but produced no directory here."""
@@ -236,23 +253,25 @@ def scan_tree(root: str, manifest: dict | None = None) -> list:
             # still be refused at startup with no log - which is how ~35 workflows broke on
             # 2026-10-25, when a sweep put timeout-minutes on a job whose only key is `uses:`.
             rec["schema_problems"] = _schema_problems(text)
+            # flags are computed on the CODE, never on the comments - see without_comments()
+            code = without_comments(text)
             rec["flags"] = {
                 "invalid_workflow": bool(rec["schema_problems"]),
-                "timeout": "timeout-minutes" in text,
-                "concurrency": "concurrency" in text,
-                "permissions": ("permissions:" in text),
-                "matrix": "matrix:" in text,
-                "cache": "cache:" in text,
-                "skip_ci": "[skip ci]" in text,
+                "timeout": "timeout-minutes" in code,
+                "concurrency": "concurrency" in code,
+                "permissions": ("permissions:" in code),
+                "matrix": "matrix:" in code,
+                "cache": "cache:" in code,
+                "skip_ci": "[skip ci]" in code,
                 # the cross-action signals: a workflow that WRITES to a branch can race
                 # another one that does, and a workflow that both writes and is triggered
                 # by a push can loop.
-                "pushes": ("git push" in text or "gh release" in text or "git commit" in text),
-                "commits": ("git commit" in text),
-                "pulls": ("git pull" in text or "git fetch" in text or "rebase" in text),
-                "triggers_on_push": bool(re.search(r"on:[\s\S]{0,200}?push:", text)),
-                "pages_deploy": ("deploy-pages" in text),
-                "writes_paths": sorted(set(re.findall(r"git add[^\n]*?([\w./-]+\.(?:json|md|log|xml|yml|yaml|html|png))", text)))[:8],
+                "pushes": ("git push" in code or "gh release" in code or "git commit" in code),
+                "commits": ("git commit" in code),
+                "pulls": ("git pull" in code or "git fetch" in code or "rebase" in code),
+                "triggers_on_push": bool(re.search(r"on:[\s\S]{0,200}?push:", code)),
+                "pages_deploy": ("deploy-pages" in code),
+                "writes_paths": sorted(set(re.findall(r"git add[^\n]*?([\w./-]+\.(?:json|md|log|xml|yml|yaml|html|png))", code)))[:8],
             }
             recs.append(rec)
         out.append({"repo": repo, "workflows": recs})
