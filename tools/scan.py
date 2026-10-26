@@ -42,6 +42,10 @@ except ImportError:  # pragma: no cover
 # parsing one workflow
 # --------------------------------------------------------------------------- #
 
+SCHEMA_CHECK_OK = True
+SCHEMA_CHECK_ERROR = ""
+
+
 def _schema_problems(text):
     """The workflow-schema check, shared with the lint and the sweep.
 
@@ -50,12 +54,19 @@ def _schema_problems(text):
     timeout-minutes on a job whose only key is `uses:`. The scan asked "does it parse?";
     the question is "will it run?".
     """
+    global SCHEMA_CHECK_OK, SCHEMA_CHECK_ERROR
     try:
         import sys as _s, os as _o
         _s.path.insert(0, _o.path.dirname(_o.path.abspath(__file__)))
         import wf_check
         return wf_check.check_text(text, "workflow")
-    except Exception:
+    except Exception as e:
+        # FAIL LOUD. This returned [] on any error, so a missing or broken wf_check made
+        # every workflow look valid: the one check that catches "parses but will be
+        # refused at startup" silently reported "no problems" and the inventory counted
+        # it as a pass. A validator that cannot run is not a clean result.
+        SCHEMA_CHECK_OK = False
+        SCHEMA_CHECK_ERROR = "%s: %s" % (type(e).__name__, e)
         return []
 
 def _triggers(doc) -> dict:
@@ -175,12 +186,35 @@ def parse_workflow(path: str, text: str) -> dict:
     return rec
 
 
-def scan_tree(root: str) -> list:
-    """Every workflow under `<root>/<repo>/.github/workflows/`."""
+def read_manifest(root: str) -> dict:
+    """What fetch.py says it attempted, or an empty stub when there is no manifest.
+
+    The tree alone is not the universe: fetch.py creates a directory only for a
+    repository it could read AND that has workflows, so a repository with none, or one
+    the token could not read, simply is not there. Reading the manifest is what lets
+    `repos_without_workflows` and `skipped` be true statements instead of constants.
+    """
+    p = os.path.join(root, "_manifest.json")
+    if not os.path.isfile(p):
+        return {}
+    try:
+        return json.load(open(p, encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def scan_tree(root: str, manifest: dict | None = None) -> list:
+    """Every workflow under `<root>/<repo>/.github/workflows/`, plus every repository
+    the manifest says was attempted but produced no directory here."""
     out = []
     if not os.path.isdir(root):
         return out
+    manifest = manifest or {}
+    seen = set()
     for repo in sorted(os.listdir(root)):
+        if repo.startswith("_"):
+            continue
+        seen.add(repo)
         wf_dir = os.path.join(root, repo, ".github", "workflows")
         if not os.path.isdir(wf_dir):
             out.append({"repo": repo, "workflows": [], "note": "no .github/workflows"})
@@ -222,6 +256,16 @@ def scan_tree(root: str) -> list:
             }
             recs.append(rec)
         out.append({"repo": repo, "workflows": recs})
+    for entry in manifest.get("repos", []):
+        name = entry.get("repo")
+        if not name or name in seen:
+            continue
+        if entry.get("status") == "unreadable":
+            out.append({"repo": name, "workflows": [],
+                        "note": "could not be read: " + str(entry.get("reason") or "unknown")})
+        else:
+            out.append({"repo": name, "workflows": [],
+                        "note": "no .github/workflows on the default branch"})
     return out
 
 
@@ -266,17 +310,36 @@ def wire(repos: list) -> dict:
             "dangling_calls": dangling, "orphan_reusables": sorted(orphans)}
 
 
-def summarise(repos: list, net: dict) -> dict:
+def summarise(repos: list, net: dict, manifest: dict | None = None) -> dict:
     wf = [w for r in repos for w in r.get("workflows", [])]
+    manifest = manifest or {}
     return {
         "repos": len(repos),
-        "repos_without_workflows": sorted(r["repo"] for r in repos if not r.get("workflows")),
+        "scope": manifest.get("scope") or "unknown",
+        "scope_note": manifest.get("scope_note") or "",
+        # A repository the fetch could not read is NOT a repository without workflows.
+        # Both used to collapse into one silent zero.
+        "skipped": [{"repo": e.get("repo"), "reason": e.get("reason")}
+                    for e in manifest.get("repos", []) if e.get("status") == "unreadable"],
+        # A repository that could not be READ is not a repository without workflows.
+        # They are different facts and both used to collapse into this one list.
+        "repos_without_workflows": sorted(
+            r["repo"] for r in repos
+            if not r.get("workflows") and "could not be read" not in str(r.get("note") or "")),
         "workflows": len(wf),
         "reusable": sum(1 for w in wf if w.get("reusable")),
         "scheduled": sum(1 for w in wf if w.get("triggers", {}).get("crons")),
         "dispatchable": sum(1 for w in wf if "workflow_dispatch" in (w.get("triggers", {}).get("events") or [])),
         "parse_errors": [{"repo": r["repo"], "file": w["file"], "error": w["parse_error"]}
                          for r in repos for w in r.get("workflows", []) if w.get("parse_error")],
+        # Parsed but would be REFUSED by GitHub. This was computed for every workflow and
+        # read by nothing: a workflow that is valid YAML and still dies at startup left no
+        # trace in any published view. ~35 broke that way on 2026-10-25.
+        "schema_checked": SCHEMA_CHECK_OK,
+        "schema_check_error": SCHEMA_CHECK_ERROR,
+        "invalid_workflows": [{"repo": r["repo"], "file": w["file"], "problems": w["schema_problems"]}
+                              for r in repos for w in r.get("workflows", [])
+                              if w.get("schema_problems")],
         "jobs": sum(w.get("jobs_count", 0) for w in wf),
         "steps": sum(w.get("steps_count", 0) for w in wf),
         "edges": len(net["edges"]),
@@ -295,24 +358,43 @@ def main(argv=None):
         return self_test()
     if not a.dir:
         raise SystemExit("--dir is required (a tree of <repo>/.github/workflows/)")
-    repos = scan_tree(a.dir)
+    manifest = read_manifest(a.dir)
+    repos = scan_tree(a.dir, manifest)
     net = wire(repos)
     inv = {"what": "Every workflow in every repo, with its triggers, jobs, steps and calls.",
-           "summary": summarise(repos, net), "connections": net, "repos": repos}
+           "summary": summarise(repos, net, manifest), "connections": net, "repos": repos}
     with open(a.out, "w", encoding="utf-8") as f:
         json.dump(inv, f, indent=1)
     s = inv["summary"]
     print(f"repos={s['repos']} workflows={s['workflows']} reusable={s['reusable']} "
           f"scheduled={s['scheduled']} dispatchable={s['dispatchable']} jobs={s['jobs']} steps={s['steps']}")
     print(f"edges={s['edges']} dangling={len(s['dangling_calls'])} orphan-reusables={len(s['orphan_reusables'])} "
-          f"parse-errors={len(s['parse_errors'])}")
+          f"parse-errors={len(s['parse_errors'])} invalid={len(s['invalid_workflows'])}")
+    print(f"scope={s['scope']}  no-workflows={len(s['repos_without_workflows'])}  "
+          f"skipped={len(s['skipped'])}")
+    if s["scope"] not in ("all", "unknown"):
+        print(f"  NOTE: {s['scope_note']}")
+    for w in s["invalid_workflows"][:8]:
+        print(f"  INVALID {w['repo']}/{w['file']}: {w['problems'][:1]}")
     for d in s["dangling_calls"][:8]:
         print(f"  DANGLING {d['from_repo']}/{d['from']} -> {d['to']}")
     for o in s["orphan_reusables"][:8]:
         print(f"  ORPHAN   {o} (nothing calls it)")
     for e in s["parse_errors"][:5]:
         print(f"  PARSE    {e['repo']}/{e['file']}: {e['error']}")
+    for k in s["skipped"][:8]:
+        print(f"  SKIPPED  {k['repo']}: {k['reason']}")
     print(f"wrote {a.out}")
+    if s["skipped"]:
+        # An inventory of a universe that could not be fully read is not an inventory of
+        # the estate. It used to say so nowhere and exit 0.
+        print(f"::error::{len(s['skipped'])} repositories could not be read; this inventory "
+              f"is INCOMPLETE and must not be read as complete", file=sys.stderr)
+        return 1
+    if not s["schema_checked"]:
+        print("::error::the workflow-schema check could not run (%s), so 'invalid=0' means "
+              "'not checked', not 'all valid'" % s["schema_check_error"], file=sys.stderr)
+        return 1
     return 0
 
 
