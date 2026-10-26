@@ -3113,6 +3113,16 @@
  ],
  "unplaced": [
   {
+   "repo": "conqueror-os",
+   "file": "repair-src.yml",
+   "name": "repair-src",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 5
+  },
+  {
    "repo": "control-panel",
    "file": "scan.yml",
    "name": "scan",
@@ -3171,11 +3181,21 @@
    "dispatchable": true,
    "jobs": 1,
    "steps": 5
+  },
+  {
+   "repo": "forge",
+   "file": "log-append.yml",
+   "name": "log-append",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 2
   }
  ],
  "totals": {
   "workflows": 127,
-  "unplaced": 5,
+  "unplaced": 7,
   "scheduled": 25,
   "dispatchable": 125,
   "inputs_for_the_two_everyday_routes": 1

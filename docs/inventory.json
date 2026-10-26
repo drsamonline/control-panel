@@ -14,16 +14,16 @@
    "profile-kit",
    "saga-vn-engine"
   ],
-  "workflows": 132,
+  "workflows": 134,
   "reusable": 12,
   "scheduled": 30,
-  "dispatchable": 130,
+  "dispatchable": 132,
   "parse_errors": [],
   "schema_checked": true,
   "schema_check_error": "",
   "invalid_workflows": [],
-  "jobs": 165,
-  "steps": 604,
+  "jobs": 167,
+  "steps": 611,
   "edges": 46,
   "dangling_calls": [],
   "orphan_reusables": [
@@ -5382,6 +5382,91 @@
       "pages_deploy": false,
       "writes_paths": []
      }
+    },
+    {
+     "file": "repair-src.yml",
+     "name": "repair-src",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "repair",
+       "name": "repair",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v7",
+         "uses": "actions/checkout@v7",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "actions/setup-node@v7",
+         "uses": "actions/setup-node@v7",
+         "with_keys": [
+          "cache",
+          "node-version"
+         ]
+        },
+        {
+         "name": "Remove the misplaced block",
+         "run": "python3 .github/repair/fix.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Prove it with the repo's own suite",
+         "run": "set -euo pipefail",
+         "shell_lines": 9
+        },
+        {
+         "name": "Open the pull request",
+         "run": "set -euo pipefail",
+         "shell_lines": 45
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pull-requests": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 5,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "repair:ubuntu-latest:actions/checkout@v7,actions/setup-node@v7,Remove the misplaced block,Prove it with the repo's own suite,Open the pull request",
+     "bytes": 4517,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": true,
+      "skip_ci": false,
+      "pushes": true,
+      "commits": true,
+      "pulls": false,
+      "triggers_on_push": false,
+      "pages_deploy": false,
+      "writes_paths": [
+       "src/index.html"
+      ]
+     }
     }
    ]
   },
@@ -5735,7 +5820,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "refresh:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,Regenerate,Commit if changed",
-     "bytes": 3466,
+     "bytes": 3972,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -6315,8 +6400,8 @@
         },
         {
          "name": "Adopt the unguarded repos",
-         "run": "if [ \"${{ inputs.dry_run }}\" = \"true\" ]; then",
-         "shell_lines": 5
+         "run": "# REPORT-ONLY ON A SCHEDULE. `inputs.dry_run` is empty on a scheduled run, so",
+         "shell_lines": 11
         }
        ]
       }
@@ -6334,7 +6419,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "adopt:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Do the rules still hold?,Is there a token that can write to other repos?,Adopt the unguarded repos",
-     "bytes": 2226,
+     "bytes": 2777,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7561,8 +7646,8 @@
         },
         {
          "name": "Which repos disagree with the licence?",
-         "run": "if [ \"${{ inputs.apply }}\" = \"false\" ]; then",
-         "shell_lines": 5
+         "run": "# A SCHEDULED RUN MUST NEVER CONVERT A LICENCE. `inputs.apply` is empty on a",
+         "shell_lines": 11
         },
         {
          "name": "Record it",
@@ -7585,7 +7670,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "licence:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,The tool's own tests first,Which repos disagree with the licence?,Record it",
-     "bytes": 2190,
+     "bytes": 2733,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7730,6 +7815,74 @@
       "triggers_on_push": true,
       "pages_deploy": false,
       "writes_paths": []
+     }
+    },
+    {
+     "file": "log-append.yml",
+     "name": "log-append",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "append",
+       "name": "append",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v7",
+         "uses": "actions/checkout@v7",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "Append the lines",
+         "run": "set -euo pipefail",
+         "shell_lines": 11
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 2,
+     "concurrency_groups": [
+      "log-append"
+     ],
+     "concurrency_cancels": false,
+     "signature": "append:ubuntu-latest:actions/checkout@v7,Append the lines",
+     "bytes": 1214,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": true,
+      "commits": true,
+      "pulls": false,
+      "triggers_on_push": false,
+      "pages_deploy": false,
+      "writes_paths": [
+       "PROGRESS.log"
+      ]
      }
     },
     {
@@ -10741,7 +10894,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "refresh:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,Rebuild repos.json + catalog.json + plan.json,Commit if changed",
-     "bytes": 3044,
+     "bytes": 3550,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
