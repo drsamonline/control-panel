@@ -32,8 +32,15 @@ jobs:
       - run: python -m pip install --quiet pyyaml
       - name: The tools' own tests, first
         run: |
-          python3 tools/scan.py --self-test
-          python3 tools/plan.py --self-test
+          # EVERY tool that ships a self-test runs here. Six of these were never executed
+          # in CI - including wf_check.py, the validator that catches the class of bug that
+          # made forge/backup.yml fail 40 consecutive runs at startup with no log. Their
+          # tests existed, passed, and proved nothing, because nothing ran them.
+          # 59 assertions in total. A test that never runs is a comment.
+          for t in scan plan gaps interactions migrate simulate sweep wf_check; do
+            echo "--- $t"
+            python3 "tools/$t.py" --self-test
+          done
       - name: Fetch every workflow in every repo
         env:
           GITHUB_TOKEN: "${{ secrets.FANOUT_TOKEN || github.token }}"
