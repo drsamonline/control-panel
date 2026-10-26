@@ -1,16 +1,29 @@
 {
  "what": "Every workflow in every repo, with its triggers, jobs, steps and calls.",
  "summary": {
-  "repos": 69,
-  "repos_without_workflows": [],
-  "workflows": 98,
+  "repos": 78,
+  "scope": "public-only",
+  "scope_note": "the token cannot see private repositories, so this scan covers the PUBLIC ones only. Add FANOUT_TOKEN to control-panel to include the private ones.",
+  "skipped": [],
+  "repos_without_workflows": [
+   "Scrap-and-Gun",
+   "SmartNotes",
+   "frame-kit",
+   "homoeopathic-materia-medica-repertory-json",
+   "profile-kit",
+   "saga-vn-engine"
+  ],
+  "workflows": 104,
   "reusable": 4,
   "scheduled": 11,
-  "dispatchable": 96,
+  "dispatchable": 102,
   "parse_errors": [],
-  "jobs": 121,
-  "steps": 420,
-  "edges": 41,
+  "schema_checked": true,
+  "schema_check_error": "",
+  "invalid_workflows": [],
+  "jobs": 131,
+  "steps": 462,
+  "edges": 43,
   "dangling_calls": [],
   "orphan_reusables": [
    "app-builder/.github/workflows/test.yml",
@@ -139,6 +152,22 @@
    },
    {
     "from_repo": "app-panchang",
+    "from": "build-apps.yml",
+    "to": "drsamonline/app-builder/.github/workflows/build.yml",
+    "resolved": "app-builder/.github/workflows/build.yml",
+    "at": "main",
+    "exists": true
+   },
+   {
+    "from_repo": "app-poets-studio",
+    "from": "build-apps.yml",
+    "to": "drsamonline/app-builder/.github/workflows/build.yml",
+    "resolved": "app-builder/.github/workflows/build.yml",
+    "at": "main",
+    "exists": true
+   },
+   {
+    "from_repo": "base-bench",
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
@@ -388,6 +417,8 @@
     "app-companion-forge/build-apps.yml",
     "app-encrypted-case-log/build-apps.yml",
     "app-panchang/build-apps.yml",
+    "app-poets-studio/build-apps.yml",
+    "base-bench/build-apps.yml",
     "blinkcode-ai/build-apps.yml",
     "bmi-bmr-tdee-macros-fluid-calculator/build-apps.yml",
     "boericke-repertory/build-apps.yml",
@@ -2893,6 +2924,27 @@
        ]
       },
       {
+       "id": "parity",
+       "name": "A retrofit must not remove a capability",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": "github.event_name == 'pull_request'",
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "Compare the app against its base",
+         "run": "set -euo pipefail",
+         "shell_lines": 29
+        }
+       ]
+      },
+      {
        "id": "demo",
        "name": "The demo must be the app",
        "runs_on": "ubuntu-latest",
@@ -2906,7 +2958,7 @@
         {
          "name": "Compare the demo to the app",
          "run": "set -euo pipefail",
-         "shell_lines": 27
+         "shell_lines": 44
         }
        ]
       },
@@ -3069,14 +3121,14 @@
       "pages": "write",
       "id-token": "write"
      },
-     "jobs_count": 8,
-     "steps_count": 45,
+     "jobs_count": 9,
+     "steps_count": 47,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "apk:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-java@v4,gradle/actions/setup-gradle@v4,run,run,run,run,actions/upload-artifact@v4|demo:ubuntu-latest:actions/checkout@v4,Compare the demo to the app|exe:windows-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-python@v5,run,run,Verify the EXE we ship,actions/upload-artifact@v4|linux:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-python@v5,run,Build the Linux binary,Smoke-test it - it must actually SERVE the app,actions/upload-artifact@v4|pages:ubuntu-latest:actions/checkout@v4,Fail early if there is nothing to publish,Enable Pages if it is not on yet,actions/configure-pages@v5,actions/upload-pages-artifact@v3,actions/deploy-pages@v4|release:ubuntu-latest:actions/download-artifact@v4,actions/download-artifact@v4,actions/download-artifact@v4,run|shot:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-node@v4,run,Capture it, and put it in the README|version:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,Consume the pending change files,Commit the version and the changelog,Publish the versioned release",
-     "bytes": 19108,
+     "signature": "apk:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-java@v4,gradle/actions/setup-gradle@v4,run,run,run,run,actions/upload-artifact@v4|demo:ubuntu-latest:actions/checkout@v4,Compare the demo to the app|exe:windows-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-python@v5,run,run,Verify the EXE we ship,actions/upload-artifact@v4|linux:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-python@v5,run,Build the Linux binary,Smoke-test it - it must actually SERVE the app,actions/upload-artifact@v4|pages:ubuntu-latest:actions/checkout@v4,Fail early if there is nothing to publish,Enable Pages if it is not on yet,actions/configure-pages@v5,actions/upload-pages-artifact@v3,actions/deploy-pages@v4|parity:ubuntu-latest:actions/checkout@v4,Compare the app against its base|release:ubuntu-latest:actions/download-artifact@v4,actions/download-artifact@v4,actions/download-artifact@v4,run|shot:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,actions/setup-node@v4,run,Capture it, and put it in the README|version:ubuntu-latest:actions/checkout@v4,actions/checkout@v4,Consume the pending change files,Commit the version and the changelog,Publish the versioned release",
+     "bytes": 23144,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -3088,7 +3140,7 @@
       "skip_ci": true,
       "pushes": true,
       "commits": true,
-      "pulls": false,
+      "pulls": true,
       "triggers_on_push": true,
       "pages_deploy": true,
       "writes_paths": [
@@ -3123,7 +3175,7 @@
         {
          "name": "run",
          "run": "set -euo pipefail",
-         "shell_lines": 9
+         "shell_lines": 14
         }
        ]
       },
@@ -3151,6 +3203,11 @@
          ]
         },
         {
+         "name": "Install dependencies, if the kit declares any",
+         "run": "if [ -f package.json ]; then",
+         "shell_lines": 3
+        },
+        {
          "name": "Run tests",
          "run": "if [ -f test-node.js ]; then node test-node.js",
          "shell_lines": 2
@@ -3165,13 +3222,13 @@
       "contents": "read"
      },
      "jobs_count": 2,
-     "steps_count": 4,
+     "steps_count": 5,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "discover:ubuntu-latest:run|test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests",
-     "bytes": 2304,
+     "signature": "discover:ubuntu-latest:run|test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Install dependencies, if the kit declares any,Run tests",
+     "bytes": 3279,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -3319,6 +3376,11 @@
          "shell_lines": 3
         },
         {
+         "name": "Run the module's own tests, if it has any",
+         "run": "if [ -d tests ] && ls tests/test_*.py >/dev/null 2>&1; then",
+         "shell_lines": 3
+        },
+        {
          "name": "Internal links must resolve",
          "uses": "lycheeverse/lychee-action@v2",
          "with_keys": [
@@ -3350,13 +3412,13 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 6,
+     "steps_count": 7,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@v4,Workflow files are valid YAML,The app entry point exists,Run the repo's own tests, if it has any,Internal links must resolve,External links (report only)",
-     "bytes": 2254,
+     "signature": "test:ubuntu-latest:actions/checkout@v4,Workflow files are valid YAML,The app entry point exists,Run the repo's own tests, if it has any,Run the module's own tests, if it has any,Internal links must resolve,External links (report only)",
+     "bytes": 2792,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -3714,6 +3776,146 @@
    ]
   },
   {
+   "repo": "app-poets-studio",
+   "workflows": [
+    {
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "app",
+       "name": "app",
+       "runs_on": "reusable",
+       "needs": [],
+       "if": null,
+       "steps": [],
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@main"
+      }
+     ],
+     "calls": [
+      "drsamonline/app-builder/.github/workflows/build.yml@main"
+     ],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pages": "write",
+      "id-token": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 0,
+     "concurrency_groups": [
+      "build"
+     ],
+     "concurrency_cancels": true,
+     "signature": "app:reusable:",
+     "bytes": 910,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "The engine, the dictionary and the forms",
+         "run": "node test-node.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "The app ships what it says it ships",
+         "run": "set -euo pipefail",
+         "shell_lines": 6
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,The engine, the dictionary and the forms,The app ships what it says it ships",
+     "bytes": 876,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ]
+  },
+  {
    "repo": "art-kit",
    "workflows": [
     {
@@ -4016,11 +4218,11 @@
      "jobs_count": 1,
      "steps_count": 3,
      "concurrency_groups": [
-      "${{ github.workflow }}-${{ github.ref }}"
+      "${{ github.workflow }}-${{ github.ref }}-snapshot"
      ],
      "concurrency_cancels": false,
      "signature": "dump:ubuntu-latest:actions/checkout@v4,Is the backup token set?,Snapshot the pre-merge state",
-     "bytes": 2814,
+     "bytes": 3991,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -4034,6 +4236,146 @@
       "commits": false,
       "pulls": false,
       "triggers_on_push": false,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ]
+  },
+  {
+   "repo": "base-bench",
+   "workflows": [
+    {
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "app",
+       "name": "app",
+       "runs_on": "reusable",
+       "needs": [],
+       "if": null,
+       "steps": [],
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@main"
+      }
+     ],
+     "calls": [
+      "drsamonline/app-builder/.github/workflows/build.yml@main"
+     ],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pages": "write",
+      "id-token": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 0,
+     "concurrency_groups": [
+      "build"
+     ],
+     "concurrency_cancels": true,
+     "signature": "app:reusable:",
+     "bytes": 904,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "The engine, the bases, the units and the timezones",
+         "run": "node test-node.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "The app ships what it says it ships",
+         "run": "set -euo pipefail",
+         "shell_lines": 6
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,The engine, the bases, the units and the timezones,The app ships what it says it ships",
+     "bytes": 873,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
       "pages_deploy": false,
       "writes_paths": []
      }
@@ -6199,6 +6541,83 @@
       "pages_deploy": false,
       "writes_paths": []
      }
+    },
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "build-is-the-source",
+       "name": "build-is-the-source",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "run",
+         "run": "npm install",
+         "shell_lines": 1
+        },
+        {
+         "name": "The committed files are the build of src/",
+         "run": "npm test",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "build-is-the-source:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,The committed files are the build of src/",
+     "bytes": 950,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
     }
    ]
   },
@@ -7241,6 +7660,234 @@
       "pulls": false,
       "triggers_on_push": true,
       "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ]
+  },
+  {
+   "repo": "neon-velocity",
+   "workflows": [
+    {
+     "file": "build.yml",
+     "name": "build",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "Headless tests",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Install Godot",
+         "run": "bash tools/ci_install_godot.sh \"$GODOT_VERSION\" 0",
+         "shell_lines": 1
+        },
+        {
+         "name": "Import project",
+         "run": "godot --headless --path . --import",
+         "shell_lines": 1
+        },
+        {
+         "name": "Smoke test",
+         "run": "godot --headless --path . res://scenes/TestRunner.tscn",
+         "shell_lines": 1
+        },
+        {
+         "name": "Soak test",
+         "run": "godot --headless --path . res://scenes/tools/SoakTest.tscn",
+         "shell_lines": 1
+        }
+       ]
+      },
+      {
+       "id": "web",
+       "name": "Web build (PWA)",
+       "runs_on": "ubuntu-latest",
+       "needs": [
+        "test"
+       ],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Install Godot and export templates",
+         "run": "bash tools/ci_install_godot.sh \"$GODOT_VERSION\" 1",
+         "shell_lines": 1
+        },
+        {
+         "name": "Import project",
+         "run": "godot --headless --path . --import",
+         "shell_lines": 1
+        },
+        {
+         "name": "Export web",
+         "run": "# .gdignore keeps the importer out of build/, otherwise the exported",
+         "shell_lines": 5
+        },
+        {
+         "name": "Patch PWA shell",
+         "run": "python3 tools/pwa_post_export.py build/web",
+         "shell_lines": 1
+        },
+        {
+         "name": "Package",
+         "run": "cd build/web",
+         "shell_lines": 2
+        },
+        {
+         "name": "Attach to release",
+         "uses": "softprops/action-gh-release@v2",
+         "with_keys": [
+          "body",
+          "files",
+          "generate_release_notes"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "pages",
+       "name": "Deploy to GitHub Pages",
+       "runs_on": "ubuntu-latest",
+       "needs": [
+        "web"
+       ],
+       "if": "github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.ENABLE_PAGES == 'true'",
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Install Godot and export templates",
+         "run": "bash tools/ci_install_godot.sh \"$GODOT_VERSION\" 1",
+         "shell_lines": 1
+        },
+        {
+         "name": "Import project",
+         "run": "godot --headless --path . --import",
+         "shell_lines": 1
+        },
+        {
+         "name": "Export web",
+         "run": "mkdir -p build/web",
+         "shell_lines": 3
+        },
+        {
+         "name": "Compose the site",
+         "run": "# /        -> the landing page from site/",
+         "shell_lines": 9
+        },
+        {
+         "name": "actions/configure-pages@v5",
+         "uses": "actions/configure-pages@v5"
+        },
+        {
+         "name": "actions/upload-pages-artifact@v3",
+         "uses": "actions/upload-pages-artifact@v3",
+         "with_keys": [
+          "path"
+         ]
+        },
+        {
+         "name": "actions/deploy-pages@v4",
+         "uses": "actions/deploy-pages@v4"
+        }
+       ]
+      },
+      {
+       "id": "desktop",
+       "name": "Export ${{ matrix.preset }}",
+       "runs_on": "ubuntu-latest",
+       "needs": [
+        "web"
+       ],
+       "if": "startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'",
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Install Godot and export templates",
+         "run": "bash tools/ci_install_godot.sh \"$GODOT_VERSION\" 1",
+         "shell_lines": 1
+        },
+        {
+         "name": "Import project",
+         "run": "godot --headless --path . --import",
+         "shell_lines": 1
+        },
+        {
+         "name": "Export",
+         "run": "mkdir -p \"$(dirname \"${{ matrix.out }}\")\"",
+         "shell_lines": 3
+        },
+        {
+         "name": "Package",
+         "run": "cd \"$(dirname \"${{ matrix.out }}\")\"",
+         "shell_lines": 2
+        },
+        {
+         "name": "Attach to release",
+         "uses": "softprops/action-gh-release@v2",
+         "with_keys": [
+          "files"
+         ]
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pages": "write",
+      "id-token": "write"
+     },
+     "jobs_count": 4,
+     "steps_count": 26,
+     "concurrency_groups": [
+      "build-${{ github.ref }}"
+     ],
+     "concurrency_cancels": true,
+     "signature": "desktop:ubuntu-latest:actions/checkout@v4,Install Godot and export templates,Import project,Export,Package,Attach to release|pages:ubuntu-latest:actions/checkout@v4,Install Godot and export templates,Import project,Export web,Compose the site,actions/configure-pages@v5,actions/upload-pages-artifact@v3,actions/deploy-pages@v4|test:ubuntu-latest:actions/checkout@v4,Install Godot,Import project,Smoke test,Soak test|web:ubuntu-latest:actions/checkout@v4,Install Godot and export templates,Import project,Export web,Patch PWA shell,Package,Attach to release",
+     "bytes": 6025,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": true,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": true,
       "writes_paths": []
      }
     }
@@ -9108,6 +9755,36 @@
      }
     }
    ]
+  },
+  {
+   "repo": "saga-vn-engine",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
+  },
+  {
+   "repo": "SmartNotes",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
+  },
+  {
+   "repo": "Scrap-and-Gun",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
+  },
+  {
+   "repo": "frame-kit",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
+  },
+  {
+   "repo": "homoeopathic-materia-medica-repertory-json",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
+  },
+  {
+   "repo": "profile-kit",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
   }
  ]
 }

@@ -23,7 +23,7 @@
    "what": "Prove the code, build every platform it ships on, and lint what was written.",
    "auto": true,
    "input": "none - a push runs it",
-   "count": 81,
+   "count": 87,
    "scheduled": [
     {
      "repo": "app-builder",
@@ -35,7 +35,7 @@
      ],
      "dispatchable": true,
      "jobs": 2,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "skills",
@@ -181,7 +181,7 @@
      ],
      "dispatchable": true,
      "jobs": 2,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "app-builder",
@@ -191,7 +191,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "app-companion-forge",
@@ -244,6 +244,26 @@
      "steps": 3
     },
     {
+     "repo": "app-poets-studio",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "app-poets-studio",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
      "repo": "art-kit",
      "file": "test.yml",
      "name": "test",
@@ -272,6 +292,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 3
+    },
+    {
+     "repo": "base-bench",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "base-bench",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
     },
     {
      "repo": "blinkcode-ai",
@@ -494,6 +534,16 @@
      "steps": 5
     },
     {
+     "repo": "idle-city-ages-of-growth",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
      "repo": "kent-repertory-explorer",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -602,6 +652,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 9
+    },
+    {
+     "repo": "neon-velocity",
+     "file": "build.yml",
+     "name": "build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 4,
+     "steps": 26
     },
     {
      "repo": "offline-pdf-toolkit",
@@ -984,8 +1044,8 @@
      "reusable": true,
      "crons": [],
      "dispatchable": false,
-     "jobs": 8,
-     "steps": 45
+     "jobs": 9,
+     "steps": 47
     },
     {
      "repo": "app-builder",
@@ -997,7 +1057,7 @@
      ],
      "dispatchable": true,
      "jobs": 2,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "app-builder",
@@ -1007,7 +1067,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "app-companion-forge",
@@ -1060,6 +1120,26 @@
      "steps": 3
     },
     {
+     "repo": "app-poets-studio",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "app-poets-studio",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
      "repo": "art-kit",
      "file": "test.yml",
      "name": "test",
@@ -1088,6 +1168,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 3
+    },
+    {
+     "repo": "base-bench",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "base-bench",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
     },
     {
      "repo": "blinkcode-ai",
@@ -1310,6 +1410,16 @@
      "steps": 5
     },
     {
+     "repo": "idle-city-ages-of-growth",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
      "repo": "kent-repertory-explorer",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -1418,6 +1528,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 9
+    },
+    {
+     "repo": "neon-velocity",
+     "file": "build.yml",
+     "name": "build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 4,
+     "steps": 26
     },
     {
      "repo": "offline-pdf-toolkit",
@@ -2223,10 +2343,10 @@
   }
  ],
  "totals": {
-  "workflows": 95,
+  "workflows": 101,
   "unplaced": 3,
   "scheduled": 8,
-  "dispatchable": 93,
+  "dispatchable": 99,
   "inputs_for_the_two_everyday_routes": 1
  }
 }
