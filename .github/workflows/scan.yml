@@ -49,7 +49,17 @@ jobs:
           git add docs/inventory.json docs/plan.json
           if git diff --cached --quiet; then echo "unchanged"; else
             git commit -m "chore: rescan every workflow [skip ci]"
-            git push
+            # retry: a bare `git push` loses the race when anything else commits first
+            BR="${GITHUB_REF_NAME:-main}"
+            pushed=0
+            for attempt in 1 2 3 4; do
+              git fetch origin "$BR" --quiet
+              git rebase "origin/$BR" --quiet || { git rebase --abort || true; sleep 4; continue; }
+              if git push --quiet origin "HEAD:$BR"; then pushed=1; break; fi
+              echo "::warning::push rejected on attempt $attempt - the branch moved again"
+              sleep 4
+            done
+            [ "$pushed" = 1 ] || { echo "::error::could not push after 4 attempts - another workflow keeps moving the branch"; exit 1; }
           fi
 
   # Pages is set to build_type=workflow, so a workflow has to do the deploy. Without
