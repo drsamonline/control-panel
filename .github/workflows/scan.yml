@@ -61,23 +61,15 @@ jobs:
         run: python3 tools/simulate.py --inventory docs/inventory.json --gaps docs/gaps.json --out docs/routes.json
       - name: Commit the fresh inventory
         run: |
-          git config user.name  "forge-bot"
-          git config user.email "bot@users.noreply.github.com"
-          git add docs/inventory.json docs/plan.json docs/gaps.json docs/interactions.json docs/routes.json
-          if git diff --cached --quiet; then echo "unchanged"; else
-            git commit -m "chore: rescan every workflow [skip ci]"
-            # retry: a bare `git push` loses the race when anything else commits first
-            BR="${GITHUB_REF_NAME:-main}"
-            pushed=0
-            for attempt in 1 2 3 4; do
-              git fetch origin "$BR" --quiet
-              git rebase "origin/$BR" --quiet || { git rebase --abort || true; sleep 4; continue; }
-              if git push --quiet origin "HEAD:$BR"; then pushed=1; break; fi
-              echo "::warning::push rejected on attempt $attempt - the branch moved again"
-              sleep 4
-            done
-            [ "$pushed" = 1 ] || { echo "::error::could not push after 4 attempts - another workflow keeps moving the branch"; exit 1; }
-          fi
+          # F-97: the verdict is "did the inventory land", not "did git exit 0".
+          #
+          # This step had its own four-attempt rebase-and-push loop, written because a
+          # bare `git push` loses the race. The loop was right and the verdict was still
+          # wrong - a push that exited 0 was never checked against the branch.
+          # tools/commit-and-verify.sh does both: the same backoff, then a blob-sha
+          # comparison against origin/main.
+          bash tools/commit-and-verify.sh "chore: rescan every workflow [skip ci]" main -- \
+            docs/inventory.json docs/plan.json docs/gaps.json docs/interactions.json docs/routes.json
 
   # Pages is set to build_type=workflow, so a workflow has to do the deploy. Without
   # this the panel is enabled but never published - which is exactly the kind of
