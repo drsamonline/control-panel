@@ -129,7 +129,7 @@
    "what": "Prove the code, build every platform it ships on, and lint what was written.",
    "auto": true,
    "input": "none - a push runs it",
-   "count": 91,
+   "count": 92,
    "scheduled": [
     {
      "repo": "app-builder",
@@ -726,6 +726,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 0
+    },
+    {
+     "repo": "kent-repertory-explorer",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
     },
     {
      "repo": "lan-kit",
@@ -1648,6 +1658,16 @@
      "steps": 0
     },
     {
+     "repo": "kent-repertory-explorer",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
      "repo": "lan-kit",
      "file": "test.yml",
      "name": "Test",
@@ -2115,7 +2135,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "skills",
@@ -2325,7 +2345,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "skills",
@@ -2535,7 +2555,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "skills",
@@ -3132,7 +3152,7 @@
    ],
    "dispatchable": true,
    "jobs": 2,
-   "steps": 12
+   "steps": 15
   },
   {
    "repo": "drsamonline",
@@ -3194,10 +3214,10 @@
   }
  ],
  "totals": {
-  "workflows": 127,
+  "workflows": 128,
   "unplaced": 7,
   "scheduled": 25,
-  "dispatchable": 125,
+  "dispatchable": 126,
   "inputs_for_the_two_everyday_routes": 1
  }
 }
