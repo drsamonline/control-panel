@@ -49,11 +49,21 @@ jobs:
         run: python3 tools/scan.py --dir tree --out docs/inventory.json
       - name: Plan it
         run: python3 tools/plan.py --inventory docs/inventory.json --out docs/plan.json
+      # F-12: gaps.json, interactions.json and routes.json had NO producer in CI - they
+      # were hand-run, and gaps.json was computed from a different inventory than the one
+      # committed beside it (109 no-timeout gaps against 98 workflows: impossible). They
+      # are now rebuilt from the same inventory, every run.
+      - name: What is missing
+        run: python3 tools/gaps.py --inventory docs/inventory.json --out docs/gaps.json
+      - name: What calls what
+        run: python3 tools/interactions.py --inventory docs/inventory.json --out docs/interactions.json
+      - name: The routes
+        run: python3 tools/simulate.py --inventory docs/inventory.json --gaps docs/gaps.json --out docs/routes.json
       - name: Commit the fresh inventory
         run: |
           git config user.name  "forge-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add docs/inventory.json docs/plan.json
+          git add docs/inventory.json docs/plan.json docs/gaps.json docs/interactions.json docs/routes.json
           if git diff --cached --quiet; then echo "unchanged"; else
             git commit -m "chore: rescan every workflow [skip ci]"
             # retry: a bare `git push` loses the race when anything else commits first

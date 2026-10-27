@@ -125,6 +125,9 @@ a{color:var(--acc)}
   <div class="sec">The guards — each exists because something got past it once</div>
   <div id="guardBox"></div>
 
+  <div class="sec">What is missing — each rule with its reason</div>
+  <div id="gaps"></div>
+
   <div class="sec">What is not connected</div>
   <div id="findings"></div>
 
@@ -238,6 +241,40 @@ fetch('plan.json',{cache:'no-store'}).then(r=>r.json()).then(p=>{
     +'<br><span class="repo">Why: '+esc(x.why)+'</span></div>').join('');
   document.getElementById('guardBox').innerHTML=g||'<div class="find">no guards recorded</div>';
 }).catch(e=>{document.getElementById('guardBox').innerHTML='<div class="find">could not read plan.json</div>';});
+</script>
+<script>
+// ---- what is missing (gaps.json) ----
+// F-12: gaps.json was committed by hand from a DIFFERENT inventory, so its counts could
+// exceed the number of workflows in the file beside it (109 no-timeout gaps against 98
+// workflows), and this page never read it. scan.yml now regenerates it from the same
+// inventory it commits, and this renders it.
+fetch('gaps.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(g){
+  var c=g.counts||{}, G=g.gaps||{}, out=[];
+  var rules=[
+    ['no-timeout','no timeout-minutes','a hung job bills until the 6-hour ceiling'],
+    ['no-permissions','no permissions: block','the default token is not minimal'],
+    ['no-concurrency','no concurrency:','two runs of the same workflow race, and one loses the push'],
+    ['un-runnable','no workflow_dispatch','it cannot be run by hand when something is stuck'],
+    ['no-name','no name:','GitHub shows the file path instead of a label'],
+    ['orphan','orphan reusable','nothing calls it - a caller was never written'],
+    ['drift','drifted copies','the same workflow name, in different SHAPES']
+  ];
+  rules.forEach(function(o){
+    if(c[o[0]]===undefined) return;
+    out.push('<div class="find"><b>'+esc(o[1])+'</b> <span class="mut">'+esc(o[2])+'</span> - <b>'+esc(String(c[o[0]]))+'</b></div>');
+  });
+  var drifted=(G.drift||[]).filter(function(x){return x.drifted;});
+  if(drifted.length){
+    out.push('<p class="mut">Drifted by shape, not by size: '+drifted.map(function(x){
+      return esc(x.name)+' ('+x.distinct_shapes+' shapes across '+x.repos+' repos, '+x.distinct_sizes+' sizes)';
+    }).join(', ')+'</p>');
+  }
+  if(g.note){ out.push('<p class="mut">'+esc(g.note)+'</p>'); }
+  var el=document.getElementById('gaps'); if(el) el.innerHTML = out.join('') || '<p class="mut">No gaps.</p>';
+}).catch(function(){
+  var el=document.getElementById('gaps');
+  if(el) el.innerHTML='<p class="mut">gaps.json not published yet - the next scan writes it.</p>';
+});
 </script>
 </body>
 </html>
