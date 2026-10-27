@@ -215,10 +215,10 @@
    "copies": 4,
    "repos": 4,
    "distinct_sizes": 4,
-   "spread_bytes": 25490,
+   "spread_bytes": 26481,
    "drifted": true,
    "canonical": "app-builder/build.yml",
-   "canonical_bytes": 26697,
+   "canonical_bytes": 27688,
    "plan": "turn the 3 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "forge/build.yml",
@@ -235,7 +235,7 @@
    "spread_bytes": 188,
    "drifted": true,
    "canonical": "All4ONE/deploy-demo.yml",
-   "canonical_bytes": 1466,
+   "canonical_bytes": 1441,
    "plan": "turn the 2 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "CLDR/deploy-demo.yml",

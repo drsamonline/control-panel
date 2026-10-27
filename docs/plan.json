@@ -2123,7 +2123,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "registry",
@@ -2323,7 +2323,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "lockhtml",
@@ -2533,7 +2533,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "lockhtml",
