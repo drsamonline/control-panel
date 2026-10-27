@@ -6,7 +6,7 @@
   "no-concurrency": 10,
   "no-timeout": 53,
   "no-workflows": 7,
-  "orphan": 8,
+  "orphan": 7,
   "outdated-pin": 0,
   "un-runnable": 2
  },
@@ -393,23 +393,6 @@
     ]
    },
    {
-    "name": "test",
-    "copies": 10,
-    "repos": 10,
-    "distinct_sizes": 8,
-    "spread_bytes": 2897,
-    "distinct_shapes": 8,
-    "drifted": true,
-    "example": [
-     "app-builder",
-     "app-encrypted-case-log",
-     "art-kit",
-     "audio-kit",
-     "dashboard",
-     "export-kit"
-    ]
-   },
-   {
     "name": "CI",
     "copies": 10,
     "repos": 10,
@@ -424,6 +407,23 @@
      "aethelgard-rpg-engine",
      "blinkcode-ai",
      "conqueror-os"
+    ]
+   },
+   {
+    "name": "test",
+    "copies": 9,
+    "repos": 9,
+    "distinct_sizes": 7,
+    "spread_bytes": 2359,
+    "distinct_shapes": 7,
+    "drifted": true,
+    "example": [
+     "app-encrypted-case-log",
+     "art-kit",
+     "audio-kit",
+     "dashboard",
+     "export-kit",
+     "forge"
     ]
    },
    {
@@ -457,9 +457,6 @@
    }
   ],
   "orphan": [
-   {
-    "what": "app-builder/.github/workflows/test.yml"
-   },
    {
     "what": "forge/.github/workflows/audit.yml"
    },

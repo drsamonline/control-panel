@@ -14,20 +14,19 @@
    "profile-kit",
    "saga-vn-engine"
   ],
-  "workflows": 135,
-  "reusable": 12,
+  "workflows": 134,
+  "reusable": 11,
   "scheduled": 30,
-  "dispatchable": 133,
+  "dispatchable": 132,
   "parse_errors": [],
   "schema_checked": true,
   "schema_check_error": "",
   "invalid_workflows": [],
-  "jobs": 168,
-  "steps": 622,
+  "jobs": 167,
+  "steps": 615,
   "edges": 46,
   "dangling_calls": [],
   "orphan_reusables": [
-   "app-builder/.github/workflows/test.yml",
    "forge/.github/workflows/audit.yml",
    "forge/.github/workflows/docs.yml",
    "forge/.github/workflows/fanout.yml",
@@ -48,11 +47,6 @@
     "repo": "app-builder",
     "file": "pages.yml",
     "name": "pages"
-   },
-   "app-builder/.github/workflows/test.yml": {
-    "repo": "app-builder",
-    "file": "test.yml",
-    "name": "test"
    },
    "backup/.github/workflows/backup.yml": {
     "repo": "backup",
@@ -528,7 +522,6 @@
   },
   "dangling_calls": [],
   "orphan_reusables": [
-   "app-builder/.github/workflows/test.yml",
    "forge/.github/workflows/audit.yml",
    "forge/.github/workflows/docs.yml",
    "forge/.github/workflows/fanout.yml",
@@ -3419,107 +3412,6 @@
       "pages_deploy": true,
       "writes_paths": []
      }
-    },
-    {
-     "file": "test.yml",
-     "name": "test",
-     "parse_error": null,
-     "triggers": {
-      "events": [
-       "workflow_call",
-       "workflow_dispatch"
-      ],
-      "crons": [],
-      "paths": [],
-      "types": []
-     },
-     "jobs": [
-      {
-       "id": "test",
-       "name": "test",
-       "runs_on": "ubuntu-latest",
-       "needs": [],
-       "if": null,
-       "steps": [
-        {
-         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
-         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
-        },
-        {
-         "name": "Workflow files are valid YAML",
-         "run": "python3 -m pip install --quiet pyyaml",
-         "shell_lines": 11
-        },
-        {
-         "name": "The app entry point exists",
-         "run": "if [ ! -f \"${{ inputs.app_src }}/index.html\" ]; then",
-         "shell_lines": 4
-        },
-        {
-         "name": "Run the repo's own tests, if it has any",
-         "run": "if [ -f test-node.js ]; then node test-node.js;",
-         "shell_lines": 3
-        },
-        {
-         "name": "Run the module's own tests, if it has any",
-         "run": "if [ -d tests ] && ls tests/test_*.py >/dev/null 2>&1; then",
-         "shell_lines": 3
-        },
-        {
-         "name": "Internal links must resolve",
-         "uses": "lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8",
-         "with_keys": [
-          "args",
-          "fail"
-         ]
-        },
-        {
-         "name": "External links (report only)",
-         "uses": "lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8",
-         "with_keys": [
-          "args",
-          "fail"
-         ]
-        }
-       ]
-      }
-     ],
-     "calls": [],
-     "reusable": true,
-     "inputs": [
-      {
-       "name": "app_src",
-       "required": false,
-       "default": "docs"
-      }
-     ],
-     "permissions": {
-      "contents": "read"
-     },
-     "jobs_count": 1,
-     "steps_count": 7,
-     "concurrency_groups": [
-      "${{ github.workflow }}-${{ github.ref }}-test"
-     ],
-     "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Workflow files are valid YAML,The app entry point exists,Run the repo's own tests, if it has any,Run the module's own tests, if it has any,Internal links must resolve,External links (report only)",
-     "bytes": 3347,
-     "schema_problems": [],
-     "flags": {
-      "invalid_workflow": false,
-      "timeout": true,
-      "concurrency": true,
-      "permissions": true,
-      "matrix": false,
-      "cache": false,
-      "skip_ci": false,
-      "pushes": false,
-      "commits": false,
-      "pulls": false,
-      "triggers_on_push": false,
-      "pages_deploy": false,
-      "writes_paths": []
-     }
     }
    ]
   },
@@ -5558,8 +5450,8 @@
         },
         {
          "name": "Commit the fresh inventory",
-         "run": "git config user.name  \"forge-bot\"",
-         "shell_lines": 17
+         "run": "# F-97: the verdict is \"did the inventory land\", not \"did git exit 0\".",
+         "shell_lines": 9
         }
        ]
       },
@@ -5607,7 +5499,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "pages:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b,actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa,actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e|scan:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,run,The tools' own tests, first,Fetch every workflow in every repo,Inventory it,Plan it,What is missing,What calls what,The routes,Commit the fresh inventory",
-     "bytes": 4501,
+     "bytes": 4130,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5617,14 +5509,12 @@
       "matrix": false,
       "cache": false,
       "skip_ci": true,
-      "pushes": true,
-      "commits": true,
-      "pulls": true,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
       "triggers_on_push": true,
       "pages_deploy": true,
-      "writes_paths": [
-       "docs/inventory.json"
-      ]
+      "writes_paths": []
      }
     }
    ]
@@ -5821,8 +5711,8 @@
         },
         {
          "name": "Commit if changed",
-         "run": "if git diff --quiet; then echo \"no change\"; exit 0; fi",
-         "shell_lines": 45
+         "run": "# F-97: the verdict is \"did data.json land on the branch\", not \"did git exit 0\".",
+         "shell_lines": 14
         }
        ]
       }
@@ -5840,7 +5730,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "refresh:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Regenerate,Commit if changed",
-     "bytes": 4951,
+     "bytes": 3352,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5850,9 +5740,9 @@
       "matrix": false,
       "cache": false,
       "skip_ci": true,
-      "pushes": true,
-      "commits": true,
-      "pulls": true,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
       "triggers_on_push": true,
       "pages_deploy": false,
       "writes_paths": []
@@ -6523,8 +6413,8 @@
         },
         {
          "name": "Commit the delivery report",
-         "run": "git config user.name  \"forge-bot\"",
-         "shell_lines": 7
+         "run": "# F-97: the verdict is \"did the delivery report land\", not \"did git exit 0\".",
+         "shell_lines": 3
         }
        ]
       }
@@ -6542,7 +6432,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "deliver:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Is there a token that can write to other repos?,Check the seven delivery things, on every repo,Deliver what is missing,The demo must be the app,Trigger the pipeline where a release or a screenshot is missing,Record the delivery state,Commit the delivery report",
-     "bytes": 5430,
+     "bytes": 5328,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -6552,14 +6442,12 @@
       "matrix": false,
       "cache": false,
       "skip_ci": true,
-      "pushes": true,
-      "commits": true,
+      "pushes": false,
+      "commits": false,
       "pulls": false,
       "triggers_on_push": false,
       "pages_deploy": false,
-      "writes_paths": [
-       "registry/delivery.json"
-      ]
+      "writes_paths": []
      }
     },
     {
@@ -6673,8 +6561,8 @@
         },
         {
          "name": "Commit it (only if it changed)",
-         "run": "git config user.name  \"forge-agent\"",
-         "shell_lines": 9
+         "run": "# F-97: the verdict is \"did BACKLOG.md land\", not \"did git exit 0\". The script",
+         "shell_lines": 4
         }
        ]
       }
@@ -6692,7 +6580,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "status:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Derive the status from evidence,Commit it (only if it changed)",
-     "bytes": 1565,
+     "bytes": 1554,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -6702,14 +6590,12 @@
       "matrix": false,
       "cache": false,
       "skip_ci": false,
-      "pushes": true,
-      "commits": true,
+      "pushes": false,
+      "commits": false,
       "pulls": false,
       "triggers_on_push": true,
       "pages_deploy": false,
-      "writes_paths": [
-       "BACKLOG.md"
-      ]
+      "writes_paths": []
      }
     },
     {
@@ -7028,8 +6914,8 @@
         },
         {
          "name": "Commit the report",
-         "run": "git config user.name  \"forge-agent\"",
-         "shell_lines": 9
+         "run": "# F-97: the verdict is \"did the size report land\", not \"did git exit 0\".",
+         "shell_lines": 3
         }
        ]
       }
@@ -7047,7 +6933,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "measure:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Measure what the apps ship,Record the run,Commit the report",
-     "bytes": 2064,
+     "bytes": 1921,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7057,14 +6943,12 @@
       "matrix": false,
       "cache": false,
       "skip_ci": false,
-      "pushes": true,
-      "commits": true,
+      "pushes": false,
+      "commits": false,
       "pulls": false,
       "triggers_on_push": false,
       "pages_deploy": false,
-      "writes_paths": [
-       "registry/size.json"
-      ]
+      "writes_paths": []
      }
     },
     {
@@ -7099,8 +6983,8 @@
         },
         {
          "name": "Commit if changed",
-         "run": "if git diff --quiet; then echo \"no change\"; exit 0; fi",
-         "shell_lines": 6
+         "run": "# F-97: the verdict is \"did README.md land on the branch\", not \"did git exit 0\".",
+         "shell_lines": 4
         }
        ]
       }
@@ -7118,7 +7002,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "docs:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Regenerate the badge block,Commit if changed",
-     "bytes": 3573,
+     "bytes": 3643,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7128,14 +7012,12 @@
       "matrix": false,
       "cache": false,
       "skip_ci": true,
-      "pushes": true,
-      "commits": true,
+      "pushes": false,
+      "commits": false,
       "pulls": false,
       "triggers_on_push": false,
       "pages_deploy": false,
-      "writes_paths": [
-       "README.md"
-      ]
+      "writes_paths": []
      }
     },
     {
@@ -7349,7 +7231,7 @@
         {
          "name": "Publish them to the console",
          "run": "set -euo pipefail",
-         "shell_lines": 13
+         "shell_lines": 14
         }
        ]
       }
@@ -7367,7 +7249,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "publish:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Explain if there is no cross-repo token,Compute the health files,Publish them to the console",
-     "bytes": 3960,
+     "bytes": 4137,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7377,14 +7259,12 @@
       "matrix": false,
       "cache": false,
       "skip_ci": true,
-      "pushes": true,
-      "commits": true,
+      "pushes": false,
+      "commits": false,
       "pulls": false,
       "triggers_on_push": true,
       "pages_deploy": false,
-      "writes_paths": [
-       "SPEC-GAP.json"
-      ]
+      "writes_paths": []
      }
     },
     {
@@ -7421,8 +7301,8 @@
         },
         {
          "name": "Commit",
-         "run": "git config user.name  \"forge-bot\"",
-         "shell_lines": 6
+         "run": "# F-97: the verdict is \"did HEARTBEAT.md land on the branch\", not \"did git exit 0\".",
+         "shell_lines": 2
         }
        ]
       }
@@ -7440,7 +7320,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "beat:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Stamp the heartbeat,Commit",
-     "bytes": 1104,
+     "bytes": 1006,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7450,14 +7330,12 @@
       "matrix": false,
       "cache": false,
       "skip_ci": true,
-      "pushes": true,
-      "commits": true,
+      "pushes": false,
+      "commits": false,
       "pulls": false,
       "triggers_on_push": false,
       "pages_deploy": false,
-      "writes_paths": [
-       "HEARTBEAT.md"
-      ]
+      "writes_paths": []
      }
     },
     {
@@ -7492,8 +7370,8 @@
         },
         {
          "name": "Commit the backlog",
-         "run": "if git diff --quiet; then echo \"no change\"; exit 0; fi",
-         "shell_lines": 8
+         "run": "# F-97: the verdict is \"did the queued issue land on the branch\", not \"did git",
+         "shell_lines": 9
         },
         {
          "name": "Comment back on the issue",
@@ -7517,7 +7395,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "intake:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Classify the idea,Commit the backlog,Comment back on the issue",
-     "bytes": 1618,
+     "bytes": 1767,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7527,8 +7405,8 @@
       "matrix": false,
       "cache": false,
       "skip_ci": true,
-      "pushes": true,
-      "commits": true,
+      "pushes": false,
+      "commits": false,
       "pulls": false,
       "triggers_on_push": false,
       "pages_deploy": false,
@@ -7586,8 +7464,8 @@
         },
         {
          "name": "Commit the findings",
-         "run": "git config user.name  \"forge-agent\"",
-         "shell_lines": 20
+         "run": "# F-97: this step's verdict is \"did the findings land on the branch\", not",
+         "shell_lines": 10
         }
        ]
       }
@@ -7605,7 +7483,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "audit:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Find code that duplicates a kit,The parity gate - may any app be moved onto a kit?,Record the run,Commit the findings",
-     "bytes": 4094,
+     "bytes": 3648,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7615,8 +7493,8 @@
       "matrix": false,
       "cache": false,
       "skip_ci": false,
-      "pushes": true,
-      "commits": true,
+      "pushes": false,
+      "commits": false,
       "pulls": false,
       "triggers_on_push": false,
       "pages_deploy": false,
@@ -7870,7 +7748,7 @@
         {
          "name": "Append the lines",
          "run": "set -euo pipefail",
-         "shell_lines": 24
+         "shell_lines": 35
         }
        ]
       }
@@ -7888,7 +7766,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "append:ubuntu-latest:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,Append the lines",
-     "bytes": 2719,
+     "bytes": 3441,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7966,7 +7844,7 @@
         {
          "name": "Scaffold it, exactly as the manual path does",
          "run": "set -euo pipefail",
-         "shell_lines": 37
+         "shell_lines": 58
         }
        ]
       }
@@ -7986,7 +7864,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "auto:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Pick the next idea that has a spec and no repo,Scaffold it, exactly as the manual path does|scaffold:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Refuse a bad name,Create the repo and drop in the canonical workflow",
-     "bytes": 9085,
+     "bytes": 10244,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7998,7 +7876,7 @@
       "skip_ci": false,
       "pushes": true,
       "commits": false,
-      "pulls": false,
+      "pulls": true,
       "triggers_on_push": true,
       "pages_deploy": false,
       "writes_paths": []
@@ -8210,8 +8088,8 @@
         },
         {
          "name": "Commit the lessons",
-         "run": "git config user.name  \"forge-agent\"",
-         "shell_lines": 9
+         "run": "# F-97: the verdict is \"did the lessons land on the branch\", not \"did git exit 0\".",
+         "shell_lines": 3
         }
        ]
       }
@@ -8229,7 +8107,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "learn:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Distil the record into lessons,Record the run,Commit the lessons",
-     "bytes": 2047,
+     "bytes": 1904,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8239,14 +8117,12 @@
       "matrix": false,
       "cache": false,
       "skip_ci": false,
-      "pushes": true,
-      "commits": true,
+      "pushes": false,
+      "commits": false,
       "pulls": false,
       "triggers_on_push": false,
       "pages_deploy": false,
-      "writes_paths": [
-       "registry/lessons.json"
-      ]
+      "writes_paths": []
      }
     },
     {
@@ -8310,8 +8186,8 @@
         },
         {
          "name": "Commit the report",
-         "run": "git config user.name  \"forge-agent\"",
-         "shell_lines": 7
+         "run": "# F-97: the verdict is \"did the diagnosis land on the branch\", not \"did git exit 0\".",
+         "shell_lines": 3
         }
        ]
       }
@@ -8330,7 +8206,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "diagnose:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Do the rules still hold?,Check the token has the quota for this,Diagnose the machinery,Record the run,Tell someone (F-25 / F-55),Commit the report",
-     "bytes": 7900,
+     "bytes": 7786,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8340,14 +8216,12 @@
       "matrix": false,
       "cache": false,
       "skip_ci": false,
-      "pushes": true,
-      "commits": true,
+      "pushes": false,
+      "commits": false,
       "pulls": false,
       "triggers_on_push": false,
       "pages_deploy": false,
-      "writes_paths": [
-       "registry/diagnose.json"
-      ]
+      "writes_paths": []
      }
     },
     {
@@ -8494,8 +8368,8 @@
         },
         {
          "name": "Commit the report",
-         "run": "git config user.name  \"forge-agent\"",
-         "shell_lines": 17
+         "run": "# F-97: the verdict is \"did registry/updates.json land\", not \"did git exit 0\".",
+         "shell_lines": 9
         }
        ]
       }
@@ -8513,7 +8387,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "check:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Do the rules still hold?,Which pins are behind?,Commit the report",
-     "bytes": 2290,
+     "bytes": 1892,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8523,14 +8397,12 @@
       "matrix": false,
       "cache": false,
       "skip_ci": false,
-      "pushes": true,
-      "commits": true,
-      "pulls": true,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
       "triggers_on_push": false,
       "pages_deploy": false,
-      "writes_paths": [
-       "registry/updates.json"
-      ]
+      "writes_paths": []
      }
     },
     {
@@ -9418,8 +9290,8 @@
         },
         {
          "name": "Commit if changed",
-         "run": "if git diff --quiet; then echo \"no change\"; exit 0; fi",
-         "shell_lines": 6
+         "run": "# F-97: the verdict is \"did the refreshed plan land\", not \"did git exit 0\".",
+         "shell_lines": 3
         }
        ]
       }
@@ -9437,7 +9309,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "refresh:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Regenerate,Rebuild the index,Commit if changed",
-     "bytes": 1831,
+     "bytes": 1748,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -9447,14 +9319,12 @@
       "matrix": false,
       "cache": false,
       "skip_ci": true,
-      "pushes": true,
-      "commits": true,
+      "pushes": false,
+      "commits": false,
       "pulls": false,
       "triggers_on_push": true,
       "pages_deploy": false,
-      "writes_paths": [
-       "docs/drsamonline_system_plan.md"
-      ]
+      "writes_paths": []
      }
     }
    ]
@@ -10994,7 +10864,7 @@
         {
          "name": "Commit if changed",
          "run": "git config user.name  \"forge-bot\"",
-         "shell_lines": 33
+         "shell_lines": 58
         }
        ]
       }
@@ -11012,7 +10882,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "refresh:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Rebuild repos.json + catalog.json + plan.json,Measure what \"built\" means (F-16),Commit if changed",
-     "bytes": 4313,
+     "bytes": 5614,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,

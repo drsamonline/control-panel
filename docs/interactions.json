@@ -2,16 +2,6 @@
  "what": "The orphans, the duplication, and where one workflow breaks another.",
  "orphans": [
   {
-   "key": "app-builder/.github/workflows/test.yml",
-   "repo": "app-builder",
-   "name": "test",
-   "private_repo": false,
-   "public_twin": null,
-   "verdict": "WRITE THE CALLER",
-   "why": "it is public and callable, and nothing calls it. Either a caller was never written, or the thing it was built for was solved another way - in which case it is dead weight.",
-   "callers": []
-  },
-  {
    "key": "forge/.github/workflows/audit.yml",
    "repo": "forge",
    "name": "audit",
@@ -76,9 +66,9 @@
    "repo": "forge",
    "name": "test",
    "private_repo": true,
-   "public_twin": "app-builder/.github/workflows/test.yml",
-   "verdict": "DELETE THE PRIVATE COPY",
-   "why": "it lives in forge, which is PRIVATE, so no public repo can call it - and app-builder/.github/workflows/test.yml is the public twin, which is the one that can be called. Two copies, one reachable: keep the reachable one.",
+   "public_twin": null,
+   "verdict": "INTENTIONAL (private only)",
+   "why": "it lives in forge, which is private, so only private callers can reach it. If that is the intent, say so in its header; if not, it is dead.",
    "callers": []
   }
  ],
@@ -165,29 +155,6 @@
    "migrate_count": 18
   },
   {
-   "name": "test",
-   "copies": 10,
-   "repos": 10,
-   "distinct_sizes": 8,
-   "spread_bytes": 2897,
-   "drifted": true,
-   "canonical": "app-builder/test.yml",
-   "canonical_bytes": 3347,
-   "plan": "turn the 9 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
-   "migrate": [
-    "app-encrypted-case-log/test.yml",
-    "art-kit/test.yml",
-    "audio-kit/test.yml",
-    "dashboard/test.yml",
-    "export-kit/test.yml",
-    "forge/test.yml",
-    "kent-repertory-explorer/test.yml",
-    "ml-kit/test.yml",
-    "ui-kit/test.yml"
-   ],
-   "migrate_count": 9
-  },
-  {
    "name": "CI",
    "copies": 10,
    "repos": 10,
@@ -209,6 +176,28 @@
     "neon-runner/ci.yml"
    ],
    "migrate_count": 9
+  },
+  {
+   "name": "test",
+   "copies": 9,
+   "repos": 9,
+   "distinct_sizes": 7,
+   "spread_bytes": 2359,
+   "drifted": true,
+   "canonical": "forge/test.yml",
+   "canonical_bytes": 2809,
+   "plan": "turn the 8 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "app-encrypted-case-log/test.yml",
+    "art-kit/test.yml",
+    "audio-kit/test.yml",
+    "dashboard/test.yml",
+    "export-kit/test.yml",
+    "kent-repertory-explorer/test.yml",
+    "ml-kit/test.yml",
+    "ui-kit/test.yml"
+   ],
+   "migrate_count": 8
   },
   {
    "name": "build",
@@ -247,26 +236,6 @@
  "cross_action": {
   "races": [
    {
-    "repo": "forge",
-    "writers": [
-     "app-deliver.yml",
-     "backlog-status.yml",
-     "code-compression.yml",
-     "docs.yml",
-     "fanout.yml",
-     "health.yml",
-     "heartbeat.yml",
-     "intake.yml",
-     "kit-audit.yml",
-     "log-append.yml",
-     "repo-learning.yml",
-     "self-diagnose.yml",
-     "self-update.yml"
-    ],
-    "count": 13,
-    "why": "13 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
-   },
-   {
     "repo": "Matneo",
     "writers": [
      "blog.yml",
@@ -275,6 +244,15 @@
     ],
     "count": 3,
     "why": "3 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
+   },
+   {
+    "repo": "forge",
+    "writers": [
+     "fanout.yml",
+     "log-append.yml"
+    ],
+    "count": 2,
+    "why": "2 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
    },
    {
     "repo": "skills",
