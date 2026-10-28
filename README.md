@@ -1,5 +1,7 @@
 # control-panel
 
+[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-2e7d32)](LICENSE)
+
 **Every workflow in every repository — what runs, when, what calls what, and what is connected to nothing.**
 
 Nothing in this system knew its own shape. There were ~112 workflows across ~64 repositories: reusable
