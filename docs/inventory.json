@@ -1,7 +1,7 @@
 {
  "what": "Every workflow in every repo, with its triggers, jobs, steps and calls.",
  "summary": {
-  "repos": 96,
+  "repos": 97,
   "scope": "all",
   "scope_note": "read with a token that can see every repository the account owns",
   "skipped": [],
@@ -15,16 +15,16 @@
    "saga-vn-engine",
    "ziptastic"
   ],
-  "workflows": 163,
+  "workflows": 164,
   "reusable": 11,
-  "scheduled": 29,
-  "dispatchable": 161,
+  "scheduled": 30,
+  "dispatchable": 162,
   "parse_errors": [],
   "schema_checked": true,
   "schema_check_error": "",
   "invalid_workflows": [],
-  "jobs": 206,
-  "steps": 764,
+  "jobs": 207,
+  "steps": 768,
   "edges": 53,
   "dangling_calls": [],
   "orphan_reusables": [
@@ -5466,6 +5466,94 @@
       "skip_ci": false,
       "pushes": false,
       "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ]
+  },
+  {
+   "repo": "audit",
+   "workflows": [
+    {
+     "file": "licence-check.yml",
+     "name": "Licence badge check",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push",
+       "schedule",
+       "workflow_dispatch"
+      ],
+      "crons": [
+       "31 3 * * 1"
+      ],
+      "paths": [
+       "push:tools/licence_check.py",
+       "push:.github/workflows/licence-check.yml"
+      ],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "check",
+       "name": "check",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "Collect state",
+         "run": "python3 tools/collect.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Check licence badges",
+         "run": "python3 tools/licence_check.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Commit the snapshot",
+         "run": "git config user.name  \"github-actions[bot]\"",
+         "shell_lines": 9
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [
+      "licence-check"
+     ],
+     "concurrency_cancels": false,
+     "signature": "check:ubuntu-latest:actions/checkout@v4,Collect state,Check licence badges,Commit the snapshot",
+     "bytes": 1491,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": true,
+      "pushes": true,
+      "commits": true,
       "pulls": false,
       "triggers_on_push": true,
       "pages_deploy": false,
