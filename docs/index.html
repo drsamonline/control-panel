@@ -96,6 +96,18 @@ a{color:var(--acc)}
   th,td{padding:5px 6px;font-size:12px}
   .find{padding:9px 10px}
 }
+
+  /* --- the question, and the three answers --- */
+  .ask{margin:16px 0 4px}
+  .ask-q{margin:0 0 9px;font-size:1.02rem;font-weight:600}
+  .ask-btns{display:flex;gap:8px;flex-wrap:wrap}
+  .ask-btn{background:var(--card2);border:1px solid var(--line);color:var(--ink);
+           border-radius:10px;padding:10px 15px;font:inherit;font-size:.92rem;
+           font-weight:600;cursor:pointer;transition:border-color .12s,background .12s}
+  .ask-btn:hover{border-color:var(--violet)}
+  .ask-btn.on{background:var(--violet);border-color:var(--violet);color:#0b0716}
+  .ask-hint{color:var(--mut);font-size:.82rem;margin:9px 0 0}
+  .grp{margin-top:6px}
 </style>
 </head>
 <body>
@@ -110,28 +122,51 @@ a{color:var(--acc)}
 
   <div class="kpis" id="kpis"></div>
 
-  <div class="sec">The grand pipeline — scratch to production to delivery to repair</div>
-  <div class="pipe" id="pipe"></div>
+  <div class="ask" id="ask">
+    <p class="ask-q">What do you want to do?</p>
+    <div class="ask-btns" role="group" aria-label="Choose what to see">
+      <button type="button" class="ask-btn on" data-go="repair">Something is broken</button>
+      <button type="button" class="ask-btn" data-go="publish">Publish something</button>
+      <button type="button" class="ask-btn" data-go="all">Show me everything</button>
+    </div>
+    <p class="ask-hint" id="askHint">The things that are not connected, the rules that are missing, and the workflows that answer to nobody.</p>
+  </div>
 
-  <div class="sec">The routes — how little you have to do</div>
-  <div id="routes"></div>
+  <!-- ---------- repair ---------- -->
+  <div class="grp" id="grp-repair">
+    <div class="sec">What is not connected</div>
+    <div id="findings"></div>
 
-  <div class="sec">The orphans — a verdict each, not a label</div>
-  <div id="orphBox"></div>
+    <div class="sec">What is missing — each rule with its reason</div>
+    <div id="gaps"></div>
 
-  <div class="sec">Where one workflow breaks another</div>
-  <div id="crossBox"></div>
+    <div class="sec">The orphans — a verdict each, not a label</div>
+    <div id="orphBox"></div>
+  </div>
 
-  <div class="sec">The guards — each exists because something got past it once</div>
-  <div id="guardBox"></div>
+  <!-- ---------- publish ---------- -->
+  <div class="grp" id="grp-publish" hidden>
+    <div class="sec">The routes — how little you have to do</div>
+    <div id="routes"></div>
+  </div>
 
-  <div class="sec">What is missing — each rule with its reason</div>
-  <div id="gaps"></div>
+  <!-- ---------- everything ---------- -->
+  <div class="grp" id="grp-all" hidden>
+    <details class="box" open>
+      <summary>The grand pipeline — scratch to production to delivery to repair</summary>
+      <div class="body"><div class="pipe" id="pipe"></div></div>
+    </details>
+    <details class="box">
+      <summary>Where one workflow breaks another</summary>
+      <div class="body"><div id="crossBox"></div></div>
+    </details>
+    <details class="box">
+      <summary>The guards — each exists because something got past it once</summary>
+      <div class="body"><div id="guardBox"></div></div>
+    </details>
+  </div>
 
-  <div class="sec">What is not connected</div>
-  <div id="findings"></div>
-
-  <footer>
+<footer>
     <p>Generated from <code>inventory.json</code> (every workflow, parsed) and <code>plan.json</code> (the stages and
     routes), both rebuilt daily by <code>scan.yml</code>. A <b>Run</b> button opens that workflow's page on GitHub —
     it takes you to the real dispatch, so nothing here needs a token in the browser.</p>
@@ -275,6 +310,38 @@ fetch('gaps.json',{cache:'no-store'}).then(function(r){return r.json();}).then(f
   var el=document.getElementById('gaps');
   if(el) el.innerHTML='<p class="mut">gaps.json not published yet - the next scan writes it.</p>';
 });
+</script>
+<script>
+/* Three questions, one answer at a time. The four-stage pipeline is still here,
+   under "everything" - it is a good model, it is just not the first thing anyone
+   needs. Nothing is deleted; the default view is simply the shortest path to an
+   action. */
+(function(){
+  var HINTS = {
+    repair:  "The things that are not connected, the rules that are missing, and the workflows that answer to nobody.",
+    publish: "The routes that need one input from you, and the Run button for each workflow.",
+    all:     "Everything: the pipeline, the cross-workflow collisions, the guards, and the inventory."
+  };
+  var groups = { repair:"grp-repair", publish:"grp-publish", all:"grp-all" };
+  function show(which){
+    Object.keys(groups).forEach(function(k){
+      var el = document.getElementById(groups[k]);
+      if (!el) return;
+      // "all" shows every group; otherwise only the one that was asked for
+      el.hidden = (which !== "all" && k !== which);
+    });
+    var hint = document.getElementById("askHint");
+    if (hint) hint.textContent = HINTS[which] || "";
+    Array.prototype.forEach.call(document.querySelectorAll(".ask-btn"), function(b){
+      b.classList.toggle("on", b.getAttribute("data-go") === which);
+      b.setAttribute("aria-pressed", b.getAttribute("data-go") === which ? "true" : "false");
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".ask-btn"), function(b){
+    b.addEventListener("click", function(){ show(b.getAttribute("data-go")); });
+  });
+  show("repair");
+})();
 </script>
 </body>
 </html>
