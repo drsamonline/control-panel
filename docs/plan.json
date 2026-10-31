@@ -17,7 +17,7 @@
      "name": "adopt",
      "reusable": false,
      "crons": [
-      "0 4 * * *"
+      "0 4 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -29,7 +29,7 @@
      "name": "new-app",
      "reusable": false,
      "crons": [
-      "0 7 * * 1-5"
+      "0 7 * * 1"
      ],
      "dispatchable": true,
      "jobs": 2,
@@ -43,7 +43,7 @@
      "name": "adopt",
      "reusable": false,
      "crons": [
-      "0 4 * * *"
+      "0 4 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -65,7 +65,7 @@
      "name": "new-app",
      "reusable": false,
      "crons": [
-      "0 7 * * 1-5"
+      "0 7 * * 1"
      ],
      "dispatchable": true,
      "jobs": 2,
@@ -79,7 +79,7 @@
      "name": "adopt",
      "reusable": false,
      "crons": [
-      "0 4 * * *"
+      "0 4 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -101,7 +101,7 @@
      "name": "new-app",
      "reusable": false,
      "crons": [
-      "0 7 * * 1-5"
+      "0 7 * * 1"
      ],
      "dispatchable": true,
      "jobs": 2,
@@ -114,7 +114,7 @@
     "name": "adopt",
     "reusable": false,
     "crons": [
-     "0 4 * * *"
+     "0 4 * * 1"
     ],
     "dispatchable": true,
     "jobs": 1,
@@ -129,7 +129,7 @@
    "what": "Prove the code, build every platform it ships on, and lint what was written.",
    "auto": true,
    "input": "none - a push runs it",
-   "count": 91,
+   "count": 110,
    "scheduled": [
     {
      "repo": "app-builder",
@@ -137,7 +137,7 @@
      "name": "All kit tests",
      "reusable": false,
      "crons": [
-      "0 5 * * *"
+      "0 5 * * 3"
      ],
      "dispatchable": true,
      "jobs": 2,
@@ -153,7 +153,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "forge",
@@ -164,27 +164,15 @@
       "0 6 * * 2"
      ],
      "dispatchable": true,
-     "jobs": 3,
-     "steps": 11
-    },
-    {
-     "repo": "skills",
-     "file": "validate.yml",
-     "name": "validate skills",
-     "reusable": false,
-     "crons": [
-      "20 4 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 2
+     "jobs": 4,
+     "steps": 17
     }
    ],
    "dispatchable": [
     {
      "repo": "All4ONE",
-     "file": "build-windows-exe.yml",
-     "name": "Build Windows executable",
+     "file": "build-windows.yml",
+     "name": "Build Windows binary",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
@@ -194,12 +182,12 @@
     {
      "repo": "All4ONE",
      "file": "ci.yml",
-     "name": "CI (Linux validation)",
+     "name": "Validate",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 8
+     "jobs": 2,
+     "steps": 14
     },
     {
      "repo": "BLINKTRANSFER",
@@ -292,6 +280,16 @@
      "steps": 6
     },
     {
+     "repo": "ai-bridge",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 8
+    },
+    {
      "repo": "ambient-sound-studio",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -307,11 +305,41 @@
      "name": "All kit tests",
      "reusable": false,
      "crons": [
-      "0 5 * * *"
+      "0 5 * * 3"
      ],
      "dispatchable": true,
      "jobs": 2,
      "steps": 5
+    },
+    {
+     "repo": "app-builder",
+     "file": "tests.yml",
+     "name": "tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
+     "repo": "app-clip-loom",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "app-clip-loom",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "app-companion-forge",
@@ -342,6 +370,46 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 3
+    },
+    {
+     "repo": "app-image-toolkit",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "app-image-toolkit",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
+     "repo": "app-jacquard",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "app-jacquard",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "app-panchang",
@@ -382,6 +450,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 4
+    },
+    {
+     "repo": "app-weft-puzzles",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "app-weft-puzzles",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "art-kit",
@@ -613,7 +701,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "forge",
@@ -624,8 +712,8 @@
       "0 6 * * 2"
      ],
      "dispatchable": true,
-     "jobs": 3,
-     "steps": 11
+     "jobs": 4,
+     "steps": 17
     },
     {
      "repo": "forge",
@@ -788,6 +876,16 @@
      "steps": 0
     },
     {
+     "repo": "musicgen",
+     "file": "test.yml",
+     "name": "tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 7
+    },
+    {
      "repo": "neon-engine",
      "file": "test.yml",
      "name": "tests",
@@ -908,6 +1006,16 @@
      "steps": 10
     },
     {
+     "repo": "remedy-relationship-explorer",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
      "repo": "repertory-kit",
      "file": "test.yml",
      "name": "Test",
@@ -966,18 +1074,6 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 3
-    },
-    {
-     "repo": "skills",
-     "file": "validate.yml",
-     "name": "validate skills",
-     "reusable": false,
-     "crons": [
-      "20 4 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 2
     },
     {
      "repo": "skin-case-tracker",
@@ -1060,6 +1156,86 @@
      "steps": 3
     },
     {
+     "repo": "weft8-classroom",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "weft8-classroom",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
+     "repo": "weft8-compare",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "weft8-compare",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
+     "repo": "weft8-hardware",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "weft8-hardware",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
+     "repo": "weft8-kit",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "weft8-kit",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
      "repo": "whispering-body-first-aid",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -1083,8 +1259,8 @@
    "members": [
     {
      "repo": "All4ONE",
-     "file": "build-windows-exe.yml",
-     "name": "Build Windows executable",
+     "file": "build-windows.yml",
+     "name": "Build Windows binary",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
@@ -1094,12 +1270,12 @@
     {
      "repo": "All4ONE",
      "file": "ci.yml",
-     "name": "CI (Linux validation)",
+     "name": "Validate",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 8
+     "jobs": 2,
+     "steps": 14
     },
     {
      "repo": "BLINKTRANSFER",
@@ -1202,6 +1378,16 @@
      "steps": 6
     },
     {
+     "repo": "ai-bridge",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 8
+    },
+    {
      "repo": "ambient-sound-studio",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -1218,8 +1404,8 @@
      "reusable": true,
      "crons": [],
      "dispatchable": false,
-     "jobs": 9,
-     "steps": 47
+     "jobs": 10,
+     "steps": 54
     },
     {
      "repo": "app-builder",
@@ -1227,11 +1413,41 @@
      "name": "All kit tests",
      "reusable": false,
      "crons": [
-      "0 5 * * *"
+      "0 5 * * 3"
      ],
      "dispatchable": true,
      "jobs": 2,
      "steps": 5
+    },
+    {
+     "repo": "app-builder",
+     "file": "tests.yml",
+     "name": "tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
+     "repo": "app-clip-loom",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "app-clip-loom",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "app-companion-forge",
@@ -1262,6 +1478,46 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 3
+    },
+    {
+     "repo": "app-image-toolkit",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "app-image-toolkit",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
+     "repo": "app-jacquard",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "app-jacquard",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "app-panchang",
@@ -1302,6 +1558,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 4
+    },
+    {
+     "repo": "app-weft-puzzles",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "app-weft-puzzles",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "art-kit",
@@ -1533,7 +1809,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "forge",
@@ -1544,8 +1820,8 @@
       "0 6 * * 2"
      ],
      "dispatchable": true,
-     "jobs": 3,
-     "steps": 11
+     "jobs": 4,
+     "steps": 17
     },
     {
      "repo": "forge",
@@ -1708,6 +1984,16 @@
      "steps": 0
     },
     {
+     "repo": "musicgen",
+     "file": "test.yml",
+     "name": "tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 7
+    },
+    {
      "repo": "neon-engine",
      "file": "test.yml",
      "name": "tests",
@@ -1828,6 +2114,16 @@
      "steps": 10
     },
     {
+     "repo": "remedy-relationship-explorer",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
      "repo": "repertory-kit",
      "file": "test.yml",
      "name": "Test",
@@ -1886,18 +2182,6 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 3
-    },
-    {
-     "repo": "skills",
-     "file": "validate.yml",
-     "name": "validate skills",
-     "reusable": false,
-     "crons": [
-      "20 4 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 2
     },
     {
      "repo": "skin-case-tracker",
@@ -1980,6 +2264,86 @@
      "steps": 3
     },
     {
+     "repo": "weft8-classroom",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "weft8-classroom",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
+     "repo": "weft8-compare",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "weft8-compare",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
+     "repo": "weft8-hardware",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "weft8-hardware",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
+     "repo": "weft8-kit",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "weft8-kit",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
      "repo": "whispering-body-first-aid",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -2002,8 +2366,8 @@
    ],
    "manual": {
     "repo": "All4ONE",
-    "file": "build-windows-exe.yml",
-    "name": "Build Windows executable",
+    "file": "build-windows.yml",
+    "name": "Build Windows binary",
     "reusable": false,
     "crons": [],
     "dispatchable": true,
@@ -2019,7 +2383,7 @@
    "what": "Publish the release, deploy the live demo, capture the screenshot, and give every app a landing page.",
    "auto": true,
    "input": "none - it follows a build",
-   "count": 19,
+   "count": 24,
    "scheduled": [
     {
      "repo": "Matneo",
@@ -2027,7 +2391,7 @@
      "name": "Refresh blog posts",
      "reusable": false,
      "crons": [
-      "12 4 * * *"
+      "12 4 * * 2"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2039,7 +2403,7 @@
      "name": "store-images",
      "reusable": false,
      "crons": [
-      "41 3 * * *"
+      "0 3 1,16 * *"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2051,7 +2415,7 @@
      "name": "Refresh store catalogue",
      "reusable": false,
      "crons": [
-      "22 4 * * *"
+      "22 4 * * 2"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2063,7 +2427,7 @@
      "name": "Refresh dashboard data",
      "reusable": false,
      "crons": [
-      "47 3 * * *"
+      "47 3 * * 2"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2075,7 +2439,7 @@
      "name": "Refresh project hub",
      "reusable": false,
      "crons": [
-      "17 3 * * *"
+      "37 3 1,16 * *"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2087,7 +2451,7 @@
      "name": "app-deliver",
      "reusable": false,
      "crons": [
-      "0 5 * * *"
+      "0 5 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2099,7 +2463,7 @@
      "name": "Refresh plan status",
      "reusable": false,
      "crons": [
-      "32 4 * * *"
+      "32 4 * * 2"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2111,7 +2475,7 @@
      "name": "Refresh registry",
      "reusable": false,
      "crons": [
-      "42 4 * * *"
+      "42 4 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2126,20 +2490,30 @@
       "23 3 * * 1"
      ],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
+     "jobs": 2,
+     "steps": 6
     }
    ],
    "dispatchable": [
     {
      "repo": "All4ONE",
-     "file": "deploy-demo.yml",
-     "name": "Deploy the demo",
+     "file": "pages.yml",
+     "name": "Publish landing page",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 6
+    },
+    {
+     "repo": "All4ONE",
+     "file": "regenerate-docs.yml",
+     "name": "Regenerate generated docs",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 0
+     "steps": 4
     },
     {
      "repo": "CLDR",
@@ -2167,7 +2541,7 @@
      "name": "Refresh blog posts",
      "reusable": false,
      "crons": [
-      "12 4 * * *"
+      "12 4 * * 2"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2189,7 +2563,7 @@
      "name": "store-images",
      "reusable": false,
      "crons": [
-      "41 3 * * *"
+      "0 3 1,16 * *"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2201,7 +2575,7 @@
      "name": "Refresh store catalogue",
      "reusable": false,
      "crons": [
-      "22 4 * * *"
+      "22 4 * * 2"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2216,6 +2590,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 0
+    },
+    {
+     "repo": "ai-bridge",
+     "file": "pages.yml",
+     "name": "Landing page",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
+     "repo": "ai-bridge",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 3,
+     "steps": 19
     },
     {
      "repo": "app-builder",
@@ -2233,11 +2627,31 @@
      "name": "Refresh dashboard data",
      "reusable": false,
      "crons": [
-      "47 3 * * *"
+      "47 3 * * 2"
      ],
      "dispatchable": true,
      "jobs": 1,
      "steps": 4
+    },
+    {
+     "repo": "drsamonline",
+     "file": "add-download-blocks.yml",
+     "name": "Add download blocks to landing pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
+     "repo": "drsamonline",
+     "file": "apply-store-fixes.yml",
+     "name": "Apply Matneo store fixes",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
     },
     {
      "repo": "drsamonline.github.io",
@@ -2245,7 +2659,7 @@
      "name": "Refresh project hub",
      "reusable": false,
      "crons": [
-      "17 3 * * *"
+      "37 3 1,16 * *"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2257,7 +2671,7 @@
      "name": "app-deliver",
      "reusable": false,
      "crons": [
-      "0 5 * * *"
+      "0 5 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2299,7 +2713,7 @@
      "name": "Refresh plan status",
      "reusable": false,
      "crons": [
-      "32 4 * * *"
+      "32 4 * * 2"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2321,7 +2735,7 @@
      "name": "Refresh registry",
      "reusable": false,
      "crons": [
-      "42 4 * * *"
+      "42 4 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2336,20 +2750,30 @@
       "23 3 * * 1"
      ],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
+     "jobs": 2,
+     "steps": 6
     }
    ],
    "members": [
     {
      "repo": "All4ONE",
-     "file": "deploy-demo.yml",
-     "name": "Deploy the demo",
+     "file": "pages.yml",
+     "name": "Publish landing page",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 6
+    },
+    {
+     "repo": "All4ONE",
+     "file": "regenerate-docs.yml",
+     "name": "Regenerate generated docs",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 0
+     "steps": 4
     },
     {
      "repo": "CLDR",
@@ -2377,7 +2801,7 @@
      "name": "Refresh blog posts",
      "reusable": false,
      "crons": [
-      "12 4 * * *"
+      "12 4 * * 2"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2399,7 +2823,7 @@
      "name": "store-images",
      "reusable": false,
      "crons": [
-      "41 3 * * *"
+      "0 3 1,16 * *"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2411,7 +2835,7 @@
      "name": "Refresh store catalogue",
      "reusable": false,
      "crons": [
-      "22 4 * * *"
+      "22 4 * * 2"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2426,6 +2850,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 0
+    },
+    {
+     "repo": "ai-bridge",
+     "file": "pages.yml",
+     "name": "Landing page",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
+     "repo": "ai-bridge",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 3,
+     "steps": 19
     },
     {
      "repo": "app-builder",
@@ -2443,11 +2887,31 @@
      "name": "Refresh dashboard data",
      "reusable": false,
      "crons": [
-      "47 3 * * *"
+      "47 3 * * 2"
      ],
      "dispatchable": true,
      "jobs": 1,
      "steps": 4
+    },
+    {
+     "repo": "drsamonline",
+     "file": "add-download-blocks.yml",
+     "name": "Add download blocks to landing pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
+     "repo": "drsamonline",
+     "file": "apply-store-fixes.yml",
+     "name": "Apply Matneo store fixes",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
     },
     {
      "repo": "drsamonline.github.io",
@@ -2455,7 +2919,7 @@
      "name": "Refresh project hub",
      "reusable": false,
      "crons": [
-      "17 3 * * *"
+      "37 3 1,16 * *"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2467,7 +2931,7 @@
      "name": "app-deliver",
      "reusable": false,
      "crons": [
-      "0 5 * * *"
+      "0 5 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2509,7 +2973,7 @@
      "name": "Refresh plan status",
      "reusable": false,
      "crons": [
-      "32 4 * * *"
+      "32 4 * * 2"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2531,7 +2995,7 @@
      "name": "Refresh registry",
      "reusable": false,
      "crons": [
-      "42 4 * * *"
+      "42 4 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2546,19 +3010,19 @@
       "23 3 * * 1"
      ],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
+     "jobs": 2,
+     "steps": 6
     }
    ],
    "manual": {
     "repo": "All4ONE",
-    "file": "deploy-demo.yml",
-    "name": "Deploy the demo",
+    "file": "pages.yml",
+    "name": "Publish landing page",
     "reusable": false,
     "crons": [],
     "dispatchable": true,
-    "jobs": 1,
-    "steps": 0
+    "jobs": 2,
+    "steps": 6
    }
   },
   {
@@ -2601,7 +3065,7 @@
      "name": "backlog-status",
      "reusable": false,
      "crons": [
-      "0 5 * * *"
+      "0 5 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2625,11 +3089,11 @@
      "name": "health",
      "reusable": false,
      "crons": [
-      "23 4 * * *"
+      "23 4 * * 1"
      ],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
+     "jobs": 2,
+     "steps": 7
     },
     {
      "repo": "forge",
@@ -2661,11 +3125,11 @@
      "name": "self-diagnose",
      "reusable": false,
      "crons": [
-      "0 8 * * *"
+      "0 8 * * 3"
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 8
+     "steps": 9
     },
     {
      "repo": "forge",
@@ -2673,7 +3137,7 @@
      "name": "self-heal",
      "reusable": true,
      "crons": [
-      "30 20 * * *"
+      "30 20 * * 3"
      ],
      "dispatchable": true,
      "jobs": 2,
@@ -2700,8 +3164,8 @@
      "reusable": true,
      "crons": [],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 3
+     "jobs": 2,
+     "steps": 5
     },
     {
      "repo": "dumps",
@@ -2733,7 +3197,7 @@
      "name": "backlog-status",
      "reusable": false,
      "crons": [
-      "0 5 * * *"
+      "0 5 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2777,11 +3241,11 @@
      "name": "health",
      "reusable": false,
      "crons": [
-      "23 4 * * *"
+      "23 4 * * 1"
      ],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
+     "jobs": 2,
+     "steps": 7
     },
     {
      "repo": "forge",
@@ -2813,11 +3277,11 @@
      "name": "self-diagnose",
      "reusable": false,
      "crons": [
-      "0 8 * * *"
+      "0 8 * * 3"
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 8
+     "steps": 9
     },
     {
      "repo": "forge",
@@ -2825,7 +3289,7 @@
      "name": "self-heal",
      "reusable": true,
      "crons": [
-      "30 20 * * *"
+      "30 20 * * 3"
      ],
      "dispatchable": true,
      "jobs": 2,
@@ -2862,8 +3326,8 @@
      "reusable": true,
      "crons": [],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 3
+     "jobs": 2,
+     "steps": 5
     },
     {
      "repo": "dumps",
@@ -2895,7 +3359,7 @@
      "name": "backlog-status",
      "reusable": false,
      "crons": [
-      "0 5 * * *"
+      "0 5 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -2939,11 +3403,11 @@
      "name": "health",
      "reusable": false,
      "crons": [
-      "23 4 * * *"
+      "23 4 * * 1"
      ],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
+     "jobs": 2,
+     "steps": 7
     },
     {
      "repo": "forge",
@@ -2975,11 +3439,11 @@
      "name": "self-diagnose",
      "reusable": false,
      "crons": [
-      "0 8 * * *"
+      "0 8 * * 3"
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 8
+     "steps": 9
     },
     {
      "repo": "forge",
@@ -2987,7 +3451,7 @@
      "name": "self-heal",
      "reusable": true,
      "crons": [
-      "30 20 * * *"
+      "30 20 * * 3"
      ],
      "dispatchable": true,
      "jobs": 2,
@@ -3023,8 +3487,8 @@
     "reusable": true,
     "crons": [],
     "dispatchable": true,
-    "jobs": 1,
-    "steps": 3
+    "jobs": 2,
+    "steps": 5
    }
   }
  ],
@@ -3113,6 +3577,16 @@
  ],
  "unplaced": [
   {
+   "repo": "compfactory",
+   "file": "dispatch-sync.yml",
+   "name": "dispatch-sync",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 2
+  },
+  {
    "repo": "conqueror-os",
    "file": "repair-src.yml",
    "name": "repair-src",
@@ -3128,7 +3602,7 @@
    "name": "scan",
    "reusable": false,
    "crons": [
-    "0 6 * * *"
+    "0 6 * * 2"
    ],
    "dispatchable": true,
    "jobs": 2,
@@ -3136,11 +3610,41 @@
   },
   {
    "repo": "drsamonline",
+   "file": "apply-all.yml",
+   "name": "Apply everything outstanding",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "drsamonline",
+   "file": "apply-licence-badges.yml",
+   "name": "Align licence badges with LICENSE",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "drsamonline",
+   "file": "licence-fix.yml",
+   "name": "Fix licence badges",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "drsamonline",
    "file": "metrics.yml",
    "name": "Metrics",
    "reusable": false,
    "crons": [
-    "0 4 * * *"
+    "0 4 * * 2"
    ],
    "dispatchable": true,
    "jobs": 1,
@@ -3152,7 +3656,7 @@
    "name": "Update profile README",
    "reusable": false,
    "crons": [
-    "17 3 * * *"
+    "17 3 * * 1"
    ],
    "dispatchable": true,
    "jobs": 1,
@@ -3176,7 +3680,7 @@
    "name": "licence",
    "reusable": false,
    "crons": [
-    "0 4 * * *"
+    "0 4 * * 3"
    ],
    "dispatchable": true,
    "jobs": 1,
@@ -3191,13 +3695,23 @@
    "dispatchable": true,
    "jobs": 1,
    "steps": 2
+  },
+  {
+   "repo": "heavenzip",
+   "file": "sync-binaries.yml",
+   "name": "sync-binaries",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
   }
  ],
  "totals": {
-  "workflows": 127,
-  "unplaced": 7,
-  "scheduled": 25,
-  "dispatchable": 125,
+  "workflows": 151,
+  "unplaced": 12,
+  "scheduled": 24,
+  "dispatchable": 149,
   "inputs_for_the_two_everyday_routes": 1
  }
 }

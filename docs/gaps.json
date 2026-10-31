@@ -3,14 +3,16 @@
  "counts": {
   "dangling": 0,
   "drift": 6,
-  "no-concurrency": 10,
-  "no-timeout": 53,
-  "no-workflows": 7,
+  "no-concurrency": 28,
+  "no-permissions": 4,
+  "no-timeout": 63,
+  "no-workflows": 8,
   "orphan": 7,
   "outdated-pin": 0,
   "un-runnable": 2
  },
  "worst_first": [
+  "no-permissions",
   "drift",
   "no-workflows",
   "no-timeout",
@@ -19,11 +21,38 @@
   "orphan"
  ],
  "gaps": {
+  "no-permissions": [
+   {
+    "repo": "All4ONE",
+    "file": "ci.yml",
+    "name": "Validate"
+   },
+   {
+    "repo": "ai-bridge",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "compfactory",
+    "file": "dispatch-sync.yml",
+    "name": "dispatch-sync"
+   },
+   {
+    "repo": "musicgen",
+    "file": "test.yml",
+    "name": "tests"
+   }
+  ],
   "no-timeout": [
    {
     "repo": "All4ONE",
-    "file": "deploy-demo.yml",
-    "name": "Deploy the demo"
+    "file": "pages.yml",
+    "name": "Publish landing page"
+   },
+   {
+    "repo": "All4ONE",
+    "file": "regenerate-docs.yml",
+    "name": "Regenerate generated docs"
    },
    {
     "repo": "BLINKTRANSFER",
@@ -61,7 +90,17 @@
     "name": "Build + deploy"
    },
    {
+    "repo": "ai-bridge",
+    "file": "pages.yml",
+    "name": "Landing page"
+   },
+   {
     "repo": "ambient-sound-studio",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "app-clip-loom",
     "file": "build-apps.yml",
     "name": "Build + deploy"
    },
@@ -81,12 +120,27 @@
     "name": "test"
    },
    {
+    "repo": "app-image-toolkit",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "app-jacquard",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
     "repo": "app-panchang",
     "file": "build-apps.yml",
     "name": "Build + deploy"
    },
    {
     "repo": "app-poets-studio",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "app-weft-puzzles",
     "file": "build-apps.yml",
     "name": "Build + deploy"
    },
@@ -131,6 +185,11 @@
     "name": "Build + deploy"
    },
    {
+    "repo": "compfactory",
+    "file": "dispatch-sync.yml",
+    "name": "dispatch-sync"
+   },
+   {
     "repo": "conqueror-os",
     "file": "build-apps.yml",
     "name": "Build + deploy"
@@ -141,24 +200,9 @@
     "name": "repair-src"
    },
    {
-    "repo": "control-panel",
-    "file": "scan.yml",
-    "name": "scan"
-   },
-   {
     "repo": "dance-fight",
     "file": "build-apps.yml",
     "name": "Build + deploy"
-   },
-   {
-    "repo": "drsamonline",
-    "file": "metrics.yml",
-    "name": "Metrics"
-   },
-   {
-    "repo": "drsamonline",
-    "file": "update-profile.yml",
-    "name": "Update profile README"
    },
    {
     "repo": "forge",
@@ -169,6 +213,11 @@
     "repo": "gentle-pediatrics-companion",
     "file": "build-apps.yml",
     "name": "Build + deploy"
+   },
+   {
+    "repo": "heavenzip",
+    "file": "sync-binaries.yml",
+    "name": "sync-binaries"
    },
    {
     "repo": "helioprism",
@@ -204,6 +253,11 @@
     "repo": "mnemosyne-companion",
     "file": "build-apps.yml",
     "name": "Build + deploy"
+   },
+   {
+    "repo": "musicgen",
+    "file": "test.yml",
+    "name": "tests"
    },
    {
     "repo": "neon-games",
@@ -281,6 +335,26 @@
     "name": "Build + deploy"
    },
    {
+    "repo": "weft8-classroom",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "weft8-compare",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "weft8-hardware",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "weft8-kit",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
     "repo": "whispering-body-first-aid",
     "file": "build-apps.yml",
     "name": "Build + deploy"
@@ -298,12 +372,37 @@
     "name": "Deploy the demo"
    },
    {
+    "repo": "ai-bridge",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "app-clip-loom",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
     "repo": "app-encrypted-case-log",
     "file": "test.yml",
     "name": "test"
    },
    {
+    "repo": "app-image-toolkit",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "app-jacquard",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
     "repo": "app-poets-studio",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "app-weft-puzzles",
     "file": "test.yml",
     "name": "Test"
    },
@@ -323,9 +422,44 @@
     "name": "Test"
    },
    {
+    "repo": "compfactory",
+    "file": "dispatch-sync.yml",
+    "name": "dispatch-sync"
+   },
+   {
     "repo": "conqueror-os",
     "file": "repair-src.yml",
     "name": "repair-src"
+   },
+   {
+    "repo": "drsamonline",
+    "file": "add-download-blocks.yml",
+    "name": "Add download blocks to landing pages"
+   },
+   {
+    "repo": "drsamonline",
+    "file": "apply-all.yml",
+    "name": "Apply everything outstanding"
+   },
+   {
+    "repo": "drsamonline",
+    "file": "apply-licence-badges.yml",
+    "name": "Align licence badges with LICENSE"
+   },
+   {
+    "repo": "drsamonline",
+    "file": "apply-store-fixes.yml",
+    "name": "Apply Matneo store fixes"
+   },
+   {
+    "repo": "drsamonline",
+    "file": "licence-fix.yml",
+    "name": "Fix licence badges"
+   },
+   {
+    "repo": "heavenzip",
+    "file": "sync-binaries.yml",
+    "name": "sync-binaries"
    },
    {
     "repo": "ml-kit",
@@ -333,9 +467,39 @@
     "name": "test"
    },
    {
+    "repo": "musicgen",
+    "file": "test.yml",
+    "name": "tests"
+   },
+   {
+    "repo": "remedy-relationship-explorer",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
     "repo": "ui-kit",
     "file": "test.yml",
     "name": "test"
+   },
+   {
+    "repo": "weft8-classroom",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "weft8-compare",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "weft8-hardware",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "weft8-kit",
+    "file": "test.yml",
+    "name": "Test"
    }
   ],
   "un-runnable": [
@@ -360,10 +524,10 @@
   "drift": [
    {
     "name": "Build + deploy",
-    "copies": 36,
-    "repos": 36,
-    "distinct_sizes": 25,
-    "spread_bytes": 696,
+    "copies": 44,
+    "repos": 44,
+    "distinct_sizes": 32,
+    "spread_bytes": 1280,
     "distinct_shapes": 2,
     "drifted": true,
     "example": [
@@ -371,42 +535,42 @@
      "MATERIA-MEDICA-BUILDER",
      "aethelgard-games",
      "ambient-sound-studio",
-     "app-companion-forge",
-     "app-encrypted-case-log"
+     "app-clip-loom",
+     "app-companion-forge"
     ]
    },
    {
     "name": "Test",
-    "copies": 19,
-    "repos": 19,
-    "distinct_sizes": 7,
-    "spread_bytes": 423,
-    "distinct_shapes": 7,
+    "copies": 28,
+    "repos": 28,
+    "distinct_sizes": 16,
+    "spread_bytes": 736,
+    "distinct_shapes": 16,
     "drifted": true,
     "example": [
+     "app-clip-loom",
+     "app-image-toolkit",
+     "app-jacquard",
      "app-panchang",
      "app-poets-studio",
-     "astro-kit",
-     "base-bench",
-     "bmi-bmr-tdee-macros-fluid-calculator",
-     "book-kit"
+     "app-weft-puzzles"
     ]
    },
    {
     "name": "CI",
-    "copies": 10,
-    "repos": 10,
-    "distinct_sizes": 8,
-    "spread_bytes": 2839,
-    "distinct_shapes": 8,
+    "copies": 11,
+    "repos": 11,
+    "distinct_sizes": 9,
+    "spread_bytes": 2865,
+    "distinct_shapes": 9,
     "drifted": true,
     "example": [
      "BLINKTRANSFER",
      "NEO",
      "ULTIMATE-WINDOWS-OPTIMIZER",
      "aethelgard-rpg-engine",
-     "blinkcode-ai",
-     "conqueror-os"
+     "ai-bridge",
+     "blinkcode-ai"
     ]
    },
    {
@@ -431,7 +595,7 @@
     "copies": 4,
     "repos": 4,
     "distinct_sizes": 4,
-    "spread_bytes": 26481,
+    "spread_bytes": 34024,
     "distinct_shapes": 4,
     "drifted": true,
     "example": [
@@ -442,17 +606,17 @@
     ]
    },
    {
-    "name": "Deploy the demo",
+    "name": "tests",
     "copies": 3,
     "repos": 3,
     "distinct_sizes": 3,
-    "spread_bytes": 188,
-    "distinct_shapes": 1,
-    "drifted": false,
+    "spread_bytes": 375,
+    "distinct_shapes": 3,
+    "drifted": true,
     "example": [
-     "All4ONE",
-     "CLDR",
-     "The_Browser"
+     "app-builder",
+     "musicgen",
+     "neon-engine"
     ]
    }
   ],
@@ -481,7 +645,7 @@
   ],
   "no-workflows": [
    {
-    "repo": "OMM"
+    "repo": "HCS"
    },
    {
     "repo": "Scrap-and-Gun"
@@ -500,6 +664,9 @@
    },
    {
     "repo": "saga-vn-engine"
+   },
+   {
+    "repo": "ziptastic"
    }
   ]
  },

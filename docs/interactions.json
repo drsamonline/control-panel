@@ -75,22 +75,26 @@
  "dedupe": [
   {
    "name": "Build + deploy",
-   "copies": 36,
-   "repos": 36,
-   "distinct_sizes": 25,
-   "spread_bytes": 696,
+   "copies": 44,
+   "repos": 44,
+   "distinct_sizes": 32,
+   "spread_bytes": 1280,
    "drifted": true,
    "canonical": "aethelgard-games/build-apps.yml",
    "canonical_bytes": 1866,
-   "plan": "turn the 35 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "plan": "turn the 43 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "BLINKTRANSFER/build-apps.yml",
     "MATERIA-MEDICA-BUILDER/build-apps.yml",
     "ambient-sound-studio/build-apps.yml",
+    "app-clip-loom/build-apps.yml",
     "app-companion-forge/build-apps.yml",
     "app-encrypted-case-log/build-apps.yml",
+    "app-image-toolkit/build-apps.yml",
+    "app-jacquard/build-apps.yml",
     "app-panchang/build-apps.yml",
     "app-poets-studio/build-apps.yml",
+    "app-weft-puzzles/build-apps.yml",
     "base-bench/build-apps.yml",
     "blinkcode-ai/build-apps.yml",
     "bmi-bmr-tdee-macros-fluid-calculator/build-apps.yml",
@@ -118,23 +122,28 @@
     "the-symphony-companion/build-apps.yml",
     "today-card/build-apps.yml",
     "unstoppable-mind-companion/build-apps.yml",
-    "whispering-body-first-aid/build-apps.yml"
+    "weft8-classroom/build-apps.yml",
+    "weft8-compare/build-apps.yml"
    ],
-   "migrate_count": 35
+   "migrate_count": 43
   },
   {
    "name": "Test",
-   "copies": 19,
-   "repos": 19,
-   "distinct_sizes": 7,
-   "spread_bytes": 423,
+   "copies": 28,
+   "repos": 28,
+   "distinct_sizes": 16,
+   "spread_bytes": 736,
    "drifted": true,
-   "canonical": "idle-city-ages-of-growth/test.yml",
-   "canonical_bytes": 1050,
-   "plan": "turn the 18 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "canonical": "remedy-relationship-explorer/test.yml",
+   "canonical_bytes": 1363,
+   "plan": "turn the 27 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
+    "app-clip-loom/test.yml",
+    "app-image-toolkit/test.yml",
+    "app-jacquard/test.yml",
     "app-panchang/test.yml",
     "app-poets-studio/test.yml",
+    "app-weft-puzzles/test.yml",
     "astro-kit/test.yml",
     "base-bench/test.yml",
     "bmi-bmr-tdee-macros-fluid-calculator/test.yml",
@@ -143,6 +152,7 @@
     "compress-kit/test.yml",
     "crypto-kit/test.yml",
     "game-kit/test.yml",
+    "idle-city-ages-of-growth/test.yml",
     "lan-kit/test.yml",
     "optical-kit/test.yml",
     "repertory-kit/test.yml",
@@ -150,32 +160,37 @@
     "search-kit/test.yml",
     "srs-kit/test.yml",
     "web-kit/test.yml",
+    "weft8-classroom/test.yml",
+    "weft8-compare/test.yml",
+    "weft8-hardware/test.yml",
+    "weft8-kit/test.yml",
     "whispering-body-first-aid/test.yml"
    ],
-   "migrate_count": 18
+   "migrate_count": 27
   },
   {
    "name": "CI",
-   "copies": 10,
-   "repos": 10,
-   "distinct_sizes": 8,
-   "spread_bytes": 2839,
+   "copies": 11,
+   "repos": 11,
+   "distinct_sizes": 9,
+   "spread_bytes": 2865,
    "drifted": true,
    "canonical": "lockhtml/ci.yml",
-   "canonical_bytes": 3449,
-   "plan": "turn the 9 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "canonical_bytes": 3475,
+   "plan": "turn the 10 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "BLINKTRANSFER/ci.yml",
     "NEO/ci.yml",
     "ULTIMATE-WINDOWS-OPTIMIZER/ci.yml",
     "aethelgard-rpg-engine/ci.yml",
+    "ai-bridge/ci.yml",
     "blinkcode-ai/ci.yml",
     "conqueror-os/ci.yml",
     "helioprism/ci.yml",
     "lexora/ci.yml",
     "neon-runner/ci.yml"
    ],
-   "migrate_count": 9
+   "migrate_count": 10
   },
   {
    "name": "test",
@@ -204,10 +219,10 @@
    "copies": 4,
    "repos": 4,
    "distinct_sizes": 4,
-   "spread_bytes": 26481,
+   "spread_bytes": 34024,
    "drifted": true,
    "canonical": "app-builder/build.yml",
-   "canonical_bytes": 27688,
+   "canonical_bytes": 35231,
    "plan": "turn the 3 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "forge/build.yml",
@@ -217,34 +232,24 @@
    "migrate_count": 3
   },
   {
-   "name": "Deploy the demo",
+   "name": "tests",
    "copies": 3,
    "repos": 3,
    "distinct_sizes": 3,
-   "spread_bytes": 188,
+   "spread_bytes": 375,
    "drifted": true,
-   "canonical": "All4ONE/deploy-demo.yml",
-   "canonical_bytes": 1441,
+   "canonical": "app-builder/tests.yml",
+   "canonical_bytes": 1080,
    "plan": "turn the 2 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
-    "CLDR/deploy-demo.yml",
-    "The_Browser/deploy-demo.yml"
+    "musicgen/test.yml",
+    "neon-engine/test.yml"
    ],
    "migrate_count": 2
   }
  ],
  "cross_action": {
   "races": [
-   {
-    "repo": "Matneo",
-    "writers": [
-     "blog.yml",
-     "store-images.yml",
-     "store.yml"
-    ],
-    "count": 3,
-    "why": "3 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
-   },
    {
     "repo": "forge",
     "writers": [
@@ -297,42 +302,41 @@
   ],
   "schedule_pileups": [
    {
-    "cron": "0 5 * * *",
+    "cron": "0 5 * * 1",
     "count": 3,
     "files": [
-     "app-builder/kit-tests.yml",
      "forge/app-deliver.yml",
-     "forge/backlog-status.yml"
+     "forge/backlog-status.yml",
+     "forge/dumps-dedupe.yml"
     ]
    },
    {
-    "cron": "0 4 * * *",
-    "count": 3,
-    "files": [
-     "drsamonline/metrics.yml",
-     "forge/adopt.yml",
-     "forge/licence.yml"
-    ]
-   },
-   {
-    "cron": "0 6 * * *",
+    "cron": "0 6 * * 2",
     "count": 2,
     "files": [
      "control-panel/scan.yml",
-     "forge/heartbeat.yml"
+     "forge/lint.yml"
     ]
    },
    {
-    "cron": "17 3 * * *",
+    "cron": "0 4 * * 1",
     "count": 2,
     "files": [
-     "drsamonline.github.io/refresh-hub.yml",
-     "drsamonline/update-profile.yml"
+     "forge/adopt.yml",
+     "forge/audit.yml"
+    ]
+   },
+   {
+    "cron": "0 7 * * 1",
+    "count": 2,
+    "files": [
+     "forge/new-app.yml",
+     "forge/repo-learning.yml"
     ]
    }
   ],
   "totals": {
-   "races": 3,
+   "races": 2,
    "loops": 0,
    "concurrency_collisions": 0,
    "permission_gaps": 3,

@@ -15,7 +15,8 @@
   "CI",
   "Test",
   "build",
-  "test"
+  "test",
+  "tests"
  ],
  "candidates": [
   {
