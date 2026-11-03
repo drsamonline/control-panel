@@ -108,6 +108,19 @@ a{color:var(--acc)}
   .ask-btn.on{background:var(--violet);border-color:var(--violet);color:#0b0716}
   .ask-hint{color:var(--mut);font-size:.82rem;margin:9px 0 0}
   .grp{margin-top:6px}
+
+  /* ---------- light theme ----------
+     Added so the page reads on paper. It overrides the page's own variables and
+     nothing else — no markup, no layout, no type. */
+  :root, html {
+    color-scheme: light;
+    --bg: #f7f6f2;
+    --card: #ffffff;
+    --ink: #14161a;
+    --mut: #5c6470;
+    --line: #e2ddd2;
+    --acc: #8357e8;
+  }
 </style>
 </head>
 <body>
