@@ -13,8 +13,10 @@
  "drift_measured": [
   "Build + deploy",
   "CI",
+  "Release",
   "Test",
   "build",
+  "release",
   "test",
   "tests"
  ],

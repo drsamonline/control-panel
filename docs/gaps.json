@@ -2,14 +2,14 @@
  "what": "What the inventory implies is missing, and what each gap costs.",
  "counts": {
   "dangling": 0,
-  "drift": 6,
-  "no-concurrency": 28,
-  "no-permissions": 4,
-  "no-timeout": 63,
-  "no-workflows": 8,
+  "drift": 8,
+  "no-concurrency": 40,
+  "no-permissions": 9,
+  "no-timeout": 72,
+  "no-workflows": 13,
   "orphan": 7,
   "outdated-pin": 0,
-  "un-runnable": 2
+  "un-runnable": 3
  },
  "worst_first": [
   "no-permissions",
@@ -28,9 +28,24 @@
     "name": "Validate"
    },
    {
+    "repo": "HCS",
+    "file": "vendor-check.yml",
+    "name": "vendor-check"
+   },
+   {
     "repo": "ai-bridge",
     "file": "ci.yml",
     "name": "CI"
+   },
+   {
+    "repo": "app-organon-reader",
+    "file": "build-apps.yml",
+    "name": "Build portable EXE + Android APK"
+   },
+   {
+    "repo": "app-organon-reader",
+    "file": "test.yml",
+    "name": "Test"
    },
    {
     "repo": "compfactory",
@@ -38,9 +53,19 @@
     "name": "dispatch-sync"
    },
    {
+    "repo": "feather",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
     "repo": "musicgen",
     "file": "test.yml",
     "name": "tests"
+   },
+   {
+    "repo": "ziptastic",
+    "file": "vendor-check.yml",
+    "name": "vendor-check"
    }
   ],
   "no-timeout": [
@@ -63,6 +88,11 @@
     "repo": "CLDR",
     "file": "deploy-demo.yml",
     "name": "Deploy the demo"
+   },
+   {
+    "repo": "HCS",
+    "file": "vendor-check.yml",
+    "name": "vendor-check"
    },
    {
     "repo": "MATERIA-MEDICA-BUILDER",
@@ -120,14 +150,34 @@
     "name": "test"
    },
    {
-    "repo": "app-image-toolkit",
+    "repo": "app-jacquard",
     "file": "build-apps.yml",
     "name": "Build + deploy"
    },
    {
-    "repo": "app-jacquard",
+    "repo": "app-lantern",
+    "file": "desktop.yml",
+    "name": "Desktop"
+   },
+   {
+    "repo": "app-lantern",
+    "file": "release.yml",
+    "name": "Release"
+   },
+   {
+    "repo": "app-lantern",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "app-organon-reader",
     "file": "build-apps.yml",
-    "name": "Build + deploy"
+    "name": "Build portable EXE + Android APK"
+   },
+   {
+    "repo": "app-organon-reader",
+    "file": "test.yml",
+    "name": "Test"
    },
    {
     "repo": "app-panchang",
@@ -138,6 +188,16 @@
     "repo": "app-poets-studio",
     "file": "build-apps.yml",
     "name": "Build + deploy"
+   },
+   {
+    "repo": "app-thermals",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "app-thermals",
+    "file": "test.yml",
+    "name": "Test"
    },
    {
     "repo": "app-weft-puzzles",
@@ -205,6 +265,11 @@
     "name": "Build + deploy"
    },
    {
+    "repo": "eon-commando",
+    "file": "build-apps.yml",
+    "name": "Build apps"
+   },
+   {
     "repo": "forge",
     "file": "backup.yml",
     "name": "backup"
@@ -245,6 +310,11 @@
     "name": "Build + deploy"
    },
    {
+    "repo": "lumen",
+    "file": "presentation.yml",
+    "name": "presentation"
+   },
+   {
     "repo": "ml-kit",
     "file": "test.yml",
     "name": "test"
@@ -273,11 +343,6 @@
     "repo": "neon-velocity",
     "file": "build.yml",
     "name": "build"
-   },
-   {
-    "repo": "offline-pdf-toolkit",
-    "file": "build-apps.yml",
-    "name": "Build + deploy"
    },
    {
     "repo": "open-materia-medica",
@@ -358,9 +423,19 @@
     "repo": "whispering-body-first-aid",
     "file": "build-apps.yml",
     "name": "Build + deploy"
+   },
+   {
+    "repo": "ziptastic",
+    "file": "vendor-check.yml",
+    "name": "vendor-check"
    }
   ],
   "no-concurrency": [
+   {
+    "repo": "HCS",
+    "file": "vendor-check.yml",
+    "name": "vendor-check"
+   },
    {
     "repo": "NEO",
     "file": "ci.yml",
@@ -397,7 +472,37 @@
     "name": "Test"
    },
    {
+    "repo": "app-lantern",
+    "file": "desktop.yml",
+    "name": "Desktop"
+   },
+   {
+    "repo": "app-lantern",
+    "file": "release.yml",
+    "name": "Release"
+   },
+   {
+    "repo": "app-lantern",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "app-organon-reader",
+    "file": "build-apps.yml",
+    "name": "Build portable EXE + Android APK"
+   },
+   {
+    "repo": "app-organon-reader",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
     "repo": "app-poets-studio",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "app-thermals",
     "file": "test.yml",
     "name": "Test"
    },
@@ -457,9 +562,29 @@
     "name": "Fix licence badges"
    },
    {
+    "repo": "feather",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "feather",
+    "file": "release.yml",
+    "name": "Release"
+   },
+   {
     "repo": "heavenzip",
     "file": "sync-binaries.yml",
     "name": "sync-binaries"
+   },
+   {
+    "repo": "lumen",
+    "file": "presentation.yml",
+    "name": "presentation"
+   },
+   {
+    "repo": "lumen",
+    "file": "release.yml",
+    "name": "release"
    },
    {
     "repo": "ml-kit",
@@ -500,6 +625,11 @@
     "repo": "weft8-kit",
     "file": "test.yml",
     "name": "Test"
+   },
+   {
+    "repo": "ziptastic",
+    "file": "vendor-check.yml",
+    "name": "vendor-check"
    }
   ],
   "un-runnable": [
@@ -519,16 +649,24 @@
     "events": [
      "workflow_call"
     ]
+   },
+   {
+    "repo": "app-lantern",
+    "file": "release.yml",
+    "name": "Release",
+    "events": [
+     "push"
+    ]
    }
   ],
   "drift": [
    {
     "name": "Build + deploy",
-    "copies": 44,
-    "repos": 44,
-    "distinct_sizes": 32,
-    "spread_bytes": 1280,
-    "distinct_shapes": 2,
+    "copies": 45,
+    "repos": 45,
+    "distinct_sizes": 36,
+    "spread_bytes": 5842,
+    "distinct_shapes": 6,
     "drifted": true,
     "example": [
      "BLINKTRANSFER",
@@ -541,28 +679,28 @@
    },
    {
     "name": "Test",
-    "copies": 28,
-    "repos": 28,
-    "distinct_sizes": 16,
-    "spread_bytes": 736,
-    "distinct_shapes": 16,
+    "copies": 31,
+    "repos": 31,
+    "distinct_sizes": 20,
+    "spread_bytes": 1486,
+    "distinct_shapes": 20,
     "drifted": true,
     "example": [
      "app-clip-loom",
      "app-image-toolkit",
      "app-jacquard",
-     "app-panchang",
-     "app-poets-studio",
-     "app-weft-puzzles"
+     "app-lantern",
+     "app-organon-reader",
+     "app-panchang"
     ]
    },
    {
     "name": "CI",
-    "copies": 11,
-    "repos": 11,
-    "distinct_sizes": 9,
-    "spread_bytes": 2865,
-    "distinct_shapes": 9,
+    "copies": 12,
+    "repos": 12,
+    "distinct_sizes": 10,
+    "spread_bytes": 9572,
+    "distinct_shapes": 10,
     "drifted": true,
     "example": [
      "BLINKTRANSFER",
@@ -575,11 +713,11 @@
    },
    {
     "name": "test",
-    "copies": 9,
-    "repos": 9,
-    "distinct_sizes": 7,
-    "spread_bytes": 2359,
-    "distinct_shapes": 7,
+    "copies": 10,
+    "repos": 10,
+    "distinct_sizes": 8,
+    "spread_bytes": 4756,
+    "distinct_shapes": 8,
     "drifted": true,
     "example": [
      "app-encrypted-case-log",
@@ -595,7 +733,7 @@
     "copies": 4,
     "repos": 4,
     "distinct_sizes": 4,
-    "spread_bytes": 34024,
+    "spread_bytes": 36490,
     "distinct_shapes": 4,
     "drifted": true,
     "example": [
@@ -606,11 +744,39 @@
     ]
    },
    {
+    "name": "release",
+    "copies": 3,
+    "repos": 3,
+    "distinct_sizes": 3,
+    "spread_bytes": 8611,
+    "distinct_shapes": 3,
+    "drifted": true,
+    "example": [
+     "HMS",
+     "forge",
+     "lumen"
+    ]
+   },
+   {
+    "name": "Release",
+    "copies": 3,
+    "repos": 3,
+    "distinct_sizes": 3,
+    "spread_bytes": 4708,
+    "distinct_shapes": 3,
+    "drifted": true,
+    "example": [
+     "ai-bridge",
+     "app-lantern",
+     "feather"
+    ]
+   },
+   {
     "name": "tests",
     "copies": 3,
     "repos": 3,
     "distinct_sizes": 3,
-    "spread_bytes": 375,
+    "spread_bytes": 239,
     "distinct_shapes": 3,
     "drifted": true,
     "example": [
@@ -645,13 +811,28 @@
   ],
   "no-workflows": [
    {
-    "repo": "HCS"
-   },
-   {
     "repo": "Scrap-and-Gun"
    },
    {
     "repo": "SmartNotes"
+   },
+   {
+    "repo": "corefit-md"
+   },
+   {
+    "repo": "dumps-2"
+   },
+   {
+    "repo": "dumps-3"
+   },
+   {
+    "repo": "dumps-4"
+   },
+   {
+    "repo": "dumps-5"
+   },
+   {
+    "repo": "dumps-6"
    },
    {
     "repo": "frame-kit"
@@ -663,10 +844,10 @@
     "repo": "profile-kit"
    },
    {
-    "repo": "saga-vn-engine"
+    "repo": "repertory-reader"
    },
    {
-    "repo": "ziptastic"
+    "repo": "saga-vn-engine"
    }
   ]
  },
