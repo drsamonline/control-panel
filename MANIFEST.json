@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "locked": false,
+  "files": {
+    "docs/inventory.json": {
+      "sha": "515ef27244f0ccd6cec8f53ff5c3c2484d9e0e35",
+      "producer": "bootstrap@2026-11-04",
+      "class": "generated",
+      "at": "2026-11-04T15:50:49Z"
+    },
+    "docs/plan.json": {
+      "sha": "015ef0af3791090649fcc9de139c3df092f9cc5e",
+      "producer": "bootstrap@2026-11-04",
+      "class": "generated",
+      "at": "2026-11-04T15:50:49Z"
+    }
+  },
+  "updated": "2026-11-04T15:50:49Z"
+}
