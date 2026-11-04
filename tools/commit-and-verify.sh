@@ -85,6 +85,15 @@ if [ "$present" -eq 0 ]; then
   exit 1
 fi
 
+# MANIFEST.json is written by every generator alongside its output. Use
+# git status --porcelain, not git diff — git diff does not see untracked files, so
+# a MANIFEST.json created on this run (the first run after bootstrap in a repo the
+# bootstrap missed) would be silently dropped.
+if [ -f MANIFEST.json ] && [ -n "$(git status --porcelain -- MANIFEST.json 2>/dev/null)" ]; then
+  _have_manifest=0
+  for _p in "${PATHS[@]}"; do [ "$_p" = "MANIFEST.json" ] && _have_manifest=1; done
+  [ "$_have_manifest" -eq 1 ] || PATHS+=("MANIFEST.json")
+fi
 git add -- "${PATHS[@]}" 2>/dev/null || true
 
 # NOT an early exit. "Nothing staged" does NOT mean "the data is on the branch" -
