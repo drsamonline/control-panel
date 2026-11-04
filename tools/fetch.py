@@ -54,6 +54,9 @@ def _paged(path, token):
     return out
 
 
+LOCK_MARKERS = {"LOCKED.md", "FORGE-LOCKED", ".forge-locked"}
+
+
 def repos(token):
     """Every repository this token can see, and an honest statement of what that was.
 
@@ -103,11 +106,17 @@ def main(argv=None):
             continue
         wfs = [e["path"] for e in t.get("tree", [])
                if e["path"].startswith(".github/workflows/") and e["path"].endswith((".yml", ".yaml"))]
+        # A repository that declares itself locked is not a repository that is missing
+        # something. LOCKED.md is a human writing down an intent; without this flag the
+        # estate counts that intent as a gap (repertory-reader was one of thirteen).
+        _locked = bool(LOCK_MARKERS.intersection(e["path"] for e in t.get("tree", [])))
         if not wfs:
             empty.append(name)
-            manifest["repos"].append({"repo": name, "status": "no-workflows", "workflows": 0})
+            manifest["repos"].append({"repo": name, "status": "no-workflows",
+                                      "workflows": 0, "locked": _locked})
             continue
-        manifest["repos"].append({"repo": name, "status": "ok", "workflows": len(wfs)})
+        manifest["repos"].append({"repo": name, "status": "ok", "workflows": len(wfs),
+                                  "locked": _locked})
         for p in wfs:
             blob = api(f"/repos/{OWNER}/{name}/contents/{p}?ref={branch}", token)
             if isinstance(blob, dict) and blob.get("_error"):
