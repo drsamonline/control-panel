@@ -30,7 +30,9 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
+from pathlib import Path
 
 try:
     import yaml
@@ -332,6 +334,7 @@ def wire(repos: list) -> dict:
 def summarise(repos: list, net: dict, manifest: dict | None = None) -> dict:
     wf = [w for r in repos for w in r.get("workflows", [])]
     manifest = manifest or {}
+    _locked_repos = {r["repo"] for r in manifest.get("repos", []) if r.get("locked")}
     return {
         "repos": len(repos),
         "scope": manifest.get("scope") or "unknown",
@@ -342,9 +345,14 @@ def summarise(repos: list, net: dict, manifest: dict | None = None) -> dict:
                     for e in manifest.get("repos", []) if e.get("status") == "unreadable"],
         # A repository that could not be READ is not a repository without workflows.
         # They are different facts and both used to collapse into this one list.
+        # A locked repository is not a repository without workflows - it is one that
+        # declared itself hand-maintained. fetch.py emits `locked` per repo; without
+        # this the estate reported repertory-reader's LOCKED.md as a missing workflow.
         "repos_without_workflows": sorted(
             r["repo"] for r in repos
-            if not r.get("workflows") and "could not be read" not in str(r.get("note") or "")),
+            if not r.get("workflows")
+            and "could not be read" not in str(r.get("note") or "")
+            and r["repo"] not in _locked_repos),
         "workflows": len(wf),
         "reusable": sum(1 for w in wf if w.get("reusable")),
         "scheduled": sum(1 for w in wf if w.get("triggers", {}).get("crons")),
@@ -367,6 +375,92 @@ def summarise(repos: list, net: dict, manifest: dict | None = None) -> dict:
     }
 
 
+# ---- manifest gate: refuse to overwrite a file a human changed ---------------
+def _find_manifest_tool() -> Path:
+    """Known locations, in order. Raise if neither exists — never silently skip.
+
+    A missing tool is a deployment error and must be a red run, not a quiet no-op:
+    silently returning False here would stop every generator in the estate from
+    writing anything, and would look like a broken product rather than a broken
+    deployment.
+    """
+    here = Path(__file__).resolve().parent
+    candidates = [here / "manifest.py", here / "tools" / "manifest.py"]
+    for c in candidates:
+        if c.exists():
+            return c
+    raise SystemExit(
+        "manifest.py not found. Expected one of: "
+        + ", ".join(str(c) for c in candidates)
+        + ". This is a deployment error — the tool must be present beside the generator.")
+
+
+def _manifest_check(paths: list) -> bool:
+    """True = safe to write every path. False = refuse the whole batch.
+
+    Exit 0 (clean, new) -> safe. 3 (drift) -> refuse. 4 (protected, locked) ->
+    refuse. Anything else -> refuse, treating it as broken. A gate that fails open
+    on the one case it exists for is not a gate.
+    """
+    tool = _find_manifest_tool()
+    try:
+        r = subprocess.run([sys.executable, str(tool), "check", *paths],
+                           capture_output=True, text=True, timeout=30)
+    except Exception as e:
+        print(f"::warning::manifest check crashed ({e}) — refusing write", file=sys.stderr)
+        return False
+    if r.returncode not in (0, 3, 4):
+        print(f"::warning::manifest check exited {r.returncode} — refusing write",
+              file=sys.stderr)
+        return False
+    if r.returncode == 0:
+        return True
+    repo_locked_seen = False
+    for line in r.stdout.splitlines():
+        try:
+            e = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if e.get("status") in {"clean", "new"}:
+            continue
+        if e.get("scope") == "repo":
+            if not repo_locked_seen:
+                print("::warning::skip all: repository is locked (repo-level)", file=sys.stderr)
+                repo_locked_seen = True
+        else:
+            print(f"::warning::skip {e['path']}: {e['status']} "
+                  f"(class={e.get('class')}, "
+                  f"manifest={str(e.get('manifest_sha'))[:12]}, "
+                  f"committed={str(e.get('committed_sha'))[:12]}, "
+                  f"worktree={str(e.get('worktree_sha'))[:12]})", file=sys.stderr)
+    return False
+
+
+def _manifest_record(paths, producer, cls="generated"):
+    """Record AFTER the write lands. A record failure is a warning, not a rollback."""
+    try:
+        tool = _find_manifest_tool()
+    except SystemExit:
+        return
+    try:
+        subprocess.run([sys.executable, str(tool), "record", *paths,
+                        "--producer", producer, "--class", cls],
+                       capture_output=True, text=True, timeout=30)
+    except Exception as e:
+        print(f"::warning::manifest record failed ({e}) — next run will see drift",
+              file=sys.stderr)
+
+
+def _producer(tool: str) -> str:
+    try:
+        sha = subprocess.run(["git", "hash-object", "--", __file__],
+                             capture_output=True, text=True, check=True).stdout.strip()[:7]
+    except Exception:
+        sha = "unknown"
+    return f"{tool}@{sha}"
+# ---- end manifest gate ------------------------------------------------------
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Inventory every workflow and its connections.")
     ap.add_argument("--dir", default="", help="a tree of <repo>/.github/workflows/")
@@ -382,8 +476,17 @@ def main(argv=None):
     net = wire(repos)
     inv = {"what": "Every workflow in every repo, with its triggers, jobs, steps and calls.",
            "summary": summarise(repos, net, manifest), "connections": net, "repos": repos}
-    with open(a.out, "w", encoding="utf-8") as f:
+    if not _manifest_check([a.out]):
+        print("::warning::inventory.json not written: manifest drift needs a human decision",
+              file=sys.stderr)
+        return 3
+    tmp = a.out + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
         json.dump(inv, f, indent=1)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, a.out)
+    _manifest_record([a.out], _producer("scan"), cls="generated")
     s = inv["summary"]
     print(f"repos={s['repos']} workflows={s['workflows']} reusable={s['reusable']} "
           f"scheduled={s['scheduled']} dispatchable={s['dispatchable']} jobs={s['jobs']} steps={s['steps']}")
