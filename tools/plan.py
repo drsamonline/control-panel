@@ -24,7 +24,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import subprocess
 import sys
+from pathlib import Path
 
 # --------------------------------------------------------------------------- #
 # the stages. `match` is matched against the workflow NAME, lowercased, so a new
@@ -176,6 +179,92 @@ def self_test():
     return 1 if f else 0
 
 
+# ---- manifest gate: refuse to overwrite a file a human changed ---------------
+def _find_manifest_tool() -> Path:
+    """Known locations, in order. Raise if neither exists — never silently skip.
+
+    A missing tool is a deployment error and must be a red run, not a quiet no-op:
+    silently returning False here would stop every generator in the estate from
+    writing anything, and would look like a broken product rather than a broken
+    deployment.
+    """
+    here = Path(__file__).resolve().parent
+    candidates = [here / "manifest.py", here / "tools" / "manifest.py"]
+    for c in candidates:
+        if c.exists():
+            return c
+    raise SystemExit(
+        "manifest.py not found. Expected one of: "
+        + ", ".join(str(c) for c in candidates)
+        + ". This is a deployment error — the tool must be present beside the generator.")
+
+
+def _manifest_check(paths: list) -> bool:
+    """True = safe to write every path. False = refuse the whole batch.
+
+    Exit 0 (clean, new) -> safe. 3 (drift) -> refuse. 4 (protected, locked) ->
+    refuse. Anything else -> refuse, treating it as broken. A gate that fails open
+    on the one case it exists for is not a gate.
+    """
+    tool = _find_manifest_tool()
+    try:
+        r = subprocess.run([sys.executable, str(tool), "check", *paths],
+                           capture_output=True, text=True, timeout=30)
+    except Exception as e:
+        print(f"::warning::manifest check crashed ({e}) — refusing write", file=sys.stderr)
+        return False
+    if r.returncode not in (0, 3, 4):
+        print(f"::warning::manifest check exited {r.returncode} — refusing write",
+              file=sys.stderr)
+        return False
+    if r.returncode == 0:
+        return True
+    repo_locked_seen = False
+    for line in r.stdout.splitlines():
+        try:
+            e = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if e.get("status") in {"clean", "new"}:
+            continue
+        if e.get("scope") == "repo":
+            if not repo_locked_seen:
+                print("::warning::skip all: repository is locked (repo-level)", file=sys.stderr)
+                repo_locked_seen = True
+        else:
+            print(f"::warning::skip {e['path']}: {e['status']} "
+                  f"(class={e.get('class')}, "
+                  f"manifest={str(e.get('manifest_sha'))[:12]}, "
+                  f"committed={str(e.get('committed_sha'))[:12]}, "
+                  f"worktree={str(e.get('worktree_sha'))[:12]})", file=sys.stderr)
+    return False
+
+
+def _manifest_record(paths, producer, cls="generated"):
+    """Record AFTER the write lands. A record failure is a warning, not a rollback."""
+    try:
+        tool = _find_manifest_tool()
+    except SystemExit:
+        return
+    try:
+        subprocess.run([sys.executable, str(tool), "record", *paths,
+                        "--producer", producer, "--class", cls],
+                       capture_output=True, text=True, timeout=30)
+    except Exception as e:
+        print(f"::warning::manifest record failed ({e}) — next run will see drift",
+              file=sys.stderr)
+
+
+def _producer(tool: str) -> str:
+    try:
+        sha = subprocess.run(["git", "hash-object", "--", __file__],
+                             capture_output=True, text=True, check=True).stdout.strip()[:7]
+    except Exception:
+        sha = "unknown"
+    return f"{tool}@{sha}"
+# ---- end manifest gate ------------------------------------------------------
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="The grand pipeline and the minimum-input routes.")
     ap.add_argument("--inventory", default="inventory.json")
@@ -186,7 +275,17 @@ def main(argv=None):
         return self_test()
     inv = json.load(open(a.inventory, encoding="utf-8"))
     plan = build(inv)
-    json.dump(plan, open(a.out, "w", encoding="utf-8"), indent=1)
+    if not _manifest_check([a.out]):
+        print("::warning::plan.json not written: manifest drift needs a human decision",
+              file=sys.stderr)
+        return 3
+    tmp = a.out + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(plan, f, indent=1)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, a.out)
+    _manifest_record([a.out], _producer("plan"), cls="generated")
     print("stages:")
     for s in plan["stages"]:
         print(f"  {s['n']} {s['name']:<9} {s['count']:>3} workflows  ({len(s['scheduled'])} scheduled, "
