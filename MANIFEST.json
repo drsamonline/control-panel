@@ -13,7 +13,13 @@
       "producer": "bootstrap@2026-11-04",
       "class": "generated",
       "at": "2026-11-04T15:50:49Z"
+    },
+    "docs/gaps.json": {
+      "sha": "7f7ed505fc9c5be5ed4ff851839b015be131e5ab",
+      "producer": "control-panel-tools@eb4ec85",
+      "class": "generated",
+      "at": "2026-11-05T03:38:25Z"
     }
   },
-  "updated": "2026-11-04T15:50:49Z"
+  "updated": "2026-11-05T03:38:25Z"
 }

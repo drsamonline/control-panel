@@ -151,6 +151,13 @@ def self_test():
     return 1 if f else 0
 
 
+# The manifest gate, shared with forge (tools/_gate.py). lint.yml checks that every
+# copy is byte-identical, so this file cannot drift from the others.
+from pathlib import Path  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _gate import _manifest_check, _manifest_record, _producer  # noqa: E402
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="What the inventory implies is missing.")
     ap.add_argument("--inventory", default="inventory.json")
@@ -163,7 +170,12 @@ def main(argv=None):
     # scan.py keeps a digest of each file so the body-level checks (timeout, concurrency)
     # have something to read
     g = find(inv)
+    if not _manifest_check([a.out]):
+        print("::warning::%s not written: the manifest needs a human decision" % a.out,
+              file=sys.stderr)
+        return 3
     json.dump(g, open(a.out, "w", encoding="utf-8"), indent=1)
+    _manifest_record([a.out], _producer("gaps", __file__))
     print("gaps:")
     for k in g["worst_first"]:
         print(f"  {g['counts'][k]:>4}  {k}")
