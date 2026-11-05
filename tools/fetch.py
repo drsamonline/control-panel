@@ -100,6 +100,18 @@ def main(argv=None):
         name, branch = r["name"], r.get("default_branch") or "main"
         t = api(f"/repos/{OWNER}/{name}/git/trees/{branch}?recursive=1", token)
         if isinstance(t, dict) and t.get("_error"):
+            # AN EMPTY REPOSITORY IS NOT AN UNREADABLE ONE. accent-oracle has no commits,
+            # so its git tree 404s - and that single 404 made every scan exit 1 with
+            # "the inventory is INCOMPLETE", a permanent red for a fact that is not a
+            # fault. Ask the repository itself before calling it unreadable: no default
+            # branch means nothing has ever been pushed, which is a state, not an error.
+            meta = api(f"/repos/{OWNER}/{name}", token)
+            if (isinstance(meta, dict) and not meta.get("_error")
+                    and not meta.get("default_branch")):
+                empty.append(name)
+                manifest["repos"].append({"repo": name, "status": "empty", "workflows": 0,
+                                          "locked": False})
+                continue
             skipped.append(name)
             manifest["repos"].append({"repo": name, "status": "unreadable",
                                       "reason": f"git tree: {t.get('_error')}"})
