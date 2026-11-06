@@ -47,6 +47,13 @@ jobs:
             echo "--- $t"
             python3 "tools/$t.py" --self-test
           done
+          # The commit step is the one that can fail AFTER the work succeeded, and it
+          # was the only tool here with no test - which is why it went red three times
+          # over a timestamp conflict nobody had looked for. The test builds the exact
+          # race in a scratch repository: two runs of one generator, the second checked
+          # out before the first committed.
+          echo "--- commit-and-verify"
+          bash tools/commit-and-verify.test.sh
       - name: Fetch every workflow in every repo
         env:
           GITHUB_TOKEN: "${{ secrets.FANOUT_TOKEN || github.token }}"

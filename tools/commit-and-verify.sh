@@ -27,6 +27,17 @@
 #     even though every git command exited 0.
 #   * Red now means exactly one thing in this estate: the data is not on the branch.
 #
+# THE SECOND HALF (added 2026-11-06)
+#
+# The retry loop above assumed a rebase conflict was always worth retrying. It is not.
+# `manifest.py record` stamps `at` and `updated` with the current time on every run, so
+# two runs of the same generator never write the same MANIFEST.json bytes even when
+# every file they describe is byte-identical. A queued run checks out before the run
+# ahead of it commits, so its rebase meets a MANIFEST.json that differs only in
+# timestamps - a conflict with no content behind it, which no amount of backoff can
+# clear. Six attempts over 88 seconds, and then red, while all five of the scan's files
+# had in fact landed. Generated files are not merged; see _rebase_resolve below.
+#
 # Usage:
 #   tools/commit-and-verify.sh "<commit message>" [branch] -- <path> [path...]
 #
@@ -62,6 +73,105 @@ fi
 
 git config user.name  >/dev/null 2>&1 || git config user.name  "${GIT_AUTHOR_NAME:-forge-agent}"
 git config user.email >/dev/null 2>&1 || git config user.email "${GIT_AUTHOR_EMAIL:-forge-agent@users.noreply.github.com}"
+
+# This run's own MANIFEST.json bytes, kept because the rebase may have to reconcile
+# them with a newer copy on the branch, and once conflict markers are in the worktree
+# our version is gone. Empty when this run does not commit a manifest.
+OUR_MANIFEST=""
+case " ${PATHS[*]} " in
+  *" MANIFEST.json "*)
+    if [ -f MANIFEST.json ]; then OUR_MANIFEST="$(mktemp)"; cp MANIFEST.json "$OUR_MANIFEST"; fi
+    ;;
+esac
+
+# Resolve a rebase that stopped on a conflict between generated files.
+#
+# The rule: generated files are not merged.
+#   MANIFEST.json  start from the branch's copy - it may describe files this run never
+#                  touched - then overlay this run's own entries, which carry the shas
+#                  of the bytes this run is about to verify. Union, ours winning.
+#   anything else  this run's version, because those are the bytes the verdict is
+#                  about, and they are what a push over the other run would have left.
+#
+# It refuses to resolve a conflict in a file this run did not produce: a conflict it
+# does not understand stays a red run rather than becoming a guess.
+_rebase_resolve() {
+  local conflicted c clean
+  conflicted="$(git diff --name-only --diff-filter=U 2>/dev/null)"
+  [ -n "$conflicted" ] || return 1
+  for c in $conflicted; do
+    clean=0
+    for p in "${PATHS[@]}"; do [ "$c" = "$p" ] && clean=1 && break; done
+    [ "$c" = "MANIFEST.json" ] && clean=1
+    if [ "$clean" -eq 0 ]; then
+      echo "::warning::conflict in $c, which this run did not produce - not resolving it"
+      return 1
+    fi
+  done
+
+  for c in $conflicted; do
+    if [ "$c" = "MANIFEST.json" ] && [ -n "$OUR_MANIFEST" ] && [ -s "$OUR_MANIFEST" ]; then
+      # During a rebase `--ours` is the branch being rebased ONTO.
+      git checkout --ours -- "$c" 2>/dev/null || true
+      if ! python3 - "$OUR_MANIFEST" "$c" <<'PY'
+import json, sys
+ours = json.load(open(sys.argv[1], encoding="utf-8"))
+merged = json.load(open(sys.argv[2], encoding="utf-8"))
+merged.setdefault("files", {})
+merged["files"].update(ours.get("files", {}))
+merged["updated"] = ours.get("updated", merged.get("updated"))
+with open(sys.argv[2], "w", encoding="utf-8") as fh:
+    json.dump(merged, fh, indent=2, ensure_ascii=False)
+    fh.write("\n")
+PY
+      then
+        echo "::warning::could not reconcile $c with the branch copy"
+        return 1
+      fi
+      echo "::warning::$c reconciled: branch entries kept, this run's entries on top"
+    else
+      # During a rebase `--theirs` is the commit being applied: this run's bytes.
+      git checkout --theirs -- "$c" 2>/dev/null || true
+      echo "::warning::$c kept at this run's version - generated files are not merged"
+    fi
+    git add -- "$c" 2>/dev/null || true
+  done
+  return 0
+}
+
+# Rebase onto the branch, resolving generated-file conflicts, or give up cleanly.
+_rebase_onto() {
+  local rounds=0
+  git rebase "origin/$BR" --quiet 2>/dev/null && return 0
+  while [ "$rounds" -lt 5 ]; do
+    rounds=$((rounds+1))
+    _rebase_resolve || { git rebase --abort 2>/dev/null || true; return 1; }
+    # `git rebase --continue` takes no options after it - `--continue --quiet` is a
+    # usage error (exit 129) that reads exactly like a failed rebase. Silence it with
+    # a redirect instead.
+    git -c core.editor=true rebase --continue >/dev/null 2>&1 && return 0
+  done
+  git rebase --abort 2>/dev/null || true
+  return 1
+}
+
+# The verdict compares against the sha of the bytes this run computed. If the rebase
+# rewrote MANIFEST.json, the bytes that will land are the rewritten ones, so the intent
+# record has to follow them - otherwise a correct commit fails its own check.
+_restate() {
+  local path="$1" tmp
+  [ -f "$path" ] || return 0
+  [ -f "$MANIFEST" ] || return 0
+  tmp="$(mktemp)"
+  while read -r want p; do
+    if [ "$p" = "$path" ]; then
+      printf '%s %s\n' "$(git hash-object -- "$path")" "$p" >> "$tmp"
+    else
+      printf '%s %s\n' "$want" "$p" >> "$tmp"
+    fi
+  done < "$MANIFEST"
+  mv "$tmp" "$MANIFEST"
+}
 
 # ---- 1. what we intend to land -------------------------------------------------
 MANIFEST="$(mktemp)"
@@ -115,11 +225,12 @@ else
     attempt=$((attempt+1))
     [ "$wait" = "0" ] || sleep "$wait"
     git fetch origin "$BR" --quiet 2>/dev/null || true
-    if ! git rebase "origin/$BR" --quiet 2>/dev/null; then
+    if ! _rebase_onto; then
       echo "::warning::rebase onto origin/$BR failed on attempt $attempt"
       git rebase --abort 2>/dev/null || true
       continue
     fi
+    _restate MANIFEST.json
     if git push --quiet origin "HEAD:$BR" 2>/dev/null; then
       echo "pushed on attempt $attempt"
       pushed=1
