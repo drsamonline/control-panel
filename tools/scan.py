@@ -234,9 +234,27 @@ def scan_tree(root: str, manifest: dict | None = None) -> list:
         if repo.startswith("_"):
             continue
         seen.add(repo)
+        # PAGES.json is the repository's own statement of where its landing page and
+        # its app page are, and which pages the 2026-11-05 audit deleted on purpose.
+        # Reading it here is what lets the panel answer "does this repo still have a
+        # surface" instead of only "does it have workflows".
+        shape = {}
+        pages_path = os.path.join(root, repo, "PAGES.json")
+        if os.path.isfile(pages_path):
+            try:
+                import json as _json
+                declared = _json.load(open(pages_path, encoding="utf-8"))
+                shape = {
+                    "landing": declared.get("landing"),
+                    "app": declared.get("app"),
+                    "deleted": len(declared.get("deleted") or []),
+                    "manual": bool(declared.get("manual")),
+                }
+            except Exception as e:
+                shape = {"error": type(e).__name__}
         wf_dir = os.path.join(root, repo, ".github", "workflows")
         if not os.path.isdir(wf_dir):
-            out.append({"repo": repo, "workflows": [], "note": "no .github/workflows"})
+            out.append({"repo": repo, "workflows": [], "note": "no .github/workflows", "pages": shape})
             continue
         recs = []
         for fn in sorted(os.listdir(wf_dir)):
@@ -276,7 +294,7 @@ def scan_tree(root: str, manifest: dict | None = None) -> list:
                 "writes_paths": sorted(set(re.findall(r"git add[^\n]*?([\w./-]+\.(?:json|md|log|xml|yml|yaml|html|png))", code)))[:8],
             }
             recs.append(rec)
-        out.append({"repo": repo, "workflows": recs})
+        out.append({"repo": repo, "workflows": recs, "pages": shape})
     for entry in manifest.get("repos", []):
         name = entry.get("repo")
         if not name or name in seen:
