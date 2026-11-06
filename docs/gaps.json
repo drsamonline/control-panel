@@ -2,10 +2,10 @@
  "what": "What the inventory implies is missing, and what each gap costs.",
  "counts": {
   "dangling": 0,
-  "drift": 8,
-  "no-concurrency": 40,
-  "no-permissions": 9,
-  "no-timeout": 72,
+  "drift": 9,
+  "no-concurrency": 43,
+  "no-permissions": 10,
+  "no-timeout": 75,
   "no-workflows": 13,
   "orphan": 7,
   "outdated-pin": 0,
@@ -64,6 +64,11 @@
    },
    {
     "repo": "ziptastic",
+    "file": "ci.yml",
+    "name": "ci"
+   },
+   {
+    "repo": "ziptastic",
     "file": "vendor-check.yml",
     "name": "vendor-check"
    }
@@ -103,6 +108,16 @@
     "repo": "NEO",
     "file": "ci.yml",
     "name": "CI"
+   },
+   {
+    "repo": "Repertorium-Publicum",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "Repertorium-Publicum",
+    "file": "test.yml",
+    "name": "test"
    },
    {
     "repo": "The_Browser",
@@ -275,6 +290,11 @@
     "name": "backup"
    },
    {
+    "repo": "forge",
+    "file": "page-surfaces.yml",
+    "name": "Page surfaces"
+   },
+   {
     "repo": "gentle-pediatrics-companion",
     "file": "build-apps.yml",
     "name": "Build + deploy"
@@ -295,16 +315,6 @@
     "name": "Build + deploy"
    },
    {
-    "repo": "kent-repertory-explorer",
-    "file": "build-apps.yml",
-    "name": "Build + deploy"
-   },
-   {
-    "repo": "kent-repertory-explorer",
-    "file": "test.yml",
-    "name": "test"
-   },
-   {
     "repo": "lockhtml",
     "file": "build-apps.yml",
     "name": "Build + deploy"
@@ -323,6 +333,11 @@
     "repo": "mnemosyne-companion",
     "file": "build-apps.yml",
     "name": "Build + deploy"
+   },
+   {
+    "repo": "musicgen",
+    "file": "pages.yml",
+    "name": "pages"
    },
    {
     "repo": "musicgen",
@@ -423,6 +438,11 @@
     "repo": "whispering-body-first-aid",
     "file": "build-apps.yml",
     "name": "Build + deploy"
+   },
+   {
+    "repo": "ziptastic",
+    "file": "ci.yml",
+    "name": "ci"
    },
    {
     "repo": "ziptastic",
@@ -537,6 +557,11 @@
     "name": "repair-src"
    },
    {
+    "repo": "conqueror-os",
+    "file": "sw-3.2.0.yml",
+    "name": "sw-3.2.0"
+   },
+   {
     "repo": "drsamonline",
     "file": "add-download-blocks.yml",
     "name": "Add download blocks to landing pages"
@@ -570,6 +595,11 @@
     "repo": "feather",
     "file": "release.yml",
     "name": "Release"
+   },
+   {
+    "repo": "forge",
+    "file": "page-surfaces.yml",
+    "name": "Page surfaces"
    },
    {
     "repo": "heavenzip",
@@ -628,6 +658,11 @@
    },
    {
     "repo": "ziptastic",
+    "file": "ci.yml",
+    "name": "ci"
+   },
+   {
+    "repo": "ziptastic",
     "file": "vendor-check.yml",
     "name": "vendor-check"
    }
@@ -664,17 +699,17 @@
     "name": "Build + deploy",
     "copies": 45,
     "repos": 45,
-    "distinct_sizes": 36,
+    "distinct_sizes": 37,
     "spread_bytes": 5842,
     "distinct_shapes": 6,
     "drifted": true,
     "example": [
      "BLINKTRANSFER",
      "MATERIA-MEDICA-BUILDER",
+     "Repertorium-Publicum",
      "aethelgard-games",
      "ambient-sound-studio",
-     "app-clip-loom",
-     "app-companion-forge"
+     "app-clip-loom"
     ]
    },
    {
@@ -699,7 +734,7 @@
     "copies": 12,
     "repos": 12,
     "distinct_sizes": 10,
-    "spread_bytes": 9572,
+    "spread_bytes": 18005,
     "distinct_shapes": 10,
     "drifted": true,
     "example": [
@@ -720,12 +755,12 @@
     "distinct_shapes": 8,
     "drifted": true,
     "example": [
+     "Repertorium-Publicum",
      "app-encrypted-case-log",
      "art-kit",
      "audio-kit",
      "dashboard",
-     "export-kit",
-     "forge"
+     "export-kit"
     ]
    },
    {
@@ -733,7 +768,7 @@
     "copies": 4,
     "repos": 4,
     "distinct_sizes": 4,
-    "spread_bytes": 36490,
+    "spread_bytes": 37201,
     "distinct_shapes": 4,
     "drifted": true,
     "example": [
@@ -762,13 +797,27 @@
     "copies": 3,
     "repos": 3,
     "distinct_sizes": 3,
-    "spread_bytes": 4708,
+    "spread_bytes": 7380,
     "distinct_shapes": 3,
     "drifted": true,
     "example": [
      "ai-bridge",
      "app-lantern",
      "feather"
+    ]
+   },
+   {
+    "name": "pages",
+    "copies": 3,
+    "repos": 3,
+    "distinct_sizes": 3,
+    "spread_bytes": 1145,
+    "distinct_shapes": 3,
+    "drifted": true,
+    "example": [
+     "app-builder",
+     "forge",
+     "musicgen"
     ]
    },
    {
@@ -817,6 +866,9 @@
     "repo": "SmartNotes"
    },
    {
+    "repo": "accent-oracle"
+   },
+   {
     "repo": "corefit-md"
    },
    {
@@ -842,9 +894,6 @@
    },
    {
     "repo": "profile-kit"
-   },
-   {
-    "repo": "repertory-reader"
    },
    {
     "repo": "saga-vn-engine"

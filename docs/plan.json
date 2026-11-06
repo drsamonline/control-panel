@@ -22,18 +22,6 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 5
-    },
-    {
-     "repo": "forge",
-     "file": "new-app.yml",
-     "name": "new-app",
-     "reusable": false,
-     "crons": [
-      "0 7 * * 1"
-     ],
-     "dispatchable": true,
-     "jobs": 2,
-     "steps": 6
     }
    ],
    "dispatchable": [
@@ -64,9 +52,7 @@
      "file": "new-app.yml",
      "name": "new-app",
      "reusable": false,
-     "crons": [
-      "0 7 * * 1"
-     ],
+     "crons": [],
      "dispatchable": true,
      "jobs": 2,
      "steps": 6
@@ -100,9 +86,7 @@
      "file": "new-app.yml",
      "name": "new-app",
      "reusable": false,
-     "crons": [
-      "0 7 * * 1"
-     ],
+     "crons": [],
      "dispatchable": true,
      "jobs": 2,
      "steps": 6
@@ -129,7 +113,7 @@
    "what": "Prove the code, build every platform it ships on, and lint what was written.",
    "auto": true,
    "input": "none - a push runs it",
-   "count": 118,
+   "count": 119,
    "scheduled": [
     {
      "repo": "app-builder",
@@ -165,7 +149,7 @@
      ],
      "dispatchable": true,
      "jobs": 4,
-     "steps": 17
+     "steps": 23
     }
    ],
    "dispatchable": [
@@ -228,6 +212,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 0
+    },
+    {
+     "repo": "Repertorium-Publicum",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "Repertorium-Publicum",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
     },
     {
      "repo": "TTB",
@@ -749,7 +753,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 3,
-     "steps": 18
+     "steps": 20
     },
     {
      "repo": "forge",
@@ -783,7 +787,7 @@
      ],
      "dispatchable": true,
      "jobs": 4,
-     "steps": 17
+     "steps": 23
     },
     {
      "repo": "forge",
@@ -859,26 +863,6 @@
      "repo": "idle-city-ages-of-growth",
      "file": "test.yml",
      "name": "Test",
-     "reusable": false,
-     "crons": [],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "kent-repertory-explorer",
-     "file": "build-apps.yml",
-     "name": "Build + deploy",
-     "reusable": false,
-     "crons": [],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 0
-    },
-    {
-     "repo": "kent-repertory-explorer",
-     "file": "test.yml",
-     "name": "test",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
@@ -1123,7 +1107,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "seance",
@@ -1334,6 +1318,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 4
+    },
+    {
+     "repo": "ziptastic",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 7
     }
    ],
    "members": [
@@ -1406,6 +1400,26 @@
      "dispatchable": false,
      "jobs": 1,
      "steps": 5
+    },
+    {
+     "repo": "Repertorium-Publicum",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "Repertorium-Publicum",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
     },
     {
      "repo": "TTB",
@@ -1485,7 +1499,7 @@
      "crons": [],
      "dispatchable": false,
      "jobs": 10,
-     "steps": 55
+     "steps": 56
     },
     {
      "repo": "app-builder",
@@ -1937,7 +1951,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 3,
-     "steps": 18
+     "steps": 20
     },
     {
      "repo": "forge",
@@ -1971,7 +1985,7 @@
      ],
      "dispatchable": true,
      "jobs": 4,
-     "steps": 17
+     "steps": 23
     },
     {
      "repo": "forge",
@@ -2047,26 +2061,6 @@
      "repo": "idle-city-ages-of-growth",
      "file": "test.yml",
      "name": "Test",
-     "reusable": false,
-     "crons": [],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 4
-    },
-    {
-     "repo": "kent-repertory-explorer",
-     "file": "build-apps.yml",
-     "name": "Build + deploy",
-     "reusable": false,
-     "crons": [],
-     "dispatchable": true,
-     "jobs": 1,
-     "steps": 0
-    },
-    {
-     "repo": "kent-repertory-explorer",
-     "file": "test.yml",
-     "name": "test",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
@@ -2311,7 +2305,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "seance",
@@ -2522,6 +2516,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 4
+    },
+    {
+     "repo": "ziptastic",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 7
     }
    ],
    "manual": {
@@ -2543,7 +2547,7 @@
    "what": "Publish the release, deploy the live demo, capture the screenshot, and give every app a landing page.",
    "auto": true,
    "input": "none - it follows a build",
-   "count": 28,
+   "count": 29,
    "scheduled": [
     {
      "repo": "Matneo",
@@ -2639,7 +2643,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 6
     },
     {
      "repo": "skills",
@@ -2769,7 +2773,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 3,
-     "steps": 19
+     "steps": 22
     },
     {
      "repo": "app-builder",
@@ -2920,6 +2924,16 @@
      "steps": 29
     },
     {
+     "repo": "musicgen",
+     "file": "pages.yml",
+     "name": "pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 6
+    },
+    {
      "repo": "registry",
      "file": "refresh.yml",
      "name": "Refresh registry",
@@ -2929,7 +2943,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 6
     },
     {
      "repo": "skills",
@@ -3059,7 +3073,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 3,
-     "steps": 19
+     "steps": 22
     },
     {
      "repo": "app-builder",
@@ -3220,6 +3234,16 @@
      "steps": 29
     },
     {
+     "repo": "musicgen",
+     "file": "pages.yml",
+     "name": "pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 6
+    },
+    {
      "repo": "registry",
      "file": "refresh.yml",
      "name": "Refresh registry",
@@ -3229,7 +3253,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 6
     },
     {
      "repo": "skills",
@@ -3263,15 +3287,15 @@
    "what": "Find what broke, re-run what is transient, escalate what is not, audit the kits, learn from the record, and back up before any merge.",
    "auto": true,
    "input": "none - it runs on a schedule",
-   "count": 15,
+   "count": 16,
    "scheduled": [
     {
      "repo": "audit",
      "file": "health.yml",
-     "name": "health",
+     "name": "Fleet health",
      "reusable": false,
      "crons": [
-      "43 3 * * *"
+      "51 3 * * *"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3283,7 +3307,7 @@
      "name": "backup-all",
      "reusable": false,
      "crons": [
-      "0 */6 * * *"
+      "0 2 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3292,7 +3316,7 @@
     {
      "repo": "forge",
      "file": "audit.yml",
-     "name": "audit",
+     "name": "Conformance audit",
      "reusable": true,
      "crons": [
       "0 4 * * 1"
@@ -3307,7 +3331,7 @@
      "name": "backlog-status",
      "reusable": false,
      "crons": [
-      "0 5 * * 1"
+      "6 5 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3328,7 +3352,7 @@
     {
      "repo": "forge",
      "file": "health.yml",
-     "name": "health",
+     "name": "Health files",
      "reusable": false,
      "crons": [
       "23 4 * * 1"
@@ -3343,7 +3367,7 @@
      "name": "Heartbeat",
      "reusable": false,
      "crons": [
-      "0 6 * * *"
+      "45 6 * * 1,3,5"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3382,8 +3406,8 @@
       "30 20 * * 3"
      ],
      "dispatchable": true,
-     "jobs": 2,
-     "steps": 6
+     "jobs": 1,
+     "steps": 4
     },
     {
      "repo": "forge",
@@ -3396,16 +3420,28 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 5
+    },
+    {
+     "repo": "forge",
+     "file": "sweep-drift.yml",
+     "name": "sweep-drift",
+     "reusable": false,
+     "crons": [
+      "23 5 * * 1"
+     ],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
     }
    ],
    "dispatchable": [
     {
      "repo": "audit",
      "file": "health.yml",
-     "name": "health",
+     "name": "Fleet health",
      "reusable": false,
      "crons": [
-      "43 3 * * *"
+      "51 3 * * *"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3427,7 +3463,7 @@
      "name": "backup-all",
      "reusable": false,
      "crons": [
-      "0 */6 * * *"
+      "0 2 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3436,7 +3472,7 @@
     {
      "repo": "forge",
      "file": "audit.yml",
-     "name": "audit",
+     "name": "Conformance audit",
      "reusable": true,
      "crons": [
       "0 4 * * 1"
@@ -3451,7 +3487,7 @@
      "name": "backlog-status",
      "reusable": false,
      "crons": [
-      "0 5 * * 1"
+      "6 5 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3492,7 +3528,7 @@
     {
      "repo": "forge",
      "file": "health.yml",
-     "name": "health",
+     "name": "Health files",
      "reusable": false,
      "crons": [
       "23 4 * * 1"
@@ -3507,7 +3543,7 @@
      "name": "Heartbeat",
      "reusable": false,
      "crons": [
-      "0 6 * * *"
+      "45 6 * * 1,3,5"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3546,8 +3582,8 @@
       "30 20 * * 3"
      ],
      "dispatchable": true,
-     "jobs": 2,
-     "steps": 6
+     "jobs": 1,
+     "steps": 4
     },
     {
      "repo": "forge",
@@ -3556,6 +3592,18 @@
      "reusable": false,
      "crons": [
       "0 9 * * 1"
+     ],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
+     "repo": "forge",
+     "file": "sweep-drift.yml",
+     "name": "sweep-drift",
+     "reusable": false,
+     "crons": [
+      "23 5 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3576,10 +3624,10 @@
     {
      "repo": "audit",
      "file": "health.yml",
-     "name": "health",
+     "name": "Fleet health",
      "reusable": false,
      "crons": [
-      "43 3 * * *"
+      "51 3 * * *"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3601,7 +3649,7 @@
      "name": "backup-all",
      "reusable": false,
      "crons": [
-      "0 */6 * * *"
+      "0 2 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3610,7 +3658,7 @@
     {
      "repo": "forge",
      "file": "audit.yml",
-     "name": "audit",
+     "name": "Conformance audit",
      "reusable": true,
      "crons": [
       "0 4 * * 1"
@@ -3625,7 +3673,7 @@
      "name": "backlog-status",
      "reusable": false,
      "crons": [
-      "0 5 * * 1"
+      "6 5 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3666,7 +3714,7 @@
     {
      "repo": "forge",
      "file": "health.yml",
-     "name": "health",
+     "name": "Health files",
      "reusable": false,
      "crons": [
       "23 4 * * 1"
@@ -3681,7 +3729,7 @@
      "name": "Heartbeat",
      "reusable": false,
      "crons": [
-      "0 6 * * *"
+      "45 6 * * 1,3,5"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3720,8 +3768,8 @@
       "30 20 * * 3"
      ],
      "dispatchable": true,
-     "jobs": 2,
-     "steps": 6
+     "jobs": 1,
+     "steps": 4
     },
     {
      "repo": "forge",
@@ -3730,6 +3778,18 @@
      "reusable": false,
      "crons": [
       "0 9 * * 1"
+     ],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
+     "repo": "forge",
+     "file": "sweep-drift.yml",
+     "name": "sweep-drift",
+     "reusable": false,
+     "crons": [
+      "23 5 * * 1"
      ],
      "dispatchable": true,
      "jobs": 1,
@@ -3749,10 +3809,10 @@
    "manual": {
     "repo": "audit",
     "file": "health.yml",
-    "name": "health",
+    "name": "Fleet health",
     "reusable": false,
     "crons": [
-     "43 3 * * *"
+     "51 3 * * *"
     ],
     "dispatchable": true,
     "jobs": 1,
@@ -3897,12 +3957,22 @@
    "steps": 5
   },
   {
+   "repo": "conqueror-os",
+   "file": "sw-3.2.0.yml",
+   "name": "sw-3.2.0",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 5
+  },
+  {
    "repo": "control-panel",
    "file": "scan.yml",
    "name": "scan",
    "reusable": false,
    "crons": [
-    "0 6 * * 2"
+    "40 8 * * 2"
    ],
    "dispatchable": true,
    "jobs": 2,
@@ -3944,7 +4014,7 @@
    "name": "Metrics",
    "reusable": false,
    "crons": [
-    "0 4 * * 2"
+    "13 4 * * 2"
    ],
    "dispatchable": true,
    "jobs": 1,
@@ -3980,11 +4050,21 @@
    "name": "dumps-dedupe",
    "reusable": false,
    "crons": [
-    "0 5 */4 * *"
+    "12 5 * * 1"
    ],
    "dispatchable": true,
    "jobs": 1,
    "steps": 7
+  },
+  {
+   "repo": "forge",
+   "file": "killswitch.yml",
+   "name": "killswitch",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
   },
   {
    "repo": "forge",
@@ -4002,6 +4082,28 @@
    "repo": "forge",
    "file": "log-append.yml",
    "name": "log-append",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 2
+  },
+  {
+   "repo": "forge",
+   "file": "page-surfaces.yml",
+   "name": "Page surfaces",
+   "reusable": false,
+   "crons": [
+    "40 4 * * *"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "forge",
+   "file": "state-set.yml",
+   "name": "state-set",
    "reusable": false,
    "crons": [],
    "dispatchable": true,
@@ -4040,10 +4142,10 @@
   }
  ],
  "totals": {
-  "workflows": 164,
-  "unplaced": 18,
+  "workflows": 167,
+  "unplaced": 22,
   "scheduled": 25,
-  "dispatchable": 161,
+  "dispatchable": 164,
   "inputs_for_the_two_everyday_routes": 1
  }
 }

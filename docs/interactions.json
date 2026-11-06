@@ -4,7 +4,7 @@
   {
    "key": "forge/.github/workflows/audit.yml",
    "repo": "forge",
-   "name": "audit",
+   "name": "Conformance audit",
    "private_repo": true,
    "public_twin": null,
    "verdict": "INTENTIONAL (private only)",
@@ -77,7 +77,7 @@
    "name": "Build + deploy",
    "copies": 45,
    "repos": 45,
-   "distinct_sizes": 36,
+   "distinct_sizes": 37,
    "spread_bytes": 5842,
    "drifted": true,
    "canonical": "offline-pdf-toolkit/build-apps.yml",
@@ -86,6 +86,7 @@
    "migrate": [
     "BLINKTRANSFER/build-apps.yml",
     "MATERIA-MEDICA-BUILDER/build-apps.yml",
+    "Repertorium-Publicum/build-apps.yml",
     "aethelgard-games/build-apps.yml",
     "ambient-sound-studio/build-apps.yml",
     "app-clip-loom/build-apps.yml",
@@ -108,7 +109,6 @@
     "gentle-pediatrics-companion/build-apps.yml",
     "helioprism/build-apps.yml",
     "idle-city-ages-of-growth/build-apps.yml",
-    "kent-repertory-explorer/build-apps.yml",
     "lockhtml/build-apps.yml",
     "mnemosyne-companion/build-apps.yml",
     "neon-games/build-apps.yml",
@@ -176,10 +176,10 @@
    "copies": 12,
    "repos": 12,
    "distinct_sizes": 10,
-   "spread_bytes": 9572,
+   "spread_bytes": 18005,
    "drifted": true,
    "canonical": "feather/ci.yml",
-   "canonical_bytes": 10182,
+   "canonical_bytes": 18615,
    "plan": "turn the 11 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "BLINKTRANSFER/ci.yml",
@@ -207,12 +207,12 @@
    "canonical_bytes": 2809,
    "plan": "turn the 9 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
+    "Repertorium-Publicum/test.yml",
     "app-encrypted-case-log/test.yml",
     "art-kit/test.yml",
     "audio-kit/test.yml",
     "dashboard/test.yml",
     "export-kit/test.yml",
-    "kent-repertory-explorer/test.yml",
     "lumen/test.yml",
     "ml-kit/test.yml",
     "ui-kit/test.yml"
@@ -224,10 +224,10 @@
    "copies": 4,
    "repos": 4,
    "distinct_sizes": 4,
-   "spread_bytes": 36490,
+   "spread_bytes": 37201,
    "drifted": true,
    "canonical": "app-builder/build.yml",
-   "canonical_bytes": 37697,
+   "canonical_bytes": 38408,
    "plan": "turn the 3 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "forge/build.yml",
@@ -257,14 +257,30 @@
    "copies": 3,
    "repos": 3,
    "distinct_sizes": 3,
-   "spread_bytes": 4708,
+   "spread_bytes": 7380,
    "drifted": true,
    "canonical": "ai-bridge/release.yml",
-   "canonical_bytes": 6561,
+   "canonical_bytes": 9233,
    "plan": "turn the 2 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "app-lantern/release.yml",
     "feather/release.yml"
+   ],
+   "migrate_count": 2
+  },
+  {
+   "name": "pages",
+   "copies": 3,
+   "repos": 3,
+   "distinct_sizes": 3,
+   "spread_bytes": 1145,
+   "drifted": true,
+   "canonical": "app-builder/pages.yml",
+   "canonical_bytes": 2172,
+   "plan": "turn the 2 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "forge/pages.yml",
+    "musicgen/pages.yml"
    ],
    "migrate_count": 2
   },
@@ -288,6 +304,16 @@
  "cross_action": {
   "races": [
    {
+    "repo": "forge",
+    "writers": [
+     "fanout.yml",
+     "log-append.yml",
+     "state-set.yml"
+    ],
+    "count": 3,
+    "why": "3 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
+   },
+   {
     "repo": "audit",
     "writers": [
      "health.yml",
@@ -297,10 +323,10 @@
     "why": "2 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
    },
    {
-    "repo": "forge",
+    "repo": "conqueror-os",
     "writers": [
-     "fanout.yml",
-     "log-append.yml"
+     "repair-src.yml",
+     "sw-3.2.0.yml"
     ],
     "count": 2,
     "why": "2 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
@@ -375,44 +401,20 @@
   ],
   "schedule_pileups": [
    {
-    "cron": "0 6 * * 2",
-    "count": 2,
-    "files": [
-     "control-panel/scan.yml",
-     "forge/lint.yml"
-    ]
-   },
-   {
     "cron": "0 4 * * 1",
     "count": 2,
     "files": [
      "forge/adopt.yml",
      "forge/audit.yml"
     ]
-   },
-   {
-    "cron": "0 5 * * 1",
-    "count": 2,
-    "files": [
-     "forge/app-deliver.yml",
-     "forge/backlog-status.yml"
-    ]
-   },
-   {
-    "cron": "0 7 * * 1",
-    "count": 2,
-    "files": [
-     "forge/new-app.yml",
-     "forge/repo-learning.yml"
-    ]
    }
   ],
   "totals": {
-   "races": 3,
+   "races": 4,
    "loops": 0,
    "concurrency_collisions": 0,
    "permission_gaps": 6,
-   "schedule_pileups": 4
+   "schedule_pileups": 1
   }
  }
 }
