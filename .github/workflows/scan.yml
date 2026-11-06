@@ -13,6 +13,9 @@ on:
     paths:
       - tools/**
       - docs/index.html
+      # A change to the scanner's own definition should run the scanner. Without this
+      # a fix to this file sat unexercised until the next tools/ change.
+      - .github/workflows/scan.yml
 
 permissions:
   contents: write
