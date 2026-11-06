@@ -116,6 +116,7 @@ def main(argv=None):
             manifest["repos"].append({"repo": name, "status": "unreadable",
                                       "reason": f"git tree: {t.get('_error')}"})
             continue
+        paths_all = {e["path"] for e in t.get("tree", [])}
         wfs = [e["path"] for e in t.get("tree", [])
                if e["path"].startswith(".github/workflows/") and e["path"].endswith((".yml", ".yaml"))]
         # A repository that declares itself locked is not a repository that is missing
@@ -129,6 +130,28 @@ def main(argv=None):
             continue
         manifest["repos"].append({"repo": name, "status": "ok", "workflows": len(wfs),
                                   "locked": _locked})
+        # ---- the two files that describe a repository's own shape -------------
+        # A workflow inventory alone cannot say whether a repo still has a landing
+        # page and an app page - which is the thing the 2026-11-05 sweep got wrong,
+        # and the thing PAGES.json exists to declare. Fetch them alongside the
+        # workflows so scan.py can report surfaces rather than only automations.
+        for extra in ("PAGES.json", "MANIFEST.json"):
+            if extra not in paths_all:
+                continue
+            blob = api(f"/repos/{OWNER}/{name}/contents/{extra}?ref={branch}", token)
+            if isinstance(blob, dict) and blob.get("_error"):
+                manifest.setdefault("unreadable_shape", []).append(
+                    {"repo": name, "path": extra, "reason": "contents: %s" % blob.get("_error")})
+                continue
+            try:
+                import base64
+                text = base64.b64decode(blob["content"]).decode("utf-8", "replace")
+            except Exception:
+                continue
+            dst = os.path.join(a.out, name, extra)
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
+            open(dst, "w", encoding="utf-8").write(text)
+
         for p in wfs:
             blob = api(f"/repos/{OWNER}/{name}/contents/{p}?ref={branch}", token)
             if isinstance(blob, dict) and blob.get("_error"):
