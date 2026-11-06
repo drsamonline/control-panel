@@ -29,7 +29,7 @@
   "schema_check_error": "",
   "invalid_workflows": [],
   "jobs": 251,
-  "steps": 1009,
+  "steps": 1010,
   "edges": 56,
   "dangling_calls": [],
   "orphan_reusables": [
@@ -1082,7 +1082,8 @@
       ]
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "BLINKTRANSFER",
@@ -1235,7 +1236,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "CLDR",
@@ -1562,7 +1564,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "HCS",
@@ -1636,7 +1639,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "HMS",
@@ -1903,7 +1907,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "frontend/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "MATERIA-MEDICA-BUILDER",
@@ -1968,7 +1978,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "Matneo",
@@ -2313,7 +2329,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/blog/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "NEO",
@@ -2394,7 +2416,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "Repertorium-Publicum",
@@ -2536,7 +2559,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "TTB",
@@ -2648,7 +2672,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "popup.html",
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "The_Browser",
@@ -2963,7 +2993,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "ULTIMATE-WINDOWS-OPTIMIZER",
@@ -3043,7 +3074,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "aethelgard-games",
@@ -3118,7 +3150,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/books/index.html",
+    "deleted": 4,
+    "manual": true
+   }
   },
   {
    "repo": "aethelgard-rpg-engine",
@@ -3210,7 +3248,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "ai-bridge",
@@ -3667,7 +3706,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "ambient-sound-studio",
@@ -3732,7 +3772,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "app-builder",
@@ -4516,7 +4562,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "app-clip-loom",
@@ -4666,7 +4713,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "app-companion-forge",
@@ -4731,7 +4779,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "app-encrypted-case-log",
@@ -4895,7 +4944,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "app-image-toolkit",
@@ -5075,7 +5130,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "app-jacquard",
@@ -5225,7 +5281,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "app-lantern",
@@ -5482,7 +5539,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "app-organon-reader",
@@ -5608,7 +5671,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "app-panchang",
@@ -5750,7 +5814,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "app-poets-studio",
@@ -5915,7 +5980,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "app-thermals",
@@ -6060,7 +6126,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "app-weft-puzzles",
@@ -6210,7 +6277,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "art-kit",
@@ -6285,7 +6353,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "astro-kit",
@@ -6362,7 +6431,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": null,
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "audio-kit",
@@ -6437,7 +6512,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "audit",
@@ -6627,7 +6703,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "backup",
@@ -6758,7 +6835,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "base-bench",
@@ -6898,7 +6976,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "blinkcode-ai",
@@ -7051,7 +7130,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "bmi-bmr-tdee-macros-fluid-calculator",
@@ -7283,7 +7363,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "boericke-repertory",
@@ -7348,7 +7434,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "book-kit",
@@ -7425,7 +7517,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "canteen-lan",
@@ -7547,7 +7640,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "case-kit",
@@ -7624,7 +7718,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "chalk-lan",
@@ -7689,7 +7784,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "compfactory",
@@ -7754,7 +7855,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "compress-kit",
@@ -7831,7 +7933,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": null,
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "conqueror-os",
@@ -8196,7 +8304,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "control-panel",
@@ -8216,7 +8330,8 @@
       ],
       "paths": [
        "push:tools/**",
-       "push:docs/index.html"
+       "push:docs/index.html",
+       "push:.github/workflows/scan.yml"
       ],
       "types": []
      },
@@ -8283,6 +8398,11 @@
          "shell_lines": 1
         },
         {
+         "name": "Record the manifest for what this scan writes",
+         "run": "python3 tools/manifest.py record \\",
+         "shell_lines": 4
+        },
+        {
          "name": "Commit the fresh inventory",
          "run": "# F-97: the verdict is \"did the inventory land\", not \"did git exit 0\".",
          "shell_lines": 9
@@ -8330,13 +8450,13 @@
       "contents": "write"
      },
      "jobs_count": 2,
-     "steps_count": 15,
+     "steps_count": 16,
      "concurrency_groups": [
       "scan"
      ],
      "concurrency_cancels": false,
-     "signature": "pages:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b,actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa,actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e|scan:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,run,The tools' own tests, first,Fetch every workflow in every repo,Inventory it,Plan it,What is missing,What calls what,The routes,Commit the fresh inventory",
-     "bytes": 4287,
+     "signature": "pages:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b,actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa,actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e|scan:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,run,The tools' own tests, first,Fetch every workflow in every repo,Inventory it,Plan it,What is missing,What calls what,The routes,Record the manifest for what this scan writes,Commit the fresh inventory",
+     "bytes": 5228,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8354,7 +8474,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "crypto-kit",
@@ -8431,7 +8552,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": null,
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "dance-fight",
@@ -8496,7 +8623,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "dashboard",
@@ -8666,7 +8799,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": null,
+    "app": "docs/play/index.html",
+    "deleted": 6,
+    "manual": true
+   }
   },
   {
    "repo": "drsamonline",
@@ -9176,7 +9315,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "drsamonline.github.io",
@@ -9286,7 +9426,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "index.html",
+    "app": null,
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "dumps",
@@ -9387,7 +9533,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "eon-commando",
@@ -9451,7 +9598,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "export-kit",
@@ -9526,7 +9679,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": null,
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "feather",
@@ -9825,7 +9984,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "forge",
@@ -12687,7 +12847,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "game-kit",
@@ -12764,7 +12925,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": null,
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "gentle-pediatrics-companion",
@@ -12829,7 +12996,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "heavenzip",
@@ -12900,7 +13073,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "helioprism",
@@ -13053,7 +13227,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "idle-city-ages-of-growth",
@@ -13277,7 +13452,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "knowledge",
@@ -13373,7 +13554,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "lan-kit",
@@ -13450,7 +13632,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": null,
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "lexora",
@@ -13537,7 +13725,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "lockhtml",
@@ -13875,7 +14064,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "lumen",
@@ -14458,7 +14653,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "ml-kit",
@@ -14533,7 +14734,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "mnemosyne-companion",
@@ -14598,7 +14800,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "musicgen",
@@ -14815,7 +15023,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "neon-engine",
@@ -14912,7 +15126,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": null,
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "neon-games",
@@ -14987,7 +15207,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/dead-zone/index.html",
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "neon-runner",
@@ -15159,7 +15385,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "neon-velocity",
@@ -15387,7 +15619,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "site/index.html",
+    "app": "web/offline.html",
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "offline-pdf-toolkit",
@@ -15584,7 +15822,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 2,
+    "manual": true
+   }
   },
   {
    "repo": "open-materia-medica",
@@ -15649,7 +15893,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 19,
+    "manual": true
+   }
   },
   {
    "repo": "optical-kit",
@@ -15726,7 +15976,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": null,
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "read-live-transform-app",
@@ -15791,7 +16047,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "registry",
@@ -15892,7 +16154,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "remedy-relationship-explorer",
@@ -16268,7 +16531,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 3,
+    "manual": true
+   }
   },
   {
    "repo": "repertory-kit",
@@ -16345,7 +16614,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "retro-strike",
@@ -16492,7 +16762,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "seance",
@@ -16557,7 +16833,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "search-kit",
@@ -16634,7 +16911,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "skills",
@@ -16817,7 +17095,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "skin-case-tracker",
@@ -16882,7 +17161,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "smartbill-app",
@@ -16947,7 +17232,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "srs-kit",
@@ -17024,7 +17310,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "the-symphony-companion",
@@ -17089,7 +17376,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "today-card",
@@ -17154,7 +17447,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "ui-kit",
@@ -17239,7 +17533,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "unstoppable-mind-companion",
@@ -17304,7 +17599,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "web-kit",
@@ -17381,7 +17682,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "test/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "weft8-classroom",
@@ -17531,7 +17838,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "weft8-compare",
@@ -17681,7 +17989,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "weft8-hardware",
@@ -17831,7 +18140,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "weft8-kit",
@@ -17981,7 +18291,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "whispering-body-first-aid",
@@ -18123,7 +18434,13 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 1,
+    "manual": true
+   }
   },
   {
    "repo": "ziptastic",
@@ -18286,7 +18603,8 @@
       "writes_paths": []
      }
     }
-   ]
+   ],
+   "pages": {}
   },
   {
    "repo": "accent-oracle",

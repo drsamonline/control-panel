@@ -3,23 +3,35 @@
   "locked": false,
   "files": {
     "docs/inventory.json": {
-      "sha": "4319e51936ba58980a5b887972ce03b9ac5ef8b0",
-      "producer": "scan@68f3374",
+      "sha": "6c03b3cf3e957f8896644c9c1a01edb63ce985cb",
+      "producer": "scan.yml@f9f139c",
       "class": "generated",
-      "at": "2026-11-06T09:06:53Z"
+      "at": "2026-11-06T09:22:11Z"
     },
     "docs/plan.json": {
-      "sha": "4ce8527879b2e6e6d52cbf1e5786b7052d4052ef",
-      "producer": "plan@248b530",
+      "sha": "e2309ae982c99c2967451a199a9f653395a15e92",
+      "producer": "scan.yml@f9f139c",
       "class": "generated",
-      "at": "2026-11-06T09:06:53Z"
+      "at": "2026-11-06T09:22:11Z"
     },
     "docs/gaps.json": {
       "sha": "d692959134d02e7965255e8b4cd27b71ac399901",
-      "producer": "gaps@29dfe36",
+      "producer": "scan.yml@f9f139c",
       "class": "generated",
-      "at": "2026-11-06T09:06:53Z"
+      "at": "2026-11-06T09:22:11Z"
+    },
+    "docs/interactions.json": {
+      "sha": "11d6574d9a6585bc3179c663e0547cfdeb78015a",
+      "producer": "scan.yml@f9f139c",
+      "class": "generated",
+      "at": "2026-11-06T09:22:11Z"
+    },
+    "docs/routes.json": {
+      "sha": "8200b55d9a12e6d4a2461e8c8bc0bd815a530207",
+      "producer": "scan.yml@f9f139c",
+      "class": "generated",
+      "at": "2026-11-06T09:22:11Z"
     }
   },
-  "updated": "2026-11-06T09:06:53Z"
+  "updated": "2026-11-06T09:22:11Z"
 }
