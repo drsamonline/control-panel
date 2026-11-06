@@ -222,6 +222,8 @@ def without_comments(text: str) -> str:
     return "\n".join("" if ln.lstrip().startswith("#") else ln for ln in text.split("\n"))
 
 
+# Each repo entry carries `pages` (landing / app / deleted count / manual flag) read
+# from its own PAGES.json, so the panel can report surfaces and not only workflows.
 def scan_tree(root: str, manifest: dict | None = None) -> list:
     """Every workflow under `<root>/<repo>/.github/workflows/`, plus every repository
     the manifest says was attempted but produced no directory here."""
