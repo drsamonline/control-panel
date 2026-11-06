@@ -62,6 +62,18 @@ jobs:
         run: python3 tools/interactions.py --inventory docs/inventory.json --out docs/interactions.json
       - name: The routes
         run: python3 tools/simulate.py --inventory docs/inventory.json --gaps docs/gaps.json --out docs/routes.json
+      - name: Record the manifest for what this scan writes
+        # The five generated files were committed without ever recording their own shas,
+        # so the provenance gate saw a manifest that disagreed with the tree and refused
+        # the commit - which is how a scan that succeeded reported failure. Every other
+        # generator in the estate records before it commits; this one now does too, and
+        # MANIFEST.json lands in the same commit as the files it describes.
+        run: |
+          python3 tools/manifest.py record \
+            docs/inventory.json docs/plan.json docs/gaps.json \
+            docs/interactions.json docs/routes.json \
+            --producer "scan.yml@$(git rev-parse --short HEAD)"
+
       - name: Commit the fresh inventory
         run: |
           # F-97: the verdict is "did the inventory land", not "did git exit 0".
@@ -72,7 +84,7 @@ jobs:
           # tools/commit-and-verify.sh does both: the same backoff, then a blob-sha
           # comparison against origin/main.
           bash tools/commit-and-verify.sh "chore: rescan every workflow [skip ci]" main -- \
-            docs/inventory.json docs/plan.json docs/gaps.json docs/interactions.json docs/routes.json
+            docs/inventory.json docs/plan.json docs/gaps.json docs/interactions.json docs/routes.json MANIFEST.json
 
   # Pages is set to build_type=workflow, so a workflow has to do the deploy. Without
   # this the panel is enabled but never published - which is exactly the kind of
