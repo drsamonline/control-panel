@@ -33,11 +33,17 @@
       "at": "2026-11-06T10:55:26Z"
     },
     "docs/index.html": {
-      "sha": "3fc26680fb56fbec5783e23ea1f74fc5560c68be",
-      "producer": "human",
-      "class": "generated",
-      "at": "2026-11-06T10:53:34Z"
+      "sha": "3c67e7a3f14de2e551c6688161448d793dfee51d",
+      "producer": "audit-2026-11-10",
+      "class": "agent",
+      "at": "2026-11-10T13:41:48Z"
+    },
+    "README.md": {
+      "sha": "09feee39e20ec0a0be2ef62bc016ab1014884be0",
+      "producer": "audit-2026-11-10",
+      "class": "agent",
+      "at": "2026-11-10T13:41:48Z"
     }
   },
-  "updated": "2026-11-06T10:55:26Z"
+  "updated": "2026-11-10T13:41:48Z"
 }
