@@ -1,14 +1,16 @@
 {
  "what": "Every workflow in every repo, with its triggers, jobs, steps and calls.",
  "summary": {
-  "repos": 111,
+  "repos": 127,
   "scope": "all",
   "scope_note": "read with a token that can see every repository the account owns",
   "skipped": [],
   "repos_without_workflows": [
    "Scrap-and-Gun",
+   "Single-File-Web-Apps",
    "SmartNotes",
-   "accent-oracle",
+   "UniRep",
+   "awesome-singlefile-tools",
    "corefit-md",
    "dumps-2",
    "dumps-3",
@@ -18,19 +20,28 @@
    "frame-kit",
    "homoeopathic-materia-medica-repertory-json",
    "profile-kit",
-   "saga-vn-engine"
+   "saga-vn-engine",
+   "smartnote-scheduler"
   ],
-  "workflows": 189,
+  "workflows": 216,
   "reusable": 11,
-  "scheduled": 33,
-  "dispatchable": 186,
+  "scheduled": 36,
+  "dispatchable": 210,
   "parse_errors": [],
   "schema_checked": true,
   "schema_check_error": "",
-  "invalid_workflows": [],
-  "jobs": 251,
-  "steps": 1010,
-  "edges": 56,
+  "invalid_workflows": [
+   {
+    "repo": "ziptastic",
+    "file": "ci.yml",
+    "problems": [
+     "workflow: job `build-and-test` step 4 has neither `uses:` nor `run:`"
+    ]
+   }
+  ],
+  "jobs": 284,
+  "steps": 1202,
+  "edges": 59,
   "dangling_calls": [],
   "orphan_reusables": [
    "forge/.github/workflows/audit.yml",
@@ -106,7 +117,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -122,7 +133,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -130,7 +141,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -146,7 +157,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -162,7 +173,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -186,7 +197,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "0464e3304fcb096c59574188ea6f68abca015786",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -194,7 +205,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -202,7 +213,15 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "exists": true
+   },
+   {
+    "from_repo": "app-endpoints",
+    "from": "build-apps.yml",
+    "to": "drsamonline/app-builder/.github/workflows/build.yml",
+    "resolved": "app-builder/.github/workflows/build.yml",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -210,7 +229,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "0464e3304fcb096c59574188ea6f68abca015786",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -218,7 +237,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "0464e3304fcb096c59574188ea6f68abca015786",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -226,7 +245,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "97cd6e6566f0b722e854740ef5d360416ec0da01",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -234,7 +253,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -242,7 +261,15 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "aa727deec70003ba44de36295eca9be80e91f8f1",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "exists": true
+   },
+   {
+    "from_repo": "app-story-engine",
+    "from": "build-apps.yml",
+    "to": "drsamonline/app-builder/.github/workflows/build.yml",
+    "resolved": "app-builder/.github/workflows/build.yml",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -250,7 +277,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "97cd6e6566f0b722e854740ef5d360416ec0da01",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -258,7 +285,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "0464e3304fcb096c59574188ea6f68abca015786",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -266,7 +293,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "fbb5468c1140c9da7421e3fc5927c12efb4c01c1",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -274,7 +301,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -282,7 +309,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -290,7 +317,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -298,7 +325,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -306,7 +333,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -314,7 +341,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -322,7 +349,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -330,7 +357,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "97cd6e6566f0b722e854740ef5d360416ec0da01",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -362,7 +389,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -370,7 +397,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -378,7 +405,15 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "exists": true
+   },
+   {
+    "from_repo": "kitbox",
+    "from": "build-apps.yml",
+    "to": "drsamonline/app-builder/.github/workflows/build.yml",
+    "resolved": "app-builder/.github/workflows/build.yml",
+    "at": "main",
     "exists": true
    },
    {
@@ -386,7 +421,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -394,7 +429,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -402,7 +437,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -418,7 +453,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -426,7 +461,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -434,7 +469,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -442,7 +477,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -450,7 +485,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -458,7 +493,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -466,7 +501,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -474,7 +509,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -482,7 +517,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -490,7 +525,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -498,7 +533,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -506,7 +541,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -514,7 +549,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "0464e3304fcb096c59574188ea6f68abca015786",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -522,7 +557,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "0464e3304fcb096c59574188ea6f68abca015786",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -530,7 +565,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "0464e3304fcb096c59574188ea6f68abca015786",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -538,7 +573,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "0464e3304fcb096c59574188ea6f68abca015786",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    },
    {
@@ -546,7 +581,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "246da5d54862d2571b0b37feb10499e467f20d7d",
+    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
     "exists": true
    }
   ],
@@ -561,11 +596,13 @@
     "app-clip-loom/build-apps.yml",
     "app-companion-forge/build-apps.yml",
     "app-encrypted-case-log/build-apps.yml",
+    "app-endpoints/build-apps.yml",
     "app-image-toolkit/build-apps.yml",
     "app-jacquard/build-apps.yml",
     "app-organon-reader/build-apps.yml",
     "app-panchang/build-apps.yml",
     "app-poets-studio/build-apps.yml",
+    "app-story-engine/build-apps.yml",
     "app-thermals/build-apps.yml",
     "app-weft-puzzles/build-apps.yml",
     "base-bench/build-apps.yml",
@@ -581,6 +618,7 @@
     "gentle-pediatrics-companion/build-apps.yml",
     "helioprism/build-apps.yml",
     "idle-city-ages-of-growth/build-apps.yml",
+    "kitbox/build-apps.yml",
     "lockhtml/build-apps.yml",
     "mnemosyne-companion/build-apps.yml",
     "neon-games/build-apps.yml",
@@ -804,7 +842,7 @@
         {
          "name": "Focused tool tests",
          "run": "python tests/test_markdown_to_csv.py",
-         "shell_lines": 1
+         "shell_lines": 2
         },
         {
          "name": "Generated docs are up to date",
@@ -873,7 +911,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "audit-and-sweep:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install optional dependencies used by the sweep,Repository and catalogue audit,Run every runnable tool against fixtures,Windows-only tool logic with a stubbed PowerShell,Focused tool tests,Generated docs are up to date,Lint (advisory),CLI smoke test|desktop-smoke:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install Qt runtime libraries,Build the window headlessly and walk every page,Upload screenshots",
-     "bytes": 2598,
+     "bytes": 2638,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -1110,11 +1148,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -1472,6 +1510,32 @@
          ]
         }
        ]
+      },
+      {
+       "id": "commits",
+       "name": "Conventional commits",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": "github.event_name == 'pull_request'",
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "Install cocogitto 7.0.0",
+         "run": "curl -fsSL -o cog.tar.gz \\",
+         "shell_lines": 5
+        },
+        {
+         "name": "cog check (PR commits only)",
+         "run": "cog check \"${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}\"",
+         "shell_lines": 1
+        }
+       ]
       }
      ],
      "calls": [],
@@ -1480,14 +1544,14 @@
      "permissions": {
       "contents": "read"
      },
-     "jobs_count": 4,
-     "steps_count": 30,
+     "jobs_count": 5,
+     "steps_count": 33,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "check:${{ matrix.os }}:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Install Rust toolchain,Cache cargo registry + target dir,Build (release),Run tests,Self-test (headless),rustfmt check,clippy|installer:windows-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Download the Windows portable build,Unpack portable archive,Install Inno Setup,Determine version,Build installer,Upload installer artifact|publish:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Determine release tag,Download all artifacts,Generate SHA256SUMS,Attest build provenance,Create / update release|release:${{ matrix.job.os }}:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Install Rust toolchain (${{ matrix.job.target }}),Cache cargo registry + target dir,Verify tag matches Cargo.toml version,Install cross toolchain (aarch64-linux),Build (release, ${{ matrix.job.target }}),Package (Windows),Package (Linux),Upload portable artifact",
-     "bytes": 11939,
+     "signature": "check:${{ matrix.os }}:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Install Rust toolchain,Cache cargo registry + target dir,Build (release),Run tests,Self-test (headless),rustfmt check,clippy|commits:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Install cocogitto 7.0.0,cog check (PR commits only)|installer:windows-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Download the Windows portable build,Unpack portable archive,Install Inno Setup,Determine version,Build installer,Upload installer artifact|publish:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Determine release tag,Download all artifacts,Generate SHA256SUMS,Attest build provenance,Create / update release|release:${{ matrix.job.os }}:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Install Rust toolchain (${{ matrix.job.target }}),Cache cargo registry + target dir,Verify tag matches Cargo.toml version,Install cross toolchain (aarch64-linux),Build (release, ${{ matrix.job.target }}),Package (Windows),Package (Linux),Upload portable artifact",
+     "bytes": 13338,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -1605,6 +1669,11 @@
          "shell_lines": 1
         },
         {
+         "name": "SOURCES must still describe old/",
+         "run": "python3 tools/check-sources.py --advisory",
+         "shell_lines": 1
+        },
+        {
          "name": "Report what is present",
          "run": "echo \"source directories with content:\"",
          "shell_lines": 8
@@ -1617,11 +1686,11 @@
      "inputs": [],
      "permissions": null,
      "jobs_count": 1,
-     "steps_count": 3,
+     "steps_count": 4,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "vendor:ubuntu-latest:Check out with submodules,Every vendored source must be present and mapped,Report what is present",
-     "bytes": 1288,
+     "signature": "vendor:ubuntu-latest:Check out with submodules,Every vendored source must be present and mapped,SOURCES must still describe old/,Report what is present",
+     "bytes": 1731,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -1940,11 +2009,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -2057,7 +2126,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "refresh:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Regenerate,Commit if changed",
-     "bytes": 1168,
+     "bytes": 1950,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -2225,7 +2294,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "images:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Install the tools,Capture each product's live page, deterministically,Generate the deterministic set,Check the budget, the alt text and the loading,Point each product at its generated image,Commit if changed",
-     "bytes": 8588,
+     "bytes": 8963,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -2311,7 +2380,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "refresh:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Regenerate,Commit if changed",
-     "bytes": 1185,
+     "bytes": 1560,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -2375,6 +2444,11 @@
          "shell_lines": 1
         },
         {
+         "name": "Every shipped example is a NOVA program",
+         "run": "python3 tools/example-check.py",
+         "shell_lines": 1
+        },
+        {
          "name": "run",
          "run": "cargo build --workspace --all-targets",
          "shell_lines": 1
@@ -2394,11 +2468,11 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 5,
+     "steps_count": 6,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "rust-workspace:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec,The grammar still describes the compiler,run,run",
-     "bytes": 932,
+     "signature": "rust-workspace:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec,The grammar still describes the compiler,Every shipped example is a NOVA program,run,run",
+     "bytes": 1030,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -2444,11 +2518,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -2729,13 +2803,13 @@
         },
         {
          "name": "Test",
-         "run": "ctest --test-dir build-standalone --output-on-failure --no-tests=error",
+         "run": "ctest --test-dir build-standalone --output-on-failure --no-tests=error --timeout 180",
          "shell_lines": 1
         },
         {
          "name": "Smoke-run the aetheris executable",
-         "run": "./build-standalone/bin/aetheris --smoke-test",
-         "shell_lines": 1
+         "run": "sudo apt-get install -y --no-install-recommends xvfb",
+         "shell_lines": 2
         }
        ]
       },
@@ -2772,7 +2846,7 @@
         },
         {
          "name": "Test",
-         "run": "ctest --test-dir build-standalone -C Debug --output-on-failure --no-tests=error",
+         "run": "ctest --test-dir build-standalone -C Debug --output-on-failure --no-tests=error --timeout 180",
          "shell_lines": 1
         },
         {
@@ -2784,10 +2858,10 @@
       },
       {
        "id": "build-windows",
-       "name": "Build Aetheris (Windows)",
+       "name": "Build Aetheris (Windows, full tree, opt-in)",
        "runs_on": "windows-latest",
        "needs": [],
-       "if": "github.event_name == 'push' || github.event_name == 'workflow_dispatch'",
+       "if": "github.event_name == 'workflow_dispatch' && inputs.full_tree",
        "steps": [
         {
          "name": "Checkout Repository",
@@ -2892,6 +2966,52 @@
           "name",
           "path"
          ]
+        }
+       ]
+      },
+      {
+       "id": "release-standalone",
+       "name": "Publish release (standalone, Linux)",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": "startsWith(github.ref, 'refs/tags/v')",
+       "steps": [
+        {
+         "name": "Checkout Repository",
+         "uses": "actions/checkout@v7",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "Install dependencies",
+         "run": "sudo apt-get update",
+         "shell_lines": 4
+        },
+        {
+         "name": "Configure (size profile)",
+         "run": "cmake -S . -B build-size -G Ninja -DCMAKE_BUILD_TYPE=Release -DAETHERIS_STANDALONE_BUILD=ON -DAETHER",
+         "shell_lines": 1
+        },
+        {
+         "name": "Build",
+         "run": "cmake --build build-size --parallel",
+         "shell_lines": 1
+        },
+        {
+         "name": "Test",
+         "run": "ctest --test-dir build-size --output-on-failure --no-tests=error",
+         "shell_lines": 1
+        },
+        {
+         "name": "Smoke-run",
+         "run": "./build-size/bin/aetheris --smoke-test",
+         "shell_lines": 1
+        },
+        {
+         "name": "Package",
+         "run": "mkdir -p dist",
+         "shell_lines": 5
         },
         {
          "name": "Publish tagged release",
@@ -2911,14 +3031,14 @@
      "permissions": {
       "contents": "write"
      },
-     "jobs_count": 3,
-     "steps_count": 30,
+     "jobs_count": 4,
+     "steps_count": 37,
      "concurrency_groups": [
       "aetheris-${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": true,
-     "signature": "build-windows:windows-latest:Checkout Repository,Setup MSBuild,Setup CMake,Restore vcpkg binary cache,Restore vcpkg installed tree,Bootstrap repository-local vcpkg,Prime HSTS preload data,Initialize Visual Studio environment,Locate clang-cl,Configure Release,Verify clang-cl toolchain,Build Release,Test Release,Save vcpkg binary cache,Save vcpkg installed tree cache,Package Windows build,Upload CI artifact,Publish tagged release|test-standalone:ubuntu-latest:Checkout Repository,Install dependencies,Configure,Build,Test,Smoke-run the aetheris executable|test-windows-standalone:windows-latest:Checkout Repository,Add MSVC to PATH,Configure,Build,Test,Smoke-run the aetheris executable",
-     "bytes": 14805,
+     "signature": "build-windows:windows-latest:Checkout Repository,Setup MSBuild,Setup CMake,Restore vcpkg binary cache,Restore vcpkg installed tree,Bootstrap repository-local vcpkg,Prime HSTS preload data,Initialize Visual Studio environment,Locate clang-cl,Configure Release,Verify clang-cl toolchain,Build Release,Test Release,Save vcpkg binary cache,Save vcpkg installed tree cache,Package Windows build,Upload CI artifact|release-standalone:ubuntu-latest:Checkout Repository,Install dependencies,Configure (size profile),Build,Test,Smoke-run,Package,Publish tagged release|test-standalone:ubuntu-latest:Checkout Repository,Install dependencies,Configure,Build,Test,Smoke-run the aetheris executable|test-windows-standalone:windows-latest:Checkout Repository,Add MSVC to PATH,Configure,Build,Test,Smoke-run the aetheris executable",
+     "bytes": 17516,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -3078,6 +3198,162 @@
    "pages": {}
   },
   {
+   "repo": "accent-oracle",
+   "workflows": [
+    {
+     "file": "presentation.yml",
+     "name": "presentation",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "verify",
+       "name": "verify",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Install build-time dependencies",
+         "run": "pip install --quiet segno",
+         "shell_lines": 1
+        },
+        {
+         "name": "Check the presentation surfaces",
+         "run": "python3 tools/verify.py . --audit",
+         "shell_lines": 1
+        },
+        {
+         "name": "Print the links this build can be checked at",
+         "run": "python3 tools/links.py .",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 5,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "verify:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install build-time dependencies,Check the presentation surfaces,Print the links this build can be checked at",
+     "bytes": 1644,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "test.yml",
+     "name": "tests",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "engine",
+       "name": "engine",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Run the engine tests",
+         "run": "node test/engine.test.js",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "engine:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run the engine tests",
+     "bytes": 511,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
    "repo": "aethelgard-games",
    "workflows": [
     {
@@ -3102,7 +3378,7 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       },
       {
        "id": "pages",
@@ -3115,7 +3391,7 @@
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d",
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
       "drsamonline/app-builder/.github/workflows/pages.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
      ],
      "reusable": false,
@@ -3399,6 +3675,162 @@
      }
     },
     {
+     "file": "debate-release.yml",
+     "name": "Debate release",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "version",
+       "name": "Read the engine version",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "Read packages/debate/package.json",
+         "run": "set -euo pipefail",
+         "shell_lines": 16
+        }
+       ]
+      },
+      {
+       "id": "verify",
+       "name": "Build and run the engine suites",
+       "runs_on": "ubuntu-latest",
+       "needs": [
+        "version"
+       ],
+       "if": "needs.version.outputs.exists == 'false'",
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "cache",
+          "node-version"
+         ]
+        },
+        {
+         "name": "run",
+         "run": "npm ci",
+         "shell_lines": 1
+        },
+        {
+         "name": "run",
+         "run": "npm run build",
+         "shell_lines": 1
+        },
+        {
+         "name": "Engine suites",
+         "run": "set -euo pipefail",
+         "shell_lines": 6
+        }
+       ]
+      },
+      {
+       "id": "package",
+       "name": "Package the engine",
+       "runs_on": "ubuntu-latest",
+       "needs": [
+        "version",
+        "verify"
+       ],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "cache",
+          "node-version"
+         ]
+        },
+        {
+         "name": "run",
+         "run": "npm ci",
+         "shell_lines": 1
+        },
+        {
+         "name": "run",
+         "run": "npm run build",
+         "shell_lines": 1
+        },
+        {
+         "name": "Assemble the tarball",
+         "run": "set -euo pipefail",
+         "shell_lines": 13
+        },
+        {
+         "name": "Publish the engine release",
+         "uses": "softprops/action-gh-release@v2",
+         "with_keys": [
+          "body",
+          "fail_on_unmatched_files",
+          "files",
+          "make_latest",
+          "name",
+          "tag_name"
+         ]
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write"
+     },
+     "jobs_count": 3,
+     "steps_count": 13,
+     "concurrency_groups": [
+      "debate-release-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "package:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,run,Assemble the tarball,Publish the engine release|verify:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,run,Engine suites|version:ubuntu-latest:actions/checkout@v4,Read packages/debate/package.json",
+     "bytes": 5013,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": true,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
      "file": "pages.yml",
      "name": "Landing page",
      "parse_error": null,
@@ -3431,7 +3863,7 @@
         {
          "name": "Check the page and its assets",
          "run": "test -f docs/index.html || (echo \"docs/index.html missing\" && exit 1)",
-         "shell_lines": 28
+         "shell_lines": 33
         },
         {
          "name": "actions/configure-pages@v5",
@@ -3466,7 +3898,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "deploy:ubuntu-latest:actions/checkout@v4,Check the page and its assets,actions/configure-pages@v5,actions/upload-pages-artifact@v3,actions/deploy-pages@v4",
-     "bytes": 2551,
+     "bytes": 3002,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -3734,11 +4166,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -4141,9 +4573,18 @@
          ]
         },
         {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "with_keys": [
+          "path",
+          "sparse-checkout",
+          "sparse-checkout-cone-mode"
+         ]
+        },
+        {
          "name": "run",
          "run": "set -euo pipefail",
-         "shell_lines": 23
+         "shell_lines": 36
         }
        ]
       },
@@ -4255,6 +4696,11 @@
        "default": "app-latest"
       },
       {
+       "name": "release_notes",
+       "required": false,
+       "default": ""
+      },
+      {
        "name": "kit_repo",
        "required": false,
        "default": "drsamonline/app-builder"
@@ -4271,13 +4717,13 @@
       "id-token": "write"
      },
      "jobs_count": 10,
-     "steps_count": 56,
+     "steps_count": 57,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}-build"
      ],
      "concurrency_cancels": false,
-     "signature": "apk:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3,gradle/actions/setup-gradle@ed408507eac070d1f99cc633dbcf757c94c7933a,run,run,Generate the launcher icons,Adaptive icon,run,run,run,Verify the APK carries an icon,actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02|demo:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Compare the demo to the app|exe:windows-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,run,Generate the app icon,run,Verify the EXE we ship,Verify the EXE carries an icon,actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02|kit-guard:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Refuse a kit added to a page that already existed|linux:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,run,Build the Linux binary,Smoke-test it - it must actually SERVE the app,actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02|pages:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Fail early if there is nothing to publish,Enable Pages if it is not on yet,actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b,actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa,actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e|parity:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Compare the app against its base|release:ubuntu-latest:actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093,actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093,actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093,run|shot:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,run,Capture it, and put it in the README|version:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Consume the pending change files,Record the manifest for what this job writes,Commit the version and the changelog,Publish the versioned release",
-     "bytes": 38408,
+     "signature": "apk:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3,gradle/actions/setup-gradle@ed408507eac070d1f99cc633dbcf757c94c7933a,run,run,Generate the launcher icons,Adaptive icon,run,run,run,Verify the APK carries an icon,actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02|demo:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Compare the demo to the app|exe:windows-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,run,Generate the app icon,run,Verify the EXE we ship,Verify the EXE carries an icon,actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02|kit-guard:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Refuse a kit added to a page that already existed|linux:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,run,Build the Linux binary,Smoke-test it - it must actually SERVE the app,actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02|pages:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Fail early if there is nothing to publish,Enable Pages if it is not on yet,actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b,actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa,actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e|parity:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Compare the app against its base|release:ubuntu-latest:actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093,actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093,actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,run|shot:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,run,Capture it, and put it in the README|version:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Consume the pending change files,Record the manifest for what this job writes,Commit the version and the changelog,Publish the versioned release",
+     "bytes": 39965,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -4529,6 +4975,46 @@
          "shell_lines": 1
         }
        ]
+      },
+      {
+       "id": "built-binary",
+       "name": "The built binary serves an app",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+         "uses": "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "run",
+         "run": "python -m pip install --upgrade pip pyinstaller",
+         "shell_lines": 1
+        },
+        {
+         "name": "Build a binary from a throwaway app",
+         "run": "set -e",
+         "shell_lines": 5
+        },
+        {
+         "name": "It serves the app",
+         "run": "set -e",
+         "shell_lines": 13
+        },
+        {
+         "name": "The binary is not a whale",
+         "run": "bytes=$(wc -c < exe/dist/smoke-portable)",
+         "shell_lines": 10
+        }
+       ]
       }
      ],
      "calls": [],
@@ -4537,14 +5023,14 @@
      "permissions": {
       "contents": "read"
      },
-     "jobs_count": 1,
-     "steps_count": 4,
+     "jobs_count": 2,
+     "steps_count": 10,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": true,
-     "signature": "python-tests:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,run,Run the tests",
-     "bytes": 1080,
+     "signature": "built-binary:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,run,Build a binary from a throwaway app,It serves the app,The binary is not a whale|python-tests:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,run,Run the tests",
+     "bytes": 3636,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -4590,11 +5076,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -4695,7 +5181,7 @@
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Install the test-only dependency (jsdom drives the page),The programs \u2014 every shipped example, on the real machine,The page \u2014 run a program, switch, run again,The app ships what it says it ships",
-     "bytes": 1218,
+     "bytes": 1207,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -4741,11 +5227,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -4807,11 +5293,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -4882,6 +5368,11 @@
          "name": "Run the suite",
          "run": "node tests/self-tests.js",
          "shell_lines": 1
+        },
+        {
+         "name": "The crypto-kit contracts",
+         "run": "node tests/crypto-kit.test.js",
+         "shell_lines": 1
         }
        ]
       },
@@ -4922,11 +5413,11 @@
       "contents": "read"
      },
      "jobs_count": 2,
-     "steps_count": 7,
+     "steps_count": 8,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "checksums:ubuntu-latest:Wait for this push's build to refresh the release,Download the release assets,Write SHA256SUMS.txt,Upload it to the release|test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run the suite",
-     "bytes": 2743,
+     "signature": "checksums:ubuntu-latest:Wait for this push's build to refresh the release,Download the release assets,Write SHA256SUMS.txt,Upload it to the release|test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run the suite,The crypto-kit contracts",
+     "bytes": 2826,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -4953,6 +5444,140 @@
    }
   },
   {
+   "repo": "app-endpoints",
+   "workflows": [
+    {
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "app",
+       "name": "app",
+       "runs_on": "reusable",
+       "needs": [],
+       "if": null,
+       "steps": [],
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      }
+     ],
+     "calls": [
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+     ],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pages": "write",
+      "id-token": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 0,
+     "concurrency_groups": [
+      "build"
+     ],
+     "concurrency_cancels": true,
+     "signature": "app:reusable:",
+     "bytes": 1057,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Run tests (if any)",
+         "run": "if [ -f test-node.js ]; then node test-node.js; else echo \"no tests yet\"; fi",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests (if any)",
+     "bytes": 388,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
    "repo": "app-image-toolkit",
    "workflows": [
     {
@@ -4977,7 +5602,7 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       },
       {
        "id": "single-file",
@@ -5011,7 +5636,7 @@
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -5094,6 +5719,11 @@
          "shell_lines": 5
         },
         {
+         "name": "The badges, and the alt text beside them, say what the suite printed",
+         "run": "set -euo pipefail",
+         "shell_lines": 4
+        },
+        {
          "name": "The app in a browser",
          "run": "set -euo pipefail",
          "shell_lines": 6
@@ -5108,11 +5738,11 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 6,
+     "steps_count": 7,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,The engine \u2014 sniff, strip, resize, budget,The app ships what it says it ships,The scripts still run, and the version is in sync,The app in a browser",
-     "bytes": 1794,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,The engine \u2014 sniff, strip, resize, budget,The app ships what it says it ships,The scripts still run, and the version is in sync,The badges, and the alt text beside them, say what the suite printed,The app in a browser",
+     "bytes": 2151,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5158,11 +5788,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -5353,7 +5983,7 @@
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "build:${{ matrix.os }}:actions/checkout@v4,actions/setup-node@v4,Install the build tools,The app still passes its own suite,Build,Attach to the release",
-     "bytes": 1628,
+     "bytes": 1651,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5508,6 +6138,36 @@
          "shell_lines": 10
         }
        ]
+      },
+      {
+       "id": "test-windows",
+       "name": "test-windows",
+       "runs_on": "windows-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Lantern suite",
+         "run": "node test-node.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "The build is current",
+         "run": "node tools/build.mjs",
+         "shell_lines": 6
+        }
+       ]
       }
      ],
      "calls": [],
@@ -5516,12 +6176,12 @@
      "permissions": {
       "contents": "read"
      },
-     "jobs_count": 1,
-     "steps_count": 7,
+     "jobs_count": 2,
+     "steps_count": 11,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,No dependencies to install,Lantern suite,The build is current,The audit,The host starts and answers on a real port",
-     "bytes": 1320,
+     "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,No dependencies to install,Lantern suite,The build is current,The audit,The host starts and answers on a real port|test-windows:windows-latest:actions/checkout@v4,actions/setup-node@v4,Lantern suite,The build is current",
+     "bytes": 2151,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5571,11 +6231,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@97cd6e6566f0b722e854740ef5d360416ec0da01"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@97cd6e6566f0b722e854740ef5d360416ec0da01"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -5699,11 +6359,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -5842,7 +6502,7 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@aa727deec70003ba44de36295eca9be80e91f8f1"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       },
       {
        "id": "announce",
@@ -5866,7 +6526,7 @@
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@aa727deec70003ba44de36295eca9be80e91f8f1"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -5984,6 +6644,140 @@
    "pages": {}
   },
   {
+   "repo": "app-story-engine",
+   "workflows": [
+    {
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "app",
+       "name": "app",
+       "runs_on": "reusable",
+       "needs": [],
+       "if": null,
+       "steps": [],
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      }
+     ],
+     "calls": [
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+     ],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pages": "write",
+      "id-token": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 0,
+     "concurrency_groups": [
+      "build"
+     ],
+     "concurrency_cancels": true,
+     "signature": "app:reusable:",
+     "bytes": 1082,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Run tests (if any)",
+         "run": "if [ -f test-node.js ]; then node test-node.js; else echo \"no tests yet\"; fi",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Run tests (if any)",
+     "bytes": 388,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
    "repo": "app-thermals",
    "workflows": [
     {
@@ -6008,11 +6802,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@97cd6e6566f0b722e854740ef5d360416ec0da01"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@97cd6e6566f0b722e854740ef5d360416ec0da01"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -6108,7 +6902,7 @@
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,No dependencies to install,Thermals suite,The committed bundle is the build of data/",
-     "bytes": 818,
+     "bytes": 997,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -6154,11 +6948,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -6863,11 +7657,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@fbb5468c1140c9da7421e3fc5927c12efb4c01c1"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@fbb5468c1140c9da7421e3fc5927c12efb4c01c1"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -7004,11 +7798,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -7158,11 +7952,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -7396,11 +8190,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -7582,7 +8376,7 @@
        ],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       },
       {
        "id": "icon",
@@ -7606,7 +8400,7 @@
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -7700,7 +8494,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests",
-     "bytes": 692,
+     "bytes": 877,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7746,11 +8540,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -7791,6 +8585,106 @@
     "deleted": 1,
     "manual": true
    }
+  },
+  {
+   "repo": "code-kit",
+   "workflows": [
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Run tests",
+         "run": "node test-node.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "Check the README's claims",
+         "run": "node tools/check-claims.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "Set up Python",
+         "uses": "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Install segno",
+         "run": "pip install --quiet segno",
+         "shell_lines": 1
+        },
+        {
+         "name": "Verify the QR encoder against segno",
+         "run": "python3 scripts/verify-qr.py",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 7,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Check the README's claims,Set up Python,Install segno,Verify the QR encoder against segno",
+     "bytes": 1406,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
   },
   {
    "repo": "compfactory",
@@ -7851,6 +8745,69 @@
       "commits": false,
       "pulls": false,
       "triggers_on_push": false,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "tests.yml",
+     "name": "tests",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "scripts",
+       "name": "scripts",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "The workspace scripts must agree",
+         "run": "bash tests/check-scripts.sh",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 2,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "scripts:ubuntu-latest:actions/checkout@v4,The workspace scripts must agree",
+     "bytes": 494,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
       "pages_deploy": false,
       "writes_paths": []
      }
@@ -7966,11 +8923,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -8585,11 +9542,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -8684,9 +9641,14 @@
          "shell_lines": 1
         },
         {
+         "name": "Publish the data where the page reads it",
+         "run": "# THE CONSOLE HAS BEEN LOADING NOTHING.",
+         "shell_lines": 24
+        },
+        {
          "name": "Commit if changed",
          "run": "# F-97: the verdict is \"did data.json land on the branch\", not \"did git exit 0\".",
-         "shell_lines": 14
+         "shell_lines": 19
         }
        ]
       }
@@ -8698,13 +9660,13 @@
       "contents": "write"
      },
      "jobs_count": 1,
-     "steps_count": 4,
+     "steps_count": 5,
      "concurrency_groups": [
       "refresh-dashboard"
      ],
      "concurrency_cancels": false,
-     "signature": "refresh:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Regenerate,Commit if changed",
-     "bytes": 3451,
+     "signature": "refresh:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Regenerate,Publish the data where the page reads it,Commit if changed",
+     "bytes": 5471,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -9515,7 +10477,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "dump:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Is the backup token set?,Install 7z,Snapshot every repository,Prove one dump restores,Summary,Record the restore result",
-     "bytes": 7214,
+     "bytes": 7309,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -9560,11 +10522,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@97cd6e6566f0b722e854740ef5d360416ec0da01"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@97cd6e6566f0b722e854740ef5d360416ec0da01"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -10293,6 +11255,11 @@
          ]
         },
         {
+         "name": "Prove the tool's own promise first",
+         "run": "python3 tools/backlog-status.py --selftest",
+         "shell_lines": 1
+        },
+        {
          "name": "Derive the status from evidence",
          "run": "python3 tools/backlog-status.py --write",
          "shell_lines": 1
@@ -10312,13 +11279,13 @@
       "contents": "write"
      },
      "jobs_count": 1,
-     "steps_count": 4,
+     "steps_count": 5,
      "concurrency_groups": [
       "backlog-status"
      ],
      "concurrency_cancels": false,
-     "signature": "status:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Derive the status from evidence,Commit it (only if it changed)",
-     "bytes": 1598,
+     "signature": "status:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Prove the tool's own promise first,Derive the status from evidence,Commit it (only if it changed)",
+     "bytes": 1870,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -11121,7 +12088,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "notify:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Open or update the estate-failure issue,Say so if this workflow itself failed|publish:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Explain if there is no cross-repo token,Compute the health files,Publish them to the console",
-     "bytes": 8790,
+     "bytes": 9020,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -11409,7 +12376,7 @@
         {
          "name": "Drift - is a vendored copy actually out of date, or just differently commented?",
          "run": "# F-66: DRIFT IS ABOUT API SURFACE, NOT BYTES. Measured 2026-10-27: all 9 vendored",
-         "shell_lines": 61
+         "shell_lines": 107
         },
         {
          "name": "Record the run",
@@ -11437,7 +12404,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "audit:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Find code that duplicates a kit,The parity gate - may any app be moved onto a kit?,Drift - is a vendored copy actually out of date, or just differently commented?,Record the run,Commit the findings",
-     "bytes": 8944,
+     "bytes": 12607,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -11681,8 +12648,14 @@
          "with_keys": [
           "fetch-depth",
           "path",
-          "repository"
+          "repository",
+          "token"
          ]
+        },
+        {
+         "name": "Say so if the private registry could not be read",
+         "run": "echo \"::warning title=registry not read::secrets.FANOUT_TOKEN is not set on this repository, so drsa",
+         "shell_lines": 2
         },
         {
          "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
@@ -11745,13 +12718,13 @@
       "contents": "read"
      },
      "jobs_count": 4,
-     "steps_count": 23,
+     "steps_count": 24,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "guards:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Every tracked path names a writer that records it,The shared tools are identical everywhere,The rules the estate's own tools enforce still bite,The register is internally consistent (F-44),Licence claims match the registry (F-85),Every QUEUE spec has a runnable home (rule 4),The demo-drift detector still fires (rule 2)|schema:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Install PyYAML,The checker's own tests,The rule suite, and every other tool's own tests,Every workflow would be ACCEPTED, not merely parsed|shell:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Install ShellCheck,Lint every run block and every shell script|yaml:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Every workflow parses",
-     "bytes": 10234,
+     "signature": "guards:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Say so if the private registry could not be read,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Every tracked path names a writer that records it,The shared tools are identical everywhere,The rules the estate's own tools enforce still bite,The register is internally consistent (F-44),Licence claims match the registry (F-85),Every QUEUE spec has a runnable home (rule 4),The demo-drift detector still fires (rule 2)|schema:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Install PyYAML,The checker's own tests,The rule suite, and every other tool's own tests,Every workflow would be ACCEPTED, not merely parsed|shell:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Install ShellCheck,Lint every run block and every shell script|yaml:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Every workflow parses",
+     "bytes": 11441,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -12846,6 +13819,177 @@
       "pages_deploy": false,
       "writes_paths": []
      }
+    },
+    {
+     "file": "truth-files.yml",
+     "name": "truth-files",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [
+       "push:BACKLOG.md",
+       "push:LEARNINGS.md",
+       "push:PROGRESS.log",
+       "push:RUNS.jsonl",
+       "push:STATE.json",
+       "push:registry/backlog-done.json",
+       "push:tools/truth-files.py",
+       "push:.github/workflows/truth-files.yml"
+      ],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "text",
+       "name": "The truth files are text",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+         "uses": "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "The check's own tests",
+         "run": "python3 tools/truth-files.py --selftest",
+         "shell_lines": 1
+        },
+        {
+         "name": "Every truth file is the text itself, not base64 of it",
+         "run": "python3 tools/truth-files.py",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [
+      "truth-files-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "text:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,The check's own tests,Every truth file is the text itself, not base64 of it",
+     "bytes": 1869,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
+   "repo": "form-kit",
+   "workflows": [
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Run tests",
+         "run": "node test-node.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "Check the README's claims",
+         "run": "node tools/check-claims.js",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Check the README's claims",
+     "bytes": 846,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
     }
    ],
    "pages": {}
@@ -12890,6 +14034,11 @@
          "name": "Run tests",
          "run": "node test-node.js",
          "shell_lines": 1
+        },
+        {
+         "name": "Check the README's claims",
+         "run": "node tools/check-claims.js",
+         "shell_lines": 1
         }
        ]
       }
@@ -12901,13 +14050,13 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 3,
+     "steps_count": 4,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests",
-     "bytes": 692,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Check the README's claims",
+     "bytes": 846,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -12958,11 +14107,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -13101,11 +14250,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -13231,6 +14380,574 @@
    "pages": {}
   },
   {
+   "repo": "iamsingle-sfwa-directory",
+   "workflows": [
+    {
+     "file": "build-pages.yml",
+     "name": "Build static pages",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [
+       "push:data/entries.json",
+       "push:data/stars.json",
+       "push:data/network.json"
+      ],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "build",
+       "name": "build",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Notify submitters of entries that are now live, commit, and push",
+         "run": "git config user.name \"github-actions[bot]\"",
+         "shell_lines": 21
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Install dependencies",
+         "run": "npm ci",
+         "shell_lines": 1
+        },
+        {
+         "name": "Install Playwright Chromium",
+         "run": "npx playwright install --with-deps chromium",
+         "shell_lines": 1
+        },
+        {
+         "name": "Generate pages, commit, and push",
+         "run": "git config user.name \"github-actions[bot]\"",
+         "shell_lines": 43
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pull-requests": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 7,
+     "concurrency_groups": [
+      "build-pages"
+     ],
+     "concurrency_cancels": false,
+     "signature": "build:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Notify submitters of entries that are now live, commit, and push,actions/setup-node@v4,Install dependencies,Install Playwright Chromium,Generate pages, commit, and push",
+     "bytes": 5421,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": true,
+      "commits": true,
+      "pulls": true,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": [
+       "data/pending_notifications.json",
+       "index.html"
+      ]
+     }
+    },
+    {
+     "file": "discover-candidates.yml",
+     "name": "Discover SFWA candidates",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "schedule",
+       "workflow_dispatch"
+      ],
+      "crons": [
+       "23 5 * * 1"
+      ],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "discover",
+       "name": "discover",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Poll GitHub topics for new candidates",
+         "run": "python3 scripts/discover_candidates.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Commit candidates if changed",
+         "run": "git config user.name \"github-actions[bot]\"",
+         "shell_lines": 9
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "discover:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Poll GitHub topics for new candidates,Commit candidates if changed",
+     "bytes": 1132,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": true,
+      "commits": true,
+      "pulls": false,
+      "triggers_on_push": false,
+      "pages_deploy": false,
+      "writes_paths": [
+       "data/candidates.json"
+      ]
+     }
+    },
+    {
+     "file": "promote-pending.yml",
+     "name": "Promote pending submissions",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push"
+      ],
+      "crons": [],
+      "paths": [
+       "push:data/pending/**"
+      ],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "promote",
+       "name": "promote",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Record notifications, fold pending entries, commit, and push",
+         "run": "git config user.name \"github-actions[bot]\"",
+         "shell_lines": 35
+        },
+        {
+         "name": "Trigger a star snapshot for the newly promoted repo(s)",
+         "run": "gh workflow run snapshot-stars.yml --repo \"${{ github.repository }}\"",
+         "shell_lines": 1
+        },
+        {
+         "name": "Trigger the static build",
+         "run": "gh workflow run build-pages.yml --repo \"${{ github.repository }}\"",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "actions": "write",
+      "pull-requests": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 5,
+     "concurrency_groups": [
+      "promote-pending"
+     ],
+     "concurrency_cancels": false,
+     "signature": "promote:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Record notifications, fold pending entries, commit, and push,Trigger a star snapshot for the newly promoted repo(s),Trigger the static build",
+     "bytes": 4521,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": true,
+      "commits": true,
+      "pulls": true,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": [
+       "data/entries.json"
+      ]
+     }
+    },
+    {
+     "file": "review-submission.yml",
+     "name": "Review submission",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "review",
+       "name": "review",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "Checkout base branch (trusted scripts only)",
+         "uses": "actions/checkout@v4",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "Set up Python",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Install scanners",
+         "run": "pip install --quiet detect-secrets semgrep",
+         "shell_lines": 1
+        },
+        {
+         "name": "Pull the PR's data/pending/*.json as data (not code)",
+         "run": "PR_JSON=$(gh api \"repos/${{ github.repository }}/pulls/${{ inputs.pr_number }}\")",
+         "shell_lines": 17
+        },
+        {
+         "name": "Collect pending entries",
+         "run": "python3 scripts/collect_pending.py > new_entries.json",
+         "shell_lines": 3
+        },
+        {
+         "name": "Security scan",
+         "run": "python3 scripts/security_scan.py new_entries.json > scan_results.json",
+         "shell_lines": 1
+        },
+        {
+         "name": "SFWA-ness check",
+         "run": "python3 scripts/check_sfwa.py new_entries.json > sfwa_results.json",
+         "shell_lines": 1
+        },
+        {
+         "name": "Check Hacker News for existing coverage",
+         "run": "python3 scripts/check_hn_featured.py new_entries.json > hn_candidates.json || echo \"[]\" > hn_candida",
+         "shell_lines": 1
+        },
+        {
+         "name": "Merge results into data/pending/*.json",
+         "run": "python3 scripts/merge_checks.py scan_results.json sfwa_results.json",
+         "shell_lines": 1
+        },
+        {
+         "name": "Push results to the PR branch",
+         "run": "# Same Contents-API approach as before, now per pending file",
+         "shell_lines": 24
+        },
+        {
+         "name": "Post results to PR",
+         "uses": "actions/github-script@v7",
+         "with_keys": [
+          "script"
+         ]
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pull-requests": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 11,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "review:ubuntu-latest:Checkout base branch (trusted scripts only),Set up Python,Install scanners,Pull the PR's data/pending/*.json as data (not code),Collect pending entries,Security scan,SFWA-ness check,Check Hacker News for existing coverage,Merge results into data/pending/*.json,Push results to the PR branch,Post results to PR",
+     "bytes": 7483,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": true,
+      "triggers_on_push": false,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "snapshot-stars.yml",
+     "name": "Snapshot GitHub stars",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push",
+       "schedule",
+       "workflow_dispatch"
+      ],
+      "crons": [
+       "17 4 * * *"
+      ],
+      "paths": [
+       "push:data/entries.json"
+      ],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "snapshot",
+       "name": "snapshot",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Fetch star counts",
+         "run": "python3 scripts/snapshot_stars.py > data/stars.json",
+         "shell_lines": 1
+        },
+        {
+         "name": "Commit snapshot if changed",
+         "run": "git config user.name \"github-actions[bot]\"",
+         "shell_lines": 11
+        },
+        {
+         "name": "Trigger the static build",
+         "run": "gh workflow run build-pages.yml --repo \"${{ github.repository }}\"",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "actions": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 5,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "snapshot:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Fetch star counts,Commit snapshot if changed,Trigger the static build",
+     "bytes": 2189,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": true,
+      "commits": true,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": [
+       "data/stars.json"
+      ]
+     }
+    },
+    {
+     "file": "verify-recheck.yml",
+     "name": "Verify recheck",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request"
+      ],
+      "crons": [],
+      "paths": [
+       "pull_request:data/network.json"
+      ],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "verify",
+       "name": "verify",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "Checkout base branch (trusted scripts only)",
+         "uses": "actions/checkout@v4",
+         "with_keys": [
+          "ref"
+         ]
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Install dependencies",
+         "run": "npm ci",
+         "shell_lines": 1
+        },
+        {
+         "name": "Install Playwright Chromium",
+         "run": "npx playwright install --with-deps chromium",
+         "shell_lines": 1
+        },
+        {
+         "name": "Work out which entry is being re-checked",
+         "run": "# The PR's version of the file, pulled as plain data \u2014 never executed.",
+         "shell_lines": 22
+        },
+        {
+         "name": "Re-measure that entry",
+         "run": "# Drop the cached measurement locally so --refresh re-does everything",
+         "shell_lines": 9
+        },
+        {
+         "name": "Comment the verdict",
+         "uses": "actions/github-script@v7",
+         "with_keys": [
+          "script"
+         ]
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read",
+      "pull-requests": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 7,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "verify:ubuntu-latest:Checkout base branch (trusted scripts only),actions/setup-node@v4,Install dependencies,Install Playwright Chromium,Work out which entry is being re-checked,Re-measure that entry,Comment the verdict",
+     "bytes": 4626,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": false,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
    "repo": "idle-city-ages-of-growth",
    "workflows": [
     {
@@ -13255,11 +14972,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -13461,6 +15178,380 @@
    }
   },
   {
+   "repo": "kitbox",
+   "workflows": [
+    {
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "app",
+       "name": "app",
+       "runs_on": "reusable",
+       "needs": [],
+       "if": null,
+       "steps": [],
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@main"
+      }
+     ],
+     "calls": [
+      "drsamonline/app-builder/.github/workflows/build.yml@main"
+     ],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pages": "write",
+      "id-token": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 0,
+     "concurrency_groups": [
+      "build-apps"
+     ],
+     "concurrency_cancels": true,
+     "signature": "app:reusable:",
+     "bytes": 1867,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "release.yml",
+     "name": "release",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "release",
+       "name": "release",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "cache",
+          "node-version"
+         ]
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "run",
+         "run": "npm ci",
+         "shell_lines": 1
+        },
+        {
+         "name": "The app passes its own tests",
+         "run": "npm test",
+         "shell_lines": 1
+        },
+        {
+         "name": "The tag matches the app version",
+         "run": "tag=\"${GITHUB_REF_NAME#v}\"",
+         "shell_lines": 7
+        },
+        {
+         "name": "Build the artefacts",
+         "run": "node tools/minify.js",
+         "shell_lines": 3
+        },
+        {
+         "name": "Publish the release",
+         "run": "awk -v v=\"$GITHUB_REF_NAME\" '",
+         "shell_lines": 16
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 8,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "release:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,actions/setup-python@v5,run,The app passes its own tests,The tag matches the app version,Build the artefacts,Publish the release",
+     "bytes": 1923,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": true,
+      "skip_ci": false,
+      "pushes": true,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "test.yml",
+     "name": "test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "cache",
+          "node-version"
+         ]
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "run",
+         "run": "npm ci",
+         "shell_lines": 1
+        },
+        {
+         "name": "run",
+         "run": "pip install --quiet markdown",
+         "shell_lines": 1
+        },
+        {
+         "name": "Test",
+         "run": "npm test",
+         "shell_lines": 1
+        },
+        {
+         "name": "Accessibility audit (axe-core)",
+         "run": "npm run a11y",
+         "shell_lines": 1
+        },
+        {
+         "name": "Fuzz every text field with markup payloads",
+         "run": "npm run fuzz",
+         "shell_lines": 1
+        },
+        {
+         "name": "Drive every tool with input",
+         "run": "npm run interact",
+         "shell_lines": 1
+        },
+        {
+         "name": "Fixtures, round trips and real files",
+         "run": "npm run deep",
+         "shell_lines": 1
+        },
+        {
+         "name": "Every landing-page link resolves",
+         "run": "npm run links",
+         "shell_lines": 1
+        },
+        {
+         "name": "Unit tests for the pure functions",
+         "run": "node tools/build-lib.js",
+         "shell_lines": 2
+        },
+        {
+         "name": "Lint",
+         "run": "python3 tools/build.py",
+         "shell_lines": 2
+        },
+        {
+         "name": "Typecheck the library",
+         "run": "node tools/build-lib.js",
+         "shell_lines": 2
+        },
+        {
+         "name": "Tool codes and ids are stable",
+         "run": "node tools/gen-codes.js --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "Badge numbers match the app",
+         "run": "node tools/check-badges.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "ALL_TOOLS.md matches the registry",
+         "run": "node tools/gen-all-tools.js --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "Landing page matches the app",
+         "run": "python3 tools/build-landing.py --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "docs/ matches the markdown",
+         "run": "python3 tools/build-docs.py --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "MANIFEST.json matches the tracked files",
+         "run": "python3 tools/check-manifest.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Every roadmap item is scheduled in one batch",
+         "run": "python3 tools/check-plan.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Fail if the app loads anything external",
+         "run": "if grep -Eq '<script[^>]+src=\"https?://|<link[^>]+href=\"https?://|<img[^>]+src=\"https?://' kitbox.ht",
+         "shell_lines": 4
+        },
+        {
+         "name": "Fail if the app contains a network call",
+         "run": "if grep -Eq 'fetch\\(|XMLHttpRequest|new WebSocket|EventSource' kitbox.html; then",
+         "shell_lines": 4
+        },
+        {
+         "name": "Fail on eval, new Function, document.write or javascript URLs",
+         "run": "fail=0",
+         "shell_lines": 7
+        },
+        {
+         "name": "Size budget",
+         "run": "bytes=$(wc -c < kitbox.html)",
+         "shell_lines": 25
+        },
+        {
+         "name": "Build the minified copy",
+         "run": "node tools/minify.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "The minified copy behaves like the app",
+         "run": "node test/minified.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "Build the distribution artefacts",
+         "run": "python3 tools/dist.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "actions/upload-artifact@v4",
+         "uses": "actions/upload-artifact@v4",
+         "with_keys": [
+          "if-no-files-found",
+          "name",
+          "path"
+         ]
+        },
+        {
+         "name": "Fail if the landing page loads anything external",
+         "run": "if grep -Eq '<script[^>]+src=\"https?://|<link[^>]+href=\"https?://|<img[^>]+src=\"https?://' index.htm",
+         "shell_lines": 4
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 30,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,actions/setup-python@v5,run,run,Test,Accessibility audit (axe-core),Fuzz every text field with markup payloads,Drive every tool with input,Fixtures, round trips and real files,Every landing-page link resolves,Unit tests for the pure functions,Lint,Typecheck the library,Tool codes and ids are stable,Badge numbers match the app,ALL_TOOLS.md matches the registry,Landing page matches the app,docs/ matches the markdown,MANIFEST.json matches the tracked files,Every roadmap item is scheduled in one batch,Fail if the app loads anything external,Fail if the app contains a network call,Fail on eval, new Function, document.write or javascript URLs,Size budget,Build the minified copy,The minified copy behaves like the app,Build the distribution artefacts,actions/upload-artifact@v4,Fail if the landing page loads anything external",
+     "bytes": 5991,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": true,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
    "repo": "knowledge",
    "workflows": [
     {
@@ -13597,6 +15688,11 @@
          "name": "Run tests",
          "run": "node test-node.js",
          "shell_lines": 1
+        },
+        {
+         "name": "Reconnect resumes, it does not replay",
+         "run": "node test-resume.js",
+         "shell_lines": 1
         }
        ]
       }
@@ -13608,13 +15704,13 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 3,
+     "steps_count": 4,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests",
-     "bytes": 692,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Reconnect resumes, it does not replay",
+     "bytes": 778,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -13677,9 +15773,14 @@
          ]
         },
         {
+         "name": "Install Qt system libraries",
+         "run": "sudo apt-get update -qq",
+         "shell_lines": 2
+        },
+        {
          "name": "Install package + dev dependencies",
          "run": "python -m pip install --upgrade pip",
-         "shell_lines": 2
+         "shell_lines": 6
         },
         {
          "name": "Run test suite",
@@ -13701,19 +15802,92 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 5,
+     "steps_count": 6,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09,actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1,Install package + dev dependencies,Run test suite,Internal link check",
-     "bytes": 1462,
+     "signature": "test:ubuntu-latest:actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09,actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1,Install Qt system libraries,Install package + dev dependencies,Run test suite,Internal link check",
+     "bytes": 2336,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
       "timeout": true,
       "concurrency": true,
       "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
+   "repo": "local-first-tools",
+   "workflows": [
+    {
+     "file": "link-check.yml",
+     "name": "Link Check",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "schedule",
+       "workflow_dispatch"
+      ],
+      "crons": [
+       "0 9 * * 1"
+      ],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "link-check",
+       "name": "link-check",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Check links",
+         "uses": "lycheeverse/lychee-action@v2",
+         "with_keys": [
+          "args",
+          "fail"
+         ]
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 1,
+     "steps_count": 2,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "link-check:ubuntu-latest:actions/checkout@v4,Check links",
+     "bytes": 433,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
       "matrix": false,
       "cache": false,
       "skip_ci": false,
@@ -13753,11 +15927,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -13945,7 +16119,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "browser:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,browser-actions/setup-chrome@c785b87e244131f27c9f19c1a33e2ead956ab7ce,Install,Embedded + streaming containers in a real browser,GUI code path, verified by the Python core|gui:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Install,Rebuild and minify, then check the committed assets are current,Lock a file with the GUI code path,Confirm the CLI can open a GUI-locked file|test:${{ matrix.os }}:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,Install,Run tests",
-     "bytes": 3475,
+     "bytes": 3797,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -14662,6 +16836,89 @@
    }
   },
   {
+   "repo": "markdown-kit",
+   "workflows": [
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Run tests",
+         "run": "node test-node.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "Check the README's claims",
+         "run": "node tools/check-claims.js",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Check the README's claims",
+     "bytes": 846,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
    "repo": "ml-kit",
    "workflows": [
     {
@@ -14762,11 +17019,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -14807,6 +17064,89 @@
     "deleted": 2,
     "manual": true
    }
+  },
+  {
+   "repo": "motion-kit",
+   "workflows": [
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Run tests",
+         "run": "node test-node.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "Check the README's claims",
+         "run": "node tools/check-claims.js",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Check the README's claims",
+     "bytes": 846,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
   },
   {
    "repo": "musicgen",
@@ -15026,8 +17366,8 @@
    ],
    "pages": {
     "landing": "docs/index.html",
-    "app": "docs/play/index.html",
-    "deleted": 2,
+    "app": "app/index.html",
+    "deleted": 1,
     "manual": true
    }
   },
@@ -15159,7 +17499,7 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       },
       {
        "id": "pages",
@@ -15172,7 +17512,7 @@
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d",
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
       "drsamonline/app-builder/.github/workflows/pages.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
      ],
      "reusable": false,
@@ -15240,11 +17580,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -15652,7 +17992,7 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       },
       {
        "id": "budget",
@@ -15666,9 +18006,9 @@
          "uses": "actions/checkout@v4"
         },
         {
-         "name": "app.html must stay under 160 KB, and under 52 KB gzipped",
-         "run": "size=$(stat -c%s app.html)",
-         "shell_lines": 12
+         "name": "The shell must stay under 168 KB, and under 52 KB gzipped",
+         "run": "SHELL_PAGE=docs/play/index.html",
+         "shell_lines": 17
         }
        ]
       },
@@ -15788,7 +18128,7 @@
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -15803,8 +18143,8 @@
       "build"
      ],
      "concurrency_cancels": true,
-     "signature": "app:reusable:|browser-tests:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,browser-actions/setup-chrome@v1,Install the driver,The LockHTML viewer, for the interop check,Run every suite|budget:ubuntu-latest:actions/checkout@v4,app.html must stay under 160 KB, and under 52 KB gzipped|checksums:ubuntu-latest:actions/checkout@v4,Hash the published artefacts and attach SHA256SUMS|cli:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,actions/setup-python@v5,Install the independent checker,Run the CLI suite,Package,actions/upload-artifact@v4,Attach to the rolling release",
-     "bytes": 6428,
+     "signature": "app:reusable:|browser-tests:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,browser-actions/setup-chrome@v1,Install the driver,The LockHTML viewer, for the interop check,Run every suite|budget:ubuntu-latest:actions/checkout@v4,The shell must stay under 168 KB, and under 52 KB gzipped|checksums:ubuntu-latest:actions/checkout@v4,Hash the published artefacts and attach SHA256SUMS|cli:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,actions/setup-python@v5,Install the independent checker,Run the CLI suite,Package,actions/upload-artifact@v4,Attach to the rolling release",
+     "bytes": 7520,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -15855,11 +18195,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -15985,6 +18325,145 @@
    }
   },
   {
+   "repo": "raylib-starter",
+   "workflows": [
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "build-and-test",
+       "name": "build-and-test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "Build the demo game's suite",
+         "run": "cc -std=c11 -O2 -Wall -Wextra -Werror -DGK_NO_MAIN -I. -Istub -o gk-tests main.c stub/raylib_stub.c ",
+         "shell_lines": 1
+        },
+        {
+         "name": "Run the demo game's suite",
+         "run": "./gk-tests",
+         "shell_lines": 1
+        },
+        {
+         "name": "Build the snake suite",
+         "run": "cc -std=c11 -O2 -Wall -Wextra -Werror -DSNAKE_HEADLESS -I. -Istub -o snake-tests examples/snake.c st",
+         "shell_lines": 1
+        },
+        {
+         "name": "Run the snake suite",
+         "run": "./snake-tests",
+         "shell_lines": 1
+        },
+        {
+         "name": "Build the audio suite",
+         "run": "cc -std=c11 -O2 -Wall -Wextra -Werror -I. -Istub -o audio-tests tests/test_audio.c stub/raylib_stub.",
+         "shell_lines": 1
+        },
+        {
+         "name": "Run the audio suite",
+         "run": "./audio-tests",
+         "shell_lines": 1
+        },
+        {
+         "name": "Build the harvest suite",
+         "run": "cc -std=c11 -O2 -Wall -Wextra -Werror -DHARVEST_HEADLESS -I. -Istub -o harvest-tests tests/test_harv",
+         "shell_lines": 1
+        },
+        {
+         "name": "Run the harvest suite",
+         "run": "./harvest-tests",
+         "shell_lines": 1
+        },
+        {
+         "name": "Check the README's claims",
+         "run": "sh tools/check-claims.sh",
+         "shell_lines": 1
+        },
+        {
+         "name": "Install a C compiler that targets wasm32",
+         "run": "pip install ziglang",
+         "shell_lines": 1
+        },
+        {
+         "name": "Build the core as wasm32",
+         "run": "ZIG=$(python3 -c \"import ziglang,os;print(os.path.join(os.path.dirname(ziglang.__file__),'zig'))\")",
+         "shell_lines": 4
+        },
+        {
+         "name": "Run both games headless for 120 frames",
+         "run": "cc -std=c11 -O2 -I. -Istub -o gk-linkcheck main.c stub/raylib_stub.c -lm",
+         "shell_lines": 11
+        },
+        {
+         "name": "Link against real raylib and gate the size",
+         "run": "curl -sL -o raylib.tar.gz \\",
+         "shell_lines": 14
+        },
+        {
+         "name": "Cross-compile the core for other machines",
+         "run": "ZIG=$(python3 -c \"import ziglang,os;print(os.path.join(os.path.dirname(ziglang.__file__),'zig'))\")",
+         "shell_lines": 9
+        },
+        {
+         "name": "Gate the wasm size",
+         "run": "bytes=$(wc -c < gk-core.wasm | tr -d ' ')",
+         "shell_lines": 7
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 16,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "build-and-test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Build the demo game's suite,Run the demo game's suite,Build the snake suite,Run the snake suite,Build the audio suite,Run the audio suite,Build the harvest suite,Run the harvest suite,Check the README's claims,Install a C compiler that targets wasm32,Build the core as wasm32,Run both games headless for 120 frames,Link against real raylib and gate the size,Cross-compile the core for other machines,Gate the wasm size",
+     "bytes": 5447,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
    "repo": "read-live-transform-app",
    "workflows": [
     {
@@ -16009,11 +18488,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -16308,11 +18787,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -16498,6 +18977,11 @@
          "name": "No toolbar bolted on, and the phone layout fits",
          "run": "node tests/no-floating-toolbar.test.js",
          "shell_lines": 1
+        },
+        {
+         "name": "Every service worker precaches files that exist",
+         "run": "node tests/service-worker.test.js",
+         "shell_lines": 1
         }
        ]
       }
@@ -16509,11 +18993,11 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 4,
+     "steps_count": 5,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "tests:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,happy-dom (the only dependency, and only for the test),Boot the real page and check the store,No toolbar bolted on, and the phone layout fits",
-     "bytes": 1363,
+     "signature": "tests:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,happy-dom (the only dependency, and only for the test),Boot the real page and check the store,No toolbar bolted on, and the phone layout fits,Every service worker precaches files that exist",
+     "bytes": 1472,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -16618,6 +19102,82 @@
    "pages": {}
   },
   {
+   "repo": "repertory-reader",
+   "workflows": [
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "fold",
+       "name": "fold",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Accent folding, read out of the page that ships",
+         "run": "node tests/fold.test.js",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "fold:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Accent folding, read out of the page that ships",
+     "bytes": 537,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
    "repo": "retro-strike",
    "workflows": [
     {
@@ -16642,11 +19202,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -16795,11 +19355,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -16876,6 +19436,11 @@
          "name": "Run tests",
          "run": "node test-node.js",
          "shell_lines": 1
+        },
+        {
+         "name": "The palette's keyboard handling",
+         "run": "node tests/palette-keys.test.js",
+         "shell_lines": 1
         }
        ]
       }
@@ -16887,13 +19452,13 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 3,
+     "steps_count": 4,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests",
-     "bytes": 692,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,The palette's keyboard handling",
+     "bytes": 784,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -17123,11 +19688,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -17194,11 +19759,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -17338,11 +19903,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -17409,11 +19974,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -17434,6 +19999,89 @@
      "flags": {
       "invalid_workflow": false,
       "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
+   "repo": "tokens-kit",
+   "workflows": [
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Run tests",
+         "run": "node test-node.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "Check the README's claims",
+         "run": "node tools/check-claims.js",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Check the README's claims",
+     "bytes": 846,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
       "concurrency": true,
       "permissions": true,
       "matrix": false,
@@ -17561,11 +20209,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -17715,11 +20363,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -17866,11 +20514,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -17971,7 +20619,7 @@
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Install the test-only dependency (jsdom drives the page),The four jobs \u2014 the Weft-8 column does what it says,The page \u2014 three columns, four jobs, run and switch,The app ships what it says it ships",
-     "bytes": 1229,
+     "bytes": 1218,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -18017,11 +20665,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -18168,11 +20816,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@0464e3304fcb096c59574188ea6f68abca015786"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -18273,7 +20921,7 @@
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Install the test-only dependency (jsdom drives the page),The rules \u2014 every case, on the real machine,The bench \u2014 evaluate a rule, move an input, switch rule,The app ships what it says it ships",
-     "bytes": 1219,
+     "bytes": 1208,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -18319,11 +20967,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
+      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
      ],
      "reusable": false,
      "inputs": [],
@@ -18443,6 +21091,89 @@
    }
   },
   {
+   "repo": "widgets-kit",
+   "workflows": [
+    {
+     "file": "test.yml",
+     "name": "Test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Run tests",
+         "run": "node test-node.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "Check the README's claims",
+         "run": "node tools/check-claims.js",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Check the README's claims",
+     "bytes": 846,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
    "repo": "ziptastic",
    "workflows": [
     {
@@ -18490,7 +21221,10 @@
          "shell_lines": 1
         },
         {
-         "name": "Version string",
+         "name": "Version string"
+        },
+        {
+         "name": "The README claim table matches FINDINGS.md",
          "run": "./build/ziptastic version",
          "shell_lines": 2
         },
@@ -18512,14 +21246,16 @@
      "inputs": [],
      "permissions": null,
      "jobs_count": 1,
-     "steps_count": 7,
+     "steps_count": 8,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "build-and-test:ubuntu-latest:Check out with submodules,Install build tools,Configure,Build,Version string,Test,Round trip",
-     "bytes": 2597,
-     "schema_problems": [],
+     "signature": "build-and-test:ubuntu-latest:Check out with submodules,Install build tools,Configure,Build,Version string,The README claim table matches FINDINGS.md,Test,Round trip",
+     "bytes": 2850,
+     "schema_problems": [
+      "workflow: job `build-and-test` step 4 has neither `uses:` nor `run:`"
+     ],
      "flags": {
-      "invalid_workflow": false,
+      "invalid_workflow": true,
       "timeout": false,
       "concurrency": false,
       "permissions": false,
@@ -18607,7 +21343,17 @@
    "pages": {}
   },
   {
-   "repo": "saga-vn-engine",
+   "repo": "SmartNotes",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
+  },
+  {
+   "repo": "Single-File-Web-Apps",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
+  },
+  {
+   "repo": "dumps-4",
    "workflows": [],
    "note": "no .github/workflows on the default branch"
   },
@@ -18617,12 +21363,7 @@
    "note": "no .github/workflows on the default branch"
   },
   {
-   "repo": "accent-oracle",
-   "workflows": [],
-   "note": "no .github/workflows on the default branch"
-  },
-  {
-   "repo": "corefit-md",
+   "repo": "awesome-singlefile-tools",
    "workflows": [],
    "note": "no .github/workflows on the default branch"
   },
@@ -18637,17 +21378,17 @@
    "note": "no .github/workflows on the default branch"
   },
   {
-   "repo": "SmartNotes",
+   "repo": "dumps-3",
    "workflows": [],
    "note": "no .github/workflows on the default branch"
   },
   {
-   "repo": "dumps-4",
+   "repo": "smartnote-scheduler",
    "workflows": [],
    "note": "no .github/workflows on the default branch"
   },
   {
-   "repo": "repertory-reader",
+   "repo": "saga-vn-engine",
    "workflows": [],
    "note": "no .github/workflows on the default branch"
   },
@@ -18657,7 +21398,12 @@
    "note": "no .github/workflows on the default branch"
   },
   {
-   "repo": "dumps-3",
+   "repo": "corefit-md",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
+  },
+  {
+   "repo": "UniRep",
    "workflows": [],
    "note": "no .github/workflows on the default branch"
   },

@@ -3,13 +3,13 @@
  "counts": {
   "dangling": 0,
   "drift": 9,
-  "no-concurrency": 43,
-  "no-permissions": 10,
-  "no-timeout": 75,
-  "no-workflows": 13,
+  "no-concurrency": 57,
+  "no-permissions": 13,
+  "no-timeout": 94,
+  "no-workflows": 16,
   "orphan": 7,
   "outdated-pin": 0,
-  "un-runnable": 3
+  "un-runnable": 6
  },
  "worst_first": [
   "no-permissions",
@@ -38,12 +38,22 @@
     "name": "CI"
    },
    {
+    "repo": "app-endpoints",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
     "repo": "app-organon-reader",
     "file": "build-apps.yml",
     "name": "Build portable EXE + Android APK"
    },
    {
     "repo": "app-organon-reader",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "app-story-engine",
     "file": "test.yml",
     "name": "Test"
    },
@@ -56,6 +66,11 @@
     "repo": "feather",
     "file": "ci.yml",
     "name": "CI"
+   },
+   {
+    "repo": "local-first-tools",
+    "file": "link-check.yml",
+    "name": "Link Check"
    },
    {
     "repo": "musicgen",
@@ -130,9 +145,24 @@
     "name": "Deploy the demo"
    },
    {
+    "repo": "accent-oracle",
+    "file": "presentation.yml",
+    "name": "presentation"
+   },
+   {
+    "repo": "accent-oracle",
+    "file": "test.yml",
+    "name": "tests"
+   },
+   {
     "repo": "aethelgard-games",
     "file": "build-apps.yml",
     "name": "Build + deploy"
+   },
+   {
+    "repo": "ai-bridge",
+    "file": "debate-release.yml",
+    "name": "Debate release"
    },
    {
     "repo": "ai-bridge",
@@ -163,6 +193,16 @@
     "repo": "app-encrypted-case-log",
     "file": "test.yml",
     "name": "test"
+   },
+   {
+    "repo": "app-endpoints",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "app-endpoints",
+    "file": "test.yml",
+    "name": "Test"
    },
    {
     "repo": "app-jacquard",
@@ -203,6 +243,16 @@
     "repo": "app-poets-studio",
     "file": "build-apps.yml",
     "name": "Build + deploy"
+   },
+   {
+    "repo": "app-story-engine",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "app-story-engine",
+    "file": "test.yml",
+    "name": "Test"
    },
    {
     "repo": "app-thermals",
@@ -265,6 +315,11 @@
     "name": "dispatch-sync"
    },
    {
+    "repo": "compfactory",
+    "file": "tests.yml",
+    "name": "tests"
+   },
+   {
     "repo": "conqueror-os",
     "file": "build-apps.yml",
     "name": "Build + deploy"
@@ -310,9 +365,59 @@
     "name": "Build + deploy"
    },
    {
+    "repo": "iamsingle-sfwa-directory",
+    "file": "build-pages.yml",
+    "name": "Build static pages"
+   },
+   {
+    "repo": "iamsingle-sfwa-directory",
+    "file": "discover-candidates.yml",
+    "name": "Discover SFWA candidates"
+   },
+   {
+    "repo": "iamsingle-sfwa-directory",
+    "file": "promote-pending.yml",
+    "name": "Promote pending submissions"
+   },
+   {
+    "repo": "iamsingle-sfwa-directory",
+    "file": "review-submission.yml",
+    "name": "Review submission"
+   },
+   {
+    "repo": "iamsingle-sfwa-directory",
+    "file": "snapshot-stars.yml",
+    "name": "Snapshot GitHub stars"
+   },
+   {
+    "repo": "iamsingle-sfwa-directory",
+    "file": "verify-recheck.yml",
+    "name": "Verify recheck"
+   },
+   {
     "repo": "idle-city-ages-of-growth",
     "file": "build-apps.yml",
     "name": "Build + deploy"
+   },
+   {
+    "repo": "kitbox",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "kitbox",
+    "file": "release.yml",
+    "name": "release"
+   },
+   {
+    "repo": "kitbox",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "local-first-tools",
+    "file": "link-check.yml",
+    "name": "Link Check"
    },
    {
     "repo": "lockhtml",
@@ -373,6 +478,11 @@
     "repo": "remedy-relationship-explorer",
     "file": "build-apps.yml",
     "name": "Build + deploy"
+   },
+   {
+    "repo": "repertory-reader",
+    "file": "test.yml",
+    "name": "Test"
    },
    {
     "repo": "retro-strike",
@@ -467,6 +577,16 @@
     "name": "Deploy the demo"
    },
    {
+    "repo": "accent-oracle",
+    "file": "presentation.yml",
+    "name": "presentation"
+   },
+   {
+    "repo": "accent-oracle",
+    "file": "test.yml",
+    "name": "tests"
+   },
+   {
     "repo": "ai-bridge",
     "file": "ci.yml",
     "name": "CI"
@@ -480,6 +600,11 @@
     "repo": "app-encrypted-case-log",
     "file": "test.yml",
     "name": "test"
+   },
+   {
+    "repo": "app-endpoints",
+    "file": "test.yml",
+    "name": "Test"
    },
    {
     "repo": "app-image-toolkit",
@@ -522,6 +647,11 @@
     "name": "Test"
    },
    {
+    "repo": "app-story-engine",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
     "repo": "app-thermals",
     "file": "test.yml",
     "name": "Test"
@@ -550,6 +680,11 @@
     "repo": "compfactory",
     "file": "dispatch-sync.yml",
     "name": "dispatch-sync"
+   },
+   {
+    "repo": "compfactory",
+    "file": "tests.yml",
+    "name": "tests"
    },
    {
     "repo": "conqueror-os",
@@ -607,6 +742,41 @@
     "name": "sync-binaries"
    },
    {
+    "repo": "iamsingle-sfwa-directory",
+    "file": "discover-candidates.yml",
+    "name": "Discover SFWA candidates"
+   },
+   {
+    "repo": "iamsingle-sfwa-directory",
+    "file": "review-submission.yml",
+    "name": "Review submission"
+   },
+   {
+    "repo": "iamsingle-sfwa-directory",
+    "file": "snapshot-stars.yml",
+    "name": "Snapshot GitHub stars"
+   },
+   {
+    "repo": "iamsingle-sfwa-directory",
+    "file": "verify-recheck.yml",
+    "name": "Verify recheck"
+   },
+   {
+    "repo": "kitbox",
+    "file": "release.yml",
+    "name": "release"
+   },
+   {
+    "repo": "kitbox",
+    "file": "test.yml",
+    "name": "test"
+   },
+   {
+    "repo": "local-first-tools",
+    "file": "link-check.yml",
+    "name": "Link Check"
+   },
+   {
     "repo": "lumen",
     "file": "presentation.yml",
     "name": "presentation"
@@ -627,7 +797,17 @@
     "name": "tests"
    },
    {
+    "repo": "raylib-starter",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
     "repo": "remedy-relationship-explorer",
+    "file": "test.yml",
+    "name": "Test"
+   },
+   {
+    "repo": "repertory-reader",
     "file": "test.yml",
     "name": "Test"
    },
@@ -692,15 +872,39 @@
     "events": [
      "push"
     ]
+   },
+   {
+    "repo": "iamsingle-sfwa-directory",
+    "file": "promote-pending.yml",
+    "name": "Promote pending submissions",
+    "events": [
+     "push"
+    ]
+   },
+   {
+    "repo": "iamsingle-sfwa-directory",
+    "file": "verify-recheck.yml",
+    "name": "Verify recheck",
+    "events": [
+     "pull_request"
+    ]
+   },
+   {
+    "repo": "kitbox",
+    "file": "release.yml",
+    "name": "release",
+    "events": [
+     "push"
+    ]
    }
   ],
   "drift": [
    {
     "name": "Build + deploy",
-    "copies": 45,
-    "repos": 45,
-    "distinct_sizes": 37,
-    "spread_bytes": 5842,
+    "copies": 48,
+    "repos": 48,
+    "distinct_sizes": 40,
+    "spread_bytes": 6934,
     "distinct_shapes": 6,
     "drifted": true,
     "example": [
@@ -714,19 +918,19 @@
    },
    {
     "name": "Test",
-    "copies": 31,
-    "repos": 31,
-    "distinct_sizes": 20,
-    "spread_bytes": 1486,
-    "distinct_shapes": 20,
+    "copies": 41,
+    "repos": 41,
+    "distinct_sizes": 27,
+    "spread_bytes": 5139,
+    "distinct_shapes": 27,
     "drifted": true,
     "example": [
      "app-clip-loom",
+     "app-endpoints",
      "app-image-toolkit",
      "app-jacquard",
      "app-lantern",
-     "app-organon-reader",
-     "app-panchang"
+     "app-organon-reader"
     ]
    },
    {
@@ -748,11 +952,11 @@
    },
    {
     "name": "test",
-    "copies": 10,
-    "repos": 10,
-    "distinct_sizes": 8,
-    "spread_bytes": 4756,
-    "distinct_shapes": 8,
+    "copies": 11,
+    "repos": 11,
+    "distinct_sizes": 9,
+    "spread_bytes": 5414,
+    "distinct_shapes": 9,
     "drifted": true,
     "example": [
      "Repertorium-Publicum",
@@ -764,11 +968,27 @@
     ]
    },
    {
+    "name": "tests",
+    "copies": 5,
+    "repos": 5,
+    "distinct_sizes": 5,
+    "spread_bytes": 3142,
+    "distinct_shapes": 5,
+    "drifted": true,
+    "example": [
+     "accent-oracle",
+     "app-builder",
+     "compfactory",
+     "musicgen",
+     "neon-engine"
+    ]
+   },
+   {
     "name": "build",
     "copies": 4,
     "repos": 4,
     "distinct_sizes": 4,
-    "spread_bytes": 37201,
+    "spread_bytes": 38758,
     "distinct_shapes": 4,
     "drifted": true,
     "example": [
@@ -780,15 +1000,16 @@
    },
    {
     "name": "release",
-    "copies": 3,
-    "repos": 3,
-    "distinct_sizes": 3,
-    "spread_bytes": 8611,
-    "distinct_shapes": 3,
+    "copies": 4,
+    "repos": 4,
+    "distinct_sizes": 4,
+    "spread_bytes": 8683,
+    "distinct_shapes": 4,
     "drifted": true,
     "example": [
      "HMS",
      "forge",
+     "kitbox",
      "lumen"
     ]
    },
@@ -818,20 +1039,6 @@
      "app-builder",
      "forge",
      "musicgen"
-    ]
-   },
-   {
-    "name": "tests",
-    "copies": 3,
-    "repos": 3,
-    "distinct_sizes": 3,
-    "spread_bytes": 239,
-    "distinct_shapes": 3,
-    "drifted": true,
-    "example": [
-     "app-builder",
-     "musicgen",
-     "neon-engine"
     ]
    }
   ],
@@ -863,10 +1070,16 @@
     "repo": "Scrap-and-Gun"
    },
    {
+    "repo": "Single-File-Web-Apps"
+   },
+   {
     "repo": "SmartNotes"
    },
    {
-    "repo": "accent-oracle"
+    "repo": "UniRep"
+   },
+   {
+    "repo": "awesome-singlefile-tools"
    },
    {
     "repo": "corefit-md"
@@ -897,6 +1110,9 @@
    },
    {
     "repo": "saga-vn-engine"
+   },
+   {
+    "repo": "smartnote-scheduler"
    }
   ]
  },
