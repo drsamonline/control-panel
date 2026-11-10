@@ -1,7 +1,7 @@
 {
  "what": "Every workflow in every repo, with its triggers, jobs, steps and calls.",
  "summary": {
-  "repos": 127,
+  "repos": 128,
   "scope": "all",
   "scope_note": "read with a token that can see every repository the account owns",
   "skipped": [],
@@ -23,10 +23,10 @@
    "saga-vn-engine",
    "smartnote-scheduler"
   ],
-  "workflows": 216,
+  "workflows": 218,
   "reusable": 11,
   "scheduled": 36,
-  "dispatchable": 210,
+  "dispatchable": 212,
   "parse_errors": [],
   "schema_checked": true,
   "schema_check_error": "",
@@ -39,8 +39,8 @@
     ]
    }
   ],
-  "jobs": 284,
-  "steps": 1202,
+  "jobs": 286,
+  "steps": 1211,
   "edges": 59,
   "dangling_calls": [],
   "orphan_reusables": [
@@ -197,7 +197,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -205,7 +205,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -213,7 +213,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -221,7 +221,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -229,7 +229,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -237,7 +237,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -245,7 +245,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -253,7 +253,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -261,7 +261,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -269,7 +269,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -277,7 +277,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -285,7 +285,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -293,7 +293,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -301,7 +301,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -309,7 +309,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -317,7 +317,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -325,7 +325,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -333,7 +333,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -341,7 +341,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -349,7 +349,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -357,7 +357,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -389,7 +389,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -397,7 +397,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -405,7 +405,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -413,7 +413,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "main",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -421,7 +421,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -429,7 +429,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -437,7 +437,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -453,7 +453,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -461,7 +461,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -469,7 +469,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -477,7 +477,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -485,7 +485,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -493,7 +493,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -501,7 +501,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -509,7 +509,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -517,7 +517,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -525,7 +525,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -533,7 +533,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -541,7 +541,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -549,7 +549,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -557,7 +557,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -565,7 +565,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -573,7 +573,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    },
    {
@@ -581,7 +581,7 @@
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
     "resolved": "app-builder/.github/workflows/build.yml",
-    "at": "bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+    "at": "d3243de862fa0477840205bbe2f41cb3f2f4950c",
     "exists": true
    }
   ],
@@ -4665,7 +4665,7 @@
         {
          "name": "Capture it, and put it in the README",
          "run": "set -uo pipefail",
-         "shell_lines": 51
+         "shell_lines": 86
         }
        ]
       }
@@ -4701,6 +4701,11 @@
        "default": ""
       },
       {
+       "name": "shot_url",
+       "required": false,
+       "default": ""
+      },
+      {
        "name": "kit_repo",
        "required": false,
        "default": "drsamonline/app-builder"
@@ -4723,7 +4728,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "apk:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3,gradle/actions/setup-gradle@ed408507eac070d1f99cc633dbcf757c94c7933a,run,run,Generate the launcher icons,Adaptive icon,run,run,run,Verify the APK carries an icon,actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02|demo:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Compare the demo to the app|exe:windows-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,run,Generate the app icon,run,Verify the EXE we ship,Verify the EXE carries an icon,actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02|kit-guard:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Refuse a kit added to a page that already existed|linux:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065,run,Build the Linux binary,Smoke-test it - it must actually SERVE the app,actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02|pages:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Fail early if there is nothing to publish,Enable Pages if it is not on yet,actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b,actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa,actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e|parity:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Compare the app against its base|release:ubuntu-latest:actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093,actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093,actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,run|shot:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,run,Capture it, and put it in the README|version:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Consume the pending change files,Record the manifest for what this job writes,Commit the version and the changelog,Publish the versioned release",
-     "bytes": 39965,
+     "bytes": 42795,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5076,11 +5081,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -5096,7 +5101,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 586,
+     "bytes": 671,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5227,11 +5232,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -5247,7 +5252,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1456,
+     "bytes": 1541,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5293,11 +5298,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -5313,7 +5318,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1170,
+     "bytes": 1255,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5468,11 +5473,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -5488,7 +5493,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1057,
+     "bytes": 1142,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5602,7 +5607,7 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       },
       {
        "id": "single-file",
@@ -5636,7 +5641,7 @@
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -5652,7 +5657,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:|single-file:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Fold the app into one file,Check it is really one file,Attach it to the rolling release",
-     "bytes": 2118,
+     "bytes": 2203,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -5788,11 +5793,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -5808,7 +5813,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1000,
+     "bytes": 1085,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -6231,11 +6236,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -6245,7 +6250,7 @@
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "app:reusable:",
-     "bytes": 692,
+     "bytes": 777,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -6359,11 +6364,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -6379,7 +6384,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1423,
+     "bytes": 1508,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -6502,7 +6507,7 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       },
       {
        "id": "announce",
@@ -6526,7 +6531,7 @@
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -6542,7 +6547,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "announce:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Rewrite the rolling release notes|app:reusable:",
-     "bytes": 2503,
+     "bytes": 2588,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -6668,11 +6673,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -6688,7 +6693,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1082,
+     "bytes": 1167,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -6802,11 +6807,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -6822,7 +6827,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 839,
+     "bytes": 924,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -6948,11 +6953,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -6968,7 +6973,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 589,
+     "bytes": 674,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7657,11 +7662,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -7677,7 +7682,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1634,
+     "bytes": 1719,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7798,11 +7803,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -7818,7 +7823,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1453,
+     "bytes": 1538,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7952,11 +7957,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -7972,7 +7977,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1477,
+     "bytes": 1562,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8190,11 +8195,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -8210,7 +8215,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1459,
+     "bytes": 1544,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8376,7 +8381,7 @@
        ],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       },
       {
        "id": "icon",
@@ -8400,7 +8405,7 @@
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -8416,7 +8421,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:|icon:ubuntu-latest:actions/checkout@v4,gh release upload + notes|test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,node test-node.js,node scripts/smoke-host.js,node scripts/link-check.js",
-     "bytes": 3435,
+     "bytes": 3520,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8540,11 +8545,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -8560,7 +8565,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1450,
+     "bytes": 1535,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8923,11 +8928,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -8943,7 +8948,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1453,
+     "bytes": 1538,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -9542,11 +9547,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -9562,7 +9567,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1452,
+     "bytes": 1537,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -10522,11 +10527,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -10542,7 +10547,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 994,
+     "bytes": 1079,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -14107,11 +14112,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -14127,7 +14132,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1468,
+     "bytes": 1553,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -14250,11 +14255,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -14270,7 +14275,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1451,
+     "bytes": 1536,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -14972,11 +14977,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -14992,7 +14997,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1465,
+     "bytes": 1550,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -15202,11 +15207,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@main"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@main"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -15222,7 +15227,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1867,
+     "bytes": 1988,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -15927,11 +15932,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -15947,7 +15952,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1449,
+     "bytes": 1534,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -17019,11 +17024,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -17039,7 +17044,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1460,
+     "bytes": 1545,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -17143,6 +17148,172 @@
       "triggers_on_push": true,
       "pages_deploy": false,
       "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
+   "repo": "music",
+   "workflows": [
+    {
+     "file": "deploy.yml",
+     "name": "deploy",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "build",
+       "name": "build",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Check the manifest is present and valid",
+         "run": "python3 -c \"import json;d=json.load(open('data/tracks.json'));print(d['counts'])\"",
+         "shell_lines": 1
+        },
+        {
+         "name": "actions/configure-pages@v5",
+         "uses": "actions/configure-pages@v5"
+        },
+        {
+         "name": "actions/upload-pages-artifact@v3",
+         "uses": "actions/upload-pages-artifact@v3",
+         "with_keys": [
+          "path"
+         ]
+        },
+        {
+         "name": "actions/deploy-pages@v4",
+         "uses": "actions/deploy-pages@v4"
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read",
+      "pages": "write",
+      "id-token": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 5,
+     "concurrency_groups": [
+      "pages"
+     ],
+     "concurrency_cancels": true,
+     "signature": "build:ubuntu-latest:actions/checkout@v4,Check the manifest is present and valid,actions/configure-pages@v5,actions/upload-pages-artifact@v3,actions/deploy-pages@v4",
+     "bytes": 606,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": true,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "rebuild.yml",
+     "name": "rebuild manifest",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [
+       "push:sources/**",
+       "push:tools/**"
+      ],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "rebuild",
+       "name": "rebuild",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Rebuild data/tracks.json from sources/seed.json",
+         "run": "python3 tools/build_manifest.py sources/seed.json data/tracks.json",
+         "shell_lines": 1
+        },
+        {
+         "name": "Commit if changed",
+         "run": "git config user.name \"music-bot\"",
+         "shell_lines": 5
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "rebuild:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Rebuild data/tracks.json from sources/seed.json,Commit if changed",
+     "bytes": 726,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": true,
+      "commits": true,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": [
+       "data/tracks.json"
+      ]
      }
     }
    ],
@@ -17499,7 +17670,7 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       },
       {
        "id": "pages",
@@ -17512,7 +17683,7 @@
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db",
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c",
       "drsamonline/app-builder/.github/workflows/pages.yml@246da5d54862d2571b0b37feb10499e467f20d7d"
      ],
      "reusable": false,
@@ -17529,7 +17700,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:|pages:reusable:",
-     "bytes": 1864,
+     "bytes": 1949,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -17580,11 +17751,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -17600,7 +17771,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1452,
+     "bytes": 1537,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -17992,7 +18163,7 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       },
       {
        "id": "budget",
@@ -18128,7 +18299,7 @@
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -18144,7 +18315,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:|browser-tests:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,browser-actions/setup-chrome@v1,Install the driver,The LockHTML viewer, for the interop check,Run every suite|budget:ubuntu-latest:actions/checkout@v4,The shell must stay under 168 KB, and under 52 KB gzipped|checksums:ubuntu-latest:actions/checkout@v4,Hash the published artefacts and attach SHA256SUMS|cli:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,actions/setup-python@v5,Install the independent checker,Run the CLI suite,Package,actions/upload-artifact@v4,Attach to the rolling release",
-     "bytes": 7520,
+     "bytes": 7605,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -18195,11 +18366,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -18215,7 +18386,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1460,
+     "bytes": 1545,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -18488,11 +18659,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -18508,7 +18679,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1464,
+     "bytes": 1549,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -18787,11 +18958,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -18807,7 +18978,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1469,
+     "bytes": 1554,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -19202,11 +19373,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -19222,7 +19393,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1453,
+     "bytes": 1538,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -19355,11 +19526,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -19375,7 +19546,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1442,
+     "bytes": 1751,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -19688,11 +19859,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -19708,7 +19879,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1458,
+     "bytes": 1543,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -19727,12 +19898,7 @@
      }
     }
    ],
-   "pages": {
-    "landing": "docs/index.html",
-    "app": "docs/play/index.html",
-    "deleted": 1,
-    "manual": true
-   }
+   "pages": {}
   },
   {
    "repo": "smartbill-app",
@@ -19759,11 +19925,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -19779,7 +19945,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1454,
+     "bytes": 1539,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -19903,11 +20069,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -19923,7 +20089,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1463,
+     "bytes": 1548,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -19974,11 +20140,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -19994,7 +20160,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1446,
+     "bytes": 1597,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -20209,11 +20375,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -20229,7 +20395,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1467,
+     "bytes": 1552,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -20363,11 +20529,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -20383,7 +20549,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 592,
+     "bytes": 677,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -20514,11 +20680,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -20534,7 +20700,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 590,
+     "bytes": 675,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -20665,11 +20831,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -20685,7 +20851,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 591,
+     "bytes": 676,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -20816,11 +20982,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -20836,7 +21002,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 586,
+     "bytes": 671,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -20967,11 +21133,11 @@
        "needs": [],
        "if": null,
        "steps": [],
-       "uses": "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
       }
      ],
      "calls": [
-      "drsamonline/app-builder/.github/workflows/build.yml@bbef0db943e11f1a280ac8a063b79e66b7f6d9db"
+      "drsamonline/app-builder/.github/workflows/build.yml@d3243de862fa0477840205bbe2f41cb3f2f4950c"
      ],
      "reusable": false,
      "inputs": [],
@@ -20987,7 +21153,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "app:reusable:",
-     "bytes": 1458,
+     "bytes": 1543,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -21343,6 +21509,26 @@
    "pages": {}
   },
   {
+   "repo": "UniRep",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
+  },
+  {
+   "repo": "awesome-singlefile-tools",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
+  },
+  {
+   "repo": "smartnote-scheduler",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
+  },
+  {
+   "repo": "homoeopathic-materia-medica-repertory-json",
+   "workflows": [],
+   "note": "no .github/workflows on the default branch"
+  },
+  {
    "repo": "SmartNotes",
    "workflows": [],
    "note": "no .github/workflows on the default branch"
@@ -21363,11 +21549,6 @@
    "note": "no .github/workflows on the default branch"
   },
   {
-   "repo": "awesome-singlefile-tools",
-   "workflows": [],
-   "note": "no .github/workflows on the default branch"
-  },
-  {
    "repo": "profile-kit",
    "workflows": [],
    "note": "no .github/workflows on the default branch"
@@ -21383,27 +21564,12 @@
    "note": "no .github/workflows on the default branch"
   },
   {
-   "repo": "smartnote-scheduler",
-   "workflows": [],
-   "note": "no .github/workflows on the default branch"
-  },
-  {
    "repo": "saga-vn-engine",
    "workflows": [],
    "note": "no .github/workflows on the default branch"
   },
   {
-   "repo": "homoeopathic-materia-medica-repertory-json",
-   "workflows": [],
-   "note": "no .github/workflows on the default branch"
-  },
-  {
    "repo": "corefit-md",
-   "workflows": [],
-   "note": "no .github/workflows on the default branch"
-  },
-  {
-   "repo": "UniRep",
    "workflows": [],
    "note": "no .github/workflows on the default branch"
   },

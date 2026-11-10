@@ -113,7 +113,7 @@
    "what": "Prove the code, build every platform it ships on, and lint what was written.",
    "auto": true,
    "input": "none - a push runs it",
-   "count": 136,
+   "count": 137,
    "scheduled": [
     {
      "repo": "app-builder",
@@ -1063,6 +1063,16 @@
      "repo": "motion-kit",
      "file": "test.yml",
      "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
+     "repo": "music",
+     "file": "rebuild.yml",
+     "name": "rebuild manifest",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
@@ -2438,6 +2448,16 @@
      "steps": 4
     },
     {
+     "repo": "music",
+     "file": "rebuild.yml",
+     "name": "rebuild manifest",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
      "repo": "musicgen",
      "file": "test.yml",
      "name": "tests",
@@ -2887,7 +2907,7 @@
    "what": "Publish the release, deploy the live demo, capture the screenshot, and give every app a landing page.",
    "auto": true,
    "input": "none - it follows a build",
-   "count": 32,
+   "count": 33,
    "scheduled": [
     {
      "repo": "Matneo",
@@ -3298,6 +3318,16 @@
      "steps": 29
     },
     {
+     "repo": "music",
+     "file": "deploy.yml",
+     "name": "deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
      "repo": "musicgen",
      "file": "pages.yml",
      "name": "pages",
@@ -3638,6 +3668,16 @@
      "dispatchable": true,
      "jobs": 4,
      "steps": 29
+    },
+    {
+     "repo": "music",
+     "file": "deploy.yml",
+     "name": "deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
     },
     {
      "repo": "musicgen",
@@ -4622,10 +4662,10 @@
   }
  ],
  "totals": {
-  "workflows": 187,
+  "workflows": 189,
   "unplaced": 29,
   "scheduled": 26,
-  "dispatchable": 183,
+  "dispatchable": 185,
   "inputs_for_the_two_everyday_routes": 1
  }
 }

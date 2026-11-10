@@ -3,9 +3,9 @@
  "counts": {
   "dangling": 0,
   "drift": 9,
-  "no-concurrency": 57,
+  "no-concurrency": 58,
   "no-permissions": 13,
-  "no-timeout": 94,
+  "no-timeout": 96,
   "no-workflows": 16,
   "orphan": 7,
   "outdated-pin": 0,
@@ -440,6 +440,16 @@
     "name": "Build + deploy"
    },
    {
+    "repo": "music",
+    "file": "deploy.yml",
+    "name": "deploy"
+   },
+   {
+    "repo": "music",
+    "file": "rebuild.yml",
+    "name": "rebuild manifest"
+   },
+   {
     "repo": "musicgen",
     "file": "pages.yml",
     "name": "pages"
@@ -792,6 +802,11 @@
     "name": "test"
    },
    {
+    "repo": "music",
+    "file": "rebuild.yml",
+    "name": "rebuild manifest"
+   },
+   {
     "repo": "musicgen",
     "file": "test.yml",
     "name": "tests"
@@ -903,7 +918,7 @@
     "name": "Build + deploy",
     "copies": 48,
     "repos": 48,
-    "distinct_sizes": 40,
+    "distinct_sizes": 42,
     "spread_bytes": 6934,
     "distinct_shapes": 6,
     "drifted": true,
@@ -988,7 +1003,7 @@
     "copies": 4,
     "repos": 4,
     "distinct_sizes": 4,
-    "spread_bytes": 38758,
+    "spread_bytes": 41588,
     "distinct_shapes": 4,
     "drifted": true,
     "example": [
