@@ -75,14 +75,14 @@
  "dedupe": [
   {
    "name": "Build + deploy",
-   "copies": 48,
-   "repos": 48,
+   "copies": 49,
+   "repos": 49,
    "distinct_sizes": 42,
    "spread_bytes": 6934,
    "drifted": true,
    "canonical": "offline-pdf-toolkit/build-apps.yml",
    "canonical_bytes": 7605,
-   "plan": "turn the 47 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "plan": "turn the 48 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "BLINKTRANSFER/build-apps.yml",
     "MATERIA-MEDICA-BUILDER/build-apps.yml",
@@ -95,6 +95,7 @@
     "app-endpoints/build-apps.yml",
     "app-image-toolkit/build-apps.yml",
     "app-jacquard/build-apps.yml",
+    "app-opd-register/build-apps.yml",
     "app-panchang/build-apps.yml",
     "app-poets-studio/build-apps.yml",
     "app-story-engine/build-apps.yml",
@@ -122,21 +123,20 @@
     "retro-strike/build-apps.yml",
     "seance/build-apps.yml",
     "skin-case-tracker/build-apps.yml",
-    "smartbill-app/build-apps.yml",
-    "the-symphony-companion/build-apps.yml"
+    "smartbill-app/build-apps.yml"
    ],
-   "migrate_count": 47
+   "migrate_count": 48
   },
   {
    "name": "Test",
-   "copies": 41,
-   "repos": 41,
+   "copies": 42,
+   "repos": 42,
    "distinct_sizes": 27,
    "spread_bytes": 5139,
    "drifted": true,
    "canonical": "raylib-starter/test.yml",
    "canonical_bytes": 5447,
-   "plan": "turn the 40 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "plan": "turn the 41 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "app-clip-loom/test.yml",
     "app-endpoints/test.yml",
@@ -163,6 +163,7 @@
     "lan-kit/test.yml",
     "markdown-kit/test.yml",
     "motion-kit/test.yml",
+    "neonboom/test.yml",
     "optical-kit/test.yml",
     "remedy-relationship-explorer/test.yml",
     "repertory-kit/test.yml",
@@ -176,21 +177,20 @@
     "weft8-compare/test.yml",
     "weft8-hardware/test.yml",
     "weft8-kit/test.yml",
-    "whispering-body-first-aid/test.yml",
-    "widgets-kit/test.yml"
+    "whispering-body-first-aid/test.yml"
    ],
-   "migrate_count": 40
+   "migrate_count": 41
   },
   {
    "name": "CI",
-   "copies": 12,
-   "repos": 12,
-   "distinct_sizes": 10,
+   "copies": 16,
+   "repos": 16,
+   "distinct_sizes": 14,
    "spread_bytes": 18005,
    "drifted": true,
    "canonical": "feather/ci.yml",
    "canonical_bytes": 18615,
-   "plan": "turn the 11 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "plan": "turn the 15 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "BLINKTRANSFER/ci.yml",
     "NEO/ci.yml",
@@ -200,11 +200,15 @@
     "blinkcode-ai/ci.yml",
     "conqueror-os/ci.yml",
     "helioprism/ci.yml",
+    "kinemorph/ci.yml",
+    "kinemotif/ci.yml",
     "lexora/ci.yml",
     "lockhtml/ci.yml",
-    "neon-runner/ci.yml"
+    "neon-runner/ci.yml",
+    "sorex/build.yml",
+    "tessera-app/ci.yml"
    ],
-   "migrate_count": 11
+   "migrate_count": 15
   },
   {
    "name": "test",
@@ -214,7 +218,7 @@
    "spread_bytes": 5414,
    "drifted": true,
    "canonical": "forge/test.yml",
-   "canonical_bytes": 2809,
+   "canonical_bytes": 2813,
    "plan": "turn the 10 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "Repertorium-Publicum/test.yml",
@@ -229,6 +233,65 @@
     "ui-kit/test.yml"
    ],
    "migrate_count": 10
+  },
+  {
+   "name": "Release",
+   "copies": 8,
+   "repos": 8,
+   "distinct_sizes": 7,
+   "spread_bytes": 8239,
+   "drifted": true,
+   "canonical": "ai-bridge/release.yml",
+   "canonical_bytes": 9233,
+   "plan": "turn the 7 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "NEO/release.yml",
+    "app-lantern/release.yml",
+    "feather/release.yml",
+    "holistic/release.yml",
+    "kinemorph/release.yml",
+    "kinemotif/release.yml",
+    "neonboom/release.yml"
+   ],
+   "migrate_count": 7
+  },
+  {
+   "name": "release",
+   "copies": 7,
+   "repos": 7,
+   "distinct_sizes": 7,
+   "spread_bytes": 8683,
+   "drifted": true,
+   "canonical": "forge/release.yml",
+   "canonical_bytes": 1999,
+   "plan": "turn the 6 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "HMS/release.yml",
+    "kitbox/release.yml",
+    "kosh/release.yml",
+    "lumen/release.yml",
+    "pico/release.yml",
+    "ziptastic/release.yml"
+   ],
+   "migrate_count": 6
+  },
+  {
+   "name": "ci",
+   "copies": 5,
+   "repos": 5,
+   "distinct_sizes": 5,
+   "spread_bytes": 4730,
+   "drifted": true,
+   "canonical": "kosh/ci.yml",
+   "canonical_bytes": 8707,
+   "plan": "turn the 4 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "heavenzip/ci.yml",
+    "pico/ci.yml",
+    "sui/ci.yml",
+    "ziptastic/ci.yml"
+   ],
+   "migrate_count": 4
   },
   {
    "name": "tests",
@@ -253,10 +316,10 @@
    "copies": 4,
    "repos": 4,
    "distinct_sizes": 4,
-   "spread_bytes": 41588,
+   "spread_bytes": 43464,
    "drifted": true,
    "canonical": "app-builder/build.yml",
-   "canonical_bytes": 42795,
+   "canonical_bytes": 44671,
    "plan": "turn the 3 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "forge/build.yml",
@@ -266,44 +329,11 @@
    "migrate_count": 3
   },
   {
-   "name": "release",
-   "copies": 4,
-   "repos": 4,
-   "distinct_sizes": 4,
-   "spread_bytes": 8683,
-   "drifted": true,
-   "canonical": "forge/release.yml",
-   "canonical_bytes": 1995,
-   "plan": "turn the 3 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
-   "migrate": [
-    "HMS/release.yml",
-    "kitbox/release.yml",
-    "lumen/release.yml"
-   ],
-   "migrate_count": 3
-  },
-  {
-   "name": "Release",
-   "copies": 3,
-   "repos": 3,
-   "distinct_sizes": 3,
-   "spread_bytes": 7380,
-   "drifted": true,
-   "canonical": "ai-bridge/release.yml",
-   "canonical_bytes": 9233,
-   "plan": "turn the 2 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
-   "migrate": [
-    "app-lantern/release.yml",
-    "feather/release.yml"
-   ],
-   "migrate_count": 2
-  },
-  {
    "name": "pages",
    "copies": 3,
    "repos": 3,
    "distinct_sizes": 3,
-   "spread_bytes": 1145,
+   "spread_bytes": 1143,
    "drifted": true,
    "canonical": "app-builder/pages.yml",
    "canonical_bytes": 2172,
@@ -311,6 +341,38 @@
    "migrate": [
     "forge/pages.yml",
     "musicgen/pages.yml"
+   ],
+   "migrate_count": 2
+  },
+  {
+   "name": "Tests",
+   "copies": 3,
+   "repos": 3,
+   "distinct_sizes": 3,
+   "spread_bytes": 761,
+   "drifted": true,
+   "canonical": "app-opd-register/test.yml",
+   "canonical_bytes": 1591,
+   "plan": "turn the 2 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "lofi-studio-pro/tests.yml",
+    "planner-pro/test.yml"
+   ],
+   "migrate_count": 2
+  },
+  {
+   "name": "Android APK",
+   "copies": 3,
+   "repos": 3,
+   "distinct_sizes": 3,
+   "spread_bytes": 593,
+   "drifted": true,
+   "canonical": "planner-pro/android.yml",
+   "canonical_bytes": 2335,
+   "plan": "turn the 2 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "UniRep/android.yml",
+    "neonboom/android.yml"
    ],
    "migrate_count": 2
   }
@@ -348,15 +410,6 @@
     "why": "2 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
    },
    {
-    "repo": "conqueror-os",
-    "writers": [
-     "repair-src.yml",
-     "sw-3.2.0.yml"
-    ],
-    "count": 2,
-    "why": "2 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
-   },
-   {
     "repo": "skills",
     "writers": [
      "normalize.yml",
@@ -366,7 +419,14 @@
     "why": "2 workflows in this repo push to the same branch. The slow one loses with \"failed to push some refs\"."
    }
   ],
-  "loops": [],
+  "loops": [
+   {
+    "repo": "KILN",
+    "file": "kiln.yml",
+    "name": "kiln",
+    "why": "it commits AND is triggered by a push, and it does not mark its own commit `[skip ci]` - so it retriggers itself"
+   }
+  ],
   "concurrency_collisions": [],
   "permission_gaps": [
    {
@@ -427,10 +487,35 @@
   "schedule_pileups": [
    {
     "cron": "0 4 * * 1",
-    "count": 2,
+    "count": 3,
     "files": [
+     "compfactory/dispatch-sync.yml",
      "forge/adopt.yml",
      "forge/audit.yml"
+    ]
+   },
+   {
+    "cron": "17 4 * * *",
+    "count": 2,
+    "files": [
+     "KILN/kiln.yml",
+     "iamsingle-sfwa-directory/snapshot-stars.yml"
+    ]
+   },
+   {
+    "cron": "0 3 * * 1",
+    "count": 2,
+    "files": [
+     "NEO/bench.yml",
+     "corpus-extendum/scan.yml"
+    ]
+   },
+   {
+    "cron": "0 6 * * 1",
+    "count": 2,
+    "files": [
+     "UniRep/links.yml",
+     "forge/kit-audit.yml"
     ]
    },
    {
@@ -451,11 +536,11 @@
    }
   ],
   "totals": {
-   "races": 5,
-   "loops": 0,
+   "races": 4,
+   "loops": 1,
    "concurrency_collisions": 0,
    "permission_gaps": 6,
-   "schedule_pileups": 3
+   "schedule_pileups": 6
   }
  }
 }

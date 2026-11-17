@@ -55,7 +55,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 2,
-     "steps": 6
+     "steps": 7
     }
    ],
    "members": [
@@ -89,7 +89,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 2,
-     "steps": 6
+     "steps": 7
     }
    ],
    "manual": {
@@ -113,7 +113,7 @@
    "what": "Prove the code, build every platform it ships on, and lint what was written.",
    "auto": true,
    "input": "none - a push runs it",
-   "count": 137,
+   "count": 168,
    "scheduled": [
     {
      "repo": "app-builder",
@@ -161,7 +161,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 9
+     "steps": 10
     },
     {
      "repo": "All4ONE",
@@ -171,7 +171,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 2,
-     "steps": 15
+     "steps": 16
     },
     {
      "repo": "BLINKTRANSFER",
@@ -250,8 +250,8 @@
      "reusable": false,
      "crons": [],
      "dispatchable": true,
-     "jobs": 4,
-     "steps": 37
+     "jobs": 6,
+     "steps": 54
     },
     {
      "repo": "ULTIMATE-WINDOWS-OPTIMIZER",
@@ -454,6 +454,26 @@
      "dispatchable": true,
      "jobs": 2,
      "steps": 11
+    },
+    {
+     "repo": "app-opd-register",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 5
+    },
+    {
+     "repo": "app-opd-register",
+     "file": "test.yml",
+     "name": "Tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "app-organon-reader",
@@ -663,7 +683,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "boericke-repertory",
@@ -900,6 +920,36 @@
      "steps": 0
     },
     {
+     "repo": "heavenzip",
+     "file": "build-tools.yml",
+     "name": "build-tools",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 24
+    },
+    {
+     "repo": "heavenzip",
+     "file": "build-windows-tools.yml",
+     "name": "build-windows-tools",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 3,
+     "steps": 21
+    },
+    {
+     "repo": "heavenzip",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 13
+    },
+    {
      "repo": "helioprism",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -918,6 +968,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 6
+    },
+    {
+     "repo": "holistic",
+     "file": "build-apps.yml",
+     "name": "Build app packages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 3,
+     "steps": 20
     },
     {
      "repo": "iamsingle-sfwa-directory",
@@ -960,6 +1020,26 @@
      "steps": 4
     },
     {
+     "repo": "kinemorph",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 13
+    },
+    {
+     "repo": "kinemotif",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
      "repo": "kitbox",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -980,6 +1060,16 @@
      "steps": 30
     },
     {
+     "repo": "kosh",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 18
+    },
+    {
      "repo": "lan-kit",
      "file": "test.yml",
      "name": "Test",
@@ -997,7 +1087,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "lockhtml",
@@ -1018,6 +1108,36 @@
      "dispatchable": true,
      "jobs": 3,
      "steps": 18
+    },
+    {
+     "repo": "lofi-studio-pro",
+     "file": "android.yml",
+     "name": "Android build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 11
+    },
+    {
+     "repo": "lofi-studio-pro",
+     "file": "tests.yml",
+     "name": "Tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 7
+    },
+    {
+     "repo": "lofi-studio-pro",
+     "file": "windows.yml",
+     "name": "Windows build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 11
     },
     {
      "repo": "lumen",
@@ -1097,7 +1217,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 7
+     "steps": 9
     },
     {
      "repo": "neon-games",
@@ -1140,6 +1260,96 @@
      "steps": 26
     },
     {
+     "repo": "neonboom",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 9
+    },
+    {
+     "repo": "ntet-course-source",
+     "file": "build-android.yml",
+     "name": "Build Android APK",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 9
+    },
+    {
+     "repo": "ntet-course-source",
+     "file": "build-desktop.yml",
+     "name": "Build desktop app",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 12
+    },
+    {
+     "repo": "ntet-course-source",
+     "file": "release.yml",
+     "name": "Release single-file build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
+     "repo": "ntet-course-source",
+     "file": "server-test.yml",
+     "name": "Server tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
+     "repo": "ntet-homoeopathy-cbt",
+     "file": "build-android.yml",
+     "name": "Build Android APK",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 9
+    },
+    {
+     "repo": "ntet-homoeopathy-cbt",
+     "file": "build-desktop.yml",
+     "name": "Build desktop app",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 12
+    },
+    {
+     "repo": "ntet-homoeopathy-cbt",
+     "file": "release.yml",
+     "name": "Release single-file build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
+     "repo": "ntet-homoeopathy-cbt",
+     "file": "server-test.yml",
+     "name": "Server tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
      "repo": "offline-pdf-toolkit",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -1170,6 +1380,36 @@
      "steps": 3
     },
     {
+     "repo": "pico",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 20
+    },
+    {
+     "repo": "planner-pro",
+     "file": "desktop.yml",
+     "name": "Desktop builds",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
+     "repo": "planner-pro",
+     "file": "test.yml",
+     "name": "Tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 7
+    },
+    {
      "repo": "raylib-starter",
      "file": "test.yml",
      "name": "Test",
@@ -1188,6 +1428,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 0
+    },
+    {
+     "repo": "remedy-finder",
+     "file": "build-exe.yml",
+     "name": "Build portable Windows launcher",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 8
+    },
+    {
+     "repo": "remedy-finder",
+     "file": "verify.yml",
+     "name": "Verify build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "remedy-relationship-explorer",
@@ -1328,6 +1588,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 3
+    },
+    {
+     "repo": "tessera-app",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 12
     },
     {
      "repo": "the-symphony-companion",
@@ -1506,8 +1776,8 @@
      "reusable": false,
      "crons": [],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 8
+     "jobs": 2,
+     "steps": 12
     }
    ],
    "members": [
@@ -1519,7 +1789,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 9
+     "steps": 10
     },
     {
      "repo": "All4ONE",
@@ -1529,7 +1799,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 2,
-     "steps": 15
+     "steps": 16
     },
     {
      "repo": "BLINKTRANSFER",
@@ -1578,8 +1848,8 @@
      "reusable": false,
      "crons": [],
      "dispatchable": false,
-     "jobs": 1,
-     "steps": 6
+     "jobs": 2,
+     "steps": 15
     },
     {
      "repo": "Repertorium-Publicum",
@@ -1618,8 +1888,8 @@
      "reusable": false,
      "crons": [],
      "dispatchable": true,
-     "jobs": 4,
-     "steps": 37
+     "jobs": 6,
+     "steps": 54
     },
     {
      "repo": "ULTIMATE-WINDOWS-OPTIMIZER",
@@ -1834,6 +2104,26 @@
      "steps": 11
     },
     {
+     "repo": "app-opd-register",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 5
+    },
+    {
+     "repo": "app-opd-register",
+     "file": "test.yml",
+     "name": "Tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
      "repo": "app-organon-reader",
      "file": "build-apps.yml",
      "name": "Build portable EXE + Android APK",
@@ -2041,7 +2331,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "boericke-repertory",
@@ -2278,6 +2568,36 @@
      "steps": 0
     },
     {
+     "repo": "heavenzip",
+     "file": "build-tools.yml",
+     "name": "build-tools",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 24
+    },
+    {
+     "repo": "heavenzip",
+     "file": "build-windows-tools.yml",
+     "name": "build-windows-tools",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 3,
+     "steps": 21
+    },
+    {
+     "repo": "heavenzip",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 13
+    },
+    {
      "repo": "helioprism",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -2296,6 +2616,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 6
+    },
+    {
+     "repo": "holistic",
+     "file": "build-apps.yml",
+     "name": "Build app packages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 3,
+     "steps": 20
     },
     {
      "repo": "iamsingle-sfwa-directory",
@@ -2338,6 +2668,26 @@
      "steps": 4
     },
     {
+     "repo": "kinemorph",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 13
+    },
+    {
+     "repo": "kinemotif",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
      "repo": "kitbox",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -2358,6 +2708,16 @@
      "steps": 30
     },
     {
+     "repo": "kosh",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 18
+    },
+    {
      "repo": "lan-kit",
      "file": "test.yml",
      "name": "Test",
@@ -2375,7 +2735,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "lockhtml",
@@ -2396,6 +2756,36 @@
      "dispatchable": true,
      "jobs": 3,
      "steps": 18
+    },
+    {
+     "repo": "lofi-studio-pro",
+     "file": "android.yml",
+     "name": "Android build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 11
+    },
+    {
+     "repo": "lofi-studio-pro",
+     "file": "tests.yml",
+     "name": "Tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 7
+    },
+    {
+     "repo": "lofi-studio-pro",
+     "file": "windows.yml",
+     "name": "Windows build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 11
     },
     {
      "repo": "lumen",
@@ -2475,7 +2865,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 7
+     "steps": 9
     },
     {
      "repo": "neon-games",
@@ -2518,6 +2908,116 @@
      "steps": 26
     },
     {
+     "repo": "neonboom",
+     "file": "test.yml",
+     "name": "Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 9
+    },
+    {
+     "repo": "nodus",
+     "file": "build.yaml",
+     "name": "Linux Build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": false,
+     "jobs": 2,
+     "steps": 15
+    },
+    {
+     "repo": "nodus",
+     "file": "monkey-test.yaml",
+     "name": "Monkey Test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": false,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
+     "repo": "ntet-course-source",
+     "file": "build-android.yml",
+     "name": "Build Android APK",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 9
+    },
+    {
+     "repo": "ntet-course-source",
+     "file": "build-desktop.yml",
+     "name": "Build desktop app",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 12
+    },
+    {
+     "repo": "ntet-course-source",
+     "file": "release.yml",
+     "name": "Release single-file build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
+     "repo": "ntet-course-source",
+     "file": "server-test.yml",
+     "name": "Server tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
+     "repo": "ntet-homoeopathy-cbt",
+     "file": "build-android.yml",
+     "name": "Build Android APK",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 9
+    },
+    {
+     "repo": "ntet-homoeopathy-cbt",
+     "file": "build-desktop.yml",
+     "name": "Build desktop app",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 12
+    },
+    {
+     "repo": "ntet-homoeopathy-cbt",
+     "file": "release.yml",
+     "name": "Release single-file build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
+     "repo": "ntet-homoeopathy-cbt",
+     "file": "server-test.yml",
+     "name": "Server tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
      "repo": "offline-pdf-toolkit",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -2548,6 +3048,36 @@
      "steps": 3
     },
     {
+     "repo": "pico",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 20
+    },
+    {
+     "repo": "planner-pro",
+     "file": "desktop.yml",
+     "name": "Desktop builds",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
+     "repo": "planner-pro",
+     "file": "test.yml",
+     "name": "Tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 7
+    },
+    {
      "repo": "raylib-starter",
      "file": "test.yml",
      "name": "Test",
@@ -2566,6 +3096,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 0
+    },
+    {
+     "repo": "remedy-finder",
+     "file": "build-exe.yml",
+     "name": "Build portable Windows launcher",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 8
+    },
+    {
+     "repo": "remedy-finder",
+     "file": "verify.yml",
+     "name": "Verify build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "remedy-relationship-explorer",
@@ -2698,6 +3248,16 @@
      "steps": 0
     },
     {
+     "repo": "sorex",
+     "file": "build.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": false,
+     "jobs": 11,
+     "steps": 77
+    },
+    {
      "repo": "srs-kit",
      "file": "test.yml",
      "name": "Test",
@@ -2706,6 +3266,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 3
+    },
+    {
+     "repo": "sui",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": false,
+     "jobs": 4,
+     "steps": 27
+    },
+    {
+     "repo": "tessera-app",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 12
     },
     {
      "repo": "the-symphony-companion",
@@ -2884,8 +3464,8 @@
      "reusable": false,
      "crons": [],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 8
+     "jobs": 2,
+     "steps": 12
     }
    ],
    "manual": {
@@ -2896,7 +3476,7 @@
     "crons": [],
     "dispatchable": true,
     "jobs": 1,
-    "steps": 9
+    "steps": 10
    }
   },
   {
@@ -2907,7 +3487,7 @@
    "what": "Publish the release, deploy the live demo, capture the screenshot, and give every app a landing page.",
    "auto": true,
    "input": "none - it follows a build",
-   "count": 33,
+   "count": 50,
    "scheduled": [
     {
      "repo": "Matneo",
@@ -2967,7 +3547,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 8
+     "steps": 9
     },
     {
      "repo": "forge",
@@ -3091,7 +3671,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 2
+     "steps": 3
     },
     {
      "repo": "Matneo",
@@ -3126,6 +3706,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 0
+    },
+    {
+     "repo": "UniRep",
+     "file": "pages.yml",
+     "name": "Pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 12
     },
     {
      "repo": "ai-bridge",
@@ -3178,6 +3768,16 @@
      "steps": 7
     },
     {
+     "repo": "corpus-extendum",
+     "file": "deploy.yml",
+     "name": "deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
      "repo": "dashboard",
      "file": "refresh.yml",
      "name": "Refresh dashboard data",
@@ -3219,7 +3819,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 8
+     "steps": 9
     },
     {
      "repo": "feather",
@@ -3274,6 +3874,26 @@
      "steps": 3
     },
     {
+     "repo": "holistic",
+     "file": "pages.yml",
+     "name": "Deploy site",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 7
+    },
+    {
+     "repo": "holistic",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
      "repo": "iamsingle-sfwa-directory",
      "file": "snapshot-stars.yml",
      "name": "Snapshot GitHub stars",
@@ -3286,6 +3906,26 @@
      "steps": 5
     },
     {
+     "repo": "kinemorph",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
+     "repo": "kinemotif",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
      "repo": "knowledge",
      "file": "refresh.yml",
      "name": "Refresh plan status",
@@ -3296,6 +3936,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 5
+    },
+    {
+     "repo": "kosh",
+     "file": "release.yml",
+     "name": "release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 9
     },
     {
      "repo": "lockhtml",
@@ -3319,13 +3969,13 @@
     },
     {
      "repo": "music",
-     "file": "deploy.yml",
-     "name": "deploy",
+     "file": "publish-check.yml",
+     "name": "publish-check",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 3
     },
     {
      "repo": "musicgen",
@@ -3338,6 +3988,66 @@
      "steps": 6
     },
     {
+     "repo": "neonboom",
+     "file": "pages.yml",
+     "name": "Deploy to GitHub Pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 8
+    },
+    {
+     "repo": "neonboom",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 14
+    },
+    {
+     "repo": "ntet-course-source",
+     "file": "pages.yml",
+     "name": "Deploy site to GitHub Pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
+     "repo": "ntet-homoeopathy-cbt",
+     "file": "pages.yml",
+     "name": "Deploy site to GitHub Pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
+     "repo": "pico",
+     "file": "release.yml",
+     "name": "release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 3,
+     "steps": 15
+    },
+    {
+     "repo": "planner-pro",
+     "file": "pages.yml",
+     "name": "Deploy site",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
      "repo": "registry",
      "file": "refresh.yml",
      "name": "Refresh registry",
@@ -3345,6 +4055,16 @@
      "crons": [
       "42 4 * * 1"
      ],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
+     "repo": "remedy-finder",
+     "file": "pages.yml",
+     "name": "Deploy site to Pages",
+     "reusable": false,
+     "crons": [],
      "dispatchable": true,
      "jobs": 1,
      "steps": 6
@@ -3360,6 +4080,16 @@
      "dispatchable": true,
      "jobs": 2,
      "steps": 6
+    },
+    {
+     "repo": "ziptastic",
+     "file": "release.yml",
+     "name": "release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 19
     }
    ],
    "members": [
@@ -3423,7 +4153,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 2
+     "steps": 3
     },
     {
      "repo": "Matneo",
@@ -3450,6 +4180,16 @@
      "steps": 4
     },
     {
+     "repo": "NEO",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": false,
+     "jobs": 4,
+     "steps": 18
+    },
+    {
      "repo": "The_Browser",
      "file": "deploy-demo.yml",
      "name": "Deploy the demo",
@@ -3458,6 +4198,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 0
+    },
+    {
+     "repo": "UniRep",
+     "file": "pages.yml",
+     "name": "Pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 12
     },
     {
      "repo": "ai-bridge",
@@ -3520,6 +4270,16 @@
      "steps": 7
     },
     {
+     "repo": "corpus-extendum",
+     "file": "deploy.yml",
+     "name": "deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
      "repo": "dashboard",
      "file": "refresh.yml",
      "name": "Refresh dashboard data",
@@ -3561,7 +4321,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 8
+     "steps": 9
     },
     {
      "repo": "feather",
@@ -3616,6 +4376,26 @@
      "steps": 3
     },
     {
+     "repo": "holistic",
+     "file": "pages.yml",
+     "name": "Deploy site",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 7
+    },
+    {
+     "repo": "holistic",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
      "repo": "iamsingle-sfwa-directory",
      "file": "snapshot-stars.yml",
      "name": "Snapshot GitHub stars",
@@ -3626,6 +4406,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 5
+    },
+    {
+     "repo": "kinemorph",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
+     "repo": "kinemotif",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
     },
     {
      "repo": "kitbox",
@@ -3650,6 +4450,16 @@
      "steps": 5
     },
     {
+     "repo": "kosh",
+     "file": "release.yml",
+     "name": "release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 9
+    },
+    {
      "repo": "lockhtml",
      "file": "publish.yml",
      "name": "Publish to PyPI",
@@ -3671,13 +4481,13 @@
     },
     {
      "repo": "music",
-     "file": "deploy.yml",
-     "name": "deploy",
+     "file": "publish-check.yml",
+     "name": "publish-check",
      "reusable": false,
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 3
     },
     {
      "repo": "musicgen",
@@ -3690,6 +4500,66 @@
      "steps": 6
     },
     {
+     "repo": "neonboom",
+     "file": "pages.yml",
+     "name": "Deploy to GitHub Pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 8
+    },
+    {
+     "repo": "neonboom",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 14
+    },
+    {
+     "repo": "ntet-course-source",
+     "file": "pages.yml",
+     "name": "Deploy site to GitHub Pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
+     "repo": "ntet-homoeopathy-cbt",
+     "file": "pages.yml",
+     "name": "Deploy site to GitHub Pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
+     "repo": "pico",
+     "file": "release.yml",
+     "name": "release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 3,
+     "steps": 15
+    },
+    {
+     "repo": "planner-pro",
+     "file": "pages.yml",
+     "name": "Deploy site",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 5
+    },
+    {
      "repo": "registry",
      "file": "refresh.yml",
      "name": "Refresh registry",
@@ -3697,6 +4567,16 @@
      "crons": [
       "42 4 * * 1"
      ],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
+    },
+    {
+     "repo": "remedy-finder",
+     "file": "pages.yml",
+     "name": "Deploy site to Pages",
+     "reusable": false,
+     "crons": [],
      "dispatchable": true,
      "jobs": 1,
      "steps": 6
@@ -3712,6 +4592,26 @@
      "dispatchable": true,
      "jobs": 2,
      "steps": 6
+    },
+    {
+     "repo": "tessera",
+     "file": "docs.yml",
+     "name": "docs",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": false,
+     "jobs": 2,
+     "steps": 8
+    },
+    {
+     "repo": "ziptastic",
+     "file": "release.yml",
+     "name": "release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 2,
+     "steps": 19
     }
    ],
    "manual": {
@@ -3744,8 +4644,8 @@
       "51 3 * * *"
      ],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 8
+     "jobs": 2,
+     "steps": 15
     },
     {
      "repo": "dumps",
@@ -3890,8 +4790,8 @@
       "51 3 * * *"
      ],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 8
+     "jobs": 2,
+     "steps": 15
     },
     {
      "repo": "backup",
@@ -4076,8 +4976,8 @@
       "51 3 * * *"
      ],
      "dispatchable": true,
-     "jobs": 1,
-     "steps": 8
+     "jobs": 2,
+     "steps": 15
     },
     {
      "repo": "backup",
@@ -4261,8 +5161,8 @@
      "51 3 * * *"
     ],
     "dispatchable": true,
-    "jobs": 1,
-    "steps": 8
+    "jobs": 2,
+    "steps": 15
    }
   }
  ],
@@ -4358,6 +5258,72 @@
    "crons": [],
    "dispatchable": true,
    "jobs": 1,
+   "steps": 5
+  },
+  {
+   "repo": "KILN",
+   "file": "kiln.yml",
+   "name": "kiln",
+   "reusable": false,
+   "crons": [
+    "17 4 * * *"
+   ],
+   "dispatchable": true,
+   "jobs": 6,
+   "steps": 32
+  },
+  {
+   "repo": "NEO",
+   "file": "bench.yml",
+   "name": "Benchmarks",
+   "reusable": false,
+   "crons": [
+    "0 3 * * 1"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 4
+  },
+  {
+   "repo": "TOOLWORKS",
+   "file": "check.yml",
+   "name": "check",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 4
+  },
+  {
+   "repo": "UniRep",
+   "file": "android.yml",
+   "name": "Android APK",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 10
+  },
+  {
+   "repo": "UniRep",
+   "file": "desktop.yml",
+   "name": "Desktop",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 11
+  },
+  {
+   "repo": "UniRep",
+   "file": "links.yml",
+   "name": "Links",
+   "reusable": false,
+   "crons": [
+    "0 6 * * 1"
+   ],
+   "dispatchable": true,
+   "jobs": 2,
    "steps": 4
   },
   {
@@ -4382,6 +5348,18 @@
   },
   {
    "repo": "audit",
+   "file": "contrast.yml",
+   "name": "contrast",
+   "reusable": false,
+   "crons": [
+    "25 5 * * 1"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 5
+  },
+  {
+   "repo": "audit",
    "file": "licence-check.yml",
    "name": "Licence badge check",
    "reusable": false,
@@ -4397,25 +5375,17 @@
    "file": "dispatch-sync.yml",
    "name": "dispatch-sync",
    "reusable": false,
-   "crons": [],
+   "crons": [
+    "0 4 * * 1"
+   ],
    "dispatchable": true,
    "jobs": 1,
-   "steps": 2
+   "steps": 4
   },
   {
    "repo": "conqueror-os",
    "file": "repair-src.yml",
    "name": "repair-src",
-   "reusable": false,
-   "crons": [],
-   "dispatchable": true,
-   "jobs": 1,
-   "steps": 5
-  },
-  {
-   "repo": "conqueror-os",
-   "file": "sw-3.2.0.yml",
-   "name": "sw-3.2.0",
    "reusable": false,
    "crons": [],
    "dispatchable": true,
@@ -4433,6 +5403,18 @@
    "dispatchable": true,
    "jobs": 2,
    "steps": 16
+  },
+  {
+   "repo": "corpus-extendum",
+   "file": "scan.yml",
+   "name": "scan",
+   "reusable": false,
+   "crons": [
+    "0 3 * * 1"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 8
   },
   {
    "repo": "drsamonline",
@@ -4487,6 +5469,18 @@
    "dispatchable": true,
    "jobs": 1,
    "steps": 3
+  },
+  {
+   "repo": "forge",
+   "file": "contrast.yml",
+   "name": "Contrast",
+   "reusable": false,
+   "crons": [
+    "20 5 * * *"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 5
   },
   {
    "repo": "forge",
@@ -4554,7 +5548,7 @@
    ],
    "dispatchable": true,
    "jobs": 1,
-   "steps": 3
+   "steps": 4
   },
   {
    "repo": "forge",
@@ -4562,6 +5556,18 @@
    "name": "state-set",
    "reusable": false,
    "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 2
+  },
+  {
+   "repo": "forge",
+   "file": "topics.yml",
+   "name": "topics",
+   "reusable": false,
+   "crons": [
+    "40 5 * * *"
+   ],
    "dispatchable": true,
    "jobs": 1,
    "steps": 2
@@ -4581,10 +5587,12 @@
    "file": "sync-binaries.yml",
    "name": "sync-binaries",
    "reusable": false,
-   "crons": [],
+   "crons": [
+    "23 5 * * *"
+   ],
    "dispatchable": true,
    "jobs": 1,
-   "steps": 3
+   "steps": 4
   },
   {
    "repo": "iamsingle-sfwa-directory",
@@ -4629,6 +5637,18 @@
    "steps": 7
   },
   {
+   "repo": "kosh",
+   "file": "fuzz.yml",
+   "name": "fuzz",
+   "reusable": false,
+   "crons": [
+    "41 3 * * *"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 5
+  },
+  {
    "repo": "local-first-tools",
    "file": "link-check.yml",
    "name": "Link Check",
@@ -4651,21 +5671,73 @@
    "steps": 5
   },
   {
-   "repo": "ziptastic",
-   "file": "vendor-check.yml",
-   "name": "vendor-check",
+   "repo": "mood-mixer",
+   "file": "check.yml",
+   "name": "Check",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 7
+  },
+  {
+   "repo": "neonboom",
+   "file": "android.yml",
+   "name": "Android APK",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 10
+  },
+  {
+   "repo": "nodus",
+   "file": "static-analysis.yaml",
+   "name": "Static Analysis",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": false,
+   "jobs": 1,
+   "steps": 0
+  },
+  {
+   "repo": "open-materia-medica",
+   "file": "content-check.yml",
+   "name": "Content check",
    "reusable": false,
    "crons": [],
    "dispatchable": true,
    "jobs": 1,
    "steps": 3
+  },
+  {
+   "repo": "planner-pro",
+   "file": "android.yml",
+   "name": "Android APK",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 11
+  },
+  {
+   "repo": "ziptastic",
+   "file": "vendor-check.yml",
+   "name": "vendor-check",
+   "reusable": false,
+   "crons": [
+    "17 4 * * 1"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 4
   }
  ],
  "totals": {
-  "workflows": 189,
-  "unplaced": 29,
+  "workflows": 237,
+  "unplaced": 44,
   "scheduled": 26,
-  "dispatchable": 185,
+  "dispatchable": 227,
   "inputs_for_the_two_everyday_routes": 1
  }
 }
