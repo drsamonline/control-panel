@@ -43,7 +43,9 @@ jobs:
           # made forge/backup.yml fail 40 consecutive runs at startup with no log. Their
           # tests existed, passed, and proved nothing, because nothing ran them.
           # 59 assertions in total. A test that never runs is a comment.
-          for t in scan plan gaps interactions migrate simulate sweep wf_check; do
+          # fetch.py joins the list because it now carries the guard that decides whether
+          # the scan covers the estate or only the public part of it.
+          for t in fetch scan plan gaps interactions migrate simulate sweep wf_check; do
             echo "--- $t"
             python3 "tools/$t.py" --self-test
           done
@@ -54,9 +56,29 @@ jobs:
           # out before the first committed.
           echo "--- commit-and-verify"
           bash tools/commit-and-verify.test.sh
+      # A NARROW TOKEN MUST NOT PUBLISH A NARROWER ESTATE (2026-11-18).
+      #
+      # `secrets.FANOUT_TOKEN || github.token` looked defensive and did the opposite:
+      # with the secret absent, github.token authenticated as THIS repository, fetch.py
+      # fell back to the public list, and docs/inventory.json described a smaller estate
+      # than exists - green, with `scope: public-only` recorded as a fact about the
+      # estate. The same fallback cost the plan block 11 repositories, 8 products and 6
+      # kits. So the secret is REQUIRED, the fallback is gone, and fetch.py runs in
+      # CP_REQUIRE_FULL_SCOPE mode so a token that answers but cannot see the private
+      # repositories refuses instead of returning the public list.
+      - name: Require a cross-repository token
+        env:
+          TOK: ${{ secrets.FANOUT_TOKEN }}
+        run: |
+          if [ -z "$TOK" ]; then
+            echo "::error::FANOUT_TOKEN is not set. Refusing to publish a public-only view of the estate as if it were the estate — set the secret, then re-run."
+            exit 1
+          fi
+          echo "FANOUT_TOKEN present (${#TOK} chars, value not printed)"
       - name: Fetch every workflow in every repo
         env:
-          GITHUB_TOKEN: "${{ secrets.FANOUT_TOKEN || github.token }}"
+          GITHUB_TOKEN: "${{ secrets.FANOUT_TOKEN }}"
+          CP_REQUIRE_FULL_SCOPE: "1"
         run: python3 tools/fetch.py --out tree
       - name: Inventory it
         run: python3 tools/scan.py --dir tree --out docs/inventory.json

@@ -57,6 +57,15 @@ def _paged(path, token):
 LOCK_MARKERS = {"LOCKED.md", "FORGE-LOCKED", ".forge-locked"}
 
 
+class NarrowScope(RuntimeError):
+    """A credential that answers but cannot see the private repositories.
+
+    Distinct from "failed" (no list at all): the token WORKED, it just was not the
+    cross-repository one, so the answer is a smaller estate that would publish as
+    if it were the estate.
+    """
+
+
 def repos(token):
     """Every repository this token can see, and an honest statement of what that was.
 
@@ -74,19 +83,102 @@ def repos(token):
     if owned and len(owned) >= len(public):
         return owned, "all", "read with a token that can see every repository the account owns"
     if public:
+        # A NARROW TOKEN IS A DEFECT IN A RUN THAT PUBLISHES A COUNT (2026-11-18).
+        #
+        # The fallback above is correct for a local run with no credential, and it was
+        # wrong for the workflow: `secrets.FANOUT_TOKEN || github.token` meant that a
+        # missing secret authenticated as this one repository, the scan covered the
+        # PUBLIC list, and docs/inventory.json described a smaller estate than exists -
+        # green, with `scope: public-only` recorded as if it were a fact about the
+        # estate rather than a fact about the credential. The same fallback cost the
+        # plan block 11 repositories, 8 products and 6 kits before anyone noticed.
+        #
+        # So the workflow sets CP_REQUIRE_FULL_SCOPE=1: with a token in hand and only
+        # the public repositories visible, this raises and nothing is written.
+        if os.environ.get("CP_REQUIRE_FULL_SCOPE") == "1" and token:
+            raise NarrowScope(
+                f"the token saw {len(public)} PUBLIC repositories where /user/repos returned "
+                f"{len(owned)}. CP_REQUIRE_FULL_SCOPE=1 means a narrow token is a DEFECT to fix, "
+                "not a smaller estate to publish - set FANOUT_TOKEN to a cross-repository token "
+                "and re-run.")
         return public, "public-only", (
             "the token cannot see private repositories, so this scan covers the PUBLIC ones "
             "only. Add FANOUT_TOKEN to control-panel to include the private ones.")
     return [], "failed", "neither /user/repos nor /users/<owner>/repos returned a repository list"
 
 
+def self_test():
+    """Prove the narrow-token guard in BOTH directions.
+
+    A guard that is always on would break the caller it is not about (a local run
+    with no credential is legitimately public-only), and a guard that is never on
+    is the defect itself. So: off + narrow = fallback; on + narrow = refuse;
+    on + anonymous = fallback; on + full = all.
+    """
+    global _paged
+    real, passed, failed = _paged, 0, 0
+
+    def ok(name, cond, detail=""):
+        nonlocal passed, failed
+        if cond:
+            passed += 1
+            print(f"  ok   {name}")
+        else:
+            failed += 1
+            print(f"  FAIL {name}  <- {detail}")
+
+    def fake(owned, public):
+        def _p(path, token):
+            return list(owned) if "/user/repos" in path else list(public)
+        return _p
+
+    ONE = [{"name": "control-panel", "default_branch": "main"}]
+    MANY = [{"name": "a", "default_branch": "main"}, {"name": "b", "default_branch": "main"}]
+    try:
+        os.environ.pop("CP_REQUIRE_FULL_SCOPE", None)
+        _paged = fake(ONE, MANY)
+        rs, scope, _ = repos("tok")
+        ok("off + a narrow token falls back, as it always did", scope == "public-only", scope)
+        ok("off + a narrow token still returns the public list", len(rs) == 2, str(len(rs)))
+
+        os.environ["CP_REQUIRE_FULL_SCOPE"] = "1"
+        try:
+            repos("tok")
+            ok("on + a narrow token refuses", False, "no exception")
+        except NarrowScope as e:
+            ok("on + a narrow token refuses", True)
+            ok("the refusal says what to do", "FANOUT_TOKEN" in str(e), str(e)[:60])
+            ok("the refusal counts what it saw", "2 PUBLIC" in str(e), str(e)[:60])
+
+        rs, scope, _ = repos("")
+        ok("on + NO credential is not a defect", scope == "public-only", scope)
+
+        _paged = fake(MANY + ONE, MANY)
+        rs, scope, _ = repos("tok")
+        ok("on + a full token returns every repository", scope == "all" and len(rs) == 3, scope)
+    finally:
+        _paged = real
+        os.environ.pop("CP_REQUIRE_FULL_SCOPE", None)
+
+    print(f"\n{passed} passed, {failed} failed")
+    return 1 if failed else 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Fetch every repo's workflows into a tree.")
     ap.add_argument("--out", default="tree")
     ap.add_argument("--token", default="")
+    ap.add_argument("--self-test", action="store_true",
+                    help="prove the narrow-token guard, then exit")
     a = ap.parse_args(argv)
+    if a.self_test:
+        return self_test()
     token = a.token or os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN") or ""
-    rs, scope, scope_note = repos(token)
+    try:
+        rs, scope, scope_note = repos(token)
+    except NarrowScope as e:
+        print(f"::error::{e}", file=sys.stderr)
+        return 2
     print(f"{len(rs)} repos  (scope: {scope})")
     got, skipped, empty = 0, [], []
     # THE MANIFEST IS THE POINT. scan.py can only see the repositories that produced a
