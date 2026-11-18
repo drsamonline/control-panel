@@ -239,13 +239,13 @@
    "copies": 8,
    "repos": 8,
    "distinct_sizes": 7,
-   "spread_bytes": 8239,
+   "spread_bytes": 8477,
    "drifted": true,
-   "canonical": "ai-bridge/release.yml",
-   "canonical_bytes": 9233,
+   "canonical": "NEO/release.yml",
+   "canonical_bytes": 9471,
    "plan": "turn the 7 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
-    "NEO/release.yml",
+    "ai-bridge/release.yml",
     "app-lantern/release.yml",
     "feather/release.yml",
     "holistic/release.yml",
@@ -280,7 +280,7 @@
    "copies": 5,
    "repos": 5,
    "distinct_sizes": 5,
-   "spread_bytes": 4730,
+   "spread_bytes": 3833,
    "drifted": true,
    "canonical": "kosh/ci.yml",
    "canonical_bytes": 8707,
@@ -511,6 +511,14 @@
     ]
    },
    {
+    "cron": "0 5 * * 1",
+    "count": 2,
+    "files": [
+     "NEO/security.yml",
+     "forge/app-deliver.yml"
+    ]
+   },
+   {
     "cron": "0 6 * * 1",
     "count": 2,
     "files": [
@@ -540,7 +548,7 @@
    "loops": 1,
    "concurrency_collisions": 0,
    "permission_gaps": 6,
-   "schedule_pileups": 6
+   "schedule_pileups": 7
   }
  }
 }

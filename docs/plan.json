@@ -1027,7 +1027,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 13
+     "steps": 14
     },
     {
      "repo": "kinemotif",
@@ -1527,7 +1527,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 6
     },
     {
      "repo": "seance",
@@ -1849,7 +1849,7 @@
      "crons": [],
      "dispatchable": false,
      "jobs": 2,
-     "steps": 15
+     "steps": 17
     },
     {
      "repo": "Repertorium-Publicum",
@@ -2675,7 +2675,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 13
+     "steps": 14
     },
     {
      "repo": "kinemotif",
@@ -3195,7 +3195,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 6
     },
     {
      "repo": "seance",
@@ -3274,8 +3274,8 @@
      "reusable": false,
      "crons": [],
      "dispatchable": false,
-     "jobs": 4,
-     "steps": 27
+     "jobs": 5,
+     "steps": 34
     },
     {
      "repo": "tessera-app",
@@ -3487,7 +3487,7 @@
    "what": "Publish the release, deploy the live demo, capture the screenshot, and give every app a landing page.",
    "auto": true,
    "input": "none - it follows a build",
-   "count": 50,
+   "count": 51,
    "scheduled": [
     {
      "repo": "Matneo",
@@ -3535,7 +3535,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 6
     },
     {
      "repo": "drsamonline.github.io",
@@ -3583,7 +3583,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 6
     },
     {
      "repo": "registry",
@@ -3595,7 +3595,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "skills",
@@ -3698,6 +3698,16 @@
      "steps": 4
     },
     {
+     "repo": "NEO",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 4,
+     "steps": 19
+    },
+    {
      "repo": "The_Browser",
      "file": "deploy-demo.yml",
      "name": "Deploy the demo",
@@ -3787,7 +3797,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 6
     },
     {
      "repo": "drsamonline",
@@ -3935,7 +3945,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 6
     },
     {
      "repo": "kosh",
@@ -4057,7 +4067,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "remedy-finder",
@@ -4080,6 +4090,16 @@
      "dispatchable": true,
      "jobs": 2,
      "steps": 6
+    },
+    {
+     "repo": "sui",
+     "file": "publish.yml",
+     "name": "publish",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 11
     },
     {
      "repo": "ziptastic",
@@ -4185,9 +4205,9 @@
      "name": "Release",
      "reusable": false,
      "crons": [],
-     "dispatchable": false,
+     "dispatchable": true,
      "jobs": 4,
-     "steps": 18
+     "steps": 19
     },
     {
      "repo": "The_Browser",
@@ -4289,7 +4309,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 6
     },
     {
      "repo": "drsamonline",
@@ -4447,7 +4467,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 5
+     "steps": 6
     },
     {
      "repo": "kosh",
@@ -4569,7 +4589,7 @@
      ],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "remedy-finder",
@@ -4592,6 +4612,16 @@
      "dispatchable": true,
      "jobs": 2,
      "steps": 6
+    },
+    {
+     "repo": "sui",
+     "file": "publish.yml",
+     "name": "publish",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 11
     },
     {
      "repo": "tessera",
@@ -5258,7 +5288,7 @@
    "crons": [],
    "dispatchable": true,
    "jobs": 1,
-   "steps": 5
+   "steps": 7
   },
   {
    "repo": "KILN",
@@ -5274,6 +5304,16 @@
   },
   {
    "repo": "NEO",
+   "file": "accuracy.yml",
+   "name": "Accuracy gates",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": false,
+   "jobs": 2,
+   "steps": 9
+  },
+  {
+   "repo": "NEO",
    "file": "bench.yml",
    "name": "Benchmarks",
    "reusable": false,
@@ -5282,7 +5322,83 @@
    ],
    "dispatchable": true,
    "jobs": 1,
-   "steps": 4
+   "steps": 5
+  },
+  {
+   "repo": "NEO",
+   "file": "corpus.yml",
+   "name": "Generated corpus",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 6
+  },
+  {
+   "repo": "NEO",
+   "file": "coverage.yml",
+   "name": "Coverage",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 5
+  },
+  {
+   "repo": "NEO",
+   "file": "diagnostics.yml",
+   "name": "Diagnostics",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 7
+  },
+  {
+   "repo": "NEO",
+   "file": "extension.yml",
+   "name": "Extension",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 8
+  },
+  {
+   "repo": "NEO",
+   "file": "fuzz.yml",
+   "name": "Fuzz",
+   "reusable": false,
+   "crons": [
+    "0 4 * * 0"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 6
+  },
+  {
+   "repo": "NEO",
+   "file": "mutants.yml",
+   "name": "Mutants",
+   "reusable": false,
+   "crons": [
+    "0 6 * * 6"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 5
+  },
+  {
+   "repo": "NEO",
+   "file": "security.yml",
+   "name": "Security",
+   "reusable": false,
+   "crons": [
+    "0 5 * * 1"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 7
   },
   {
    "repo": "TOOLWORKS",
@@ -5402,7 +5518,7 @@
    ],
    "dispatchable": true,
    "jobs": 2,
-   "steps": 16
+   "steps": 17
   },
   {
    "repo": "corpus-extendum",
@@ -5734,10 +5850,10 @@
   }
  ],
  "totals": {
-  "workflows": 237,
-  "unplaced": 44,
+  "workflows": 238,
+  "unplaced": 52,
   "scheduled": 26,
-  "dispatchable": 227,
+  "dispatchable": 229,
   "inputs_for_the_two_everyday_routes": 1
  }
 }
