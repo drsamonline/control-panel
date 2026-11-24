@@ -75,16 +75,19 @@
  "dedupe": [
   {
    "name": "Build + deploy",
-   "copies": 49,
-   "repos": 49,
-   "distinct_sizes": 42,
+   "copies": 53,
+   "repos": 53,
+   "distinct_sizes": 44,
    "spread_bytes": 6934,
    "drifted": true,
    "canonical": "offline-pdf-toolkit/build-apps.yml",
    "canonical_bytes": 7605,
-   "plan": "turn the 48 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "plan": "turn the 52 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "BLINKTRANSFER/build-apps.yml",
+    "Hellgate/build-apps.yml",
+    "INDIA/build-apps.yml",
+    "LARGE_GLOBE/build-apps.yml",
     "MATERIA-MEDICA-BUILDER/build-apps.yml",
     "Repertorium-Publicum/build-apps.yml",
     "aethelgard-games/build-apps.yml",
@@ -120,18 +123,15 @@
     "open-materia-medica/build-apps.yml",
     "read-live-transform-app/build-apps.yml",
     "remedy-relationship-explorer/build-apps.yml",
-    "retro-strike/build-apps.yml",
-    "seance/build-apps.yml",
-    "skin-case-tracker/build-apps.yml",
-    "smartbill-app/build-apps.yml"
+    "retro-strike/build-apps.yml"
    ],
-   "migrate_count": 48
+   "migrate_count": 52
   },
   {
    "name": "Test",
    "copies": 42,
    "repos": 42,
-   "distinct_sizes": 27,
+   "distinct_sizes": 29,
    "spread_bytes": 5139,
    "drifted": true,
    "canonical": "raylib-starter/test.yml",
@@ -183,22 +183,24 @@
   },
   {
    "name": "CI",
-   "copies": 16,
-   "repos": 16,
-   "distinct_sizes": 14,
-   "spread_bytes": 18005,
+   "copies": 18,
+   "repos": 18,
+   "distinct_sizes": 16,
+   "spread_bytes": 18608,
    "drifted": true,
-   "canonical": "feather/ci.yml",
-   "canonical_bytes": 18615,
-   "plan": "turn the 15 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "canonical": "savehorse/ci.yml",
+   "canonical_bytes": 19218,
+   "plan": "turn the 17 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "BLINKTRANSFER/ci.yml",
     "NEO/ci.yml",
+    "Sorta/ci.yml",
     "ULTIMATE-WINDOWS-OPTIMIZER/ci.yml",
     "aethelgard-rpg-engine/ci.yml",
     "ai-bridge/ci.yml",
     "blinkcode-ai/ci.yml",
     "conqueror-os/ci.yml",
+    "feather/ci.yml",
     "helioprism/ci.yml",
     "kinemorph/ci.yml",
     "kinemotif/ci.yml",
@@ -208,20 +210,21 @@
     "sorex/build.yml",
     "tessera-app/ci.yml"
    ],
-   "migrate_count": 15
+   "migrate_count": 17
   },
   {
    "name": "test",
-   "copies": 11,
-   "repos": 11,
-   "distinct_sizes": 9,
+   "copies": 12,
+   "repos": 12,
+   "distinct_sizes": 11,
    "spread_bytes": 5414,
    "drifted": true,
    "canonical": "forge/test.yml",
    "canonical_bytes": 2813,
-   "plan": "turn the 10 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "plan": "turn the 11 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
     "Repertorium-Publicum/test.yml",
+    "SmartNotes/test.yml",
     "app-encrypted-case-log/test.yml",
     "art-kit/test.yml",
     "audio-kit/test.yml",
@@ -232,40 +235,43 @@
     "ml-kit/test.yml",
     "ui-kit/test.yml"
    ],
-   "migrate_count": 10
+   "migrate_count": 11
   },
   {
    "name": "Release",
-   "copies": 8,
-   "repos": 8,
-   "distinct_sizes": 7,
+   "copies": 10,
+   "repos": 10,
+   "distinct_sizes": 9,
    "spread_bytes": 8477,
    "drifted": true,
    "canonical": "NEO/release.yml",
    "canonical_bytes": 9471,
-   "plan": "turn the 7 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "plan": "turn the 9 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
+    "Sorta/release.yml",
     "ai-bridge/release.yml",
     "app-lantern/release.yml",
     "feather/release.yml",
     "holistic/release.yml",
     "kinemorph/release.yml",
     "kinemotif/release.yml",
-    "neonboom/release.yml"
+    "neonboom/release.yml",
+    "savehorse/release.yml"
    ],
-   "migrate_count": 7
+   "migrate_count": 9
   },
   {
    "name": "release",
-   "copies": 7,
-   "repos": 7,
-   "distinct_sizes": 7,
-   "spread_bytes": 8683,
+   "copies": 8,
+   "repos": 8,
+   "distinct_sizes": 8,
+   "spread_bytes": 8733,
    "drifted": true,
    "canonical": "forge/release.yml",
    "canonical_bytes": 1999,
-   "plan": "turn the 6 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "plan": "turn the 7 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
+    "DayDoc/release.yml",
     "HMS/release.yml",
     "kitbox/release.yml",
     "kosh/release.yml",
@@ -273,43 +279,89 @@
     "pico/release.yml",
     "ziptastic/release.yml"
    ],
-   "migrate_count": 6
+   "migrate_count": 7
   },
   {
    "name": "ci",
-   "copies": 5,
-   "repos": 5,
-   "distinct_sizes": 5,
-   "spread_bytes": 3833,
+   "copies": 8,
+   "repos": 8,
+   "distinct_sizes": 8,
+   "spread_bytes": 7444,
    "drifted": true,
    "canonical": "kosh/ci.yml",
    "canonical_bytes": 8707,
-   "plan": "turn the 4 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "plan": "turn the 7 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
+    "DayDoc/ci.yml",
+    "faztest-fast-file-forge/ci.yml",
     "heavenzip/ci.yml",
+    "lm-kit/ci.yml",
     "pico/ci.yml",
     "sui/ci.yml",
     "ziptastic/ci.yml"
    ],
-   "migrate_count": 4
+   "migrate_count": 7
+  },
+  {
+   "name": "links",
+   "copies": 8,
+   "repos": 8,
+   "distinct_sizes": 3,
+   "spread_bytes": 184,
+   "drifted": true,
+   "canonical": "eon-commando/links.yml",
+   "canonical_bytes": 921,
+   "plan": "turn the 7 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "Scrap-and-Gun/links.yml",
+    "aethelgard-rpg-engine/links.yml",
+    "app-story-engine/links.yml",
+    "game-kit/links.yml",
+    "neon-engine/links.yml",
+    "retro-strike/links.yml",
+    "saga-vn-engine/links.yml"
+   ],
+   "migrate_count": 7
+  },
+  {
+   "name": "meta",
+   "copies": 8,
+   "repos": 8,
+   "distinct_sizes": 2,
+   "spread_bytes": 84,
+   "drifted": true,
+   "canonical": "aethelgard-rpg-engine/meta.yml",
+   "canonical_bytes": 904,
+   "plan": "turn the 7 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "Scrap-and-Gun/meta.yml",
+    "app-story-engine/meta.yml",
+    "eon-commando/meta.yml",
+    "game-kit/meta.yml",
+    "neon-engine/meta.yml",
+    "retro-strike/meta.yml",
+    "saga-vn-engine/meta.yml"
+   ],
+   "migrate_count": 7
   },
   {
    "name": "tests",
-   "copies": 5,
-   "repos": 5,
-   "distinct_sizes": 5,
+   "copies": 6,
+   "repos": 6,
+   "distinct_sizes": 6,
    "spread_bytes": 3142,
    "drifted": true,
    "canonical": "app-builder/tests.yml",
    "canonical_bytes": 3636,
-   "plan": "turn the 4 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "plan": "turn the 5 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
+    "Hellgate/test.yml",
     "accent-oracle/test.yml",
     "compfactory/tests.yml",
     "musicgen/test.yml",
     "neon-engine/test.yml"
    ],
-   "migrate_count": 4
+   "migrate_count": 5
   },
   {
    "name": "build",
@@ -330,17 +382,66 @@
   },
   {
    "name": "pages",
-   "copies": 3,
-   "repos": 3,
-   "distinct_sizes": 3,
+   "copies": 4,
+   "repos": 4,
+   "distinct_sizes": 4,
    "spread_bytes": 1143,
    "drifted": true,
    "canonical": "app-builder/pages.yml",
    "canonical_bytes": 2172,
-   "plan": "turn the 2 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "plan": "turn the 3 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
    "migrate": [
+    "Hellgate/pages.yml",
     "forge/pages.yml",
     "musicgen/pages.yml"
+   ],
+   "migrate_count": 3
+  },
+  {
+   "name": "docs",
+   "copies": 3,
+   "repos": 3,
+   "distinct_sizes": 3,
+   "spread_bytes": 2864,
+   "drifted": true,
+   "canonical": "forge/docs.yml",
+   "canonical_bytes": 3647,
+   "plan": "turn the 2 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "neon-engine/docs.yml",
+    "tessera/docs.yml"
+   ],
+   "migrate_count": 2
+  },
+  {
+   "name": "Desktop",
+   "copies": 3,
+   "repos": 3,
+   "distinct_sizes": 3,
+   "spread_bytes": 1477,
+   "drifted": true,
+   "canonical": "savehorse/desktop.yml",
+   "canonical_bytes": 3128,
+   "plan": "turn the 2 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "UniRep/desktop.yml",
+    "app-lantern/desktop.yml"
+   ],
+   "migrate_count": 2
+  },
+  {
+   "name": "check",
+   "copies": 3,
+   "repos": 3,
+   "distinct_sizes": 3,
+   "spread_bytes": 1104,
+   "drifted": true,
+   "canonical": "LARGE_GLOBE/check.yml",
+   "canonical_bytes": 2106,
+   "plan": "turn the 2 other copies into CALLERS of the canonical, so a fix reaches all of them at once",
+   "migrate": [
+    "Cobble/check.yml",
+    "TOOLWORKS/check.yml"
    ],
    "migrate_count": 2
   },
@@ -487,11 +588,21 @@
   "schedule_pileups": [
    {
     "cron": "0 4 * * 1",
-    "count": 3,
+    "count": 4,
     "files": [
+     "LARGE_GLOBE/check.yml",
      "compfactory/dispatch-sync.yml",
      "forge/adopt.yml",
      "forge/audit.yml"
+    ]
+   },
+   {
+    "cron": "0 3 * * 1",
+    "count": 3,
+    "files": [
+     "NEO/bench.yml",
+     "corpus-extendum/scan.yml",
+     "lm-kit/corpus.yml"
     ]
    },
    {
@@ -500,14 +611,6 @@
     "files": [
      "KILN/kiln.yml",
      "iamsingle-sfwa-directory/snapshot-stars.yml"
-    ]
-   },
-   {
-    "cron": "0 3 * * 1",
-    "count": 2,
-    "files": [
-     "NEO/bench.yml",
-     "corpus-extendum/scan.yml"
     ]
    },
    {
@@ -524,6 +627,14 @@
     "files": [
      "UniRep/links.yml",
      "forge/kit-audit.yml"
+    ]
+   },
+   {
+    "cron": "41 3 * * *",
+    "count": 2,
+    "files": [
+     "forge/queue-sync.yml",
+     "kosh/fuzz.yml"
     ]
    },
    {
@@ -548,7 +659,7 @@
    "loops": 1,
    "concurrency_collisions": 0,
    "permission_gaps": 6,
-   "schedule_pileups": 7
+   "schedule_pileups": 8
   }
  }
 }

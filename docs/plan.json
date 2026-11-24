@@ -113,7 +113,7 @@
    "what": "Prove the code, build every platform it ships on, and lint what was written.",
    "auto": true,
    "input": "none - a push runs it",
-   "count": 168,
+   "count": 180,
    "scheduled": [
     {
      "repo": "app-builder",
@@ -204,6 +204,56 @@
      "steps": 33
     },
     {
+     "repo": "DayDoc",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 4,
+     "steps": 27
+    },
+    {
+     "repo": "Hellgate",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "Hellgate",
+     "file": "test.yml",
+     "name": "tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 17
+    },
+    {
+     "repo": "INDIA",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "LARGE_GLOBE",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
      "repo": "MATERIA-MEDICA-BUILDER",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -212,6 +262,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 0
+    },
+    {
+     "repo": "NEO",
+     "file": "dev-build.yml",
+     "name": "Dev build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "Repertorium-Publicum",
@@ -232,6 +292,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 4
+    },
+    {
+     "repo": "SmartNotes",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
+     "repo": "Sorta",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 5,
+     "steps": 25
     },
     {
      "repo": "TTB",
@@ -291,7 +371,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "ai-bridge",
@@ -603,7 +683,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 3
+     "steps": 4
     },
     {
      "repo": "astro-kit",
@@ -623,7 +703,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 3
+     "steps": 4
     },
     {
      "repo": "base-bench",
@@ -783,7 +863,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 2,
-     "steps": 12
+     "steps": 13
     },
     {
      "repo": "crypto-kit",
@@ -834,6 +914,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 3
+    },
+    {
+     "repo": "faztest-fast-file-forge",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 4,
+     "steps": 16
     },
     {
      "repo": "feather",
@@ -907,7 +997,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "gentle-pediatrics-companion",
@@ -947,7 +1037,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 13
+     "steps": 14
     },
     {
      "repo": "helioprism",
@@ -1530,6 +1620,16 @@
      "steps": 6
     },
     {
+     "repo": "savehorse",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
      "repo": "seance",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -1657,7 +1757,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 3
+     "steps": 4
     },
     {
      "repo": "weft8-classroom",
@@ -1767,7 +1867,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "ziptastic",
@@ -1832,6 +1932,56 @@
      "steps": 33
     },
     {
+     "repo": "DayDoc",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 4,
+     "steps": 27
+    },
+    {
+     "repo": "Hellgate",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "Hellgate",
+     "file": "test.yml",
+     "name": "tests",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 17
+    },
+    {
+     "repo": "INDIA",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "LARGE_GLOBE",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
      "repo": "MATERIA-MEDICA-BUILDER",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -1849,7 +1999,17 @@
      "crons": [],
      "dispatchable": false,
      "jobs": 2,
-     "steps": 17
+     "steps": 21
+    },
+    {
+     "repo": "NEO",
+     "file": "dev-build.yml",
+     "name": "Dev build",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 6
     },
     {
      "repo": "Repertorium-Publicum",
@@ -1870,6 +2030,26 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 4
+    },
+    {
+     "repo": "SmartNotes",
+     "file": "test.yml",
+     "name": "test",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
+    },
+    {
+     "repo": "Sorta",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 5,
+     "steps": 25
     },
     {
      "repo": "TTB",
@@ -1929,7 +2109,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "ai-bridge",
@@ -2251,7 +2431,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 3
+     "steps": 4
     },
     {
      "repo": "astro-kit",
@@ -2271,7 +2451,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 3
+     "steps": 4
     },
     {
      "repo": "base-bench",
@@ -2431,7 +2611,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 2,
-     "steps": 12
+     "steps": 13
     },
     {
      "repo": "crypto-kit",
@@ -2482,6 +2662,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 3
+    },
+    {
+     "repo": "faztest-fast-file-forge",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 4,
+     "steps": 16
     },
     {
      "repo": "feather",
@@ -2555,7 +2745,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "gentle-pediatrics-companion",
@@ -2595,7 +2785,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 13
+     "steps": 14
     },
     {
      "repo": "helioprism",
@@ -2736,6 +2926,16 @@
      "dispatchable": true,
      "jobs": 1,
      "steps": 7
+    },
+    {
+     "repo": "lm-kit",
+     "file": "ci.yml",
+     "name": "ci",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": false,
+     "jobs": 1,
+     "steps": 9
     },
     {
      "repo": "lockhtml",
@@ -3198,6 +3398,26 @@
      "steps": 6
     },
     {
+     "repo": "savehorse",
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 0
+    },
+    {
+     "repo": "savehorse",
+     "file": "ci.yml",
+     "name": "CI",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": false,
+     "jobs": 1,
+     "steps": 9
+    },
+    {
      "repo": "seance",
      "file": "build-apps.yml",
      "name": "Build + deploy",
@@ -3275,7 +3495,7 @@
      "crons": [],
      "dispatchable": false,
      "jobs": 5,
-     "steps": 34
+     "steps": 36
     },
     {
      "repo": "tessera-app",
@@ -3345,7 +3565,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 3
+     "steps": 4
     },
     {
      "repo": "weft8-classroom",
@@ -3455,7 +3675,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 4
+     "steps": 5
     },
     {
      "repo": "ziptastic",
@@ -3487,7 +3707,7 @@
    "what": "Publish the release, deploy the live demo, capture the screenshot, and give every app a landing page.",
    "auto": true,
    "input": "none - it follows a build",
-   "count": 51,
+   "count": 56,
    "scheduled": [
     {
      "repo": "Matneo",
@@ -3607,7 +3827,7 @@
      ],
      "dispatchable": true,
      "jobs": 2,
-     "steps": 6
+     "steps": 7
     }
    ],
    "dispatchable": [
@@ -3650,6 +3870,16 @@
      "dispatchable": true,
      "jobs": 4,
      "steps": 26
+    },
+    {
+     "repo": "Hellgate",
+     "file": "pages.yml",
+     "name": "pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
     },
     {
      "repo": "Matneo",
@@ -3706,6 +3936,16 @@
      "dispatchable": true,
      "jobs": 4,
      "steps": 19
+    },
+    {
+     "repo": "Sorta",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 4,
+     "steps": 17
     },
     {
      "repo": "The_Browser",
@@ -3998,6 +4238,16 @@
      "steps": 6
     },
     {
+     "repo": "neon-engine",
+     "file": "docs.yml",
+     "name": "docs",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
      "repo": "neonboom",
      "file": "pages.yml",
      "name": "Deploy to GitHub Pages",
@@ -4080,6 +4330,16 @@
      "steps": 6
     },
     {
+     "repo": "savehorse",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 3,
+     "steps": 16
+    },
+    {
      "repo": "skills",
      "file": "refresh.yml",
      "name": "Refresh catalogue (mechanical)",
@@ -4089,7 +4349,7 @@
      ],
      "dispatchable": true,
      "jobs": 2,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "sui",
@@ -4099,7 +4359,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 11
+     "steps": 14
     },
     {
      "repo": "ziptastic",
@@ -4144,6 +4404,16 @@
      "steps": 0
     },
     {
+     "repo": "DayDoc",
+     "file": "release.yml",
+     "name": "release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": false,
+     "jobs": 2,
+     "steps": 12
+    },
+    {
      "repo": "HMS",
      "file": "release.yml",
      "name": "release",
@@ -4152,6 +4422,16 @@
      "dispatchable": true,
      "jobs": 4,
      "steps": 26
+    },
+    {
+     "repo": "Hellgate",
+     "file": "pages.yml",
+     "name": "pages",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 4
     },
     {
      "repo": "Matneo",
@@ -4208,6 +4488,16 @@
      "dispatchable": true,
      "jobs": 4,
      "steps": 19
+    },
+    {
+     "repo": "Sorta",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 4,
+     "steps": 17
     },
     {
      "repo": "The_Browser",
@@ -4520,6 +4810,16 @@
      "steps": 6
     },
     {
+     "repo": "neon-engine",
+     "file": "docs.yml",
+     "name": "docs",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 1,
+     "steps": 3
+    },
+    {
      "repo": "neonboom",
      "file": "pages.yml",
      "name": "Deploy to GitHub Pages",
@@ -4602,6 +4902,16 @@
      "steps": 6
     },
     {
+     "repo": "savehorse",
+     "file": "release.yml",
+     "name": "Release",
+     "reusable": false,
+     "crons": [],
+     "dispatchable": true,
+     "jobs": 3,
+     "steps": 16
+    },
+    {
      "repo": "skills",
      "file": "refresh.yml",
      "name": "Refresh catalogue (mechanical)",
@@ -4611,7 +4921,7 @@
      ],
      "dispatchable": true,
      "jobs": 2,
-     "steps": 6
+     "steps": 7
     },
     {
      "repo": "sui",
@@ -4621,7 +4931,7 @@
      "crons": [],
      "dispatchable": true,
      "jobs": 1,
-     "steps": 11
+     "steps": 14
     },
     {
      "repo": "tessera",
@@ -5281,6 +5591,26 @@
  ],
  "unplaced": [
   {
+   "repo": "Cobble",
+   "file": "check.yml",
+   "name": "check",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 2,
+   "steps": 12
+  },
+  {
+   "repo": "Cobble",
+   "file": "package.yml",
+   "name": "package",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 2,
+   "steps": 12
+  },
+  {
    "repo": "HCS",
    "file": "vendor-check.yml",
    "name": "vendor-check",
@@ -5289,6 +5619,16 @@
    "dispatchable": true,
    "jobs": 1,
    "steps": 7
+  },
+  {
+   "repo": "INDIA",
+   "file": "site.yml",
+   "name": "site",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": false,
+   "jobs": 2,
+   "steps": 16
   },
   {
    "repo": "KILN",
@@ -5301,6 +5641,30 @@
    "dispatchable": true,
    "jobs": 6,
    "steps": 32
+  },
+  {
+   "repo": "LARGE_GLOBE",
+   "file": "check.yml",
+   "name": "check",
+   "reusable": false,
+   "crons": [
+    "0 4 * * 1"
+   ],
+   "dispatchable": false,
+   "jobs": 2,
+   "steps": 18
+  },
+  {
+   "repo": "Matneo",
+   "file": "book-covers.yml",
+   "name": "book-covers",
+   "reusable": false,
+   "crons": [
+    "0 4 2 * *"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
   },
   {
    "repo": "NEO",
@@ -5401,6 +5765,36 @@
    "steps": 7
   },
   {
+   "repo": "Scrap-and-Gun",
+   "file": "links.yml",
+   "name": "links",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "Scrap-and-Gun",
+   "file": "meta.yml",
+   "name": "meta",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "Sorta",
+   "file": "bench.yml",
+   "name": "Extraction benchmark",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": false,
+   "jobs": 1,
+   "steps": 8
+  },
+  {
    "repo": "TOOLWORKS",
    "file": "check.yml",
    "name": "check",
@@ -5453,6 +5847,26 @@
    "steps": 5
   },
   {
+   "repo": "aethelgard-rpg-engine",
+   "file": "links.yml",
+   "name": "links",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "aethelgard-rpg-engine",
+   "file": "meta.yml",
+   "name": "meta",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
    "repo": "app-lantern",
    "file": "desktop.yml",
    "name": "Desktop",
@@ -5461,6 +5875,26 @@
    "dispatchable": true,
    "jobs": 1,
    "steps": 6
+  },
+  {
+   "repo": "app-story-engine",
+   "file": "links.yml",
+   "name": "links",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "app-story-engine",
+   "file": "meta.yml",
+   "name": "meta",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
   },
   {
    "repo": "audit",
@@ -5587,6 +6021,26 @@
    "steps": 3
   },
   {
+   "repo": "eon-commando",
+   "file": "links.yml",
+   "name": "links",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "eon-commando",
+   "file": "meta.yml",
+   "name": "meta",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
    "repo": "forge",
    "file": "contrast.yml",
    "name": "Contrast",
@@ -5668,6 +6122,18 @@
   },
   {
    "repo": "forge",
+   "file": "queue-sync.yml",
+   "name": "queue-sync",
+   "reusable": false,
+   "crons": [
+    "41 3 * * *"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 5
+  },
+  {
+   "repo": "forge",
    "file": "state-set.yml",
    "name": "state-set",
    "reusable": false,
@@ -5697,6 +6163,26 @@
    "dispatchable": true,
    "jobs": 1,
    "steps": 4
+  },
+  {
+   "repo": "game-kit",
+   "file": "links.yml",
+   "name": "links",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "game-kit",
+   "file": "meta.yml",
+   "name": "meta",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
   },
   {
    "repo": "heavenzip",
@@ -5765,6 +6251,18 @@
    "steps": 5
   },
   {
+   "repo": "lm-kit",
+   "file": "corpus.yml",
+   "name": "corpus",
+   "reusable": false,
+   "crons": [
+    "0 3 * * 1"
+   ],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 9
+  },
+  {
    "repo": "local-first-tools",
    "file": "link-check.yml",
    "name": "Link Check",
@@ -5797,6 +6295,26 @@
    "steps": 7
   },
   {
+   "repo": "neon-engine",
+   "file": "links.yml",
+   "name": "links",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "neon-engine",
+   "file": "meta.yml",
+   "name": "meta",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
    "repo": "neonboom",
    "file": "android.yml",
    "name": "Android APK",
@@ -5824,7 +6342,7 @@
    "crons": [],
    "dispatchable": true,
    "jobs": 1,
-   "steps": 3
+   "steps": 4
   },
   {
    "repo": "planner-pro",
@@ -5835,6 +6353,56 @@
    "dispatchable": true,
    "jobs": 1,
    "steps": 11
+  },
+  {
+   "repo": "retro-strike",
+   "file": "links.yml",
+   "name": "links",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "retro-strike",
+   "file": "meta.yml",
+   "name": "meta",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "saga-vn-engine",
+   "file": "links.yml",
+   "name": "links",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "saga-vn-engine",
+   "file": "meta.yml",
+   "name": "meta",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": true,
+   "jobs": 1,
+   "steps": 3
+  },
+  {
+   "repo": "savehorse",
+   "file": "desktop.yml",
+   "name": "Desktop",
+   "reusable": false,
+   "crons": [],
+   "dispatchable": false,
+   "jobs": 2,
+   "steps": 13
   },
   {
    "repo": "ziptastic",
@@ -5850,10 +6418,10 @@
   }
  ],
  "totals": {
-  "workflows": 238,
-  "unplaced": 52,
+  "workflows": 255,
+  "unplaced": 77,
   "scheduled": 26,
-  "dispatchable": 229,
+  "dispatchable": 243,
   "inputs_for_the_two_everyday_routes": 1
  }
 }

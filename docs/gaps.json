@@ -2,14 +2,15 @@
  "what": "What the inventory implies is missing, and what each gap costs.",
  "counts": {
   "dangling": 1,
-  "drift": 12,
-  "no-concurrency": 120,
-  "no-permissions": 29,
-  "no-timeout": 161,
-  "no-workflows": 17,
+  "drift": 17,
+  "no-concurrency": 135,
+  "no-permissions": 39,
+  "no-timeout": 182,
+  "no-workflows": 14,
   "orphan": 7,
   "outdated-pin": 0,
-  "un-runnable": 13
+  "scheduled-but-not-runnable": 1,
+  "un-runnable": 20
  },
  "worst_first": [
   "dangling",
@@ -19,6 +20,7 @@
   "no-timeout",
   "no-concurrency",
   "un-runnable",
+  "scheduled-but-not-runnable",
   "orphan"
  ],
  "gaps": {
@@ -29,9 +31,34 @@
     "name": "Validate"
    },
    {
+    "repo": "Cobble",
+    "file": "check.yml",
+    "name": "check"
+   },
+   {
+    "repo": "DayDoc",
+    "file": "ci.yml",
+    "name": "ci"
+   },
+   {
     "repo": "HCS",
     "file": "vendor-check.yml",
     "name": "vendor-check"
+   },
+   {
+    "repo": "LARGE_GLOBE",
+    "file": "check.yml",
+    "name": "check"
+   },
+   {
+    "repo": "Sorta",
+    "file": "bench.yml",
+    "name": "Extraction benchmark"
+   },
+   {
+    "repo": "Sorta",
+    "file": "ci.yml",
+    "name": "CI"
    },
    {
     "repo": "ai-bridge",
@@ -64,6 +91,11 @@
     "name": "dispatch-sync"
    },
    {
+    "repo": "faztest-fast-file-forge",
+    "file": "ci.yml",
+    "name": "ci"
+   },
+   {
     "repo": "feather",
     "file": "ci.yml",
     "name": "CI"
@@ -77,6 +109,16 @@
     "repo": "kosh",
     "file": "ci.yml",
     "name": "ci"
+   },
+   {
+    "repo": "lm-kit",
+    "file": "ci.yml",
+    "name": "ci"
+   },
+   {
+    "repo": "lm-kit",
+    "file": "corpus.yml",
+    "name": "corpus"
    },
    {
     "repo": "local-first-tools",
@@ -144,6 +186,16 @@
     "name": "Verify build"
    },
    {
+    "repo": "savehorse",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "savehorse",
+    "file": "desktop.yml",
+    "name": "Desktop"
+   },
+   {
     "repo": "sorex",
     "file": "build.yml",
     "name": "CI"
@@ -191,14 +243,64 @@
     "name": "Deploy the demo"
    },
    {
+    "repo": "Cobble",
+    "file": "check.yml",
+    "name": "check"
+   },
+   {
+    "repo": "Cobble",
+    "file": "package.yml",
+    "name": "package"
+   },
+   {
+    "repo": "DayDoc",
+    "file": "ci.yml",
+    "name": "ci"
+   },
+   {
+    "repo": "DayDoc",
+    "file": "release.yml",
+    "name": "release"
+   },
+   {
     "repo": "HCS",
     "file": "vendor-check.yml",
     "name": "vendor-check"
    },
    {
+    "repo": "Hellgate",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "Hellgate",
+    "file": "pages.yml",
+    "name": "pages"
+   },
+   {
+    "repo": "INDIA",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "INDIA",
+    "file": "site.yml",
+    "name": "site"
+   },
+   {
     "repo": "KILN",
     "file": "kiln.yml",
     "name": "kiln"
+   },
+   {
+    "repo": "LARGE_GLOBE",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "LARGE_GLOBE",
+    "file": "check.yml",
+    "name": "check"
    },
    {
     "repo": "MATERIA-MEDICA-BUILDER",
@@ -229,6 +331,11 @@
     "repo": "NEO",
     "file": "coverage.yml",
     "name": "Coverage"
+   },
+   {
+    "repo": "NEO",
+    "file": "dev-build.yml",
+    "name": "Dev build"
    },
    {
     "repo": "NEO",
@@ -264,6 +371,21 @@
     "repo": "Repertorium-Publicum",
     "file": "test.yml",
     "name": "test"
+   },
+   {
+    "repo": "Sorta",
+    "file": "bench.yml",
+    "name": "Extraction benchmark"
+   },
+   {
+    "repo": "Sorta",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "Sorta",
+    "file": "release.yml",
+    "name": "Release"
    },
    {
     "repo": "TOOLWORKS",
@@ -511,6 +633,11 @@
     "name": "Build apps"
    },
    {
+    "repo": "faztest-fast-file-forge",
+    "file": "ci.yml",
+    "name": "ci"
+   },
+   {
     "repo": "forge",
     "file": "backup.yml",
     "name": "backup"
@@ -654,6 +781,16 @@
     "repo": "kosh",
     "file": "release.yml",
     "name": "release"
+   },
+   {
+    "repo": "lm-kit",
+    "file": "ci.yml",
+    "name": "ci"
+   },
+   {
+    "repo": "lm-kit",
+    "file": "corpus.yml",
+    "name": "corpus"
    },
    {
     "repo": "local-first-tools",
@@ -886,6 +1023,26 @@
     "name": "Build + deploy"
    },
    {
+    "repo": "savehorse",
+    "file": "build-apps.yml",
+    "name": "Build + deploy"
+   },
+   {
+    "repo": "savehorse",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "savehorse",
+    "file": "desktop.yml",
+    "name": "Desktop"
+   },
+   {
+    "repo": "savehorse",
+    "file": "release.yml",
+    "name": "Release"
+   },
+   {
     "repo": "seance",
     "file": "build-apps.yml",
     "name": "Build + deploy"
@@ -978,14 +1135,44 @@
   ],
   "no-concurrency": [
    {
+    "repo": "Cobble",
+    "file": "check.yml",
+    "name": "check"
+   },
+   {
+    "repo": "Cobble",
+    "file": "package.yml",
+    "name": "package"
+   },
+   {
+    "repo": "DayDoc",
+    "file": "ci.yml",
+    "name": "ci"
+   },
+   {
+    "repo": "DayDoc",
+    "file": "release.yml",
+    "name": "release"
+   },
+   {
     "repo": "HCS",
     "file": "vendor-check.yml",
     "name": "vendor-check"
    },
    {
+    "repo": "INDIA",
+    "file": "site.yml",
+    "name": "site"
+   },
+   {
     "repo": "KILN",
     "file": "kiln.yml",
     "name": "kiln"
+   },
+   {
+    "repo": "LARGE_GLOBE",
+    "file": "check.yml",
+    "name": "check"
    },
    {
     "repo": "NEO",
@@ -1014,6 +1201,11 @@
    },
    {
     "repo": "NEO",
+    "file": "dev-build.yml",
+    "name": "Dev build"
+   },
+   {
+    "repo": "NEO",
     "file": "diagnostics.yml",
     "name": "Diagnostics"
    },
@@ -1036,6 +1228,21 @@
     "repo": "NEO",
     "file": "security.yml",
     "name": "Security"
+   },
+   {
+    "repo": "Sorta",
+    "file": "bench.yml",
+    "name": "Extraction benchmark"
+   },
+   {
+    "repo": "Sorta",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "Sorta",
+    "file": "release.yml",
+    "name": "Release"
    },
    {
     "repo": "TOOLWORKS",
@@ -1218,6 +1425,11 @@
     "name": "Fix licence badges"
    },
    {
+    "repo": "faztest-fast-file-forge",
+    "file": "ci.yml",
+    "name": "ci"
+   },
+   {
     "repo": "feather",
     "file": "ci.yml",
     "name": "CI"
@@ -1336,6 +1548,16 @@
     "repo": "kosh",
     "file": "release.yml",
     "name": "release"
+   },
+   {
+    "repo": "lm-kit",
+    "file": "ci.yml",
+    "name": "ci"
+   },
+   {
+    "repo": "lm-kit",
+    "file": "corpus.yml",
+    "name": "corpus"
    },
    {
     "repo": "local-first-tools",
@@ -1513,6 +1735,16 @@
     "name": "Test"
    },
    {
+    "repo": "savehorse",
+    "file": "ci.yml",
+    "name": "CI"
+   },
+   {
+    "repo": "savehorse",
+    "file": "desktop.yml",
+    "name": "Desktop"
+   },
+   {
     "repo": "sorex",
     "file": "build.yml",
     "name": "CI"
@@ -1580,6 +1812,33 @@
   ],
   "un-runnable": [
    {
+    "repo": "DayDoc",
+    "file": "release.yml",
+    "name": "release",
+    "events": [
+     "push"
+    ]
+   },
+   {
+    "repo": "INDIA",
+    "file": "site.yml",
+    "name": "site",
+    "events": [
+     "pull_request",
+     "push"
+    ]
+   },
+   {
+    "repo": "LARGE_GLOBE",
+    "file": "check.yml",
+    "name": "check",
+    "events": [
+     "pull_request",
+     "push",
+     "schedule"
+    ]
+   },
+   {
     "repo": "NEO",
     "file": "accuracy.yml",
     "name": "Accuracy gates",
@@ -1594,6 +1853,14 @@
     "name": "CI",
     "events": [
      "pull_request",
+     "push"
+    ]
+   },
+   {
+    "repo": "Sorta",
+    "file": "bench.yml",
+    "name": "Extraction benchmark",
+    "events": [
      "push"
     ]
    },
@@ -1638,6 +1905,15 @@
     ]
    },
    {
+    "repo": "lm-kit",
+    "file": "ci.yml",
+    "name": "ci",
+    "events": [
+     "pull_request",
+     "push"
+    ]
+   },
+   {
     "repo": "nodus",
     "file": "build.yaml",
     "name": "Linux Build",
@@ -1658,6 +1934,24 @@
     "file": "static-analysis.yaml",
     "name": "Static Analysis",
     "events": [
+     "push"
+    ]
+   },
+   {
+    "repo": "savehorse",
+    "file": "ci.yml",
+    "name": "CI",
+    "events": [
+     "pull_request",
+     "push"
+    ]
+   },
+   {
+    "repo": "savehorse",
+    "file": "desktop.yml",
+    "name": "Desktop",
+    "events": [
+     "pull_request",
      "push"
     ]
    },
@@ -1689,31 +1983,38 @@
     ]
    }
   ],
+  "scheduled-but-not-runnable": [
+   {
+    "repo": "LARGE_GLOBE",
+    "file": "check.yml",
+    "name": "check"
+   }
+  ],
   "drift": [
    {
     "name": "Build + deploy",
-    "copies": 49,
-    "repos": 49,
-    "distinct_sizes": 42,
+    "copies": 53,
+    "repos": 53,
+    "distinct_sizes": 44,
     "spread_bytes": 6934,
     "distinct_shapes": 7,
     "drifted": true,
     "example": [
      "BLINKTRANSFER",
+     "Hellgate",
+     "INDIA",
+     "LARGE_GLOBE",
      "MATERIA-MEDICA-BUILDER",
-     "Repertorium-Publicum",
-     "aethelgard-games",
-     "ambient-sound-studio",
-     "app-clip-loom"
+     "Repertorium-Publicum"
     ]
    },
    {
     "name": "Test",
     "copies": 42,
     "repos": 42,
-    "distinct_sizes": 27,
+    "distinct_sizes": 29,
     "spread_bytes": 5139,
-    "distinct_shapes": 28,
+    "distinct_shapes": 31,
     "drifted": true,
     "example": [
      "app-clip-loom",
@@ -1726,97 +2027,133 @@
    },
    {
     "name": "CI",
-    "copies": 16,
-    "repos": 16,
-    "distinct_sizes": 14,
-    "spread_bytes": 18005,
-    "distinct_shapes": 14,
+    "copies": 18,
+    "repos": 18,
+    "distinct_sizes": 16,
+    "spread_bytes": 18608,
+    "distinct_shapes": 16,
     "drifted": true,
     "example": [
      "BLINKTRANSFER",
      "NEO",
+     "Sorta",
      "ULTIMATE-WINDOWS-OPTIMIZER",
      "aethelgard-rpg-engine",
-     "ai-bridge",
-     "blinkcode-ai"
+     "ai-bridge"
     ]
    },
    {
     "name": "test",
-    "copies": 11,
-    "repos": 11,
-    "distinct_sizes": 9,
+    "copies": 12,
+    "repos": 12,
+    "distinct_sizes": 11,
     "spread_bytes": 5414,
-    "distinct_shapes": 9,
+    "distinct_shapes": 11,
     "drifted": true,
     "example": [
      "Repertorium-Publicum",
+     "SmartNotes",
      "app-encrypted-case-log",
      "art-kit",
      "audio-kit",
-     "dashboard",
-     "export-kit"
+     "dashboard"
     ]
    },
    {
     "name": "Release",
-    "copies": 8,
-    "repos": 8,
-    "distinct_sizes": 7,
+    "copies": 10,
+    "repos": 10,
+    "distinct_sizes": 9,
     "spread_bytes": 8477,
-    "distinct_shapes": 7,
+    "distinct_shapes": 9,
     "drifted": true,
     "example": [
      "NEO",
+     "Sorta",
      "ai-bridge",
      "app-lantern",
      "feather",
-     "holistic",
-     "kinemorph"
+     "holistic"
     ]
    },
    {
     "name": "release",
-    "copies": 7,
-    "repos": 7,
-    "distinct_sizes": 7,
-    "spread_bytes": 8683,
-    "distinct_shapes": 7,
+    "copies": 8,
+    "repos": 8,
+    "distinct_sizes": 8,
+    "spread_bytes": 8733,
+    "distinct_shapes": 8,
     "drifted": true,
     "example": [
+     "DayDoc",
      "HMS",
      "forge",
      "kitbox",
      "kosh",
-     "lumen",
-     "pico"
+     "lumen"
     ]
    },
    {
     "name": "ci",
-    "copies": 5,
-    "repos": 5,
-    "distinct_sizes": 5,
-    "spread_bytes": 3833,
-    "distinct_shapes": 5,
+    "copies": 8,
+    "repos": 8,
+    "distinct_sizes": 8,
+    "spread_bytes": 7444,
+    "distinct_shapes": 8,
     "drifted": true,
     "example": [
+     "DayDoc",
+     "faztest-fast-file-forge",
      "heavenzip",
      "kosh",
-     "pico",
-     "sui",
-     "ziptastic"
+     "lm-kit",
+     "pico"
+    ]
+   },
+   {
+    "name": "links",
+    "copies": 8,
+    "repos": 8,
+    "distinct_sizes": 3,
+    "spread_bytes": 184,
+    "distinct_shapes": 1,
+    "drifted": false,
+    "example": [
+     "Scrap-and-Gun",
+     "aethelgard-rpg-engine",
+     "app-story-engine",
+     "eon-commando",
+     "game-kit",
+     "neon-engine"
+    ]
+   },
+   {
+    "name": "meta",
+    "copies": 8,
+    "repos": 8,
+    "distinct_sizes": 2,
+    "spread_bytes": 84,
+    "distinct_shapes": 1,
+    "drifted": false,
+    "example": [
+     "Scrap-and-Gun",
+     "aethelgard-rpg-engine",
+     "app-story-engine",
+     "eon-commando",
+     "game-kit",
+     "neon-engine"
     ]
    },
    {
     "name": "tests",
-    "copies": 5,
-    "repos": 5,
-    "distinct_sizes": 5,
+    "copies": 6,
+    "repos": 6,
+    "distinct_sizes": 6,
     "spread_bytes": 3142,
-    "distinct_shapes": 5,
+    "distinct_shapes": 6,
     "drifted": true,
     "example": [
+     "Hellgate",
      "accent-oracle",
      "app-builder",
      "compfactory",
@@ -1841,16 +2178,59 @@
    },
    {
     "name": "pages",
-    "copies": 3,
-    "repos": 3,
-    "distinct_sizes": 3,
+    "copies": 4,
+    "repos": 4,
+    "distinct_sizes": 4,
     "spread_bytes": 1143,
-    "distinct_shapes": 3,
+    "distinct_shapes": 4,
     "drifted": true,
     "example": [
+     "Hellgate",
      "app-builder",
      "forge",
      "musicgen"
+    ]
+   },
+   {
+    "name": "docs",
+    "copies": 3,
+    "repos": 3,
+    "distinct_sizes": 3,
+    "spread_bytes": 2864,
+    "distinct_shapes": 3,
+    "drifted": true,
+    "example": [
+     "forge",
+     "neon-engine",
+     "tessera"
+    ]
+   },
+   {
+    "name": "Desktop",
+    "copies": 3,
+    "repos": 3,
+    "distinct_sizes": 3,
+    "spread_bytes": 1477,
+    "distinct_shapes": 3,
+    "drifted": true,
+    "example": [
+     "UniRep",
+     "app-lantern",
+     "savehorse"
+    ]
+   },
+   {
+    "name": "check",
+    "copies": 3,
+    "repos": 3,
+    "distinct_sizes": 3,
+    "spread_bytes": 1104,
+    "distinct_shapes": 3,
+    "drifted": true,
+    "example": [
+     "Cobble",
+     "LARGE_GLOBE",
+     "TOOLWORKS"
     ]
    },
    {
@@ -1914,13 +2294,7 @@
   ],
   "no-workflows": [
    {
-    "repo": "Scrap-and-Gun"
-   },
-   {
     "repo": "Single-File-Web-Apps"
-   },
-   {
-    "repo": "SmartNotes"
    },
    {
     "repo": "awesome-singlefile-tools"
@@ -1954,9 +2328,6 @@
    },
    {
     "repo": "profile-kit"
-   },
-   {
-    "repo": "saga-vn-engine"
    },
    {
     "repo": "smartnote-scheduler"

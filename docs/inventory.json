@@ -1,14 +1,12 @@
 {
  "what": "Every workflow in every repo, with its triggers, jobs, steps and calls.",
  "summary": {
-  "repos": 151,
+  "repos": 160,
   "scope": "all",
   "scope_note": "read with a token that can see every repository the account owns",
   "skipped": [],
   "repos_without_workflows": [
-   "Scrap-and-Gun",
    "Single-File-Web-Apps",
-   "SmartNotes",
    "awesome-singlefile-tools",
    "corefit-md",
    "corpus-extendum-vault-01",
@@ -20,21 +18,20 @@
    "frame-kit",
    "homoeopathic-materia-medica-repertory-json",
    "profile-kit",
-   "saga-vn-engine",
    "smartnote-scheduler",
    "volumen"
   ],
-  "workflows": 290,
+  "workflows": 332,
   "reusable": 11,
-  "scheduled": 50,
-  "dispatchable": 277,
+  "scheduled": 54,
+  "dispatchable": 312,
   "parse_errors": [],
   "schema_checked": true,
   "schema_check_error": "",
   "invalid_workflows": [],
-  "jobs": 407,
-  "steps": 2010,
-  "edges": 61,
+  "jobs": 470,
+  "steps": 2338,
+  "edges": 65,
   "dangling_calls": [
    {
     "from_repo": "nodus",
@@ -124,6 +121,30 @@
     "from": "deploy-demo.yml",
     "to": "drsamonline/app-builder/.github/workflows/pages.yml",
     "resolved": "app-builder/.github/workflows/pages.yml",
+    "at": "85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c",
+    "exists": true
+   },
+   {
+    "from_repo": "Hellgate",
+    "from": "build-apps.yml",
+    "to": "drsamonline/app-builder/.github/workflows/build.yml",
+    "resolved": "app-builder/.github/workflows/build.yml",
+    "at": "85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c",
+    "exists": true
+   },
+   {
+    "from_repo": "INDIA",
+    "from": "build-apps.yml",
+    "to": "drsamonline/app-builder/.github/workflows/build.yml",
+    "resolved": "app-builder/.github/workflows/build.yml",
+    "at": "85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c",
+    "exists": true
+   },
+   {
+    "from_repo": "LARGE_GLOBE",
+    "from": "build-apps.yml",
+    "to": "drsamonline/app-builder/.github/workflows/build.yml",
+    "resolved": "app-builder/.github/workflows/build.yml",
     "at": "85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c",
     "exists": true
    },
@@ -512,6 +533,14 @@
     "exists": true
    },
    {
+    "from_repo": "savehorse",
+    "from": "build-apps.yml",
+    "to": "drsamonline/app-builder/.github/workflows/build.yml",
+    "resolved": "app-builder/.github/workflows/build.yml",
+    "at": "85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c",
+    "exists": true
+   },
+   {
     "from_repo": "seance",
     "from": "build-apps.yml",
     "to": "drsamonline/app-builder/.github/workflows/build.yml",
@@ -603,6 +632,9 @@
   "calls_me": {
    "app-builder/.github/workflows/build.yml": [
     "BLINKTRANSFER/build-apps.yml",
+    "Hellgate/build-apps.yml",
+    "INDIA/build-apps.yml",
+    "LARGE_GLOBE/build-apps.yml",
     "MATERIA-MEDICA-BUILDER/build-apps.yml",
     "Repertorium-Publicum/build-apps.yml",
     "aethelgard-games/build-apps.yml",
@@ -644,6 +676,7 @@
     "read-live-transform-app/build-apps.yml",
     "remedy-relationship-explorer/build-apps.yml",
     "retro-strike/build-apps.yml",
+    "savehorse/build-apps.yml",
     "seance/build-apps.yml",
     "skin-case-tracker/build-apps.yml",
     "smartbill-app/build-apps.yml",
@@ -869,7 +902,7 @@
         {
          "name": "Focused tool tests",
          "run": "python tests/test_markdown_to_csv.py",
-         "shell_lines": 3
+         "shell_lines": 4
         },
         {
          "name": "Hostile input (no tool may answer a bad paste with a traceback)",
@@ -943,7 +976,7 @@
      ],
      "concurrency_cancels": true,
      "signature": "audit-and-sweep:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install optional dependencies used by the sweep,Repository and catalogue audit,Run every runnable tool against fixtures,Windows-only tool logic with a stubbed PowerShell,Focused tool tests,Hostile input (no tool may answer a bad paste with a traceback),Generated docs are up to date,Lint (advisory),CLI smoke test|desktop-smoke:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install Qt runtime libraries,Build the window headlessly and walk every page,Upload screenshots",
-     "bytes": 2810,
+     "bytes": 2850,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -1664,6 +1697,603 @@
    "pages": {}
   },
   {
+   "repo": "Cobble",
+   "workflows": [
+    {
+     "file": "check.yml",
+     "name": "check",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "check",
+       "name": "check",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Local links, precache list, manifest and CDN references",
+         "run": "node tools/check-links.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "Size budget",
+         "run": "node tools/check-size.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "Version agreement",
+         "run": "node tools/check-version.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "Unit tests",
+         "run": "node --test tests/",
+         "shell_lines": 1
+        },
+        {
+         "name": "Script syntax",
+         "run": "for f in sw.js app/*.js assets/*.js tools/*.mjs tests/*.mjs; do",
+         "shell_lines": 5
+        }
+       ]
+      },
+      {
+       "id": "browser",
+       "name": "browser check",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "cache",
+          "node-version"
+         ]
+        },
+        {
+         "name": "Install",
+         "run": "npm ci",
+         "shell_lines": 1
+        },
+        {
+         "name": "Install Chrome",
+         "uses": "browser-actions/setup-chrome@v1"
+        },
+        {
+         "name": "axe, layout shift and a smoke test",
+         "run": "node tools/browser-check.mjs",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 2,
+     "steps_count": 12,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "browser:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Install,Install Chrome,axe, layout shift and a smoke test|check:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Local links, precache list, manifest and CDN references,Size budget,Version agreement,Unit tests,Script syntax",
+     "bytes": 1461,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
+      "matrix": false,
+      "cache": true,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "package.yml",
+     "name": "package",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "desktop",
+       "name": "desktop (${{ matrix.os }})",
+       "runs_on": "${{ matrix.os }}",
+       "needs": [],
+       "if": "${{ inputs.target == 'both' || inputs.target == 'desktop' }}",
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Linux system libraries for Tauri",
+         "run": "sudo apt-get update",
+         "shell_lines": 2
+        },
+        {
+         "name": "dtolnay/rust-toolchain@stable",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Install and build",
+         "run": "npm install",
+         "shell_lines": 2
+        },
+        {
+         "name": "actions/upload-artifact@v4",
+         "uses": "actions/upload-artifact@v4",
+         "with_keys": [
+          "if-no-files-found",
+          "name",
+          "path"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "android",
+       "name": "android (debug apk)",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": "${{ inputs.target == 'both' || inputs.target == 'android' }}",
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "actions/setup-java@v4",
+         "uses": "actions/setup-java@v4",
+         "with_keys": [
+          "distribution",
+          "java-version"
+         ]
+        },
+        {
+         "name": "android-actions/setup-android@v3",
+         "uses": "android-actions/setup-android@v3"
+        },
+        {
+         "name": "Build the APK",
+         "run": "npm install",
+         "shell_lines": 6
+        },
+        {
+         "name": "actions/upload-artifact@v4",
+         "uses": "actions/upload-artifact@v4",
+         "with_keys": [
+          "if-no-files-found",
+          "name",
+          "path"
+         ]
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 2,
+     "steps_count": 12,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "android:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,actions/setup-java@v4,android-actions/setup-android@v3,Build the APK,actions/upload-artifact@v4|desktop:${{ matrix.os }}:actions/checkout@v4,actions/setup-node@v4,Linux system libraries for Tauri,dtolnay/rust-toolchain@stable,Install and build,actions/upload-artifact@v4",
+     "bytes": 2856,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": true,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": false,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
+   "repo": "DayDoc",
+   "workflows": [
+    {
+     "file": "ci.yml",
+     "name": "ci",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "build and test (${{ matrix.os }})",
+       "runs_on": "${{ matrix.os }}",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "dtolnay/rust-toolchain@stable",
+         "uses": "dtolnay/rust-toolchain@stable",
+         "with_keys": [
+          "components"
+         ]
+        },
+        {
+         "name": "Swatinem/rust-cache@v2",
+         "uses": "Swatinem/rust-cache@v2"
+        },
+        {
+         "name": "format",
+         "run": "cargo fmt --all --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "clippy",
+         "run": "cargo clippy --all-targets -- -D warnings",
+         "shell_lines": 1
+        },
+        {
+         "name": "build",
+         "run": "cargo build --all-targets",
+         "shell_lines": 1
+        },
+        {
+         "name": "build the core alone",
+         "run": "cargo build --no-default-features",
+         "shell_lines": 1
+        },
+        {
+         "name": "test the core alone",
+         "run": "cargo test --no-default-features --lib",
+         "shell_lines": 1
+        },
+        {
+         "name": "demo script",
+         "run": "export DAYDOC=./target/debug/daydoc",
+         "shell_lines": 2
+        },
+        {
+         "name": "test",
+         "run": "cargo test --all-targets",
+         "shell_lines": 1
+        },
+        {
+         "name": "release build",
+         "run": "cargo build --release",
+         "shell_lines": 1
+        }
+       ]
+      },
+      {
+       "id": "packaging",
+       "name": "debian package",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "dtolnay/rust-toolchain@stable",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Swatinem/rust-cache@v2",
+         "uses": "Swatinem/rust-cache@v2"
+        },
+        {
+         "name": "install cargo-deb",
+         "run": "cargo install cargo-deb --locked",
+         "shell_lines": 1
+        },
+        {
+         "name": "build the .deb",
+         "run": "cargo deb",
+         "shell_lines": 1
+        },
+        {
+         "name": "show what was built",
+         "run": "ls -l target/debian/*.deb",
+         "shell_lines": 1
+        }
+       ]
+      },
+      {
+       "id": "compat",
+       "name": "runs on an older glibc",
+       "runs_on": "ubuntu-22.04",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "dtolnay/rust-toolchain@stable",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Swatinem/rust-cache@v2",
+         "uses": "Swatinem/rust-cache@v2"
+        },
+        {
+         "name": "build the release binary",
+         "run": "cargo build --release",
+         "shell_lines": 1
+        },
+        {
+         "name": "run it on debian 12",
+         "run": "docker run --rm \\",
+         "shell_lines": 10
+        }
+       ]
+      },
+      {
+       "id": "model",
+       "name": "the model matches onnxruntime",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "dtolnay/rust-toolchain@stable",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Swatinem/rust-cache@v2",
+         "uses": "Swatinem/rust-cache@v2"
+        },
+        {
+         "name": "fetch all-MiniLM-L6-v2",
+         "run": "bash scripts/fetch-model.sh \"$PWD/models\"",
+         "shell_lines": 1
+        },
+        {
+         "name": "compare against the reference",
+         "run": "cargo test --test minilm -- --nocapture",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 4,
+     "steps_count": 27,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "compat:ubuntu-22.04:actions/checkout@v4,dtolnay/rust-toolchain@stable,Swatinem/rust-cache@v2,build the release binary,run it on debian 12|model:ubuntu-latest:actions/checkout@v4,dtolnay/rust-toolchain@stable,Swatinem/rust-cache@v2,fetch all-MiniLM-L6-v2,compare against the reference|packaging:ubuntu-latest:actions/checkout@v4,dtolnay/rust-toolchain@stable,Swatinem/rust-cache@v2,install cargo-deb,build the .deb,show what was built|test:${{ matrix.os }}:actions/checkout@v4,dtolnay/rust-toolchain@stable,Swatinem/rust-cache@v2,format,clippy,build,build the core alone,test the core alone,demo script,test,release build",
+     "bytes": 3402,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
+      "matrix": true,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "release.yml",
+     "name": "release",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "binaries",
+       "name": "binary (${{ matrix.target }})",
+       "runs_on": "${{ matrix.os }}",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "dtolnay/rust-toolchain@stable",
+         "uses": "dtolnay/rust-toolchain@stable",
+         "with_keys": [
+          "targets"
+         ]
+        },
+        {
+         "name": "Swatinem/rust-cache@v2",
+         "uses": "Swatinem/rust-cache@v2"
+        },
+        {
+         "name": "install build tooling",
+         "run": "sudo apt-get update && sudo apt-get install -y ${{ matrix.apt }}",
+         "shell_lines": 1
+        },
+        {
+         "name": "test before packaging",
+         "run": "cargo test --all-targets",
+         "shell_lines": 1
+        },
+        {
+         "name": "package and upload",
+         "uses": "taiki-e/upload-rust-binary-action@v1",
+         "with_keys": [
+          "archive",
+          "bin",
+          "target",
+          "token"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "deb",
+       "name": "debian package",
+       "runs_on": "ubuntu-22.04",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "dtolnay/rust-toolchain@stable",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Swatinem/rust-cache@v2",
+         "uses": "Swatinem/rust-cache@v2"
+        },
+        {
+         "name": "install cargo-deb",
+         "run": "cargo install cargo-deb --locked",
+         "shell_lines": 1
+        },
+        {
+         "name": "build .deb",
+         "run": "cargo deb",
+         "shell_lines": 1
+        },
+        {
+         "name": "upload .deb",
+         "uses": "softprops/action-gh-release@v2",
+         "with_keys": [
+          "files"
+         ]
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write"
+     },
+     "jobs_count": 2,
+     "steps_count": 12,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "binaries:${{ matrix.os }}:actions/checkout@v4,dtolnay/rust-toolchain@stable,Swatinem/rust-cache@v2,install build tooling,test before packaging,package and upload|deb:ubuntu-22.04:actions/checkout@v4,dtolnay/rust-toolchain@stable,Swatinem/rust-cache@v2,install cargo-deb,build .deb,upload .deb",
+     "bytes": 1873,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": true,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
    "repo": "HCS",
    "workflows": [
     {
@@ -2032,6 +2662,510 @@
    }
   },
   {
+   "repo": "Hellgate",
+   "workflows": [
+    {
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "app",
+       "name": "app",
+       "runs_on": "reusable",
+       "needs": [],
+       "if": null,
+       "steps": [],
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c"
+      }
+     ],
+     "calls": [
+      "drsamonline/app-builder/.github/workflows/build.yml@85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c"
+     ],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pages": "write",
+      "id-token": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 0,
+     "concurrency_groups": [
+      "build"
+     ],
+     "concurrency_cancels": true,
+     "signature": "app:reusable:",
+     "bytes": 1534,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "pages.yml",
+     "name": "pages",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "mirror",
+       "name": "mirror",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Stamp the build version into every module URL",
+         "run": "node tools/stamp-cache.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "Mirror main to gh-pages",
+         "run": "git config user.name \"github-actions\"",
+         "shell_lines": 5
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [
+      "pages-mirror"
+     ],
+     "concurrency_cancels": false,
+     "signature": "mirror:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@v4,Stamp the build version into every module URL,Mirror main to gh-pages",
+     "bytes": 1268,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": true,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "test.yml",
+     "name": "tests",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "headless",
+       "name": "headless",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Install puppeteer-core",
+         "run": "npm install --no-save puppeteer-core",
+         "shell_lines": 1
+        },
+        {
+         "name": "Syntax check every module",
+         "run": "for f in play/src/*.js; do node --check \"$f\"; done",
+         "shell_lines": 2
+        },
+        {
+         "name": "Headless suites",
+         "run": "bash tests/run.sh",
+         "shell_lines": 1
+        },
+        {
+         "name": "Check the README's claims",
+         "run": "node tools/check-claims.js",
+         "shell_lines": 1
+        },
+        {
+         "name": "Exported symbols are documented",
+         "run": "node tools/check-docs.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "The test double covers what the game uses",
+         "run": "node tools/check-stub.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "No dead exports or conflicting constants",
+         "run": "node tools/audit-dead.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "PAGES.json paths still exist",
+         "run": "node tools/check-pages.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "Every local link and asset resolves",
+         "run": "node tools/check-links.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "Every file the landing pages point at exists",
+         "run": "node tools/check-assets.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "Version and licence agree with their files",
+         "run": "node tools/check-meta.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "Install a browser",
+         "uses": "browser-actions/setup-chrome@v1",
+         "with_keys": [
+          "chrome-version"
+         ]
+        },
+        {
+         "name": "Browser smoke test",
+         "run": "node tools/smoke.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "Draw calls per level stay inside the budget",
+         "run": "node tools/drawcalls.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "Invariants hold over the campaign, not just the zones",
+         "run": "node tools/audit-invariants.mjs",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 17,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "headless:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Install puppeteer-core,Syntax check every module,Headless suites,Check the README's claims,Exported symbols are documented,The test double covers what the game uses,No dead exports or conflicting constants,PAGES.json paths still exist,Every local link and asset resolves,Every file the landing pages point at exists,Version and licence agree with their files,Install a browser,Browser smoke test,Draw calls per level stay inside the budget,Invariants hold over the campaign, not just the zones",
+     "bytes": 2728,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {
+    "landing": "index.html",
+    "app": "play/index.html",
+    "deleted": 0,
+    "manual": true
+   }
+  },
+  {
+   "repo": "INDIA",
+   "workflows": [
+    {
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "app",
+       "name": "app",
+       "runs_on": "reusable",
+       "needs": [],
+       "if": null,
+       "steps": [],
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c"
+      }
+     ],
+     "calls": [
+      "drsamonline/app-builder/.github/workflows/build.yml@85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c"
+     ],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pages": "write",
+      "id-token": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 0,
+     "concurrency_groups": [
+      "build"
+     ],
+     "concurrency_cancels": true,
+     "signature": "app:reusable:",
+     "bytes": 1531,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "site.yml",
+     "name": "site",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "build",
+       "name": "rebuild pages and check links",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Install build dependencies",
+         "run": "pip install --quiet pillow",
+         "shell_lines": 1
+        },
+        {
+         "name": "Regenerate pages from data/monuments.json",
+         "run": "python3 tools/build_site.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Regenerate the Taj Mahal page",
+         "run": "python3 tools/build_taj.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Fail if the generated pages are stale",
+         "run": "if [ -n \"$(git status --porcelain)\" ]; then",
+         "shell_lines": 5
+        },
+        {
+         "name": "Check internal links and assets",
+         "run": "python3 tools/linkcheck.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Audit the data file",
+         "run": "python3 tools/audit_data.py --strict",
+         "shell_lines": 1
+        },
+        {
+         "name": "No material tinted off a textured base",
+         "run": "python3 tools/tintcheck.py --ci",
+         "shell_lines": 1
+        }
+       ]
+      },
+      {
+       "id": "render",
+       "name": "render a page in a headless browser",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": "github.event_name == 'pull_request'",
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Install Playwright and Chromium",
+         "run": "pip install --quiet pillow playwright",
+         "shell_lines": 2
+        },
+        {
+         "name": "Resolve the Chromium path",
+         "run": "python - <<'EOF'",
+         "shell_lines": 6
+        },
+        {
+         "name": "Boot two pages and check for console errors",
+         "run": "python3 tools/check_all.py --only qutub-minar golden-temple --out shots",
+         "shell_lines": 1
+        },
+        {
+         "name": "Check the accessibility contract",
+         "run": "python3 tools/check_a11y.py --only qutub-minar",
+         "shell_lines": 1
+        },
+        {
+         "name": "Exercise the documented keyboard shortcuts",
+         "run": "python3 tools/check_ui.py --only qutub-minar",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 2,
+     "steps_count": 16,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "build:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install build dependencies,Regenerate pages from data/monuments.json,Regenerate the Taj Mahal page,Fail if the generated pages are stale,Check internal links and assets,Audit the data file,No material tinted off a textured base|render:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Install Playwright and Chromium,Resolve the Chromium path,Boot two pages and check for console errors,Check the accessibility contract,Exercise the documented keyboard shortcuts",
+     "bytes": 2281,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
    "repo": "KILN",
    "workflows": [
     {
@@ -2337,6 +3471,233 @@
    }
   },
   {
+   "repo": "LARGE_GLOBE",
+   "workflows": [
+    {
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "app",
+       "name": "app",
+       "runs_on": "reusable",
+       "needs": [],
+       "if": null,
+       "steps": [],
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c"
+      }
+     ],
+     "calls": [
+      "drsamonline/app-builder/.github/workflows/build.yml@85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c"
+     ],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pages": "write",
+      "id-token": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 0,
+     "concurrency_groups": [
+      "build"
+     ],
+     "concurrency_cancels": true,
+     "signature": "app:reusable:",
+     "bytes": 2383,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "check.yml",
+     "name": "check",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "schedule"
+      ],
+      "crons": [
+       "0 4 * * 1"
+      ],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "structure",
+       "name": "structure",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Internal links, images, and page invariants",
+         "run": "python tools/check-structure.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Landing page, demo, robots and sitemaps",
+         "run": "python tools/check-docs.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Size budget",
+         "run": "python tools/check-size.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Shared shell is in step with index.html",
+         "run": "python tools/rebuild-shell.py --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "charts.html is in step with the ledger",
+         "run": "python tools/rebuild-charts.py --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "EPUB structure",
+         "run": "python tools/check-epub.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Feed lists current entries",
+         "run": "python tools/build-feed.py --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "Stylesheet hash is current on every page",
+         "run": "python tools/stamp-css.py --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "Sitemap lists every page",
+         "run": "python tools/build-sitemap.py --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "README numbers match the repository",
+         "run": "python tools/update-readme.py --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "Arithmetic claims in the mathematics dossiers",
+         "run": "pip install --quiet sympy",
+         "shell_lines": 2
+        },
+        {
+         "name": "Images, credits and counts agree",
+         "run": "pip install --quiet pillow",
+         "shell_lines": 2
+        }
+       ]
+      },
+      {
+       "id": "external-links",
+       "name": "external-links",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": "github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'",
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Every cited URL still answers",
+         "run": "python tools/check-links.py --report dead-links.md",
+         "shell_lines": 1
+        },
+        {
+         "name": "actions/upload-artifact@v4",
+         "uses": "actions/upload-artifact@v4",
+         "with_keys": [
+          "name",
+          "path"
+         ]
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 2,
+     "steps_count": 18,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "external-links:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Every cited URL still answers,actions/upload-artifact@v4|structure:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,Internal links, images, and page invariants,Landing page, demo, robots and sitemaps,Size budget,Shared shell is in step with index.html,charts.html is in step with the ledger,EPUB structure,Feed lists current entries,Stylesheet hash is current on every page,Sitemap lists every page,README numbers match the repository,Arithmetic claims in the mathematics dossiers,Images, credits and counts agree",
+     "bytes": 2106,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
    "repo": "MATERIA-MEDICA-BUILDER",
    "workflows": [
     {
@@ -2492,6 +3853,80 @@
       "commits": false,
       "pulls": false,
       "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "book-covers.yml",
+     "name": "book-covers",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "schedule",
+       "workflow_dispatch"
+      ],
+      "crons": [
+       "0 4 2 * *"
+      ],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "covers",
+       "name": "covers",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "Copy the covers from the catalogue's coverSource",
+         "run": "python3 - <<'PY'",
+         "shell_lines": 47
+        },
+        {
+         "name": "Commit the covers",
+         "run": "if [ -z \"$(git status --porcelain docs/images/covers)\" ]; then",
+         "shell_lines": 5
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "book-covers"
+     ],
+     "concurrency_cancels": false,
+     "signature": "covers:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,Copy the covers from the catalogue's coverSource,Commit the covers",
+     "bytes": 4565,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": true,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": false,
       "pages_deploy": false,
       "writes_paths": []
      }
@@ -2830,7 +4265,7 @@
         {
          "name": "Install wasm-tools",
          "run": "set -eu",
-         "shell_lines": 6
+         "shell_lines": 16
         },
         {
          "name": "Every emitted module is well-formed",
@@ -2851,7 +4286,7 @@
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "sanitizers:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec,run,Every generated C program is memory-safe and free of undefined behaviour|wasm-validation:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec,run,Install wasm-tools,Every emitted module is well-formed",
-     "bytes": 6088,
+     "bytes": 6818,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -3027,6 +4462,26 @@
          "shell_lines": 1
         },
         {
+         "name": "A type keeps its arguments, and an expression keeps its shape",
+         "run": "python3 tools/type-name-check.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Every declared module has items",
+         "run": "python3 tools/module-check.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "ARCHITECTURE.md matches the repository",
+         "run": "python3 tools/architecture-check.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "The published status matches the repository",
+         "run": "python3 tools/status.py --check",
+         "shell_lines": 1
+        },
+        {
          "name": "run",
          "run": "cargo build --workspace --all-targets",
          "shell_lines": 1
@@ -3044,7 +4499,7 @@
         {
          "name": "Every standard-library module emits C, and the C compiles",
          "run": "# Compiling is the point. Emitting alone let `math` ship a module whose C",
-         "shell_lines": 40
+         "shell_lines": 43
         },
         {
          "name": "Generated JavaScript runs",
@@ -3071,11 +4526,11 @@
       "contents": "read"
      },
      "jobs_count": 2,
-     "steps_count": 17,
+     "steps_count": 21,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "lint:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec,run,run|rust-workspace:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec,Every document is written, reachable and explained,The stdlib README matches what the stdlib can actually run,The grammar still describes the compiler,Every shipped example is a NOVA program,run,run,Every example builds and runs,Every standard-library module emits C, and the C compiles,Generated JavaScript runs,Generated Rust runs,Every example and parity program agrees across backends",
-     "bytes": 6222,
+     "signature": "lint:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec,run,run|rust-workspace:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec,Every document is written, reachable and explained,The stdlib README matches what the stdlib can actually run,The grammar still describes the compiler,Every shipped example is a NOVA program,A type keeps its arguments, and an expression keeps its shape,Every declared module has items,ARCHITECTURE.md matches the repository,The published status matches the repository,run,run,Every example builds and runs,Every standard-library module emits C, and the C compiles,Generated JavaScript runs,Generated Rust runs,Every example and parity program agrees across backends",
+     "bytes": 7872,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -3251,6 +4706,91 @@
       "commits": false,
       "pulls": false,
       "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "dev-build.yml",
+     "name": "Dev build",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "build",
+       "name": "Build and upload",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec",
+         "uses": "dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec"
+        },
+        {
+         "name": "Build",
+         "run": "cargo build --workspace",
+         "shell_lines": 1
+        },
+        {
+         "name": "Smoke-test what is about to be uploaded",
+         "run": "set -eu",
+         "shell_lines": 3
+        },
+        {
+         "name": "Collect",
+         "run": "set -eu",
+         "shell_lines": 10
+        },
+        {
+         "name": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+         "uses": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+         "with_keys": [
+          "if-no-files-found",
+          "name",
+          "path",
+          "retention-days"
+         ]
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 6,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "build:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec,Build,Smoke-test what is about to be uploaded,Collect,actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+     "bytes": 2066,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": false,
       "pages_deploy": false,
       "writes_paths": []
      }
@@ -4004,6 +5544,732 @@
       "concurrency": true,
       "permissions": true,
       "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
+   "repo": "Scrap-and-Gun",
+   "workflows": [
+    {
+     "file": "links.yml",
+     "name": "links",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "links",
+       "name": "links",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Every local link and asset resolves",
+         "run": "node tools/check-links.mjs",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "links:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Every local link and asset resolves",
+     "bytes": 737,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "meta.yml",
+     "name": "meta",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "meta",
+       "name": "meta",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Version and licence agree with their files",
+         "run": "node tools/check-meta.mjs .",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "meta:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Version and licence agree with their files",
+     "bytes": 820,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": "docs/play/index.html",
+    "deleted": 3,
+    "manual": true
+   }
+  },
+  {
+   "repo": "SmartNotes",
+   "workflows": [
+    {
+     "file": "test.yml",
+     "name": "test",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "unit-tests",
+       "name": "unit tests",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "cache",
+          "node-version"
+         ]
+        },
+        {
+         "name": "Install dependencies",
+         "run": "npm ci --legacy-peer-deps --no-audit --no-fund",
+         "shell_lines": 1
+        },
+        {
+         "name": "Run the test suite",
+         "run": "set +e",
+         "shell_lines": 11
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 4,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": true,
+     "signature": "unit-tests:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Install dependencies,Run the test suite",
+     "bytes": 3015,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": true,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {
+    "landing": "docs/index.html",
+    "app": null,
+    "deleted": 1,
+    "manual": true
+   }
+  },
+  {
+   "repo": "Sorta",
+   "workflows": [
+    {
+     "file": "bench.yml",
+     "name": "Extraction benchmark",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push"
+      ],
+      "crons": [],
+      "paths": [
+       "push:.github/workflows/bench.yml"
+      ],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "bench",
+       "name": "bench",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "dtolnay/rust-toolchain@stable",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Cache cargo",
+         "uses": "Swatinem/rust-cache@v2"
+        },
+        {
+         "name": "Fetch a real corpus from the fleet",
+         "run": "git clone --depth 1 https://github.com/drsamonline/corpus-extendum.git corpus",
+         "shell_lines": 2
+        },
+        {
+         "name": "Build",
+         "run": "cargo build --release",
+         "shell_lines": 1
+        },
+        {
+         "name": "Measure",
+         "run": "./target/release/sorta bench-extract --limit 120 corpus kit | tee report.md",
+         "shell_lines": 7
+        },
+        {
+         "name": "Performance budget",
+         "run": "# /usr/bin/time reports hundredths, which is too coarse here; time 20 runs",
+         "shell_lines": 26
+        },
+        {
+         "name": "Upload report",
+         "uses": "actions/upload-artifact@v4",
+         "with_keys": [
+          "name",
+          "path"
+         ]
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 1,
+     "steps_count": 8,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "bench:ubuntu-latest:actions/checkout@v4,dtolnay/rust-toolchain@stable,Cache cargo,Fetch a real corpus from the fleet,Build,Measure,Performance budget,Upload report",
+     "bytes": 2538,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "ci.yml",
+     "name": "CI",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "check",
+       "name": "${{ matrix.os }}",
+       "runs_on": "${{ matrix.os }}",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Install Rust",
+         "uses": "dtolnay/rust-toolchain@stable",
+         "with_keys": [
+          "components"
+         ]
+        },
+        {
+         "name": "Cache cargo",
+         "uses": "Swatinem/rust-cache@v2"
+        },
+        {
+         "name": "Format",
+         "run": "cargo fmt --all -- --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "Clippy",
+         "run": "cargo clippy --all-targets -- -D warnings",
+         "shell_lines": 1
+        },
+        {
+         "name": "Test",
+         "run": "cargo test --all-targets --no-fail-fast",
+         "shell_lines": 1
+        },
+        {
+         "name": "Build (release, lean)",
+         "run": "cargo build --release --no-default-features --features format-basic,format-ocr",
+         "shell_lines": 1
+        },
+        {
+         "name": "Report binary size",
+         "run": "if [ -f target/release/sorta.exe ]; then",
+         "shell_lines": 12
+        }
+       ]
+      },
+      {
+       "id": "turso-spike",
+       "name": "Turso index spike (${{ matrix.os }})",
+       "runs_on": "${{ matrix.os }}",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "dtolnay/rust-toolchain@stable",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Cache cargo",
+         "uses": "Swatinem/rust-cache@v2"
+        },
+        {
+         "name": "Build with the Turso backend",
+         "run": "cargo build --no-default-features --features format-basic,index-turso",
+         "shell_lines": 1
+        },
+        {
+         "name": "Test the Turso backend",
+         "run": "cargo test --no-default-features --features format-basic,index-turso turso_index",
+         "shell_lines": 1
+        }
+       ]
+      },
+      {
+       "id": "unused-deps",
+       "name": "Unused dependencies",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "dtolnay/rust-toolchain@stable",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "cargo-shear",
+         "run": "cargo install cargo-shear --locked",
+         "shell_lines": 2
+        }
+       ]
+      },
+      {
+       "id": "keyring",
+       "name": "Vault keychain build (${{ matrix.os }})",
+       "runs_on": "${{ matrix.os }}",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Install Rust",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Cache cargo",
+         "uses": "Swatinem/rust-cache@v2"
+        },
+        {
+         "name": "Build with the keychain",
+         "run": "cargo build --no-default-features --features format-basic,vault-keyring",
+         "shell_lines": 1
+        }
+       ]
+      },
+      {
+       "id": "gui",
+       "name": "GUI build (${{ matrix.os }})",
+       "runs_on": "${{ matrix.os }}",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Install Linux GUI dependencies",
+         "run": "sudo apt-get update",
+         "shell_lines": 3
+        },
+        {
+         "name": "Install Rust",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Cache cargo",
+         "uses": "Swatinem/rust-cache@v2"
+        },
+        {
+         "name": "Build with the window",
+         "run": "cargo build --no-default-features --features format-basic,gui",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 5,
+     "steps_count": 25,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "check:${{ matrix.os }}:actions/checkout@v4,Install Rust,Cache cargo,Format,Clippy,Test,Build (release, lean),Report binary size|gui:${{ matrix.os }}:actions/checkout@v4,Install Linux GUI dependencies,Install Rust,Cache cargo,Build with the window|keyring:${{ matrix.os }}:actions/checkout@v4,Install Rust,Cache cargo,Build with the keychain|turso-spike:${{ matrix.os }}:actions/checkout@v4,dtolnay/rust-toolchain@stable,Cache cargo,Build with the Turso backend,Test the Turso backend|unused-deps:ubuntu-latest:actions/checkout@v4,dtolnay/rust-toolchain@stable,cargo-shear",
+     "bytes": 4176,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
+      "matrix": true,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "release.yml",
+     "name": "Release",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "check-version",
+       "name": "check-version",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Tag must match the manifest",
+         "run": "version=$(sed -n 's/^version = \"\\(.*\\)\"/\\1/p' Cargo.toml | head -1)",
+         "shell_lines": 6
+        }
+       ]
+      },
+      {
+       "id": "build",
+       "name": "${{ matrix.target }}",
+       "runs_on": "${{ matrix.os }}",
+       "needs": [
+        "check-version"
+       ],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Install Rust",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Cache cargo",
+         "uses": "Swatinem/rust-cache@v2"
+        },
+        {
+         "name": "Test",
+         "run": "cargo test --all-targets",
+         "shell_lines": 1
+        },
+        {
+         "name": "Build release",
+         "run": "cargo build --release --locked --no-default-features --features format-basic,format-ocr --target ${{",
+         "shell_lines": 1
+        },
+        {
+         "name": "Package (Linux)",
+         "run": "cd target/${{ matrix.target }}/release",
+         "shell_lines": 3
+        },
+        {
+         "name": "Package (Windows)",
+         "run": "Compress-Archive -Path target/${{ matrix.target }}/release/sorta.exe -DestinationPath ${{ matrix.arc",
+         "shell_lines": 1
+        },
+        {
+         "name": "Upload artifact",
+         "uses": "actions/upload-artifact@v4",
+         "with_keys": [
+          "name",
+          "path"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "publish",
+       "name": "Publish release",
+       "runs_on": "ubuntu-latest",
+       "needs": [
+        "build",
+        "smoke"
+       ],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/download-artifact@v4",
+         "uses": "actions/download-artifact@v4",
+         "with_keys": [
+          "merge-multiple",
+          "path"
+         ]
+        },
+        {
+         "name": "Create release",
+         "uses": "softprops/action-gh-release@v2",
+         "with_keys": [
+          "fail_on_unmatched_files",
+          "files",
+          "generate_release_notes",
+          "prerelease"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "smoke",
+       "name": "Smoke-test the artifact",
+       "runs_on": "ubuntu-latest",
+       "needs": [
+        "build"
+       ],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/download-artifact@v4",
+         "uses": "actions/download-artifact@v4",
+         "with_keys": [
+          "name",
+          "path"
+         ]
+        },
+        {
+         "name": "Unpack",
+         "run": "cd dist",
+         "shell_lines": 3
+        },
+        {
+         "name": "The binary must report the tag's version",
+         "run": "reported=$(./dist/sorta --version | awk '{print $2}')",
+         "shell_lines": 7
+        },
+        {
+         "name": "The binary must run on an older glibc",
+         "run": "# Debian 12 ships 2.36 and Ubuntu 22.04 ships 2.35. Anything above 2.35",
+         "shell_lines": 8
+        },
+        {
+         "name": "It must sort and undo a real file",
+         "run": "export SORTA_HOME=\"$PWD/state\"",
+         "shell_lines": 12
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write"
+     },
+     "jobs_count": 4,
+     "steps_count": 17,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "build:${{ matrix.os }}:actions/checkout@v4,Install Rust,Cache cargo,Test,Build release,Package (Linux),Package (Windows),Upload artifact|check-version:ubuntu-latest:actions/checkout@v4,Tag must match the manifest|publish:ubuntu-latest:actions/download-artifact@v4,Create release|smoke:ubuntu-latest:actions/download-artifact@v4,Unpack,The binary must report the tag's version,The binary must run on an older glibc,It must sort and undo a real file",
+     "bytes": 5394,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": true,
+      "matrix": true,
       "cache": false,
       "skip_ci": false,
       "pushes": false,
@@ -5529,6 +7795,11 @@
          "shell_lines": 8
         },
         {
+         "name": "Companion behaviour mutations (the guard is not blind)",
+         "run": "python3 tools/mutate-companions.py",
+         "shell_lines": 1
+        },
+        {
          "name": "Static audit (repo root)",
          "run": "python3 tools/static-audit.py .",
          "shell_lines": 1
@@ -5543,13 +7814,157 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 6,
+     "steps_count": 7,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "syntax-and-tests:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Syntax-check every JS file,Validate JSON files,Run test suites,Static audit (repo root)",
-     "bytes": 1700,
+     "signature": "syntax-and-tests:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Syntax-check every JS file,Validate JSON files,Run test suites,Companion behaviour mutations (the guard is not blind),Static audit (repo root)",
+     "bytes": 2019,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "links.yml",
+     "name": "links",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "links",
+       "name": "links",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Every local link and asset resolves",
+         "run": "node tools/check-links.mjs",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "links:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Every local link and asset resolves",
+     "bytes": 768,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "meta.yml",
+     "name": "meta",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "meta",
+       "name": "meta",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Version and licence agree with their files",
+         "run": "node tools/check-meta.mjs .",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "meta:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Version and licence agree with their files",
+     "bytes": 904,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -7465,7 +9880,7 @@
      "concurrency_groups": [],
      "concurrency_cancels": false,
      "signature": "checksums:ubuntu-latest:Wait for this push's build to refresh the release,Download the release assets,Write SHA256SUMS.txt,Upload it to the release|test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run the suite,The crypto-kit contracts",
-     "bytes": 2826,
+     "bytes": 3465,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -8950,6 +11365,150 @@
      }
     },
     {
+     "file": "links.yml",
+     "name": "links",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "links",
+       "name": "links",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Every local link and asset resolves",
+         "run": "node tools/check-links.mjs",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "links:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Every local link and asset resolves",
+     "bytes": 768,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "meta.yml",
+     "name": "meta",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "meta",
+       "name": "meta",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Version and licence agree with their files",
+         "run": "node tools/check-meta.mjs .",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "meta:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Version and licence agree with their files",
+     "bytes": 820,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
      "file": "test.yml",
      "name": "Test",
      "parse_error": null,
@@ -9357,6 +11916,11 @@
          "name": "run",
          "run": "node test-node.js",
          "shell_lines": 1
+        },
+        {
+         "name": "Check every asset is declared",
+         "run": "node tools/check-assets.mjs",
+         "shell_lines": 1
         }
        ]
       }
@@ -9368,11 +11932,11 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 3,
+     "steps_count": 4,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,run",
-     "bytes": 819,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,run,Check every asset is declared",
+     "bytes": 905,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -9516,6 +12080,11 @@
          "name": "run",
          "run": "node test-node.js",
          "shell_lines": 1
+        },
+        {
+         "name": "Check every asset is declared",
+         "run": "node tools/check-assets.mjs",
+         "shell_lines": 1
         }
        ]
       }
@@ -9527,11 +12096,11 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 3,
+     "steps_count": 4,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,run",
-     "bytes": 819,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,run,Check every asset is declared",
+     "bytes": 905,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -11392,6 +13961,11 @@
          "shell_lines": 1
         },
         {
+         "name": "Check the string catalogues against the source",
+         "run": "python3 tools/extract-strings.py --check",
+         "shell_lines": 1
+        },
+        {
          "name": "Run smoke suite",
          "run": "npm test",
          "shell_lines": 1
@@ -11461,13 +14035,13 @@
       "contents": "read"
      },
      "jobs_count": 2,
-     "steps_count": 12,
+     "steps_count": 13,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "dist-in-sync:ubuntu-latest:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1,run,run,Fail if the committed demo is not the current build|test-and-build:ubuntu-latest:Checkout,Set up Node.js,Install dev dependencies,Run smoke suite,Build single-file app,Verify build output exists,Upload build artifact",
-     "bytes": 2058,
+     "signature": "dist-in-sync:ubuntu-latest:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1,run,run,Fail if the committed demo is not the current build|test-and-build:ubuntu-latest:Checkout,Set up Node.js,Install dev dependencies,Check the string catalogues against the source,Run smoke suite,Build single-file app,Verify build output exists,Upload build artifact",
+     "bytes": 2410,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -12266,9 +14840,9 @@
     }
    ],
    "pages": {
-    "landing": null,
+    "landing": "docs/index.html",
     "app": "docs/play/index.html",
-    "deleted": 6,
+    "deleted": 4,
     "manual": true
    }
   },
@@ -13067,6 +15641,150 @@
       "pages_deploy": false,
       "writes_paths": []
      }
+    },
+    {
+     "file": "links.yml",
+     "name": "links",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "links",
+       "name": "links",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Every local link and asset resolves",
+         "run": "node tools/check-links.mjs . --ignore 'src/*'",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "links:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Every local link and asset resolves",
+     "bytes": 921,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "meta.yml",
+     "name": "meta",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "meta",
+       "name": "meta",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Version and licence agree with their files",
+         "run": "node tools/check-meta.mjs .",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "meta:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Version and licence agree with their files",
+     "bytes": 820,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
     }
    ],
    "pages": {
@@ -13156,6 +15874,173 @@
     "deleted": 1,
     "manual": true
    }
+  },
+  {
+   "repo": "faztest-fast-file-forge",
+   "workflows": [
+    {
+     "file": "ci.yml",
+     "name": "ci",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "oven-sh/setup-bun@v2",
+         "uses": "oven-sh/setup-bun@v2",
+         "with_keys": [
+          "bun-version"
+         ]
+        },
+        {
+         "name": "Install from the lockfile",
+         "run": "bun install --frozen-lockfile",
+         "shell_lines": 1
+        },
+        {
+         "name": "Run the suite",
+         "run": "bun run test",
+         "shell_lines": 1
+        }
+       ]
+      },
+      {
+       "id": "claims",
+       "name": "claims",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "README numbers must exist in docs/FINDINGS.md",
+         "run": "python3 scripts/check-claims.py --verbose",
+         "shell_lines": 1
+        }
+       ]
+      },
+      {
+       "id": "build",
+       "name": "build",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "oven-sh/setup-bun@v2",
+         "uses": "oven-sh/setup-bun@v2",
+         "with_keys": [
+          "bun-version"
+         ]
+        },
+        {
+         "name": "Install from the lockfile",
+         "run": "bun install --frozen-lockfile",
+         "shell_lines": 1
+        },
+        {
+         "name": "Production build",
+         "run": "bun run build",
+         "shell_lines": 1
+        },
+        {
+         "name": "The build emitted a server bundle",
+         "run": "set -euo pipefail",
+         "shell_lines": 5
+        }
+       ]
+      },
+      {
+       "id": "cli",
+       "name": "cli",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Round trip is byte exact",
+         "run": "set -euo pipefail",
+         "shell_lines": 8
+        },
+        {
+         "name": "Refuses to overwrite without --force",
+         "run": "set -euo pipefail",
+         "shell_lines": 6
+        },
+        {
+         "name": "An unimplemented command exits non-zero",
+         "run": "set -euo pipefail",
+         "shell_lines": 9
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 4,
+     "steps_count": 16,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "build:ubuntu-latest:actions/checkout@v4,oven-sh/setup-bun@v2,Install from the lockfile,Production build,The build emitted a server bundle|claims:ubuntu-latest:actions/checkout@v4,README numbers must exist in docs/FINDINGS.md|cli:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Round trip is byte exact,Refuses to overwrite without --force,An unimplemented command exits non-zero|test:ubuntu-latest:actions/checkout@v4,oven-sh/setup-bun@v2,Install from the lockfile,Run the suite",
+     "bytes": 4019,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
   },
   {
    "repo": "feather",
@@ -15662,6 +18547,92 @@
      }
     },
     {
+     "file": "queue-sync.yml",
+     "name": "queue-sync",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "schedule",
+       "workflow_dispatch"
+      ],
+      "crons": [
+       "41 3 * * *"
+      ],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "sync",
+       "name": "sync",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+         "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+         "with_keys": [
+          "fetch-depth"
+         ]
+        },
+        {
+         "name": "actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+         "uses": "actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "Prove the tool's own promise first",
+         "run": "python3 tools/queue-sync.py --selftest",
+         "shell_lines": 1
+        },
+        {
+         "name": "Sync the plan against the fleet",
+         "run": "python3 tools/queue-sync.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "Land it (only if it changed)",
+         "run": "bash tools/commit-and-verify.sh \\",
+         "shell_lines": 3
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 5,
+     "concurrency_groups": [
+      "queue-sync"
+     ],
+     "concurrency_cancels": false,
+     "signature": "sync:ubuntu-latest:actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,Prove the tool's own promise first,Sync the plan against the fleet,Land it (only if it changed)",
+     "bytes": 2281,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": true,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": false,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
      "file": "release.yml",
      "name": "release",
      "parse_error": null,
@@ -16663,6 +19634,150 @@
    "repo": "game-kit",
    "workflows": [
     {
+     "file": "links.yml",
+     "name": "links",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "links",
+       "name": "links",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Every local link and asset resolves",
+         "run": "node tools/check-links.mjs",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "links:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Every local link and asset resolves",
+     "bytes": 768,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "meta.yml",
+     "name": "meta",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "meta",
+       "name": "meta",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Version and licence agree with their files",
+         "run": "node tools/check-meta.mjs .",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "meta:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Version and licence agree with their files",
+     "bytes": 820,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
      "file": "test.yml",
      "name": "Test",
      "parse_error": null,
@@ -16704,6 +19819,11 @@
          "name": "Check the README's claims",
          "run": "node tools/check-claims.js",
          "shell_lines": 1
+        },
+        {
+         "name": "Check every asset is declared",
+         "run": "node tools/check-assets.mjs",
+         "shell_lines": 1
         }
        ]
       }
@@ -16715,13 +19835,13 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 4,
+     "steps_count": 5,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Check the README's claims",
-     "bytes": 846,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Check the README's claims,Check every asset is declared",
+     "bytes": 1088,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -17268,6 +20388,11 @@
          "shell_lines": 1
         },
         {
+         "name": "The similarity hash still groups near-duplicates",
+         "run": "python3 tools/similarity.py --selftest",
+         "shell_lines": 1
+        },
+        {
          "name": "The phase-0 exit test, called the way a user calls it",
          "run": "./build/heavenzip version",
          "shell_lines": 21
@@ -17300,11 +20425,11 @@
      "inputs": [],
      "permissions": null,
      "jobs_count": 1,
-     "steps_count": 13,
+     "steps_count": 14,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "build-and-test:ubuntu-latest:actions/checkout@v4,Install build tools,Configure,Build,Fetch the engine, so the real round trip runs instead of skipping,No pipeline into head under pipefail,Test,The repository's claims about itself must be true,The phase-0 exit test, called the way a user calls it,A profile that does not apply must refuse, not crash,A payload without its manifest must refuse, not guess,Bench over the fixtures,The round trip, called the way a user calls it",
-     "bytes": 5400,
+     "signature": "build-and-test:ubuntu-latest:actions/checkout@v4,Install build tools,Configure,Build,Fetch the engine, so the real round trip runs instead of skipping,No pipeline into head under pipefail,Test,The repository's claims about itself must be true,The similarity hash still groups near-duplicates,The phase-0 exit test, called the way a user calls it,A profile that does not apply must refuse, not crash,A payload without its manifest must refuse, not guess,Bench over the fixtures,The round trip, called the way a user calls it",
+     "bytes": 5678,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -20095,7 +23220,7 @@
         },
         {
          "name": "Benchmark claims must not contradict each other",
-         "run": "python scripts/check-benchmark-claims.py",
+         "run": "python scripts/check-benchmark-claims.py --strict",
          "shell_lines": 1
         }
        ]
@@ -20114,7 +23239,7 @@
      ],
      "concurrency_cancels": false,
      "signature": "test:ubuntu-latest:actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09,actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1,Install Qt system libraries,Install package + dev dependencies,Run test suite,Internal link check,Benchmark claims must not contradict each other",
-     "bytes": 2788,
+     "bytes": 2975,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -20128,6 +23253,216 @@
       "commits": false,
       "pulls": false,
       "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
+   "repo": "lm-kit",
+   "workflows": [
+    {
+     "file": "ci.yml",
+     "name": "ci",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "test",
+       "name": "test",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "compile",
+         "run": "python3 -m py_compile tools/*.py tests/*.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "smoke test",
+         "run": "python3 tests/test_tools.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "the API reference matches the source",
+         "run": "python3 tools/gen-api.py --check",
+         "shell_lines": 1
+        },
+        {
+         "name": "the demo ships the same shim as the kernel",
+         "run": "cmp -s kernel/wasi-mini.mjs docs/wasi-mini.mjs || (echo \"docs/wasi-mini.mjs is a copy of kernel/wasi",
+         "shell_lines": 1
+        },
+        {
+         "name": "the wasm build runs the model",
+         "run": "node kernel/test-shim.mjs",
+         "shell_lines": 1
+        },
+        {
+         "name": "manifest is valid json",
+         "run": "python3 -c \"import json;json.load(open('models/corpus-manifest.json'));print('ok')\"",
+         "shell_lines": 1
+        },
+        {
+         "name": "every model card names its corpus",
+         "run": "python3 - <<'PY'",
+         "shell_lines": 7
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 1,
+     "steps_count": 9,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "test:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,compile,smoke test,the API reference matches the source,the demo ships the same shim as the kernel,the wasm build runs the model,manifest is valid json,every model card names its corpus",
+     "bytes": 1263,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "corpus.yml",
+     "name": "corpus",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "repository_dispatch",
+       "schedule",
+       "workflow_dispatch"
+      ],
+      "crons": [
+       "0 3 * * 1"
+      ],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "drift",
+       "name": "drift",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4",
+         "with_keys": [
+          "path"
+         ]
+        },
+        {
+         "name": "actions/setup-python@v5",
+         "uses": "actions/setup-python@v5",
+         "with_keys": [
+          "python-version"
+         ]
+        },
+        {
+         "name": "what asked for this run",
+         "run": "echo \"event:   ${{ github.event_name }}\"",
+         "shell_lines": 3
+        },
+        {
+         "name": "check the token",
+         "run": "if [ -z \"$TOKEN\" ]; then",
+         "shell_lines": 6
+        },
+        {
+         "name": "check out the sources",
+         "run": "mkdir -p src",
+         "shell_lines": 6
+        },
+        {
+         "name": "drift",
+         "run": "python3 tools/corpus-drift.py --root ../src --models act,book,materia,forge,audit,file",
+         "shell_lines": 1
+        },
+        {
+         "name": "install torch",
+         "run": "pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu",
+         "shell_lines": 1
+        },
+        {
+         "name": "rebuild",
+         "run": "python3 tools/lm-rebuild.py --root ../src --corpus ../corpus \\",
+         "shell_lines": 2
+        },
+        {
+         "name": "keep the report",
+         "uses": "actions/upload-artifact@v4",
+         "with_keys": [
+          "if-no-files-found",
+          "name",
+          "path"
+         ]
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 1,
+     "steps_count": 9,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "drift:ubuntu-latest:actions/checkout@v4,actions/setup-python@v5,what asked for this run,check the token,check out the sources,drift,install torch,rebuild,keep the report",
+     "bytes": 3679,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": false,
       "pages_deploy": false,
       "writes_paths": []
      }
@@ -22253,6 +25588,222 @@
   {
    "repo": "neon-engine",
    "workflows": [
+    {
+     "file": "docs.yml",
+     "name": "docs",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "docs",
+       "name": "docs",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Exported symbols carry a JSDoc block",
+         "run": "node tools/check-docs.mjs --src .",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "docs:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Exported symbols carry a JSDoc block",
+     "bytes": 783,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "links.yml",
+     "name": "links",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "links",
+       "name": "links",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Every local link and asset resolves",
+         "run": "node tools/check-links.mjs",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "links:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Every local link and asset resolves",
+     "bytes": 768,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "meta.yml",
+     "name": "meta",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "meta",
+       "name": "meta",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Version and licence agree with their files",
+         "run": "node tools/check-meta.mjs .",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "meta:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Version and licence agree with their files",
+     "bytes": 820,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
     {
      "file": "test.yml",
      "name": "tests",
@@ -24874,8 +28425,13 @@
          "shell_lines": 1
         },
         {
-         "name": "The checker bites (5 mutations, all must be caught)",
+         "name": "The checker bites (7 mutations, all must be caught)",
          "run": "python3 tools/test_check_content.py",
+         "shell_lines": 1
+        },
+        {
+         "name": "The search answers, and says when an answer is partial",
+         "run": "node tools/test-search.js",
          "shell_lines": 1
         }
        ]
@@ -24888,13 +28444,13 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 3,
+     "steps_count": 4,
      "concurrency_groups": [
       "content-check-${{ github.ref }}"
      ],
      "concurrency_cancels": true,
-     "signature": "corpus:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,The corpus is consistent,The checker bites (5 mutations, all must be caught)",
-     "bytes": 1561,
+     "signature": "corpus:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,The corpus is consistent,The checker bites (7 mutations, all must be caught),The search answers, and says when an answer is partial",
+     "bytes": 2018,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -26907,6 +30463,150 @@
      }
     },
     {
+     "file": "links.yml",
+     "name": "links",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "links",
+       "name": "links",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Every local link and asset resolves",
+         "run": "node tools/check-links.mjs",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "links:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Every local link and asset resolves",
+     "bytes": 768,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "meta.yml",
+     "name": "meta",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "meta",
+       "name": "meta",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Version and licence agree with their files",
+         "run": "node tools/check-meta.mjs .",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "meta:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Version and licence agree with their files",
+     "bytes": 820,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
      "file": "test.yml",
      "name": "Test",
      "parse_error": null,
@@ -27000,6 +30700,629 @@
     "deleted": 1,
     "manual": true
    }
+  },
+  {
+   "repo": "saga-vn-engine",
+   "workflows": [
+    {
+     "file": "links.yml",
+     "name": "links",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "links",
+       "name": "links",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Every local link and asset resolves",
+         "run": "node tools/check-links.mjs",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "links:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Every local link and asset resolves",
+     "bytes": 768,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "meta.yml",
+     "name": "meta",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "meta",
+       "name": "meta",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+         "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
+        },
+        {
+         "name": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+         "with_keys": [
+          "node-version"
+         ]
+        },
+        {
+         "name": "Version and licence agree with their files",
+         "run": "node tools/check-meta.mjs .",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "read"
+     },
+     "jobs_count": 1,
+     "steps_count": 3,
+     "concurrency_groups": [
+      "${{ github.workflow }}-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "meta:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Version and licence agree with their files",
+     "bytes": 904,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": true,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
+  },
+  {
+   "repo": "savehorse",
+   "workflows": [
+    {
+     "file": "build-apps.yml",
+     "name": "Build + deploy",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "app",
+       "name": "app",
+       "runs_on": "reusable",
+       "needs": [],
+       "if": null,
+       "steps": [],
+       "uses": "drsamonline/app-builder/.github/workflows/build.yml@85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c"
+      }
+     ],
+     "calls": [
+      "drsamonline/app-builder/.github/workflows/build.yml@85949b5b7ef6a47a40731cc01e8c2cd65ceeda4c"
+     ],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write",
+      "pages": "write",
+      "id-token": "write"
+     },
+     "jobs_count": 1,
+     "steps_count": 0,
+     "concurrency_groups": [
+      "build"
+     ],
+     "concurrency_cancels": true,
+     "signature": "app:reusable:",
+     "bytes": 1535,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": false,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "ci.yml",
+     "name": "CI",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "build-and-test",
+       "name": "${{ matrix.os }}",
+       "runs_on": "${{ matrix.os }}",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Install Rust",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Cache cargo registry and build",
+         "uses": "actions/cache@v4",
+         "with_keys": [
+          "key",
+          "path",
+          "restore-keys"
+         ]
+        },
+        {
+         "name": "No stale crate names",
+         "run": "if grep -rn \"shavehorse\" --include=*.rs --include=*.toml .; then",
+         "shell_lines": 4
+        },
+        {
+         "name": "Build",
+         "run": "cargo build --workspace --all-targets --verbose",
+         "shell_lines": 1
+        },
+        {
+         "name": "Test",
+         "run": "cargo test --workspace --verbose",
+         "shell_lines": 1
+        },
+        {
+         "name": "The demo's captured outputs are current",
+         "run": "bash scripts/capture_demo.sh /tmp/captured.json",
+         "shell_lines": 6
+        },
+        {
+         "name": "Window management on a real desktop",
+         "run": "$ErrorActionPreference = 'Stop'",
+         "shell_lines": 59
+        },
+        {
+         "name": "Smoke test the CLI",
+         "run": "set -euo pipefail",
+         "shell_lines": 247
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 1,
+     "steps_count": 9,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "build-and-test:${{ matrix.os }}:actions/checkout@v4,Install Rust,Cache cargo registry and build,No stale crate names,Build,Test,The demo's captured outputs are current,Window management on a real desktop,Smoke test the CLI",
+     "bytes": 19218,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
+      "matrix": true,
+      "cache": false,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "desktop.yml",
+     "name": "Desktop",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "pull_request",
+       "push"
+      ],
+      "crons": [],
+      "paths": [
+       "push:apps/savehorse-desktop/**",
+       "push:crates/**",
+       "push:.github/workflows/desktop.yml",
+       "pull_request:apps/savehorse-desktop/**",
+       "pull_request:crates/**",
+       "pull_request:.github/workflows/desktop.yml"
+      ],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "ui",
+       "name": "ui build",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "cache",
+          "cache-dependency-path",
+          "node-version"
+         ]
+        },
+        {
+         "name": "run",
+         "run": "npm ci",
+         "shell_lines": 1
+        },
+        {
+         "name": "Type-check and build",
+         "run": "npm run build",
+         "shell_lines": 1
+        },
+        {
+         "name": "Fail if the build produced nothing",
+         "run": "test -f dist/index.html",
+         "shell_lines": 1
+        },
+        {
+         "name": "Demo is up to date",
+         "run": "bash scripts/build-demo.sh",
+         "shell_lines": 6
+        }
+       ]
+      },
+      {
+       "id": "shell",
+       "name": "tauri shell (linux)",
+       "runs_on": "ubuntu-24.04",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "Install webkit and build dependencies",
+         "run": "sudo apt-get update",
+         "shell_lines": 7
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "cache",
+          "cache-dependency-path",
+          "node-version"
+         ]
+        },
+        {
+         "name": "Install Rust",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Cache cargo",
+         "uses": "actions/cache@v4",
+         "with_keys": [
+          "key",
+          "path",
+          "restore-keys"
+         ]
+        },
+        {
+         "name": "Build the front end",
+         "run": "npm ci",
+         "shell_lines": 2
+        },
+        {
+         "name": "Check the shell",
+         "run": "cargo check --manifest-path apps/savehorse-desktop/src-tauri/Cargo.toml",
+         "shell_lines": 1
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": null,
+     "jobs_count": 2,
+     "steps_count": 13,
+     "concurrency_groups": [],
+     "concurrency_cancels": false,
+     "signature": "shell:ubuntu-24.04:actions/checkout@v4,Install webkit and build dependencies,actions/setup-node@v4,Install Rust,Cache cargo,Build the front end,Check the shell|ui:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,Type-check and build,Fail if the build produced nothing,Demo is up to date",
+     "bytes": 3128,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": false,
+      "permissions": false,
+      "matrix": false,
+      "cache": true,
+      "skip_ci": false,
+      "pushes": false,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    },
+    {
+     "file": "release.yml",
+     "name": "Release",
+     "parse_error": null,
+     "triggers": {
+      "events": [
+       "push",
+       "workflow_dispatch"
+      ],
+      "crons": [],
+      "paths": [],
+      "types": []
+     },
+     "jobs": [
+      {
+       "id": "verify",
+       "name": "Verify the tag",
+       "runs_on": "ubuntu-latest",
+       "needs": [],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "The tag matches the workspace version",
+         "run": "tag=\"${GITHUB_REF_NAME#v}\"",
+         "shell_lines": 7
+        }
+       ]
+      },
+      {
+       "id": "build",
+       "name": "${{ matrix.os }}",
+       "runs_on": "${{ matrix.os }}",
+       "needs": [
+        "verify"
+       ],
+       "if": null,
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/setup-node@v4",
+         "uses": "actions/setup-node@v4",
+         "with_keys": [
+          "cache",
+          "cache-dependency-path",
+          "node-version"
+         ]
+        },
+        {
+         "name": "dtolnay/rust-toolchain@stable",
+         "uses": "dtolnay/rust-toolchain@stable"
+        },
+        {
+         "name": "Linux bundling dependencies",
+         "run": "sudo apt-get update",
+         "shell_lines": 4
+        },
+        {
+         "name": "Cache cargo",
+         "uses": "actions/cache@v4",
+         "with_keys": [
+          "key",
+          "path",
+          "restore-keys"
+         ]
+        },
+        {
+         "name": "Build the CLI",
+         "run": "mkdir -p dist",
+         "shell_lines": 9
+        },
+        {
+         "name": "Build the app and its installers",
+         "run": "npm --prefix apps/savehorse-desktop ci",
+         "shell_lines": 3
+        },
+        {
+         "name": "Collect the installers",
+         "run": "mkdir -p dist",
+         "shell_lines": 6
+        },
+        {
+         "name": "Checksums",
+         "run": "cd dist",
+         "shell_lines": 4
+        },
+        {
+         "name": "actions/upload-artifact@v4",
+         "uses": "actions/upload-artifact@v4",
+         "with_keys": [
+          "if-no-files-found",
+          "name",
+          "path"
+         ]
+        }
+       ]
+      },
+      {
+       "id": "publish",
+       "name": "Publish",
+       "runs_on": "ubuntu-latest",
+       "needs": [
+        "build"
+       ],
+       "if": "startsWith(github.ref, 'refs/tags/v') && inputs.dry_run != true",
+       "steps": [
+        {
+         "name": "actions/checkout@v4",
+         "uses": "actions/checkout@v4"
+        },
+        {
+         "name": "actions/download-artifact@v4",
+         "uses": "actions/download-artifact@v4",
+         "with_keys": [
+          "merge-multiple",
+          "path"
+         ]
+        },
+        {
+         "name": "Take the notes for this version",
+         "run": "python3 - <<'PY'",
+         "shell_lines": 10
+        },
+        {
+         "name": "Create the release",
+         "run": "ls -la artifacts",
+         "shell_lines": 6
+        }
+       ]
+      }
+     ],
+     "calls": [],
+     "reusable": false,
+     "inputs": [],
+     "permissions": {
+      "contents": "write"
+     },
+     "jobs_count": 3,
+     "steps_count": 16,
+     "concurrency_groups": [
+      "release-${{ github.ref }}"
+     ],
+     "concurrency_cancels": false,
+     "signature": "build:${{ matrix.os }}:actions/checkout@v4,actions/setup-node@v4,dtolnay/rust-toolchain@stable,Linux bundling dependencies,Cache cargo,Build the CLI,Build the app and its installers,Collect the installers,Checksums,actions/upload-artifact@v4|publish:ubuntu-latest:actions/checkout@v4,actions/download-artifact@v4,Take the notes for this version,Create the release|verify:ubuntu-latest:actions/checkout@v4,The tag matches the workspace version",
+     "bytes": 5799,
+     "schema_problems": [],
+     "flags": {
+      "invalid_workflow": false,
+      "timeout": false,
+      "concurrency": true,
+      "permissions": true,
+      "matrix": true,
+      "cache": true,
+      "skip_ci": false,
+      "pushes": true,
+      "commits": false,
+      "pulls": false,
+      "triggers_on_push": true,
+      "pages_deploy": false,
+      "writes_paths": []
+     }
+    }
+   ],
+   "pages": {}
   },
   {
    "repo": "seance",
@@ -27270,6 +31593,11 @@
          "shell_lines": 22
         },
         {
+         "name": "Refresh generated status blocks",
+         "run": "python3 scripts/refresh_status.py",
+         "shell_lines": 1
+        },
+        {
          "name": "Commit the refresh (only if something changed)",
          "run": "if git diff --quiet; then",
          "shell_lines": 37
@@ -27307,13 +31635,13 @@
       "contents": "read"
      },
      "jobs_count": 2,
-     "steps_count": 6,
+     "steps_count": 7,
      "concurrency_groups": [
       "refresh-catalogue"
      ],
      "concurrency_cancels": false,
-     "signature": "refresh:ubuntu-latest:Check out the repository,Refresh meta.json SHAs and catalog.json,Refresh the embedded fallback snapshot in docs/index.html,Commit the refresh (only if something changed)|validate:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,run",
-     "bytes": 10134,
+     "signature": "refresh:ubuntu-latest:Check out the repository,Refresh meta.json SHAs and catalog.json,Refresh the embedded fallback snapshot in docs/index.html,Refresh generated status blocks,Commit the refresh (only if something changed)|validate:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,run",
+     "bytes": 10634,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -28173,6 +32501,16 @@
          "shell_lines": 1
         },
         {
+         "name": "sui eval is a command, and the graders still grade",
+         "run": "node apps/cli/bin/sui.js eval --self-test",
+         "shell_lines": 1
+        },
+        {
+         "name": "sui doctor --json answers a script, not only a person",
+         "run": "set -euo pipefail",
+         "shell_lines": 5
+        },
+        {
          "name": "Config examples are valid",
          "run": "node -e \"JSON.parse(require('fs').readFileSync('config/sui.config.json','utf8'));JSON.parse(require(",
          "shell_lines": 2
@@ -28250,7 +32588,7 @@
         {
          "name": "Dashboard renders in three states, with no console errors",
          "run": "set -euo pipefail",
-         "shell_lines": 10
+         "shell_lines": 11
         }
        ]
       },
@@ -28371,11 +32709,11 @@
      "inputs": [],
      "permissions": null,
      "jobs_count": 5,
-     "steps_count": 34,
+     "steps_count": 36,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "dashboard:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,Install a browser for the smoke test,Dashboard renders in three states, with no console errors|eval:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,Onboarding, then a real round-trip,Golden-set eval \u2014 blocks the merge on regression (I10),actions/upload-artifact@v4|migration:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,Migration preview runs against the example config|soak:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,Data-plane overhead against the 15ms budget (I2),actions/upload-artifact@v4|test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Link workspaces,Tests \u2014 unit, integration, invariants, security, dashboard,Eval harness self-test (graders grade what they claim),Config examples are valid,Invariant audit,Vendored kits load,WCAG AA on every token pair (I9),Catalogue builds from app-endpoints,Prober reports honestly when nothing answers,Project audit \u2014 invariants, docs, dead code, secrets,ADR compliance \u2014 the code still honours every decision,ADR-0001 gates \u2014 p95 at 200 rps, ledger size, no build step",
-     "bytes": 6690,
+     "signature": "dashboard:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,Install a browser for the smoke test,Dashboard renders in three states, with no console errors|eval:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,Onboarding, then a real round-trip,Golden-set eval \u2014 blocks the merge on regression (I10),actions/upload-artifact@v4|migration:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,Migration preview runs against the example config|soak:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,run,Data-plane overhead against the 15ms budget (I2),actions/upload-artifact@v4|test:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Link workspaces,Tests \u2014 unit, integration, invariants, security, dashboard,Eval harness self-test (graders grade what they claim),sui eval is a command, and the graders still grade,sui doctor --json answers a script, not only a person,Config examples are valid,Invariant audit,Vendored kits load,WCAG AA on every token pair (I9),Catalogue builds from app-endpoints,Prober reports honestly when nothing answers,Project audit \u2014 invariants, docs, dead code, secrets,ADR compliance \u2014 the code still honours every decision,ADR-0001 gates \u2014 p95 at 200 rps, ledger size, no build step",
+     "bytes": 7907,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -28437,6 +32775,11 @@
          "shell_lines": 8
         },
         {
+         "name": "Bundle the dashboard into the gateway",
+         "run": "node scripts/bundle-dashboard.mjs",
+         "shell_lines": 1
+        },
+        {
          "name": "Tests",
          "run": "npm test",
          "shell_lines": 1
@@ -28452,6 +32795,11 @@
          "shell_lines": 1
         },
         {
+         "name": "Leave no artifact from the gates",
+         "run": "git checkout -- evals/last-report.json 2>/dev/null || true",
+         "shell_lines": 2
+        },
+        {
          "name": "Everything the publisher refuses to publish",
          "run": "node scripts/publish.mjs --dry-run",
          "shell_lines": 1
@@ -28459,6 +32807,11 @@
         {
          "name": "Publish",
          "run": "node scripts/publish.mjs --real",
+         "shell_lines": 1
+        },
+        {
+         "name": "Verify what npm actually serves",
+         "run": "node scripts/verify-published.mjs",
          "shell_lines": 1
         },
         {
@@ -28486,11 +32839,11 @@
       "id-token": "write"
      },
      "jobs_count": 1,
-     "steps_count": 11,
+     "steps_count": 14,
      "concurrency_groups": [],
      "concurrency_cancels": false,
-     "signature": "publish:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Link workspaces,The tag matches the package version,Tests,Audit and ADR compliance,Eval harness self-test,Everything the publisher refuses to publish,Publish,Keep the tarballs as evidence,actions/upload-artifact@v4",
-     "bytes": 2759,
+     "signature": "publish:ubuntu-latest:actions/checkout@v4,actions/setup-node@v4,Link workspaces,The tag matches the package version,Bundle the dashboard into the gateway,Tests,Audit and ADR compliance,Eval harness self-test,Leave no artifact from the gates,Everything the publisher refuses to publish,Publish,Verify what npm actually serves,Keep the tarballs as evidence,actions/upload-artifact@v4",
+     "bytes": 3827,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -29167,6 +33520,11 @@
          "name": "Run tests",
          "run": "node test-node.js",
          "shell_lines": 1
+        },
+        {
+         "name": "Check every asset is declared",
+         "run": "node tools/check-assets.mjs",
+         "shell_lines": 1
         }
        ]
       }
@@ -29178,13 +33536,13 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 3,
+     "steps_count": 4,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests",
-     "bytes": 692,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Check every asset is declared",
+     "bytes": 778,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -30004,6 +34362,11 @@
          "shell_lines": 1
         },
         {
+         "name": "Check every asset is declared",
+         "run": "node tools/check-assets.mjs",
+         "shell_lines": 1
+        },
+        {
          "name": "Check the README's claims",
          "run": "node tools/check-claims.js",
          "shell_lines": 1
@@ -30018,13 +34381,13 @@
       "contents": "read"
      },
      "jobs_count": 1,
-     "steps_count": 4,
+     "steps_count": 5,
      "concurrency_groups": [
       "${{ github.workflow }}-${{ github.ref }}"
      ],
      "concurrency_cancels": false,
-     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Check the README's claims",
-     "bytes": 846,
+     "signature": "test:ubuntu-latest:actions/checkout@11d5960a326750d5838078e36cf38b85af677262,actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020,Run tests,Check every asset is declared,Check the README's claims",
+     "bytes": 932,
      "schema_problems": [],
      "flags": {
       "invalid_workflow": false,
@@ -30434,16 +34797,6 @@
    "note": "no .github/workflows on the default branch"
   },
   {
-   "repo": "Scrap-and-Gun",
-   "workflows": [],
-   "note": "no .github/workflows on the default branch"
-  },
-  {
-   "repo": "SmartNotes",
-   "workflows": [],
-   "note": "no .github/workflows on the default branch"
-  },
-  {
    "repo": "volumen",
    "workflows": [],
    "note": "no .github/workflows on the default branch"
@@ -30455,11 +34808,6 @@
   },
   {
    "repo": "corefit-md",
-   "workflows": [],
-   "note": "no .github/workflows on the default branch"
-  },
-  {
-   "repo": "saga-vn-engine",
    "workflows": [],
    "note": "no .github/workflows on the default branch"
   },
